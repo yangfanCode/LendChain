@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.IDCardCertifyActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_12h_1px" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                style="@style/text595959_14"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:gravity="center_vertical"
+                android:text="@string/upload_document_material" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/idcard_cerfity_ivIdCardPositive"
+                        android:layout_width="175dp"
+                        android:layout_gravity="center"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_262626_dash_border"
+                        android:padding="@dimen/divider_height_1px"
+                        android:src="@mipmap/icon_idcard_front" />
+
+                    <ImageView
+                        android:id="@+id/idcard_cerfity_ivPositiveCamera"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/icon_camera" />
+                </FrameLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/padding_20">
+
+                    <TextView
+                        style="@style/text509FFF_16"
+                        android:text="@string/id_card_positive" />
+
+                    <TextView
+                        style="@style/text999999_12"
+                        android:layout_marginTop="@dimen/padding_10"
+                        android:text="@string/id_card_tips" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="@dimen/padding_20"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/idcard_cerfity_ivIdCardNagetive"
+                        android:layout_width="175dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_262626_dash_border"
+                        android:padding="@dimen/divider_height_1px"
+                        android:src="@mipmap/icon_idcard_behaind" />
+
+                    <ImageView
+                        android:id="@+id/idcard_cerfity_ivNagetiveCamera"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/icon_camera" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/padding_20">
+
+                    <TextView
+                        style="@style/text509FFF_16"
+                        android:text="@string/id_card_negative" />
+
+                    <TextView
+                        style="@style/text999999_12"
+                        android:layout_marginTop="@dimen/padding_10"
+                        android:text="@string/id_card_tips" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="@dimen/padding_20"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/idcard_cerfity_ivSelfPhoto"
+                        android:layout_width="175dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_262626_dash_border"
+                        android:padding="@dimen/divider_height_1px"
+                        android:src="@mipmap/icon_self_photo" />
+
+                    <ImageView
+                        android:id="@+id/idcard_cerfity_ivSelfCamera"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/icon_camera" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/padding_20">
+
+                    <TextView
+                        style="@style/text509FFF_16"
+                        android:text="@string/self_photo" />
+
+                    <TextView
+                        style="@style/text999999_12"
+                        android:layout_marginTop="@dimen/padding_10"
+                        android:text="@string/id_card_self_tips" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/idcard_cerfity_btnConfirm"
+                style="@style/buttonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_45"
+                android:layout_marginTop="@dimen/padding_30"
+                android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+                android:text="@string/finish" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

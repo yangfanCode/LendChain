@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.UserCenterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_F5F5F5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/user_center_llHead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_4885ff_gradient_509fff"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.lend.lendchain.widget.BaseTitleBar
+                android:id="@+id/base_title_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:btbLeftImage="@mipmap/icon_back_white"
+                app:btbBackground="@drawable/bg_4885ff_gradient_509fff" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/padding_15"
+                app:placeholderImage="@mipmap/icon_mine_logo"
+                app:roundAsCircle="true" />
+
+            <TextView
+                android:id="@+id/user_center_tvUserName"
+                android:layout_marginBottom="@dimen/padding_29"
+                style="@style/textFFFFFF_16"
+                android:layout_marginTop="@dimen/padding_15" />
+        </LinearLayout>
+
+        <include layout="@layout/row_divider_12h_1px" />
+
+        <com.yangfan.widget.FormNormal
+            android:id="@+id/user_center_fnPhone"
+            style="@style/FormNormalBaseStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fnBottomPadding="@dimen/padding_18"
+            app:fnIndicatorVisible="false"
+            app:fnTextColor="@color/color_595959"
+            app:fnTextSize="16"
+            app:fnTitle="@string/phone"
+            app:fnTitleTextColor="@color/color_999999"
+            app:fnTitleTextSize="16"
+            app:fnTopPadding="@dimen/padding_18" />
+
+        <include layout="@layout/row_divider" />
+
+        <com.yangfan.widget.FormNormal
+            android:id="@+id/user_center_fnNickName"
+            style="@style/FormNormalBaseStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:fnBottomPadding="@dimen/padding_18"
+            app:fnIndicatorVisible="false"
+            app:fnTextColor="@color/color_595959"
+            app:fnTextSize="16"
+            app:fnTitle="@string/nike_name"
+            app:fnTitleTextColor="@color/color_999999"
+            app:fnTitleTextSize="16"
+            app:fnTopPadding="@dimen/padding_18" />
+    </LinearLayout>
+</LinearLayout>

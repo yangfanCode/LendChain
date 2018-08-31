@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_10">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_radius5dp_shape"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/window_amera"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:gravity="center"
+            android:text="拍照"
+            android:textColor="@color/color_20212A"
+            android:textSize="@dimen/text_size_18" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height_1px"
+            android:background="@color/xc_group_divider" />
+
+        <TextView
+            android:id="@+id/window_album"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:gravity="center"
+            android:text="从相册选择"
+            android:textColor="@color/color_20212A"
+            android:textSize="@dimen/text_size_18" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/window_clean"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="@dimen/padding_10"
+        android:background="@drawable/bg_white_radius5dp_shape"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/color_FF6960"
+        android:textSize="@dimen/text_size_18" />
+</LinearLayout>

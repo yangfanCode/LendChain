@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <!--输入金额布局-->
+    <LinearLayout
+        android:id="@+id/keyboard_input_money_layout"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <ImageView
+                android:id="@+id/keyboard_input_money_ivClose"
+                android:layout_width="@dimen/padding_25"
+                android:layout_height="@dimen/padding_25"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingTop="@dimen/padding_5"
+                android:src="@mipmap/icon_cha" />
+
+            <TextView
+                style="@style/text262626_16"
+                android:layout_gravity="center"
+                android:text="@string/input_money" />
+
+            <TextView
+                android:id="@+id/keyboard_input_money_tvAllInvest"
+                style="@style/text509FFF_14"
+                android:layout_gravity="center_vertical|right"
+                android:text="@string/over_all_invest" />
+        </FrameLayout>
+
+        <include layout="@layout/row_divider_1px" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                style="@style/text262626_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/invest_money" />
+
+            <com.yangfan.widget.DecimalDigitsEditText
+                android:id="@+id/keyboard_input_money_etMoney"
+                android:layout_width="120dp"
+                android:layout_height="@dimen/padding_20"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:inputType="numberDecimal"
+                app:afterDot="6"
+                android:hint="@string/please_input_invest_amount"
+                android:textColor="@color/color_262626"
+                android:textColorHint="@color/color_CCCCCC"
+                android:textSize="@dimen/text_size_14"
+                android:theme="@style/MyEditText" />
+            <TextView
+                android:id="@+id/keyboard_input_money_tvCode1"
+                style="@style/text262626_14"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+
+        <include layout="@layout/row_divider_1px" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                style="@style/text262626_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/account_over" />
+
+            <TextView
+                android:id="@+id/keyboard_input_money_tvOver"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="left"
+                android:textColor="@color/color_FF6343"
+                android:textSize="@dimen/text_size_14" />
+            <TextView
+                android:id="@+id/keyboard_input_money_tvCode2"
+                style="@style/text262626_14"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+        <include layout="@layout/row_divider_1px" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                style="@style/text262626_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/last_income" />
+
+            <TextView
+                android:id="@+id/keyboard_input_money_tvIncome"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:textColor="@color/color_FF6343"
+                android:textSize="@dimen/text_size_14" />
+            <TextView
+                android:id="@+id/keyboard_input_money_tvCode3"
+                style="@style/text262626_14"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+    </LinearLayout>
+    <!--输入谷歌验证码布局-->
+    <LinearLayout
+        android:id="@+id/keyboard_input_googlecCode_layout"
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <ImageView
+                android:id="@+id/keyboard_input_googleCode_ivClose"
+                android:layout_width="@dimen/padding_25"
+                android:layout_height="@dimen/padding_25"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="@dimen/padding_5"
+                android:paddingRight="@dimen/padding_10"
+                android:paddingTop="@dimen/padding_5"
+                android:src="@mipmap/icon_cha" />
+
+            <TextView
+                style="@style/text262626_16"
+                android:layout_gravity="center"
+                android:text="@string/pay_verify" />
+
+        </FrameLayout>
+
+        <include layout="@layout/row_divider" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                style="@style/text262626_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/google_code" />
+
+            <EditText
+                android:id="@+id/keyboard_input_money_etGoogleCode"
+                android:layout_width="120dp"
+                android:layout_height="@dimen/padding_20"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:digits="0123456789"
+                android:hint="@string/please_input_google_code"
+                android:maxLength="6"
+                android:textColor="@color/color_262626"
+                android:textColorHint="@color/color_CCCCCC"
+                android:textSize="@dimen/text_size_14"
+                android:theme="@style/MyEditText" />
+            <TextView
+                android:id="@+id/keyboard_input_money_tvPaste"
+                style="@style/text509FFF_14"
+                android:layout_gravity="center_vertical|right"
+                android:text="@string/paste" />
+        </FrameLayout>
+    </LinearLayout>
+    <include
+        android:id="@+id/keyboard_view"
+        layout="@layout/keyboard_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+</LinearLayout>

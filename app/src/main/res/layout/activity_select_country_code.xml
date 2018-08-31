@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_12h_1px" />
+    <FrameLayout
+        android:id="@+id/layoutContainer"
+        android:layout_marginTop="@dimen/padding_12"
+        android:layout_marginBottom="@dimen/padding_12"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_38"
+        android:layout_marginLeft="@dimen/padding_20"
+        android:layout_marginRight="@dimen/padding_20">
+
+        <EditText
+            android:background="@drawable/bg_f5f5f5_radiu5"
+            android:id="@+id/country_et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/MyEditText"
+            android:drawableLeft="@mipmap/icon_search"
+            android:drawablePadding="@dimen/padding_10"
+            android:hint="@string/search"
+            android:paddingLeft="10dp"
+            android:paddingRight="40dp"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/country_iv_cleartext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:padding="4dp"
+            android:src="@mipmap/clear_button"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.lend.lendchain.widget.TitledListView
+            android:id="@+id/country_lv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:scrollingCache="false" />
+
+        <TextView
+            android:id="@+id/country_tvDialog"
+            android:layout_width="@dimen/round_head_height_60"
+            android:layout_height="@dimen/round_head_height_60"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/color_262626"
+            android:textSize="30sp"
+            android:visibility="invisible" />
+
+        <com.lend.lendchain.widget.countrycode.SideBar
+            android:id="@+id/country_sidebar"
+            android:layout_width="@dimen/padding_20"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center"
+            android:layout_marginBottom="@dimen/padding_5" />
+    </FrameLayout>
+
+</LinearLayout>

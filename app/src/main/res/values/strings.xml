@@ -1,0 +1,422 @@
+<resources>
+    <string name="app_name">LendChain</string>
+
+    <string name="netWorkError">"请检查网络设置"</string>
+
+    <!--LendChain版本更新-->
+    <string name="app_name_thf">LendChain</string>
+    <string name="down_fail">下载失败</string>
+    <string name="is_downing">正在下载</string>
+    <string name="down_sucess">下载成功</string>
+    <string name="app_update">正在下载更新</string>
+    <string name="now_is_the_latest_version">当前已经是最新版本</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--fragmentTabHost-->
+    <string name="tab_home">首页</string>
+    <string name="tab_invest">投资</string>
+    <string name="tab_loan">借款</string>
+    <string name="tab_mine">我的</string>
+    <!--自定义-->
+    <string name="refrensh_header_finish">刷新完成</string>
+    <string name="refrensh_header_pulling">下拉可以刷新</string>
+    <string name="refrensh_header_refreshing">正在刷新…</string>
+    <string name="refrensh_header_release">释放立即刷新</string>
+    <string name="refrensh_header_update">上次更新 M-d HH:mm</string>
+    <string name="refrensh_footer_loading">正在加载…</string>
+    <string name="refrensh_footer_nothing">没有更多数据了</string>
+    <string name="cancel">取消</string>
+    <string name="album">相册中选择</string>
+    <string name="take_a_picture">拍照</string>
+    <string name="permission_write_external_storage_not_allow">存储设备读写权限未开启,可以在应用管理里重新开启</string>
+    <string name="permission_camera_not_allow">相机权限未开启,可以在应用管理里重新开启</string>
+    <string name="confirm">确定</string>
+    <string name="continue_">继续</string>
+    <string name="no_login">未登录</string>
+    <string name="no_data">暂无数据</string>
+    <string name="key_board_view_submit_invest">确认\n投资</string>
+    <string name="key_board_view_submit_pay">确认\n支付</string>
+    <!--阿里投篮验证-->
+    <string name="ali_vsdk_network_error">网络不给力，请稍后再试</string>
+    <string name="ali_vsdk_refresh">刷新</string>
+    <string name="ali_vsdk_tips">安全验证</string>
+    <string name="ali_vsdk_tips_finish">验证通过</string>
+    <string name="ali_vsdk_tips_sub">为了你的帐号安全，本次登录需要进行验证。请将下方的图标，移动到圆形区域内</string>
+    <string name="ali_vsdk_titlebar_back">返回</string>
+    <string name="ali_vsdk_titlebar_name"/>
+    <string name="ali_vsdk_verify_call_calling">电话拨打中...请留意一下来电</string>
+    <string name="ali_vsdk_verify_call_dialog_cancel">取消</string>
+    <string name="ali_vsdk_verify_call_dialog_ok">接听</string>
+    <string name="ali_vsdk_verify_call_goto_tips">现在接听语音安全验证?</string>
+    <string name="ali_vsdk_verify_call_recall">收不到验证码，请重新接听电话</string>
+    <string name="ali_vsdk_verify_call_title">语音安全验证</string>
+    <string name="ali_vsdk_verify_code">验证码</string>
+    <string name="ali_vsdk_verify_error">验证码错误，请重新输入</string>
+    <string name="ali_vsdk_verify_error_call">验证码错误，请挂断电话，重新发送验证码</string>
+    <string name="ali_vsdk_verify_in_progress">阿里聚安全验证中</string>
+    <string name="ali_vsdk_verify_no_code">请输入验证码</string>
+    <string name="ali_vsdk_verify_number">手机号</string>
+    <string name="ali_vsdk_verify_sms_send_code">发送验证码</string>
+    <string name="ali_vsdk_verify_sms_subtitle">已帮您抵御验证码劫持风险</string>
+    <string name="ali_vsdk_verify_sms_timeout">%1$d秒后重新接收</string>
+    <string name="ali_vsdk_verify_sms_title">短信安全验证</string>
+    <string name="ali_vsdk_verify_sms_use_call">无法通过？接听语音安全验证</string>
+    <string name="ali_vsdk_verify_submit">提交</string>
+    <!--homeFragment-->
+    <string name="symbol">1099</string>
+    <string name="borrowAmount">借入资产</string>
+    <string name="minInvestAmount">起购资金</string>
+    <string name="investNow">立即投资</string>
+    <string name="annualized">年化</string>
+    <string name="market">行情市价</string>
+    <string name="currency">币种</string>
+    <string name="latest_price">最新价</string>
+    <string name="gain24h">24h涨幅</string>
+    <string name="highest24h">24h最高价</string>
+    <string name="lowest24h">24h最低价</string>
+    <string name="line24h">24h曲线</string>
+    <string name="RMB">¥</string>
+    <string name="preview">预告</string>
+    <string name="novice_preview">新手预告</string>
+    <string name="novice">新手</string>
+    <!--investFragment-->
+    <string name="all">全部</string>
+    <string name="platForm">平台标</string>
+    <string name="mortgage">抵押标</string>
+    <string name="invest">投资</string>
+    <string name="daily_rate">日利率</string>
+    <string name="deadline">期限</string>
+    <string name="day">天</string>
+    <string name="day_period">天期限</string>
+    <string name="di3">抵</string>
+    <string name="ping2">平</string>
+    <!--investSummaryActivity-->
+    <string name="invest_confirm">立即投资</string>
+    <string name="expect_annualized">预计年化</string>
+    <string name="period">周期</string>
+    <string name="mortgage_asset">抵押资产</string>
+    <string name="mortgage_price">抵押物市价</string>
+    <string name="novice_over_amount">新手剩余额度</string>
+    <string name="invest_progress">投资进度</string>
+    <string name="invest_lave">剩余可投</string>
+    <string name="normal_msg">基础信息</string>
+    <string name="start_time">开始时间</string>
+    <string name="calc_way">计息方式</string>
+    <string name="repay_way">还款方式</string>
+    <string name="purchase_funds">起购资金</string>
+    <string name="scroll_to_load_market">向上拖动查看投资详情</string>
+    <string name="invest_summary">投资详情</string>
+    <string name="purchased_record">已购记录</string>
+    <string name="add_record">追加记录</string>
+    <string name="calc_way_msg">满标后当日计息</string>
+    <string name="repay_way_msg">到期一次性还本计息</string>
+    <string name="user_name">用户名</string>
+    <string name="time">时间</string>
+    <string name="add_amount">追加金额</string>
+    <string name="mortgage_amount">追加后总额</string>
+    <string name="amount">金额</string>
+    <string name="buy_time">购买时间</string>
+    <string name="input_money">输入金额</string>
+    <string name="account_over">账户余额</string>
+    <string name="over_to_use">可用余额:</string>
+    <string name="over_all_invest">剩余全投</string>
+    <string name="invest_money">投资金额</string>
+    <string name="last_income">到期收益</string>
+    <string name="last_income_1">到期收益:</string>
+    <string name="over_lack_please_recharge">余额不足,需充值</string>
+    <string name="over_lack">余额不足</string>
+    <string name="pay_verify">支付验证</string>
+    <string name="pay">支付</string>
+    <string name="please_input_invest_amount">请输入投资金额</string>
+    <string name="please_input_google_code">请输入谷歌验证码</string>
+    <string name="paste">粘贴</string>
+    <string name="new_user_not_enough">新手剩余额度不足</string>
+    <string name="input_must_greater_minAmount">输入金额必须大于最小起投金额</string>
+    <string name="min">最小</string>
+    <!--LoginActivity-->
+    <string name="login">登录</string>
+    <string name="login_now">立即登录</string>
+    <string name="please_input_email">请输入邮箱</string>
+    <string name="please_input_pwd">请输入密码</string>
+    <string name="please_input_new_pwd">请输入新密码</string>
+    <string name="forget_pwd">忘记密码?</string>
+    <string name="login_success">登录成功</string>
+    <!--regiestActivity-->
+    <string name="regiest">注册</string>
+    <string name="regiest_now">立即注册</string>
+    <string name="go_regiest">去注册</string>
+    <string name="go_login">去登录</string>
+    <string name="please_input_email_code">请输入邮箱验证码</string>
+    <string name="send_verify_code">发送验证码</string>
+    <string name="please_input_invited_code">如有邀请人,请输入邀请码</string>
+    <string name="please_input_correct_email">邮箱格式不正确，请重新输入</string>
+    <string name="please_input_correct_pwd">8-20位,大写英文、小写英文、符号、数字至少有三类。</string>
+    <string name="regiest_success">注册成功</string>
+    <!--forgetPwdActivity-->
+    <string name="forget_password">忘记密码</string>
+    <string name="confirm_update">确认修改</string>
+    <string name="update_success">修改成功</string>
+    <!--UpdatePwdActivity-->
+    <string name="please_input_old_pwd">请输入旧密码</string>
+    <string name="please_input_confirm_new_pwd">请再次确认新密码</string>
+    <string name="pwd_not_equals">两次输入密码不一致</string>
+    <!--InvestSummaryActivity-->
+    <string name="warm_tips">温馨提示</string>
+    <string name="look_again">再看看</string>
+    <string name="go_certified">去认证</string>
+    <string name="certifing_shenhe">审核中</string>
+    <string name="phone_certified">手机认证</string>
+    <string name="google_certified">谷歌认证</string>
+    <string name="kyc_refuse">拒绝理由</string>
+    <string name="please_cerfity_phone_first">请先通过手机认证</string>
+    <string name="kyc_certified">身份认证</string>
+    <string name="please_goto_certified">为了保障您的投资收益和账户资产安全，需要先完成安全认证才能投资。</string>
+    <string name="phone_certified_tip">提现，修改密码，及安全设置时用以收取验证短信</string>
+    <string name="google_certified_tip">用于登录、提币、找回密码、修改安全设置、管理API时进行安全验证。</string>
+    <string name="kyc_certified_tip">完成身份认证的用户才可以提币。</string>
+    <string name="safe_certified">安全认证</string>
+    <string name="certified">已认证</string>
+    <string name="kyc_certify_retry">重试</string>
+    <string name="invest_success">投资成功 </string>
+    <string name="unwind_line">平仓线 </string>
+    <string name="cordon_line">警戒线 </string>
+    <!--PhoneCertifyActivity-->
+    <string name="phone">手机号</string>
+    <string name="sms_code">短信验证码</string>
+    <string name="please_input_phone">请输入手机号码</string>
+    <string name="please_select_country_code">请选择国家电话编码</string>
+    <string name="please_input_smscode">请输入短信验证码</string>
+    <string name="please_input_correct_phone">手机号格式不正确，请重新输入</string>
+    <string name="please_select_country_area">请选择国家/地区</string>
+    <string name="certified_success">认证成功</string>
+    <!--GoogleCertifyActivity-->
+    <string name="please_save_google_key">温馨提示：记得备份谷歌二维码或密钥</string>
+    <string name="google_qrcode_key">谷歌二维码及密钥：</string>
+    <string name="google_code">谷歌验证码</string>
+    <string name="please_input_google">请输入谷歌验证码</string>
+    <string name="copy">复制</string>
+    <string name="copy_success">复制成功</string>
+    <string name="google_certify_tips">操作步骤：\n1.iOS用户在app store上下载“goole authenticator”，安卓用户在应用商城或百度搜索下载“谷歌验证器” 。\n2.安装在“Google Authenticator”应用程序中，点击右上角“+”号，然后选择“手动输入验证码”。\n3.粘贴上面的“密钥”到“密钥”输入栏，并填写您的LendChain账号，点击“完成”。\n4.复制“谷歌验证码”，粘贴到上面的“谷歌验证码”输入栏。请勿删除此双重验证密码账户，否则会导致您无法进行账户操作；如果误删，您可通过重置密钥重新获取。\n5.请妥善保管好你的密钥，如遇手机丢失，你可以通过该密钥恢复你的谷歌验证。</string>
+    <!--SelectCountryCOdeActivity-->
+    <string name="select_country_area">选择国家/地区</string>
+    <string name="search">搜索</string>
+    <!--myWalletActivity-->
+    <string name="total_money_to_cny">总资产折合(CNY)</string>
+    <string name="yesterday_income">昨日收益(CNY)</string>
+    <string name="available_over">可用余额(CNY)</string>
+    <string name="operate">操作</string>
+    <string name="count">数量</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="coin_type">币种</string>
+    <string name="recharge">充值</string>
+    <string name="withdraw">提现</string>
+    <string name="transfer">转账</string>
+    <!--RechargeActivity-->
+    <string name="recharge_address">充值地址</string>
+    <string name="saoyisao_qrcode_address">扫一扫二维码，获取充值码地址</string>
+    <string name="recharge_address_memo_tip">充值时请务必填写Memo，不填或填错奖导致充值金额丢失，不可找回。</string>
+    <string name="recharge_tips">温馨提醒：\n1.请勿向上述地址充值任何非%1$s资产，否则资产将不可找回。\n2.您充值至上述地址后，需要整个网络节点的确认，1次网络确认后到账，6次网络确认后可提币。\n3.最小充值金额：%2$s %3$s ，小于最小金额的充值将不会上账。\n4.您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。\n5.请务必确认电脑及浏览器安全，防止信息被篡改或泄露。</string>
+    <!--LoanFragment-->
+    <string name="i_want_loan">我要借款</string>
+    <string name="loan_type">借款类型</string>
+    <string name="mortgage_coin_type">抵押币种</string>
+    <string name="loan_in_coin_type">借入币种</string>
+    <string name="mortgage_count">抵押数量</string>
+    <string name="mortgage_price_value">抵押价值</string>
+    <string name="mortgage_warnning_line">抵押警戒线</string>
+    <string name="mortgage_close_line">抵押平仓线</string>
+    <string name="loan_in_count">借入数量</string>
+    <string name="loan_in_rate">借入利率</string>
+    <string name="loan_deadline">借款期限</string>
+    <string name="loan_deadline_pay_interest">到期应付利息</string>
+    <string name="loan_confirm">确认借款</string>
+    <string name="day_ri">日</string>
+    <string name="day_tian">天</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="please_input_loan_count">请输入借入数量</string>
+    <string name="please_input_mortgage_count">请输入抵押数量</string>
+    <string name="minimum_number_is">最小数量为</string>
+    <string name="please_goto_certified_all">在借款之前需要您完成全部认证</string>
+    <string name="please_set_nickname">请先设置昵称</string>
+    <string name="loan_success">借款成功</string>
+    <string name="read_and_agree">我已阅读并同意</string>
+    <string name="borrowing_requirements_sign">《借款须知》</string>
+    <string name="borrowing_requirements">借款须知</string>
+    <string name="please_read_borrowing_requirements">请先阅读借款须知</string>
+    <string name="loan_confirm_tips">因操作时间过久，借入币种价格已降低，相对应借入数量也减少，是否继续借款</string>
+    <string name="loan_title_tips">提示:\n1.平台将收取借款金额的1%作为手续费。\n2.最少24小时之后才能进行提前还款。</string>
+    <string name="borrowing_requirements_tips">1.借款用户发布的借款标，如果在24小时内募集满100%，则借款生效，募集的资金扣除手续费1%后实时转入借款用户的账户余额。如果标的投资24小时内未达到100%，或24小时内抵押数字货币价格向下浮动超过20%，则该标的自动失效，并将货币归还给投资者。\n
+        2.在借款周期即将结束前,平台会提醒借款人归还借款。逾期还款需要额外缴纳逾期费，逾期费=超过天数*利率*本金*2。在逾期时间达到7天时，平台会将抵押资产作交割处理，扣除逾期手续费后将资产按投资比例归还出借人。\n
+        3.平台制定警戒线（140%）及平仓线（110%），平仓线=借款金额*110%，警戒线=借款金额*140%。当抵押资产到达警戒线时，系统会提醒借款人增加抵押物。当抵押资产到达平仓线时，平台将会对抵押资产作交割处理并将归出借人所有，而抵押借款人不再拥有所抵押资产。</string>
+    <!--SettingActivity-->
+    <string name="update_pwd">修改密码</string>
+    <string name="setting">设置</string>
+    <string name="login_out">退出登录</string>
+    <string name="login_out_success">退出登录成功</string>
+    <string name="language">语言</string>
+    <string name="chinese">简体中文</string>
+    <string name="english">English</string>
+    <string name="korean">한국어</string>
+    <!--KycActivity-->
+    <string name="country">国家</string>
+    <string name="real_name">姓名</string>
+    <string name="born_date">生日</string>
+    <string name="china">中国</string>
+    <string name="please_input_your_real_name">请输入你的真实名字</string>
+    <string name="please_input_your_document_num">请输入你的证件号</string>
+    <string name="document_type">证件类型</string>
+    <string name="id_card">身份证</string>
+    <string name="passport">护照</string>
+    <string name="document_num">证件号</string>
+    <string name="next_step">下一步</string>
+    <string name="kyc_certify">身份认证</string>
+    <!--IDCardActivity-->
+    <string name="upload_document_material">上传证件材料</string>
+    <string name="id_card_positive">身份证正面</string>
+    <string name="id_card_negative">身份证反面</string>
+    <string name="passport_positive">护照封面</string>
+    <string name="passport_negative">护照个人页</string>
+    <string name="id_card_tips">请保持照片中身份信息显示完整，字体清晰可见，亮度均匀。</string>
+    <string name="id_card_self_tips">在照片中，你需要手持身份证和一张纸，在纸上面写明“LendChain认证”和上传日期。</string>
+    <string name="self_photo">本人照片</string>
+    <string name="finish">完成</string>
+    <string name="upload_success">上传成功</string>
+    <string name="please_upload_document_material">请上传证件材料</string>
+    <string name="please_wait_check">请等待审核</string>
+    <!--MineFragment-->
+    <string name="regiest_login">注册/登录</string>
+    <string name="assets_manage">资产管理</string>
+    <string name="account_manage">账户管理</string>
+    <string name="my_invest">我的投资</string>
+    <string name="my_recharge_withdraw_record">充提记录</string>
+    <string name="my_loan">我的借款</string>
+    <string name="user_center">个人中心</string>
+    <string name="safe_cerfity">安全认证</string>
+    <string name="support_gift">推荐有礼</string>
+    <string name="about_us">关于我们</string>
+    <string name="help_center">帮助中心</string>
+    <!--MyInvestListActivity-->
+    <string name="loan_amount">出借金额</string>
+    <string name="interest">利息</string>
+    <string name="deadLine">到期时间</string>
+    <string name="wait_submit">等待确认</string>
+    <string name="repay_time">还款时间</string>
+    <string name="success">成功</string>
+    <string name="wait_repay">待还款</string>
+    <string name="within_the_time_limit">逾期</string>
+    <string name="prepayment">提前还款</string>
+    <string name="repay_nomal">正常还款</string>
+    <string name="repay_within_the_time_limit">逾期还款</string>
+    <string name="repay_finish">还款完成</string>
+    <string name="mandatory_delivery">强制交割</string>
+    <string name="forced_to_unwind">强制平仓</string>
+    <string name="fulled_standard">已满标</string>
+    <string name="invest_failed">投资失败</string>
+    <string name="unknow">未知</string>
+    <!--ReChargeWithdrawActivity-->
+    <string name="recharge_withdraw_record">充提记录</string>
+    <string name="order_code">订单号</string>
+    <string name="recharge_add">充值地址</string>
+    <string name="withdraw_add">提现地址</string>
+    <string name="recharge_record">充值记录</string>
+    <string name="withdraw_record">提现记录</string>
+    <string name="wait_udit">待审核</string>
+    <string name="processing">处理中</string>
+    <string name="processed_finish">已完成</string>
+    <string name="refuse">拒绝</string>
+    <string name="beyond_the_limit">超出限额</string>
+    <string name="confirming">确认中</string>
+    <string name="wait_in_account">待入账</string>
+    <string name="in_accounted">已入账</string>
+    <string name="recharge_speedup">充值加速</string>
+    <string name="recharge_speedup_success">充值加速成功</string>
+    <string name="coin_select">币种选择</string>
+    <string name="please_input_recharge_hash">请输入充值Hash</string>
+    <string name="recharge_speedup_tips">注意：在区块链上发起交易成功后，可以进行充值加速。</string>
+    <string name="hash_tips1">请输入以0x开头的66位充值的Hash,由小写字母及数字组成</string>
+    <string name="hash_tips2">请输入64位充值的Hash,由小写字母及数字组成</string>
+    <string name="please_select_coin">请选择币种</string>
+    <!--myLoanActivity-->
+    <string name="loan_in_amount">借入金额</string>
+    <string name="go_repay">去还款</string>
+    <string name="raise_failed">募集失败</string>
+    <string name="raise_failure">逾期</string>
+    <string name="raiseing">募集中</string>
+    <!--myLoanSummaryActivity-->
+    <string name="send_time">发标时间</string>
+    <string name="full_time">满标时间</string>
+    <string name="mortgage_thing">抵押物</string>
+    <string name="raise_percent">募集百分比</string>
+    <string name="Additional_mortgage_thing">追加抵押物</string>
+    <string name="loan_summary">借入详情</string>
+    <string name="mortage_coin_price">抵押币种市价</string>
+    <string name="mortage_sufficient_rate">抵押物充足率</string>
+    <string name="additional">追加</string>
+    <string name="please_input_add_count">输入追加数额</string>
+    <string name="after_addition_the_ratio_collateral">追加后抵押物充足率为：</string>
+    <string name="go_recharge">去充值</string>
+    <string name="below_the_security_line">(低于警戒线)</string>
+    <string name="addition_success">追加成功</string>
+    <string name="please_input_add_counts">请输入追加数额</string>
+    <string name="confirm_within_repay">确认逾期还款</string>
+    <string name="confirm_before_repay">确认提前还款</string>
+    <string name="confirm_nomal_repay">确认正常还款</string>
+    <string name="repay_success">还款成功</string>
+    <string name="look_loan_content"><u>查看标的详情</u></string>
+    <string name="least_add">最少追加</string>
+    <!--AboutUsActivity-->
+    <string name="what_is_lendchain">利德是什么</string>
+    <string name="version_name">当前版本</string>
+    <string name="official_web">官网</string>
+    <string name="official_wechat_public_number">官方微信公众号</string>
+    <string name="official_sina_weibo">官方微博</string>
+    <string name="Twitter">Twitter</string>
+    <string name="Telegram">Telegram</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Instagram">Instagram</string>
+    <!--HelpCenterActivity-->
+    <string name="rate_tips">费率说明</string>
+    <string name="risk_management">风险管理</string>
+    <string name="newbie_guide">新手指南</string>
+    <string name="how_to_play_with_mortgage_lending">如何玩转抵押借贷</string>
+    <string name="mortgage_description">抵押借款说明</string>
+    <string name="nike_name">昵称</string>
+    <!--UserCenterActivity-->
+    <string name="go_set">去设置</string>
+    <string name="warm_tip_set">温馨提示：设置后不能更改</string>
+    <string name="set_nickname">设置昵称</string>
+    <string name="please_input_nickname">请输入昵称</string>
+    <string name="please_input_regex_nickname">昵称中不能包含空格和无效字符,最多8个字符</string>
+    <string name="set_success">设置成功</string>
+    <!--WithDrawActivity-->
+    <string name="withdraw_coin_add">提币地址</string>
+    <string name="withdraw_cerfity">提现验证</string>
+    <string name="withdraw_coin_count">数量</string>
+    <string name="withdraw_min_count">最小数量为</string>
+    <string name="withdraw_real_money">实际到账&#160;:&#160;</string>
+    <string name="withdraw_poundage">&#160;,&#160;手续费&#160;:&#160;</string>
+    <string name="withdraw_note_memo">Memo（备注）</string>
+    <string name="withdraw_confirm">确认提现</string>
+    <string name="withdraw_note_memo_hint">请输入Memo</string>
+    <string name="withdraw_limit_lines">温馨提示：%1$s24小时内提现最高额度为%2$s</string>
+    <string name="email_code">邮箱验证码</string>
+    <string name="please_input_withdraw_add">请输入提币地址</string>
+    <string name="please_input_withdraw_count">请输入提币数量</string>
+    <string name="withdraw_success">提现成功</string>
+    <!--PlatFormTranshferActivity-->
+    <string name="cllection_account_email">收款账户邮箱</string>
+    <string name="transfer_platform">平台内转账</string>
+    <string name="transfer_count">转账数量</string>
+    <string name="transfer_nickname_optional">昵称<font color='#509FFF'>(选填)</font></string>
+    <string name="transfer_phone_optional">手机号<font color='#509FFF'>(选填)</font></string>
+    <string name="transfer_confirm">确认转账</string>
+    <string name="please_input_transfer_count">请输入转账数量</string>
+    <string name="please_input_transfer_cllection_nickname">请输入收款人昵称</string>
+    <string name="transfer_cerfity">转账验证</string>
+    <string name="transfer_warm_tips">温馨提醒：\n1.平台内转账 0 手续费。\n2.平台内转账后立即到账。 \n</string>
+    <string name="transfer_success">转账成功</string>
+</resources>

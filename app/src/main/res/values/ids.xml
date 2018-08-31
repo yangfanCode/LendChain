@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="position" type="id"/>
+    <item name="id" type="id"/>
+    <item name="group" type="id"/>
+    <item name="code" type="id"/>
+    <item name="object" type="id"/>
+    <item name="desc" type="id"/>
+    <item name="view" type="id"/>
+    <item name="view1" type="id"/>
+    <item name="booleann" type="id"/>
+    <item name="str" type="id"/>
+    <item name="str1" type="id"/>
+    <item name="str2" type="id"/>
+    <item name="str3" type="id"/>
+    <item name="str4" type="id"/>
+    <item name="str5" type="id"/>
+</resources>

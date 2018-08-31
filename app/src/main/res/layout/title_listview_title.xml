@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/color_F5F5F5"
+    android:paddingLeft="@dimen/padding_12"
+    android:layout_height="27dp">
+        <TextView
+            android:id="@+id/fastInfo_titled_text"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            style="@style/text262626_14"
+            android:textStyle="bold"
+            android:layout_height="match_parent" />
+</RelativeLayout>

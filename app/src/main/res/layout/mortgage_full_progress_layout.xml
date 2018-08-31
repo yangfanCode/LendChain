@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="105dp"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_marginBottom="@dimen/padding_2"
+        android:layout_width="match_parent"
+        android:layout_height="69dp">
+
+        <LinearLayout
+            android:id="@+id/mortgage_full_llPoint1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginBottom="@dimen/divider_height_1dp"
+                style="@style/text509FFF_14"
+                android:text="@string/unwind_line" />
+
+            <TextView
+                android:layout_marginBottom="@dimen/divider_height_1dp"
+                android:id="@+id/mortagage_full_tvUnWindCode"
+                style="@style/text595959_12"
+                android:textSize="@dimen/text_size_11" />
+
+            <ImageView
+                android:layout_width="@dimen/padding_13"
+                android:layout_height="@dimen/padding_18"
+                android:src="@mipmap/icon_water" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mortgage_full_llPoint2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text509FFF_14"
+                android:layout_marginBottom="@dimen/divider_height_1dp"
+                android:text="@string/cordon_line" />
+
+            <TextView
+                android:layout_marginBottom="@dimen/divider_height_1dp"
+                android:id="@+id/mortagage_full_tvCordonCode"
+                style="@style/text595959_12"
+                android:text="1212121212QKC"
+                android:textSize="@dimen/text_size_11" />
+
+            <ImageView
+                android:layout_width="@dimen/padding_13"
+                android:layout_height="@dimen/padding_18"
+                android:src="@mipmap/icon_water" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/mortagage_full_llProgressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="30px"
+        android:paddingRight="30px">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--从左开始的进度条-->
+            <ProgressBar
+                android:id="@+id/mortagage_full_pb"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_13"
+                android:max="202"
+                android:min="98"
+                android:progressDrawable="@drawable/progressbar_bg_left_60aaff_gradient_498efe_radio7" />
+            <!--画11条刻度-->
+            <LinearLayout
+                android:id="@+id/mortagage_full_llLine"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_13"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:paddingLeft="13px"
+                android:paddingRight="13px">
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+                <!--格子-->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+                <!--线-->
+                <View
+                    android:layout_width="@dimen/divider_height_1dp"
+                    android:layout_height="@dimen/padding_6"
+                    android:background="@color/white" />
+            </LinearLayout>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="100%"
+                android:textSize="@dimen/text_size_11"
+                style="@style/text999999_12" />
+            <TextView
+                android:text="150%"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_size_11"
+                style="@style/text999999_12" />
+            <TextView
+                android:text="200%"
+                android:layout_gravity="right"
+                android:textSize="@dimen/text_size_11"
+                style="@style/text999999_12" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

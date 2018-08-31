@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="310dp">
+<TextView
+    android:layout_width="match_parent"
+    android:text="@string/recharge_speedup"
+    style="@style/text262626_16"
+    android:gravity="center"
+    android:layout_height="@dimen/padding_50" />
+    <include layout="@layout/row_divider_1px"/>
+    <FrameLayout
+        android:id="@+id/dialog_recharge_speed_layoutCoinSelect"
+        android:background="@drawable/bg_divider_ffffff_border_1dp"
+        android:layout_marginTop="@dimen/padding_20"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/padding_30"
+        android:layout_marginRight="@dimen/padding_30"
+        android:layout_height="@dimen/padding_45">
+        <TextView
+            android:id="@+id/dialog_recharge_speed_tvCoin"
+            android:text="@string/coin_select"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/padding_15"
+            style="@style/textCCCCCC_14" />
+        <ImageView
+            android:layout_width="@dimen/padding_12"
+            android:scaleType="fitXY"
+            android:layout_marginRight="@dimen/padding_15"
+            android:layout_gravity="center_vertical|right"
+            android:src="@mipmap/icon_jiantou_bottom"
+            android:layout_height="@dimen/padding_12" />
+    </FrameLayout>
+    <EditText
+        android:id="@+id/dialog_recharge_speed_etHash"
+        android:layout_marginTop="@dimen/padding_20"
+        android:layout_marginLeft="@dimen/padding_30"
+        android:layout_marginRight="@dimen/padding_30"
+        android:theme="@style/MyEditText"
+        android:background="@drawable/bg_divider_ffffff_border_1dp"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:lineSpacingExtra="@dimen/divider_height_1dp"
+        style="@style/text262626_14"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingTop="@dimen/padding_5"
+        android:hint="@string/please_input_recharge_hash"
+        android:textColorHint="@color/color_CCCCCC"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+    <Button
+        android:layout_marginTop="@dimen/padding_20"
+        android:layout_marginLeft="@dimen/padding_30"
+        android:layout_marginRight="@dimen/padding_30"
+        android:id="@+id/dialog_recharge_speed_btnConfirm"
+        android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+        style="@style/textFFFFFF_16"
+        android:text="@string/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_F5F5F5"
+    tools:context=".ui.activity.common.SettingActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_12h_1px" />
+
+    <com.yangfan.widget.FormNormal
+        android:id="@+id/setting_fnUpdatePwd"
+        style="@style/CustomFormBaseStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fnBottomPadding="@dimen/padding_18"
+        app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+        app:fnIndicatorVisible="true"
+        app:fnTitle="@string/update_pwd"
+        app:fnTitleTextColor="@color/color_262626"
+        app:fnTitleTextSize="14"
+        app:fnTopPadding="@dimen/padding_18" />
+
+    <include layout="@layout/row_divider_12h" />
+    <com.yangfan.widget.FormNormal
+        android:id="@+id/setting_fnLangauge"
+        style="@style/CustomFormBaseStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fnBottomPadding="@dimen/padding_18"
+        app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+        app:fnIndicatorVisible="true"
+        app:fnTitle="@string/language"
+        app:fnTitleTextColor="@color/color_262626"
+        app:fnTitleTextSize="14"
+        app:fnTopPadding="@dimen/padding_18" />
+
+    <include layout="@layout/row_divider_12h" />
+
+    <TextView
+        android:id="@+id/setting_tvLoginOut"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        style="@style/text509FFF_16"
+        android:text="@string/login_out"
+        android:gravity="center"
+        android:background="@drawable/row_pressed2"
+        android:clickable="true" />
+</LinearLayout>

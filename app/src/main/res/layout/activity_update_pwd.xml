@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.activity.login.UpdatePwdActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bg_login" />
+        <ImageView
+            android:id="@+id/update_ivClose"
+            android:layout_marginLeft="@dimen/padding_15"
+            android:layout_width="@dimen/padding_18"
+            android:src="@mipmap/icon_cha_white"
+            android:layout_height="@dimen/padding_18" />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_17"
+        android:text="@string/update_pwd"
+        android:textColor="@color/color_262626"
+        android:textSize="@dimen/text_size_20" />
+
+    <View
+        android:layout_width="@dimen/padding_16"
+        android:layout_height="@dimen/padding_3"
+        android:layout_marginTop="@dimen/padding_5"
+        android:background="@drawable/bg_509fff_radiu5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/padding_40"
+        android:layout_marginRight="@dimen/padding_40"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/update_etOldPwd"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/bg_e6e6e6_white_border_b"
+            android:drawableLeft="@mipmap/icon_pwd"
+            android:drawablePadding="@dimen/padding_10"
+            android:hint="@string/please_input_old_pwd"
+            android:inputType="textPassword"
+            android:paddingBottom="@dimen/padding_5"
+            android:textColor="@color/color_262626"
+            android:textSize="@dimen/text_size_14"
+            android:theme="@style/MyEditText" />
+
+        <EditText
+            android:id="@+id/update_etNewPwd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_size_32"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:background="@drawable/bg_e6e6e6_white_border_b"
+            android:drawableLeft="@mipmap/icon_pwd"
+            android:drawablePadding="@dimen/padding_10"
+            android:hint="@string/please_input_new_pwd"
+            android:inputType="textPassword"
+            android:paddingBottom="@dimen/padding_5"
+            android:textColor="@color/color_262626"
+            android:textSize="@dimen/text_size_14"
+            android:theme="@style/MyEditText" />
+
+        <EditText
+            android:id="@+id/update_etConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/text_size_32"
+            android:layout_marginBottom="@dimen/padding_24"
+            android:background="@drawable/bg_e6e6e6_white_border_b"
+            android:drawableLeft="@mipmap/icon_pwd"
+            android:drawablePadding="@dimen/padding_10"
+            android:hint="@string/please_input_confirm_new_pwd"
+            android:inputType="textPassword"
+            android:paddingBottom="@dimen/padding_5"
+            android:textColor="@color/color_262626"
+            android:textSize="@dimen/text_size_14"
+            android:theme="@style/MyEditText" />
+
+        <TextView
+            android:id="@+id/update_btnConfirm"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginBottom="@dimen/padding_15"
+            android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu22_selector"
+            android:text="@string/confirm_update" />
+
+    </LinearLayout>
+</LinearLayout>

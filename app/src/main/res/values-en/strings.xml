@@ -1,0 +1,418 @@
+<resources>
+    <string name="app_name">LendChain</string>
+
+    <string name="netWorkError">"No network connection, please check the network"</string>
+
+    <!--LendChain版本更新-->
+    <string name="app_name_thf">LendChain</string>
+    <string name="down_fail">Download failed</string>
+    <string name="is_downing">Downloading</string>
+    <string name="down_sucess">Download successful</string>
+    <string name="app_update">Downloading the update</string>
+    <string name="now_is_the_latest_version">The current version is the latest</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--fragmentTabHost-->
+    <string name="tab_home">Home</string>
+    <string name="tab_invest">Invest</string>
+    <string name="tab_loan">Borrow</string>
+    <string name="tab_mine">Me</string>
+    <!--自定义-->
+    <string name="refrensh_header_finish">Refresh Success</string>
+    <string name="refrensh_header_pulling">Pull Down To Refresh</string>
+    <string name="refrensh_header_refreshing">Refresh...</string>
+    <string name="refrensh_header_release">Release the refresh</string>
+    <string name="refrensh_header_update">\'Last Update\' M-d HH:mm</string>
+    <string name="refrensh_footer_loading">Loading...</string>
+    <string name="refrensh_footer_nothing">No More Data</string>
+    <string name="cancel">Cancel</string>
+    <string name="album">Choose from the album</string>
+    <string name="take_a_picture">Taking pictures</string>
+    <string name="permission_write_external_storage_not_allow">Read/write permission of storage device is not enabled</string>
+    <string name="permission_camera_not_allow">Camera permissions are not enabled</string>
+    <string name="confirm">Done</string>
+    <string name="continue_">Continue</string>
+    <string name="no_login">Not logged in</string>
+    <string name="no_data">No Records</string>
+    <string name="key_board_view_submit_invest">Invest</string>
+    <string name="key_board_view_submit_pay">Confirm</string>
+    <!--阿里投篮验证-->
+    <string name="ali_vsdk_network_error">Network is unreachable, please try again later.</string>
+    <string name="ali_vsdk_refresh">Refresh</string>
+    <string name="ali_vsdk_tips">Authentication Required</string>
+    <string name="ali_vsdk_tips_finish">Passed</string>
+    <string name="ali_vsdk_tips_sub">For the security of your account，an authentication is required for current access.Please drag the icon into the Target zone.</string>
+    <string name="ali_vsdk_titlebar_back">Back</string>
+    <string name="ali_vsdk_titlebar_name"/>
+    <string name="ali_vsdk_verify_call_calling">Please look at call</string>
+    <string name="ali_vsdk_verify_call_dialog_cancel">Cancel</string>
+    <string name="ali_vsdk_verify_call_dialog_ok">Wait for call</string>
+    <string name="ali_vsdk_verify_call_goto_tips">Begin to receive voice call now?</string>
+    <string name="ali_vsdk_verify_call_recall">If you can\'t receive code, click here to retry</string>
+    <string name="ali_vsdk_verify_call_title">Voice call Authentication</string>
+    <string name="ali_vsdk_verify_code">Veri. Code</string>
+    <string name="ali_vsdk_verify_error">Verification code wrong, input again</string>
+    <string name="ali_vsdk_verify_error_call">Verification code wrong, hang up phone and send code again</string>
+    <string name="ali_vsdk_verify_in_progress">Authenticating By Ali Juanquan</string>
+    <string name="ali_vsdk_verify_no_code">Need code</string>
+    <string name="ali_vsdk_verify_number">Phone No.</string>
+    <string name="ali_vsdk_verify_sms_send_code">Send Code</string>
+    <string name="ali_vsdk_verify_sms_subtitle">Protect you against SMS hijacking.</string>
+    <string name="ali_vsdk_verify_sms_timeout">%1$d sec</string>
+    <string name="ali_vsdk_verify_sms_title">SMS Authentication</string>
+    <string name="ali_vsdk_verify_sms_use_call">Can\'t pass, switch to voice call authentication </string>
+    <string name="ali_vsdk_verify_submit">Submit</string>
+    <!--homeFragment-->
+    <!--美元特殊处理-->
+    <string name="symbol">1099</string>
+    <string name="borrowAmount">Borrow assets</string>
+    <string name="minInvestAmount">Minimum limit</string>
+    <string name="investNow">Invest</string>
+    <string name="annualized">Rate (year)</string>
+    <string name="market">Market</string>
+    <string name="currency">Coin</string>
+    <string name="latest_price">Last Price</string>
+    <string name="gain24h">24H Change</string>
+    <string name="highest24h">24H High</string>
+    <string name="lowest24h">24H Low</string>
+    <string name="line24h">24H Curve</string>
+    <string name="RMB">$</string>
+    <string name="preview">Preview</string>
+    <string name="novice_preview">Novice Preview</string>
+    <string name="novice">Novice</string>
+    <!--investFragment-->
+    <string name="all">All</string>
+    <string name="platForm">Platform</string>
+    <string name="mortgage">Mortgage</string>
+    <string name="invest">Invest</string>
+    <string name="daily_rate">Daily rate</string>
+    <string name="deadline">Period</string>
+    <string name="day">days</string>
+    <string name="day_period">-day period</string>
+    <string name="di3">M</string>
+    <string name="ping2">P</string>
+    <!--investSummaryActivity-->
+    <string name="invest_confirm">Invest</string>
+    <string name="expect_annualized">Rate (year)</string>
+    <string name="period">Period</string>
+    <string name="mortgage_asset">Mortgage Price</string>
+    <string name="mortgage_price">Mortgage price</string>
+    <string name="novice_over_amount">Newbie remaining</string>
+    <string name="invest_progress">Progress</string>
+    <string name="invest_lave">Avaiable Balance</string>
+    <string name="normal_msg">Basic information</string>
+    <string name="start_time">Start Time</string>
+    <string name="calc_way">Interest rate mathod</string>
+    <string name="repay_way">Repayment</string>
+    <string name="purchase_funds">The minimum limit</string>
+    <string name="scroll_to_load_market">To Top</string>
+    <string name="invest_summary">Investment details</string>
+    <string name="purchased_record">Purchased records</string>
+    <string name="add_record">Additional records</string>
+    <string name="calc_way_msg">Calculate after getting full</string>
+    <string name="repay_way_msg">Principal and Interest repayment</string>
+    <string name="user_name">User name</string>
+    <string name="time">Time</string>
+    <string name="add_amount">Additional amount</string>
+    <string name="mortgage_amount">Total after\nappend</string>
+    <string name="amount">Amount</string>
+    <string name="buy_time">Occasions</string>
+    <string name="input_money">Enter the amount</string>
+    <string name="account_over">Balance</string>
+    <string name="over_to_use">Balance：</string>
+    <string name="over_all_invest">All Invests</string>
+    <string name="invest_money">Invest Amount</string>
+    <string name="last_income">Interest</string>
+    <string name="last_income_1">Interest:</string>
+    <string name="over_lack_please_recharge">Insufficient balance, Recharge</string>
+    <string name="pay_verify">Payment verification</string>
+    <string name="pay">Payment</string>
+    <string name="please_input_invest_amount">Enter Loan Amount</string>
+    <string name="please_input_google_code">Google code</string>
+    <string name="paste">Paste</string>
+    <string name="new_user_not_enough">Can\'t exceed the amount that a novice can buy</string>
+    <string name="input_must_greater_minAmount">The input amount must be greater than the minimum initial investment amount</string>
+    <string name="min">Min</string>
+    <!--LoginActivity-->
+    <string name="login">Login</string>
+    <string name="login_now">Login</string>
+    <string name="please_input_email">Enter Email</string>
+    <string name="please_input_pwd">Enter password</string>
+    <string name="please_input_new_pwd">Enter the New Password</string>
+    <string name="forget_pwd">Forgot password?</string>
+    <string name="login_success">Login successful</string>
+    <!--regiestActivity-->
+    <string name="regiest">Sign Up</string>
+    <string name="regiest_now">Sign Up</string>
+    <string name="go_regiest">Sign Up</string>
+    <string name="go_login">Login</string>
+    <string name="please_input_email_code">Enter Email Code</string>
+    <string name="send_verify_code">Send SMS</string>
+    <string name="please_input_invited_code">Enter the Inviter\'s ID (optional)</string>
+    <string name="please_input_correct_email">Please enter the correct email</string>
+    <string name="please_input_correct_pwd">8-20 characters with a mix of letters, numbers and symbols</string>
+    <string name="regiest_success">Registered successfully</string>
+    <!--forgetPwdActivity-->
+    <string name="forget_password">Forgot password</string>
+    <string name="confirm_update">Confirm</string>
+    <string name="update_success">Modify the success</string>
+    <!--UpdatePwdActivity-->
+    <string name="please_input_old_pwd">Enter the Old Password</string>
+    <string name="please_input_confirm_new_pwd">Re-enter the New Password</string>
+    <string name="pwd_not_equals">Two cipher inconsistencies</string>
+    <!--InvestSummaryActivity-->
+    <string name="warm_tips">Warm prompt</string>
+    <string name="look_again">Look again at</string>
+    <string name="go_certified">Verify</string>
+    <string name="certifing_shenhe">Verifying</string>
+    <string name="phone_certified">SMS Verification</string>
+    <string name="google_certified">Google Authentication</string>
+    <string name="kyc_certified">Know Your Customer</string>
+    <string name="kyc_refuse">Refuse\nreason</string>
+    <string name="please_cerfity_phone_first">Please pass the mobile authentication first</string>
+    <string name="please_goto_certified">In order to ensure the security of your investment income and account assets, you need to complete and pass the security certification before you can invest.</string>
+    <string name="phone_certified_tip">For withdrawal, password reset and security settings</string>
+    <string name="google_certified_tip">For login, withdrawal, password retrieve,setting modification and API management</string>
+    <string name="kyc_certified_tip">The user who completes the authentic ation can withdraw the coin.</string>
+    <string name="safe_certified">Security Center</string>
+    <string name="certified">Verified</string>
+    <string name="kyc_certify_retry">Retry</string>
+    <string name="invest_success">Investment success </string>
+    <string name="unwind_line">Warning line</string>
+    <string name="cordon_line">Closing line</string>
+    <!--PhoneCertifyActivity-->
+    <string name="phone">Phone Number</string>
+    <string name="sms_code">SMS Code</string>
+    <string name="please_input_phone">Enter Phone Number</string>
+    <string name="please_select_country_code">Country code</string>
+    <string name="please_input_smscode">Enter SMS code</string>
+    <string name="please_input_correct_phone">Please enter the correct mobile phone number</string>
+    <string name="please_select_country_area">Country code</string>
+    <string name="certified_success">Certification is successful</string>
+    <!--GoogleCertifyActivity-->
+    <string name="please_save_google_key">Tips: Remember to back up Google QR code or key</string>
+    <string name="google_qrcode_key">Google QR Code and Private Key：</string>
+    <string name="google_code">Google code</string>
+    <string name="please_input_google">Please enter Google verification code</string>
+    <string name="copy">copy</string>
+    <string name="copy_success">Copy success</string>
+    <string name="google_certify_tips">Steps:\n1.iOS users download “google authenticator” from the app store, and Android users download “Google authenticator” in the play store or Google search.\n2. In the “Google Authenticator” application, click on the “+” sign in the upper right corner and select “Manually enter verification code”.\n3. Paste the above “Key” into the “Key” input field, fill in your LendChain account, and click “Finish”.\n4. Copy ”Google Verification Code“ and paste it into the ”Google Verification Code“ input field above. Do not delete this double verification password account, otherwise you will be unable to perform account operations; if you delete it by mistake, you can retrieve it again by resetting the key.\n5. Please keep your key in a safe place. In the event that your mobile phone is lost, you can use this key to restore your Google verification.";</string>
+    <!--SelectCountryCOdeActivity-->
+    <string name="select_country_area">Country code</string>
+    <string name="search">Search</string>
+    <!--myWalletActivity-->
+    <string name="total_money_to_cny">Total funds estimation(USDT)</string>
+    <string name="yesterday_income">Yesterday\'s earnings(USDT)</string>
+    <string name="available_over">Balance(USDT)</string>
+    <string name="operate">Action</string>
+    <string name="count">Amount</string>
+    <string name="my_wallet">My Wallet</string>
+    <string name="coin_type">Coin</string>
+    <string name="recharge">Recharge</string>
+    <string name="withdraw">Withdrawal</string>
+    <string name="transfer">Transfer</string>
+    <!--RechargeActivity-->
+    <string name="recharge_address">Deposit Address</string>
+    <string name="saoyisao_qrcode_address">Scan the QR code to get the recharge code address</string>
+    <string name="recharge_tips">Tips:\n1.Please do not deposit non %1$s coins to LendChain which may lead to your asset unaccounted or lost.\n2.Validation of the entire network node is required. Deposit needs one-time network confirmation while withdrawal needs six times network confirmations.\n3.Each deposit must be can than %2$s %3$s.\n4.Your deposit address will not change frequently. We will inform you by website announcement or email if there is any change.\n5.Please make sure your computer and browser are secured to prevent tampering or leakage of information.</string>
+    <!--LoanFragment-->
+    <string name="i_want_loan">Borrow</string>
+    <string name="loan_type">Type</string>
+    <string name="mortgage_coin_type">Mortgage Currency</string>
+    <string name="loan_in_coin_type">Borrowed Currency</string>
+    <string name="mortgage_count">Mortgage Amount</string>
+    <string name="mortgage_price_value">Mortgage value</string>
+    <string name="mortgage_warnning_line">Mortgage warning line</string>
+    <string name="mortgage_close_line">Mortgage closing line</string>
+    <string name="loan_in_count">Borrowed Amount</string>
+    <string name="loan_in_rate">Interest\nRate\n(Daily)</string>
+    <string name="loan_deadline">Period</string>
+    <string name="loan_deadline_pay_interest">Accrued Interest</string>
+    <string name="loan_confirm">Confirm</string>
+    <string name="day_ri">days</string>
+    <string name="day_tian">days</string>
+    <string name="hour">hours</string>
+    <string name="minute">minutes</string>
+    <string name="second">seconds</string>
+    <string name="please_input_loan_count">Enter borrowed</string>
+    <string name="please_input_mortgage_count">Enter mortgages</string>
+    <string name="please_goto_certified_all">You need to complete the certification before borrowing</string>
+    <string name="please_set_nickname">Please set the nickname first</string>
+    <string name="loan_success">Borrow successful</string>
+    <string name="read_and_agree">I have read</string>
+    <string name="borrowing_requirements_sign">《Borrowing instructions》</string>
+    <string name="borrowing_requirements">Borrowing instructions</string>
+    <string name="please_read_borrowing_requirements">Please read the borrowing instructions first</string>
+    <string name="loan_confirm_tips">Because the operation time is too long, the price of borrowing currency has decreased, and the corresponding amount of borrowing has also decreased, whether to continue borrowing</string>
+    <string name="loan_title_tips">Warm reminder:\n1. 0 service charge for transfer within the platform.\n2. Account will be received immediately after transfer within the platform.</string>
+    <string name="borrowing_requirements_tips">1.The loan will become effective.If the underlying investment does not reach 100% within 24 hours,or if the price of the digital currency lowers more than 20% within 24 hours,the target will automatically become invalid and the digital currency of the investment will be returned to the investor.\n
+        2.Before the end of the loan period,LendChain will remind the borrower to return the loan on time.If the loan is overdue,the borrower need pay overdue fees.When the overdue time reaches 7 days,LendChain will take over the collateral assets,and after deducting the overduefees,the assets will be returned to the borrower according to the investment proportion.\n
+        3.LendChain established awarning line (140%) and a closing line(110%),the closing line=borrowing amount * 110% and the warning line=borrowing amount * 140%.When the collateral assets reach the warning line,the system will remind the borrower to ask them to increase the collateral.When the collateral assets reach the closing line,the collateral assets will be processed for delivery,and the assets will be owned by the lenders.</string>
+    <!--SettingActivity-->
+    <string name="update_pwd">Password Reset</string>
+    <string name="setting">Settings</string>
+    <string name="login_out">Log out</string>
+    <string name="login_out_success">Logged out successfully</string>
+    <string name="language">Language</string>
+    <string name="chinese">简体中文</string>
+    <string name="english">English</string>
+    <string name="korean">한국어</string>
+    <!--KycActivity-->
+    <string name="country">Country</string>
+    <string name="real_name">Name</string>
+    <string name="born_date">Birthday</string>
+    <string name="china">China</string>
+    <string name="please_input_your_real_name">Please enter your name</string>
+    <string name="please_input_your_document_num">Please enter your ID number</string>
+    <string name="document_type">Type</string>
+    <string name="id_card">ID Card</string>
+    <string name="passport">Passport</string>
+    <string name="document_num">ID Number</string>
+    <string name="next_step">Next</string>
+    <string name="kyc_certify">Know Your Customer</string>
+    <!--IDCardActivity-->
+    <string name="upload_document_material">Upload document materials</string>
+    <string name="id_card_positive">Picture of ID(Front)</string>
+    <string name="id_card_negative">Picture of ID(Back)</string>
+    <string name="id_card_tips">Please keep the identity information in the photo displayed intact, the font is clearly visible and the brightness is even.</string>
+    <string name="id_card_self_tips">Upload a picture for yourself holding a paper and write on it. ”LendChain Certification”and the date.</string>
+    <string name="self_photo">Picture of Yourself</string>
+    <string name="finish">OK</string>
+    <string name="upload_success">Uploaded successfully</string>
+    <string name="please_upload_document_material">Please upload the documents</string>
+    <string name="please_wait_check">Under Review</string>
+    <!--MineFragment-->
+    <string name="regiest_login">login / Sign Up</string>
+    <string name="assets_manage">Asset Management</string>
+    <string name="account_manage">Account management</string>
+    <string name="my_invest">My Assets</string>
+    <string name="my_recharge_withdraw_record">Transaction History</string>
+    <string name="my_loan">Borrowing History</string>
+    <string name="user_center">My Account</string>
+    <string name="safe_cerfity">Security Center</string>
+    <string name="support_gift">Invite &amp; Rewards</string>
+    <string name="about_us">About Us</string>
+    <string name="help_center">Help Center</string>
+    <!--MyInvestListActivity-->
+    <string name="loan_amount">Loan Amount</string>
+    <string name="interest">Interest</string>
+    <string name="deadLine">Expiration time</string>
+    <string name="wait_submit">Waiting</string>
+    <string name="repay_time">Repayment time</string>
+    <string name="success">successful</string>
+    <string name="wait_repay">Waiting for\nrepayments</string>
+    <string name="within_the_time_limit">Overdue</string>
+    <string name="prepayment">Prepayment</string>
+    <string name="repay_nomal">Normal\nrepayments"</string>
+    <string name="repay_within_the_time_limit">Overdue\nrepayment</string>
+    <string name="repay_finish">Repayment\ncompletion</string>
+    <string name="mandatory_delivery">Compulsory\ndelivery</string>
+    <string name="forced_to_unwind">Stop out</string>
+    <string name="fulled_standard">Finished</string>
+    <string name="invest_failed">Investment failure</string>
+    <string name="unknow">Unknown</string>
+    <!--ReChargeWithdrawActivity-->
+    <string name="recharge_withdraw_record">Transaction History</string>
+    <string name="order_code">order number</string>
+    <string name="recharge_add">Deposit Address</string>
+    <string name="withdraw_add">Withdrawal Address</string>
+    <string name="recharge_record">Deposit History</string>
+    <string name="withdraw_record">Withdrawal History</string>
+    <string name="wait_udit">Under Review</string>
+    <string name="processing">Are dealing with</string>
+    <string name="processed_finish">Finished</string>
+    <string name="refuse">Refused</string>
+    <string name="beyond_the_limit">Exceeded the amount</string>
+    <string name="confirming">Waiting for confirmation</string>
+    <string name="wait_in_account">Receiving</string>
+    <string name="in_accounted">Received</string>
+    <string name="recharge_speedup">Accelerate recharge</string>
+    <string name="recharge_speedup_success">Accelerate recharge successfully</string>
+    <string name="coin_select">Select currency</string>
+    <string name="please_input_recharge_hash">Enter your Hash</string>
+    <string name="recharge_speedup_tips">Note:After the transaction is successfully initiated on the blockchain,the acceleration of recharge can be performed</string>
+    <string name="hash_tips1">Please enter the 66 bit Hash beginning with 0x, consisting of lowercase letters and numbers.</string>
+    <string name="hash_tips2">Please enter 64 bits of Hash, consisting of lowercase letters and numbers.</string>
+    <string name="please_select_coin">Select currency</string>
+    <!--myLoanActivity-->
+    <string name="loan_in_amount">Borrow Amount</string>
+    <string name="go_repay">Repay</string>
+    <string name="raise_failed">Failure</string>
+    <string name="raise_failure">Overdue</string>
+    <string name="raiseing">In progress</string>
+    <!--myLoanSummaryActivity-->
+    <string name="send_time">Time to issue</string>
+    <string name="full_time">Full time</string>
+    <string name="mortgage_thing">Mortgage</string>
+    <string name="raise_percent">Recruitment percentage</string>
+    <string name="Additional_mortgage_thing">Add mortgage</string>
+    <string name="loan_summary">Borrow Details</string>
+    <string name="mortage_coin_price">Mortgage price</string>
+    <string name="mortage_sufficient_rate">Mortgage rates</string>
+    <string name="additional">Add</string>
+    <string name="please_input_add_count">Please enter the Add amount</string>
+    <string name="after_addition_the_ratio_collateral">Updated mortgage rates：</string>
+    <string name="go_recharge">Recharge</string>
+    <string name="below_the_security_line">(Below the guard line)</string>
+    <string name="addition_success">Add</string>
+    <string name="please_input_add_counts">Please enter the Add amount</string>
+    <string name="confirm_within_repay">Whether to confirm overdue repayment</string>
+    <string name="confirm_before_repay">Whether to confirm advance repayment</string>
+    <string name="confirm_nomal_repay">Whether to confirm normal repayment</string>
+    <string name="repay_success">Repayment completion</string>
+    <string name="look_loan_content"><u>View the content of the target</u></string>
+    <string name="least_add">Add at least</string>
+    <!--AboutUsActivity-->
+    <string name="what_is_lendchain">What is Lendchain?</string>
+    <string name="version_name">Current version</string>
+    <string name="official_web">Website</string>
+    <string name="official_wechat_public_number">Wechat Official Account</string>
+    <string name="official_sina_weibo">Weibo</string>
+    <string name="Twitter">Twitter</string>
+    <string name="Telegram">Telegram</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Instagram">Instagram</string>
+    <!--HelpCenterActivity-->
+    <string name="rate_tips">Rate Instruction</string>
+    <string name="risk_management">Risk Management</string>
+    <string name="newbie_guide">User Guide</string>
+    <string name="how_to_play_with_mortgage_lending">Application Scenario</string>
+    <string name="mortgage_description">Mortgage Loan Instruction</string>
+    <string name="nike_name">Nickname</string>
+    <!--UserCenterActivity-->
+    <string name="go_set">Set Up</string>
+    <string name="warm_tip_set">Tips: can not be changed after setting</string>
+    <string name="set_nickname">Set nickname</string>
+    <string name="please_input_nickname">Enter nickname</string>
+    <string name="please_input_regex_nickname">Nicknames cannot cont-ain space characters andinvalid characters, up toeight characters.</string>
+    <string name="set_success">Set nickname successfully</string>
+    <!--WithDrawActivity-->
+    <string name="withdraw_coin_add">Withdrawal Address</string>
+    <string name="withdraw_cerfity">Withdrawal Verification</string>
+    <string name="withdraw_coin_count">Amount</string>
+    <string name="withdraw_min_count">The minimum number is </string>
+    <string name="withdraw_real_money">Actual arrival&#160;:&#160;</string>
+    <string name="withdraw_poundage">&#160;,&#160;Withdrawal fee&#160;:&#160;</string>
+    <string name="withdraw_note_memo">Memo</string>
+    <string name="withdraw_confirm">Confirm withdrawal</string>
+    <string name="withdraw_note_memo_hint">Please enter the Memo</string>
+    <string name="withdraw_limit_lines">Warm prompt：%1$sThe maximum withdrawal limit within 24 hours is %2$s</string>
+    <string name="email_code">Email Code</string>
+    <string name="please_input_withdraw_add">Please enter the withdrawal address</string>
+    <string name="please_input_withdraw_count">Please enter the amount of withdrawal</string>
+    <string name="withdraw_success">Withdrawal successfully</string>
+    <!--PlatFormTranshferActivity-->
+    <string name="cllection_account_email">Receipt Email</string>
+    <string name="transfer_platform">Transfer in LendChain</string>
+    <string name="transfer_count">Amount</string>
+    <string name="transfer_nickname_optional">Nickname\n<font color='#509FFF'>(Optional)</font></string>
+    <string name="transfer_phone_optional">Phone\n<font color='#509FFF'>(Optional)</font></string>
+    <string name="transfer_confirm">Confirm the transfer</string>
+    <string name="please_input_transfer_count">Enter Amount</string>
+    <string name="please_input_transfer_cllection_nickname">Enter Payee Nickname</string>
+    <string name="transfer_cerfity">Transfer validation</string>
+    <string name="transfer_warm_tips">Warm reminder:\n1. 0 service charge for transfer within the platform.\n2. Account will be received immediately after transfer within the platform.</string>
+    <string name="transfer_success">Transfer success</string>
+</resources>

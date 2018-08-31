@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.PhoneCertifyActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_12h_1px" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <TextView
+            android:id="@+id/phone_certify_tvCountryCode"
+            style="@style/text999999_14"
+            android:layout_gravity="center_vertical"
+            android:text="@string/please_select_country_area" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/padding_30"
+            android:id="@+id/phone_certify_tvCountryCodeDesc"
+            android:layout_gravity="center"
+            style="@style/text262626_12"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/row_divider_1px" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <TextView
+            style="@style/text999999_14"
+            android:layout_gravity="center_vertical"
+            android:text="@string/phone" />
+
+        <EditText
+            android:id="@+id/phone_certify_etPhone"
+            style="@style/text262626_14"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:hint="@string/please_input_phone"
+            android:inputType="number"
+            android:maxLength="15"
+            android:textColorHint="@color/color_CCCCCC"
+            android:theme="@style/MyEditText" />
+    </FrameLayout>
+
+    <include layout="@layout/row_divider_1px" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <TextView
+            style="@style/text999999_14"
+            android:layout_gravity="center_vertical"
+            android:text="@string/sms_code" />
+
+        <EditText
+            android:id="@+id/phone_certify_etSmsCode"
+            android:layout_width="111dp"
+            android:layout_height="@dimen/padding_15"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:hint="@string/please_input_smscode"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textColorHint="@color/color_CCCCCC"
+            android:theme="@style/MyEditText" />
+
+        <TextView
+            android:id="@+id/phone_certify_tvSendSmsCode"
+            style="@style/text999999_14"
+            android:layout_gravity="center_vertical|right"
+            android:text="@string/send_verify_code"
+            android:textColor="@color/text_999999_509fff_enabled_selector" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/phone_certify_btnConfirm"
+        style="@style/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/padding_15"
+        android:layout_marginRight="@dimen/padding_15"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_30"
+        android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+        android:gravity="center"
+        android:text="@string/confirm" />
+</LinearLayout>

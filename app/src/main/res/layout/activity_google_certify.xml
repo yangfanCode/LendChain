@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.GoogleCertifyActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <TextView
+        style="@style/text509FFF_12"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_40"
+        android:textSize="@dimen/text_size_11"
+        android:background="@color/color_EBF4FF"
+        android:gravity="center"
+        android:text="@string/please_save_google_key" />
+
+    <include layout="@layout/row_divider_12h_1px" />
+
+    <TextView
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15"
+        android:text="@string/google_qrcode_key"
+        style="@style/text999999_14"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+    <FrameLayout
+        android:background="@color/white"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15"
+        android:paddingBottom="@dimen/padding_10"
+        android:layout_width="match_parent"
+        android:layout_height="95dp">
+        <ImageView
+            android:id="@+id/google_certify_ivQRCode"
+            android:background="@color/color_999999"
+            android:layout_width="85dp"
+            android:scaleType="fitXY"
+            android:layout_height="85dp" />
+        <TextView
+            android:layout_marginLeft="@dimen/padding_26"
+            android:layout_gravity="center"
+            android:id="@+id/google_certify_tvSecret"
+            style="@style/text262626_16" />
+        <TextView
+            android:id="@+id/google_certify_tvCopy"
+            android:layout_marginRight="@dimen/padding_10"
+            android:padding="@dimen/padding_10"
+            android:layout_gravity="center_vertical|right"
+            android:text="@string/copy"
+            style="@style/text509FFF_14"/>
+    </FrameLayout>
+    <include layout="@layout/row_divider_12h_1px"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <TextView
+            style="@style/text999999_14"
+            android:layout_gravity="center_vertical"
+            android:text="@string/sms_code" />
+
+        <EditText
+            android:id="@+id/google_certify_etSmsCode"
+            android:layout_width="111dp"
+            android:layout_height="@dimen/padding_15"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:hint="@string/please_input_smscode"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textColorHint="@color/color_CCCCCC"
+            android:theme="@style/MyEditText" />
+
+        <TextView
+            android:id="@+id/google_certify_tvSendSmsCode"
+            style="@style/text999999_14"
+            android:layout_gravity="center_vertical|right"
+            android:text="@string/send_verify_code"
+            android:textColor="@color/text_999999_509fff_enabled_selector" />
+    </FrameLayout>
+    <include layout="@layout/row_divider_1px" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <TextView
+            style="@style/text999999_14"
+            android:layout_gravity="center_vertical"
+            android:text="@string/google_code" />
+
+        <EditText
+            android:id="@+id/google_certify_etGoogleCode"
+            style="@style/text262626_14"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:hint="@string/please_input_google"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColorHint="@color/color_CCCCCC"
+            android:theme="@style/MyEditText" />
+    </FrameLayout>
+    <TextView
+        android:id="@+id/google_certify_btnConfirm"
+        style="@style/buttonStyle"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/padding_15"
+        android:layout_marginRight="@dimen/padding_15"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/padding_30"
+        android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+        android:gravity="center"
+        android:text="@string/confirm" />
+    <TextView
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15"
+        android:layout_marginTop="@dimen/padding_15"
+        android:text="@string/google_certify_tips"
+        style="@style/text999999_12" />
+</LinearLayout>

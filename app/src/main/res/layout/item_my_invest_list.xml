@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:orientation="vertical">
+
+    <include layout="@layout/row_divider_12h_1px" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:background="@drawable/bg_textview_bottom_line"
+                android:id="@+id/item_my_invest_list_tvName"
+                style="@style/text509FFF_16"
+                android:layout_marginBottom="@dimen/padding_10" />
+
+            <TextView
+                android:id="@+id/item_my_invest_list_tvCreateTime"
+                style="@style/text999999_12" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_my_invest_list_tvStatus"
+            style="@style/text595959_16"
+            android:layout_gravity="right|center_vertical" />
+    </FrameLayout>
+    <include layout="@layout/row_divider_1px"/>
+    <LinearLayout
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_24">
+            <TextView
+                android:text="@string/loan_amount"
+                android:layout_gravity="center_vertical"
+                style="@style/text999999_14"/>
+            <TextView
+                android:layout_gravity="right|center_vertical"
+                android:id="@+id/item_my_invest_list_tvLoanAmount"
+                style="@style/text595959_14"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_24">
+            <TextView
+                android:text="@string/interest"
+                android:layout_gravity="center_vertical"
+                style="@style/text999999_14"/>
+            <TextView
+                android:layout_gravity="right|center_vertical"
+                android:id="@+id/item_my_invest_list_tvInterest"
+                style="@style/text595959_14"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_24">
+            <TextView
+                android:text="@string/deadLine"
+                android:layout_gravity="center_vertical"
+                style="@style/text999999_14"/>
+            <TextView
+                android:layout_gravity="right|center_vertical"
+                android:id="@+id/item_my_invest_list_tvDeadLine"
+                style="@style/text595959_14"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_24">
+            <TextView
+                android:text="@string/repay_time"
+                android:layout_gravity="center_vertical"
+                style="@style/text999999_14"/>
+            <TextView
+                android:layout_gravity="right|center_vertical"
+                android:id="@+id/item_my_invest_list_tvRepayTime"
+                style="@style/text595959_14"/>
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

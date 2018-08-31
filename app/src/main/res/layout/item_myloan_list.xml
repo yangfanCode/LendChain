@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_66"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:background="@drawable/bg_textview_bottom_line"
+                android:id="@+id/item_myLoan_tvCode"
+                style="@style/text509FFF_16" />
+
+            <TextView
+                android:id="@+id/item_myLoan_tvTime"
+                style="@style/text999999_12"
+                android:layout_marginTop="@dimen/padding_10" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_myLoan_tvStatus"
+            style="@style/text509FFF_16"
+            android:layout_gravity="center_vertical|right" />
+    </FrameLayout>
+
+    <include layout="@layout/row_divider_1px" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_11"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15"
+        android:paddingTop="@dimen/padding_11">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_24">
+
+            <TextView
+                style="@style/text999999_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/loan_in_amount" />
+
+            <TextView
+                android:id="@+id/item_myLoan_tvLoanCount"
+                style="@style/text595959_14"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_24">
+
+            <TextView
+                style="@style/text999999_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/interest" />
+
+            <TextView
+                android:id="@+id/item_myLoan_tvInterest"
+                style="@style/text595959_14"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_24">
+
+            <TextView
+                style="@style/text999999_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/deadLine" />
+
+            <TextView
+                android:id="@+id/item_myLoan_tvDeadLine"
+                style="@style/text595959_14"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/item_myLoan_layoutOperation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_30">
+
+            <TextView
+                style="@style/text999999_14"
+                android:layout_gravity="center_vertical"
+                android:text="@string/operate" />
+
+            <TextView
+                android:id="@+id/item_myLoan_tvOperation"
+                style="@style/textFFFFFF_12"
+                android:layout_width="@dimen/padding_55"
+                android:layout_height="@dimen/padding_24"
+                android:layout_gravity="center_vertical|right"
+                android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+                android:gravity="center"
+                android:text="@string/go_repay" />
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="64"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_home_tvOrderId"
+                    style="@style/text262626_16"
+                    android:layout_marginBottom="@dimen/padding_2"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/item_home_tvOrderType"
+                    style="@style/text999999_12" />
+            </LinearLayout>
+
+            <include layout="@layout/row_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="286"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/item_home_tvOrderDays"
+                    style="@style/text262626_16"
+                    android:layout_marginBottom="@dimen/padding_15"
+                    android:layout_marginTop="@dimen/padding_15" />
+
+                <FrameLayout
+                    android:layout_width="111dp"
+                    android:layout_height="111dp">
+                    <!--进度条-->
+                    <com.lend.lendchain.widget.CircleProgressBar
+                        android:id="@+id/item_home_progressBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:circleColor="@color/white"
+                        app:radius="47dp"
+                        app:ringBgColor="@color/color_CAE2FF"
+                        app:ringColor="@color/color_509FFF"
+                        app:strokeWidth="@dimen/padding_8" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/item_home_annualized"
+                            style="@style/text999999_12"
+                            android:layout_centerHorizontal="true"
+                            android:text="@string/annualized" />
+
+                        <com.lend.lendchain.widget.GradientTextView
+                            android:id="@+id/item_home_tvAnnualized"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/item_home_annualized"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/item_home_tvAnnualized"
+                            android:layout_toRightOf="@id/item_home_tvAnnualized"
+                            android:text="%"
+                            android:textColor="@color/color_FF6343"
+                            android:textSize="@dimen/text_size_12" />
+                    </RelativeLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:paddingLeft="@dimen/padding_5"
+                    android:paddingRight="@dimen/padding_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/padding_20">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <View
+                                android:id="@+id/item_home_view1"
+                                android:layout_width="@dimen/padding_8"
+                                android:layout_height="@dimen/padding_8"
+                                android:layout_marginRight="@dimen/padding_5"
+                                android:layout_marginTop="@dimen/padding_3"
+                                android:background="@drawable/bg_blue_rect" />
+
+
+                            <TextView
+                                android:layout_toRightOf="@id/item_home_view1"
+                                android:id="@+id/item_home_tvBorrowAmount"
+                                style="@style/text262626_12"
+                                android:layout_marginBottom="@dimen/padding_3" />
+
+                            <TextView
+                                style="@style/text999999_12"
+                                android:layout_alignLeft="@id/item_home_tvBorrowAmount"
+                                android:layout_below="@id/item_home_tvBorrowAmount"
+                                android:text="@string/borrowAmount" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <View
+                                android:id="@+id/item_home_view2"
+                                android:layout_width="@dimen/padding_8"
+                                android:layout_height="@dimen/padding_8"
+                                android:layout_marginRight="@dimen/padding_5"
+                                android:layout_marginTop="@dimen/padding_3"
+                                android:background="@drawable/bg_blue_rect" />
+
+                            <TextView
+                                android:id="@+id/item_home_tvMinInvestAmount"
+                                style="@style/text262626_12"
+                                android:layout_marginBottom="@dimen/padding_3"
+                                android:layout_toRightOf="@id/item_home_view2" />
+
+                            <TextView
+                                style="@style/text999999_12"
+                                android:layout_alignLeft="@id/item_home_tvMinInvestAmount"
+                                android:layout_below="@id/item_home_tvMinInvestAmount"
+                                android:text="@string/minInvestAmount" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/item_home_btnInvest"
+                    android:layout_width="200dp"
+                    android:layout_height="44dp"
+                    android:layout_marginBottom="@dimen/padding_23"
+                    android:layout_marginTop="@dimen/padding_15"
+                    android:text="@string/investNow"
+                    android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu22_selector"
+                    style="@style/buttonStyle"
+                   />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>
+

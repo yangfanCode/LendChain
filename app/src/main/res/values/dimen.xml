@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--大按钮高度-->
+    <dimen name="big_button_height">45dp</dimen>
+    <!--圆形头像高度-->
+    <dimen name="round_head_height_60">60dp</dimen>
+    <!--actionbar 高度-->
+    <dimen name="action_bar_height">45dp</dimen>
+    <!--tab 高度-->
+    <dimen name="tab_height">49dp</dimen>
+    <!--statusbar 高度-->
+    <dimen name="status_bar_height">25dp</dimen>
+    <!--间隔线 1dp 高度-->
+    <dimen name="divider_height_1dp">1dp</dimen>
+    <!--间隔线 1px 高度-->
+    <dimen name="divider_height_1px">1px</dimen>
+    <!--页面 模块间间距  15dp 高度-->
+    <dimen name="divide_height_in_page">15dp</dimen>
+
+    <!--<dimen name="indicatorMargin">5dp</dimen>-->
+    <dimen name="indicatorSpace">5dp</dimen>
+</resources>

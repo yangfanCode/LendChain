@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.PlatFormTranshferActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_slices"
+        android:orientation="vertical">
+
+        <include layout="@layout/row_divider_12h_1px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                style="@style/text999999_14"
+                android:layout_width="122dp"
+                android:text="@string/cllection_account_email" />
+
+            <EditText
+                android:id="@+id/transfer_etEmail"
+                style="@style/text262626_14"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_20"
+                android:background="@null"
+                android:hint="@string/please_input_email"
+                android:inputType="textEmailAddress"
+                android:theme="@style/MyEditText" />
+        </LinearLayout>
+
+        <include layout="@layout/row_divider_1px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+
+            <TextView
+                android:id="@+id/transfer_tvNickNameText"
+                style="@style/text999999_14"
+                android:layout_width="122dp"
+                android:text="@string/transfer_nickname_optional" />
+
+
+            <EditText
+                android:id="@+id/transfer_etNickName"
+                style="@style/text262626_14"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_20"
+                android:background="@null"
+                android:hint="@string/please_input_transfer_cllection_nickname"
+                android:theme="@style/MyEditText" />
+        </LinearLayout>
+
+        <include layout="@layout/row_divider_1px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+
+            <TextView
+                android:id="@+id/transfer_tvPhoneText"
+                style="@style/text999999_14"
+                android:layout_width="122dp"
+                android:text="@string/transfer_phone_optional" />
+
+
+            <EditText
+                android:id="@+id/transfer_etPhone"
+                style="@style/text262626_14"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_20"
+                android:background="@null"
+                android:hint="@string/please_input_phone"
+                android:theme="@style/MyEditText" />
+        </LinearLayout>
+
+        <include layout="@layout/row_divider_1px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_50"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text999999_14"
+                    android:layout_width="122dp"
+                    android:text="@string/transfer_count" />
+
+                <com.yangfan.widget.DecimalDigitsEditText
+                    android:id="@+id/transfer_etCount"
+                    style="@style/text262626_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/padding_20"
+                    android:background="@null"
+                    android:hint="@string/please_input_transfer_count"
+                    android:inputType="numberDecimal"
+                    android:maxLength="15"
+                    android:theme="@style/MyEditText"
+                    app:afterDot="6" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/transfer_tvCode"
+                style="@style/text262626_14" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/transfer_btnConfirm"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="@dimen/padding_15"
+            android:layout_marginRight="@dimen/padding_15"
+            android:layout_marginTop="@dimen/padding_30"
+            android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+            android:text="@string/transfer_confirm" />
+
+        <TextView
+            style="@style/text999999_12"
+            android:layout_marginLeft="@dimen/padding_15"
+            android:layout_marginRight="@dimen/padding_15"
+            android:layout_marginTop="@dimen/padding_30"
+            android:lineSpacingExtra="@dimen/padding_2"
+            android:text="@string/transfer_warm_tips" />
+    </LinearLayout>
+</LinearLayout>

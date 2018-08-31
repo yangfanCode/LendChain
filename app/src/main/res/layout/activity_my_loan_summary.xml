@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_F5F5F5"
+    tools:context=".ui.activity.account.MyLoanSummaryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.lend.lendchain.widget.BaseTitleBar
+            android:id="@+id/base_title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:btbBackground="@color/white" />
+
+        <include layout="@layout/row_divider_12h_1px" />
+
+        <LinearLayout
+            android:background="@color/white"
+            android:id="@+id/loan_summary_llParent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.yangfan.widget.FormNormal
+                android:id="@+id/my_loan_summary_fnCodeStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fnBottomPadding="@dimen/padding_18"
+                app:fnIndicatorVisible="false"
+                app:fnTextColor="@color/color_509FFF"
+                app:fnTextSize="16"
+                app:fnTitleTextColor="@color/color_262626"
+                app:fnTitleTextSize="16"
+                app:fnTopPadding="@dimen/padding_18" />
+
+            <include layout="@layout/row_divider_12h_1px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/padding_17"
+                android:paddingTop="@dimen/padding_10">
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnLoanAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/loan_amount"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnInterst"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/interest"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnDeadLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/deadLine"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnSendTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/send_time"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnFulledStandard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/fulled_standard"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnRepayTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/repay_time"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnMortage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/mortgage_thing"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/my_loan_summary_fnRaisePercent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="14"
+                    app:fnTitle="@string/raise_percent"
+                    app:fnTitleTextColor="@color/color_999999"
+                    app:fnTitleTextSize="14"
+                    app:fnTopPadding="@dimen/padding_7" />
+                <TextView
+                    android:id="@+id/my_loan_summary_tvGotoSummary"
+                    android:layout_marginTop="@dimen/padding_10"
+                    android:paddingTop="@dimen/padding_2"
+                    android:paddingLeft="@dimen/padding_2"
+                    android:paddingBottom="@dimen/padding_2"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/padding_15"
+                    android:text="@string/look_loan_content"
+                    style="@style/text509FFF_14"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/my_loan_summary_llBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_40"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:id="@+id/my_loan_summary_layoutGoRepay"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/my_loan_summary_btnGoRepay"
+                    style="@style/buttonStyle"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+                    android:text="@string/go_repay" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/my_loan_summary_layoutAddMortage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/my_loan_summary_btnAddMortage"
+                    style="@style/buttonStyle"
+                    android:textColor="@color/color_509FFF"
+                    android:layout_width="140dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_509fff_border_radiu2"
+                    android:text="@string/Additional_mortgage_thing" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

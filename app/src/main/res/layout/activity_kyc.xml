@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_F5F5F5"
+    tools:context=".ui.activity.account.KycActivity">
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_12h_1px" />
+    <com.yangfan.widget.FormNormal
+        android:id="@+id/kyc_fnCountry"
+        style="@style/CustomFormBaseStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fnBottomPadding="@dimen/padding_18"
+        app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+        app:fnIndicatorVisible="true"
+        app:fnTextColor="@color/color_262626"
+        app:fnTextSize="14"
+        app:fnTitle="@string/country"
+        app:fnTitleTextColor="@color/color_999999"
+        app:fnTitleTextSize="14"
+        app:fnTopPadding="@dimen/padding_18" />
+    <include layout="@layout/row_divider_1px"/>
+    <FrameLayout
+        android:id="@+id/kyc_realName_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:background="@drawable/row_pressed2"
+        android:clickable="true"
+        android:paddingLeft="@dimen/padding_12"
+        android:paddingRight="@dimen/padding_12">
+
+        <TextView
+            style="@style/text999999_14"
+            android:layout_width="@dimen/round_head_height_60"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/padding_5"
+            android:text="@string/real_name" />
+
+        <EditText
+            android:id="@+id/loan_etRealName"
+            style="@style/text262626_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:background="@null"
+            android:gravity="center_vertical|right"
+            android:textColorHint="@color/color_CCCCCC"
+            android:hint="@string/please_input_your_real_name"
+            android:paddingLeft="@dimen/padding_5"
+            android:paddingRight="@dimen/padding_5"
+            android:theme="@style/MyEditText" />
+    </FrameLayout>
+    <include layout="@layout/row_divider_1px"/>
+    <com.yangfan.widget.FormNormal
+        android:id="@+id/kyc_fnBornDate"
+        style="@style/CustomFormBaseStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fnBottomPadding="@dimen/padding_18"
+        app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+        app:fnIndicatorVisible="true"
+        app:fnTextColor="@color/color_262626"
+        app:fnTextSize="14"
+        app:fnTitle="@string/born_date"
+        app:fnText="1990.01.01"
+        app:fnTitleTextColor="@color/color_999999"
+        app:fnTitleTextSize="14"
+        app:fnTopPadding="@dimen/padding_18" />
+    <include layout="@layout/row_divider_1px"/>
+    <com.yangfan.widget.FormNormal
+        android:id="@+id/kyc_fnDocument"
+        style="@style/CustomFormBaseStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fnBottomPadding="@dimen/padding_18"
+        app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+        app:fnIndicatorVisible="true"
+        app:fnTextColor="@color/color_262626"
+        app:fnTextSize="14"
+        app:fnText="@string/id_card"
+        app:fnTitle="@string/document_type"
+        app:fnTitleTextColor="@color/color_999999"
+        app:fnTitleTextSize="14"
+        app:fnTopPadding="@dimen/padding_18" />
+    <include layout="@layout/row_divider_1px"/>
+    <FrameLayout
+        android:id="@+id/kyc_document_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_50"
+        android:background="@drawable/row_pressed2"
+        android:clickable="true"
+        android:paddingLeft="@dimen/padding_12"
+        android:paddingRight="@dimen/padding_12">
+
+        <TextView
+            style="@style/text999999_14"
+            android:layout_width="@dimen/round_head_height_60"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/padding_5"
+            android:text="@string/document_num" />
+
+        <EditText
+            android:gravity="center_vertical|right"
+            android:id="@+id/kyc_etDocumentNum"
+            style="@style/text262626_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:background="@null"
+            android:textColorHint="@color/color_CCCCCC"
+            android:hint="@string/please_input_your_document_num"
+            android:paddingLeft="@dimen/padding_5"
+            android:paddingRight="@dimen/padding_5"
+            android:theme="@style/MyEditText" />
+    </FrameLayout>
+    <TextView
+        android:id="@+id/kyc_btnNextStep"
+        android:layout_marginLeft="@dimen/padding_15"
+        android:layout_marginRight="@dimen/padding_15"
+        android:layout_marginTop="@dimen/padding_30"
+        android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+        style="@style/buttonStyle"
+        android:text="@string/next_step"
+        android:layout_width="match_parent"
+        android:layout_height="44dp" />
+</LinearLayout>

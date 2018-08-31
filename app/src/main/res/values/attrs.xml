@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BaseTitleBar">
+        <attr name="btbTitle" format="string" />
+        <attr name="btbLeftImage" format="reference" />
+        <attr name="btbCollectImage" format="reference" />
+        <attr name="btbUpDownImage" format="reference" />
+        <attr name="btbShareImage" format="reference" />
+        <attr name="btbBackground" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="gv_acusttrs">
+        <attr name="divierHeight" format="integer" />
+        <attr name="divierColor" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="SelectNumChildView">
+        <attr name="sncText" format="string" />
+        <attr name="sncBackResource" format="reference"/>
+        <attr name="sncSpTextColorSelector" format="reference|color"/>
+        <attr name="sncOrientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+    </declare-styleable>
+    <!--圆弧进度条-->
+    <declare-styleable name="CircleProgressBar">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+        <attr name="ringBgColor" format="color"/>
+    </declare-styleable>
+    <!--阿里投篮验证-->
+    <declare-styleable name="ALiLoaddingView"><attr format="integer" name="ali_vsdk_loading_type"/></declare-styleable>
+</resources>

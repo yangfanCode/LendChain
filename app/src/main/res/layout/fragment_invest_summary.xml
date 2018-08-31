@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".ui.fragment.invest.InvestSummaryFragment">
+
+    <TextView
+        android:id="@+id/invest_fragment_tvSummary"
+        android:layout_margin="@dimen/padding_15"
+        android:lineSpacingExtra="@dimen/divider_height_1dp"
+        style="@style/text595959_14" />
+
+</android.support.v4.widget.NestedScrollView>

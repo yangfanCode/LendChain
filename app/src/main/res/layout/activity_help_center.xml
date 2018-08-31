@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.common.HelpCenterActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_12h_1px" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_F5F5F5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.yangfan.widget.FormNormal
+                android:id="@+id/help_center_fnRateTip"
+                style="@style/FormNormalBaseStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fnBottomPadding="@dimen/padding_17"
+                app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+                app:fnTitle="@string/rate_tips"
+                app:fnTitleTextColor="@color/color_262626"
+                app:fnTitleTextSize="16"
+                app:fnTopPadding="@dimen/padding_17" />
+
+            <include layout="@layout/row_divider_1px" />
+
+            <com.yangfan.widget.FormNormal
+                android:id="@+id/help_center_fnRiskManage"
+                style="@style/FormNormalBaseStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fnBottomPadding="@dimen/padding_17"
+                app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+                app:fnTitle="@string/risk_management"
+                app:fnTitleTextColor="@color/color_262626"
+                app:fnTitleTextSize="16"
+                app:fnTopPadding="@dimen/padding_17" />
+
+            <include layout="@layout/row_divider_12h_1px" />
+
+            <com.yangfan.widget.FormNormal
+                android:id="@+id/help_center_fnNewbieGuide"
+                style="@style/FormNormalBaseStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fnBottomPadding="@dimen/padding_17"
+                app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+                app:fnTitle="@string/newbie_guide"
+                app:fnTitleTextColor="@color/color_262626"
+                app:fnTitleTextSize="16"
+                app:fnTopPadding="@dimen/padding_17" />
+
+            <include layout="@layout/row_divider_1px" />
+
+            <com.yangfan.widget.FormNormal
+                android:id="@+id/help_center_fnHowToPlay"
+                style="@style/FormNormalBaseStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fnBottomPadding="@dimen/padding_17"
+                app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+                app:fnTitle="@string/how_to_play_with_mortgage_lending"
+                app:fnTitleTextColor="@color/color_262626"
+                app:fnTitleTextSize="16"
+                app:fnTopPadding="@dimen/padding_17" />
+
+            <include layout="@layout/row_divider_1px" />
+
+            <com.yangfan.widget.FormNormal
+                android:id="@+id/help_center_fnMortgageDes"
+                style="@style/FormNormalBaseStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:fnBottomPadding="@dimen/padding_17"
+                app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+                app:fnTitle="@string/mortgage_description"
+                app:fnTitleTextColor="@color/color_262626"
+                app:fnTitleTextSize="16"
+                app:fnTopPadding="@dimen/padding_17" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

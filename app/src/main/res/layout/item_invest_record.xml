@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/padding_15"
+    android:paddingRight="@dimen/padding_15"
+    android:layout_height="@dimen/padding_50">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:layout_centerVertical="true"
+        android:maxLength="8"
+        android:textSize="@dimen/text_size_11"
+        android:id="@+id/item_invest_record_tvName"
+        style="@style/text595959_12" />
+    <TextView
+        android:layout_centerInParent="true"
+        android:text="3.234234"
+        android:layout_width="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/text_size_11"
+        android:id="@+id/item_invest_record_tvAmount"
+        style="@style/text595959_12" />
+    <TextView
+        android:text="2018.09.81 12:11:40"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/text_size_11"
+        android:id="@+id/item_invest_record_tvTime"
+        style="@style/text595959_12" />
+</RelativeLayout>

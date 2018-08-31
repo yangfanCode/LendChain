@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.WithDrawActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_slices"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/withdraw_tvLimit"
+            style="@style/text509FFF_12"
+            android:textSize="@dimen/text_size_11"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_40"
+            android:background="@color/color_EBF4FF"
+            android:gravity="center"
+            android:text="@string/withdraw_limit_lines" />
+
+        <include layout="@layout/row_divider_12h_1px" />
+
+        <TextView
+            style="@style/text262626_12"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15"
+            android:text="@string/withdraw_coin_add" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_33"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <EditText
+                android:id="@+id/withdraw_etAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:hint="15RQLtX6zkiXCJerBYNvMVFA3rH725Gphv"
+                android:textColor="@color/color_262626"
+                android:textColorHint="@color/color_CCCCCC"
+                android:textSize="@dimen/text_size_14"
+                android:theme="@style/MyEditText" />
+
+            <!--<TextView-->
+                <!--android:id="@+id/withdraw_tvPaste"-->
+                <!--style="@style/text509FFF_14"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:paddingBottom="@dimen/padding_10"-->
+                <!--android:paddingLeft="@dimen/padding_10"-->
+                <!--android:text="@string/paste" />-->
+        </FrameLayout>
+
+        <include layout="@layout/row_divider_12h_1px" />
+
+        <TextView
+            style="@style/text262626_12"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15"
+            android:text="@string/withdraw_coin_count" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <com.yangfan.widget.DecimalDigitsEditText
+                android:id="@+id/withdraw_etCount"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/padding_20"
+                android:layout_weight="1"
+                android:background="@null"
+                android:maxLength="15"
+                android:inputType="numberDecimal"
+                app:afterDot="6"
+                android:textColor="@color/color_262626"
+                android:textColorHint="@color/color_CCCCCC"
+                android:textSize="@dimen/text_size_16"
+                android:theme="@style/MyEditText" />
+
+            <TextView
+                android:id="@+id/withdraw_tvCoin"
+                style="@style/text595959_14" />
+        </LinearLayout>
+
+        <include layout="@layout/row_divider_1px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                style="@style/text595959_12"
+                android:text="@string/withdraw_real_money" />
+
+            <TextView
+                android:id="@+id/withdraw_tvRealMoney"
+                style="@style/text509FFF_12"
+                android:maxLength="12"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginRight="@dimen/padding_2"
+                android:text="0" />
+
+            <TextView
+                android:id="@+id/withdraw_tvRealMoneyCoin"
+                style="@style/text595959_12" />
+
+            <TextView
+                style="@style/text595959_12"
+                android:text="@string/withdraw_poundage" />
+
+            <TextView
+                android:id="@+id/withdraw_tvPoundage"
+                style="@style/text509FFF_12"
+                android:layout_marginRight="@dimen/padding_2" />
+
+            <TextView
+                android:id="@+id/withdraw_tvPoundageCoin"
+                style="@style/text595959_12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/with_draw_llMemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/row_divider_12h_1px" />
+            <TextView
+                style="@style/text262626_12"
+                android:layout_width="match_parent"
+                android:layout_height="53dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/padding_15"
+                android:paddingRight="@dimen/padding_15"
+                android:text="@string/withdraw_note_memo" />
+
+            <EditText
+                android:id="@+id/withdraw_etMemo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/padding_33"
+                android:background="@color/white"
+                android:gravity="top"
+                android:hint="@string/withdraw_note_memo_hint"
+                android:paddingLeft="@dimen/padding_15"
+                android:textColor="@color/color_262626"
+                android:textColorHint="@color/color_CCCCCC"
+                android:textSize="@dimen/text_size_14"
+                android:theme="@style/MyEditText" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/withdraw_btnConfirm"
+            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="@dimen/padding_15"
+            android:layout_marginRight="@dimen/padding_15"
+            android:layout_marginTop="@dimen/padding_30"
+            android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+            android:text="@string/withdraw_confirm" />
+    </LinearLayout>
+</LinearLayout>

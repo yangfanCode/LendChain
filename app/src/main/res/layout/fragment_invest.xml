@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.lend.lendchain.ui.fragment.InfoFragment">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+    <com.yangfan.widget.CustomTabLayout
+        android:background="@color/white"
+        android:id="@+id/invest_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_40"/>
+    <include layout="@layout/row_divider_1px"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/invest_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
