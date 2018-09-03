@@ -32,7 +32,7 @@
     <string name="take_a_picture">Taking pictures</string>
     <string name="permission_write_external_storage_not_allow">Read/write permission of storage device is not enabled</string>
     <string name="permission_camera_not_allow">Camera permissions are not enabled</string>
-    <string name="confirm">Done</string>
+    <string name="confirm">Confirm</string>
     <string name="continue_">Continue</string>
     <string name="no_login">Not logged in</string>
     <string name="no_data">No Records</string>
@@ -126,7 +126,8 @@
     <string name="invest_money">Invest Amount</string>
     <string name="last_income">Interest</string>
     <string name="last_income_1">Interest:</string>
-    <string name="over_lack_please_recharge">Insufficient balance, Recharge</string>
+    <string name="over_lack_please_recharge">Insufficient balance, Recharge&#160;</string>
+    <string name="over_lack">Insufficient balance</string>
     <string name="pay_verify">Payment verification</string>
     <string name="pay">Payment</string>
     <string name="please_input_invest_amount">Enter Loan Amount</string>
@@ -149,7 +150,7 @@
     <string name="go_regiest">Sign Up</string>
     <string name="go_login">Login</string>
     <string name="please_input_email_code">Enter Email Code</string>
-    <string name="send_verify_code">Send SMS</string>
+    <string name="send_verify_code">Send</string>
     <string name="please_input_invited_code">Enter the Inviter\'s ID (optional)</string>
     <string name="please_input_correct_email">Please enter the correct email</string>
     <string name="please_input_correct_pwd">8-20 characters with a mix of letters, numbers and symbols</string>
@@ -232,10 +233,10 @@
     <string name="loan_deadline_pay_interest">Accrued Interest</string>
     <string name="loan_confirm">Confirm</string>
     <string name="day_ri">days</string>
-    <string name="day_tian">&#160;d&#160;</string>
-    <string name="hour">&#160;h&#160;</string>
-    <string name="minute">&#160;m&#160;</string>
-    <string name="second">&#160;s&#160;</string>
+    <string name="day_tian">days&#160;</string>
+    <string name="hour">:</string>
+    <string name="minute">:</string>
+    <string name="second">&#160;later</string>
     <string name="please_input_loan_count">Enter borrowed</string>
     <string name="please_input_mortgage_count">Enter mortgages</string>
     <string name="please_goto_certified_all">You need to complete the certification before borrowing</string>
@@ -246,7 +247,7 @@
     <string name="borrowing_requirements">Borrowing instructions</string>
     <string name="please_read_borrowing_requirements">Please read the borrowing instructions first</string>
     <string name="loan_confirm_tips">Because the operation time is too long, the price of borrowing currency has decreased, and the corresponding amount of borrowing has also decreased, whether to continue borrowing</string>
-    <string name="loan_title_tips">Warm reminder:\n1. 0 service charge for transfer within the platform.\n2. Account will be received immediately after transfer within the platform.</string>
+    <string name="loan_title_tips">Note:\n1.The mortgage loan platform will charge 1% of the loan amount as a handling fee.\n2.You can do the early payment after at least 24 hours from the borrowing time.</string>
     <string name="borrowing_requirements_tips">1.The loan will become effective.If the underlying investment does not reach 100% within 24 hours,or if the price of the digital currency lowers more than 20% within 24 hours,the target will automatically become invalid and the digital currency of the investment will be returned to the investor.\n
         2.Before the end of the loan period,LendChain will remind the borrower to return the loan on time.If the loan is overdue,the borrower need pay overdue fees.When the overdue time reaches 7 days,LendChain will take over the collateral assets,and after deducting the overduefees,the assets will be returned to the borrower according to the investment proportion.\n
         3.LendChain established awarning line (140%) and a closing line(110%),the closing line=borrowing amount * 110% and the warning line=borrowing amount * 140%.When the collateral assets reach the warning line,the system will remind the borrower to ask them to increase the collateral.When the collateral assets reach the closing line,the collateral assets will be processed for delivery,and the assets will be owned by the lenders.</string>
@@ -298,7 +299,7 @@
     <string name="about_us">About Us</string>
     <string name="help_center">Help Center</string>
     <!--MyInvestListActivity-->
-    <string name="loan_amount">Loan Amount</string>
+    <string name="loan_amount">Borrow assets</string>
     <string name="interest">Interest</string>
     <string name="deadLine">Expiration time</string>
     <string name="wait_submit">Waiting</string>
@@ -312,7 +313,7 @@
     <string name="repay_finish">Repayment\ncompletion</string>
     <string name="mandatory_delivery">Compulsory\ndelivery</string>
     <string name="forced_to_unwind">Stop out</string>
-    <string name="fulled_standard">Finished</string>
+    <string name="fulled_standard">Full time</string>
     <string name="invest_failed">Investment failure</string>
     <string name="unknow">Unknown</string>
     <!--ReChargeWithdrawActivity-->

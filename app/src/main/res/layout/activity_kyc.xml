@@ -40,7 +40,7 @@
 
         <TextView
             style="@style/text999999_14"
-            android:layout_width="@dimen/round_head_height_60"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
@@ -105,7 +105,7 @@
 
         <TextView
             style="@style/text999999_14"
-            android:layout_width="@dimen/round_head_height_60"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center_vertical"
