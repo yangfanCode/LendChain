@@ -42,7 +42,7 @@
     <string name="ali_vsdk_network_error">Network is unreachable, please try again later.</string>
     <string name="ali_vsdk_refresh">새로고침</string>
     <string name="ali_vsdk_tips">안전인증</string>
-    <string name="ali_vsdk_tips_finish">Passed</string>
+    <string name="ali_vsdk_tips_finish">인증 성공</string>
     <string name="ali_vsdk_tips_sub">계정안정을 위해 이번 로그인에 인증하십시오 아래의 아이콘을 원형 구역으로 이동하십시오</string>
     <string name="ali_vsdk_titlebar_back">귀환</string>
     <string name="ali_vsdk_titlebar_name"/>
@@ -73,7 +73,7 @@
     <string name="annualized">年化</string>
     <string name="market">시세</string>
     <string name="currency">코인</string>
-    <string name="latest_price">최근 가격</string>
+    <string name="latest_price">현재가</string>
     <string name="gain24h">24h변동률</string>
     <string name="highest24h">24h최고가</string>
     <string name="lowest24h">24h최저가</string>
@@ -91,8 +91,8 @@
     <string name="deadline">기한</string>
     <string name="day">일</string>
     <string name="day_period">일기한</string>
-    <string name="di3">M</string>
-    <string name="ping2">P</string>
+    <string name="di3">담</string>
+    <string name="ping2">플</string>
     <!--investSummaryActivity-->
     <string name="invest_confirm">당장 투자</string>
     <string name="expect_annualized">연이율</string>
@@ -139,7 +139,7 @@
     <!--LoginActivity-->
     <string name="login">로그인</string>
     <string name="login_now">바로 로그인</string>
-    <string name="please_input_email">수취인 메일 주소</string>
+    <string name="please_input_email">이메일 주소</string>
     <string name="please_input_pwd">비밀번호 입력</string>
     <string name="please_input_new_pwd">새 비밀번호 입력</string>
     <string name="forget_pwd">비밀번호 찾기?</string>
@@ -190,7 +190,7 @@
     <string name="please_select_country_code">전화번호 국가코드를 선택하십시오</string>
     <string name="please_input_smscode">인증번호 입력</string>
     <string name="please_input_correct_phone">정확한 핸드폰 번호를 입력하십시오</string>
-    <string name="please_select_country_area">국가를 선택 해 주세요.</string>
+    <string name="please_select_country_area">전화번호 국가코드</string>
     <string name="certified_success">인증 성공</string>
     <!--GoogleCertifyActivity-->
     <string name="please_save_google_key">알림 : Google QR 코드와 키를 백업하는 것을 잊지 마십시오.</string>

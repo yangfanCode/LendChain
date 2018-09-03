@@ -19,13 +19,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.google.gson.Gson;
-import com.lend.lendchain.MyApplication;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.CallWebModel;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
-import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.LoadAnimationUtils;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.utils.SPUtil;
@@ -157,7 +155,6 @@ public class WebActivity extends BaseActivity implements OnClickListener {
                     if (TextUtils.isEmpty(mTitle)) {
                         tvTitle.setText(webview.getTitle());
                     }
-                    initLangeuage();//修复安卓7.0以后 webview多语言失效
                 }
                 super.onProgressChanged(view, newProgress);
             }
@@ -261,11 +258,7 @@ public class WebActivity extends BaseActivity implements OnClickListener {
 //        MobclickAgent.onPageEnd(UmengAnalyticsPageHelper.UM_PAGE_Web);
 //        MobclickAgent.onPause(this);
     }
-    private void initLangeuage() {
-        String lan = LanguageUtils.getUserLanguageSetting();//读取语言设置
-        LogUtils.LogD(MyApplication.class, "================之前选择的语言 : " + lan);
-        LanguageUtils.saveLanguageSetting(LanguageUtils.getLocalFromCustomLang(lan));
-    }
+
 
     public class JSBridge {
         //js调用安卓方法

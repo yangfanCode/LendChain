@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
+import android.webkit.WebView;
 
 import com.alibaba.wireless.security.jaq.JAQException;
 import com.alibaba.wireless.security.jaq.SecurityInit;
@@ -64,6 +65,7 @@ public class MyApplication extends Application {
 //		Fresco.initialize(this);
 		FrescoUtils.initialize(this);
 		LogUtils.setAppEnvEnum(AppEnvHelper.currentEnv());
+		initWebView();
 		initLangeuage();//初始化语言
 		RxJavaPlugins.getInstance().registerObservableExecutionHook(new RxJavaObservableExecutionHook() {//hook rxjava observer
 			@Override
@@ -84,6 +86,10 @@ public class MyApplication extends Application {
 		} catch (JAQException e) {
 			e.printStackTrace();
 		}
+	}
+	//处理Android7（N）webview导致应用内语言失效的问题
+	private void initWebView(){
+		new WebView(this).destroy();
 	}
 
 	private void initLangeuage() {

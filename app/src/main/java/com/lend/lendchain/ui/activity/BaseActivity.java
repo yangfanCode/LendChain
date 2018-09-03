@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.lend.lendchain.MyApplication;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.helper.AndroidMHelper;
@@ -27,6 +28,7 @@ import com.lend.lendchain.helper.AppManager;
 import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.service.Service;
 import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
@@ -98,6 +100,7 @@ public abstract class BaseActivity extends FragmentActivity {
 
         mActivity = this;
         gson = new Gson();
+        initLangeuage();//修复安卓7.0以后 webview多语言失效
 //        languageSetting = CommonUtil2.getLanguageSetting();
 //        CommonUtil2.saveLanguageSetting(languageSetting);
 //        EventBus.getDefault().register(this);
@@ -324,6 +327,12 @@ public abstract class BaseActivity extends FragmentActivity {
         }else{
             TipsToast.showTips(resultBean.message);
         }
+    }
+
+    private void initLangeuage() {
+        String lan = LanguageUtils.getUserLanguageSetting();//读取语言设置
+        LogUtils.LogD(MyApplication.class, "================之前选择的语言 : " + lan);
+        LanguageUtils.saveLanguageSetting(LanguageUtils.getLocalFromCustomLang(lan));
     }
 
 
