@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/invest_fragment_tvSummary"
         android:layout_margin="@dimen/padding_15"
-        android:lineSpacingExtra="@dimen/divider_height_1dp"
+        android:lineSpacingExtra="@dimen/padding_2"
         style="@style/text595959_14" />
 
 </android.support.v4.widget.NestedScrollView>

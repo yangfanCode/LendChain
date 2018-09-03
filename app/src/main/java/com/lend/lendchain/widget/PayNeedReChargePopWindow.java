@@ -5,7 +5,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -48,12 +47,12 @@ public class PayNeedReChargePopWindow {
         TextView tvOver=contentView.findViewById(R.id.pay_need_recharge_tvOver);
         TextView tvOverP=contentView.findViewById(R.id.pay_need_recharge_tvOverP);
         TextView tvIncome=contentView.findViewById(R.id.pay_need_recharge_tvIncome);
-        Button btnGoRecharge=contentView.findViewById(R.id.pay_need_recharge_btnGoRecharge);
+        TextView btnGoRecharge=contentView.findViewById(R.id.pay_need_recharge_btnGoRecharge);
         LinearLayout llIncome=contentView.findViewById(R.id.pay_need_recharge_llIcome);
         tvOver.setText(CommonUtil.doubleTransRound6(amount)+" "+code);
         tvOverP.setText(activity.getString(R.string.over_to_use).concat(CommonUtil.doubleTransRound6(amount)+""));
         llIncome.setVisibility(income==0?View.GONE:View.VISIBLE);
-        if(llIncome.getVisibility()==View.VISIBLE)tvIncome.setText(income+code);//到期收益
+        if(llIncome.getVisibility()==View.VISIBLE)tvIncome.setText(CommonUtil.doubleTransRound6(income)+" "+code);//到期收益
         btnGoRecharge.setText(activity.getString(R.string.over_lack_please_recharge).concat(CommonUtil.doubleTransRound6(amountInput-amount)+" "+code));
         btnGoRecharge.setOnClickListener(v -> {
             dismiss();

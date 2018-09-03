@@ -42,7 +42,7 @@ public class KeyBoardInputPopWindow {
     private double income;//收益
     private int inputType=1;//键盘输入u模式 1 金钱模式 2 谷歌code模式
     private int mode;//默认状态 1输入金钱模式 2谷歌验证码模式
-    private double amount;//余额
+    private double amount;//账户余额
     //    private int[] shareToast={R.string.noWeChat,R.string.noWeChat,R.string.noWeiBo};
     public KeyBoardInputPopWindow(Activity activity,int mode,String code,double interestRates,int borrowDays,double amount,String investLave) {
         this.activity = activity;
@@ -239,8 +239,13 @@ public class KeyBoardInputPopWindow {
         etMoney.setFocusableInTouchMode(true);
         etMoney.requestFocus();
         ivClose.setOnClickListener(v -> dismiss());
-        tvAllInvest.setOnClickListener(v -> {//余额全投
-            etMoney.setText(investLave);
+        tvAllInvest.setOnClickListener(v -> {//余额全投操作
+            //当用余额小于标的余额时余额全投展示用户余额 当用户余额大于标的余额时展示标的余额
+            if(amount<Double.parseDouble(investLave)){
+                etMoney.setText(CommonUtil.doubleTransRound6(amount));
+            }else{
+                etMoney.setText(investLave);
+            }
             etMoney.setSelection(etMoney.getText().length());
         });
         etMoney.setOnTouchListener((v, event) -> {

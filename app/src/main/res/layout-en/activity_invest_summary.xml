@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.invest.InvestSummaryActivity">
-
+<!--英文和中文布局 基础信息部分布局不同-->
     <com.lend.lendchain.widget.BaseTitleBar
         android:id="@+id/base_title_bar"
         android:layout_width="match_parent"
@@ -222,11 +222,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="105dp"/>
                     <include layout="@layout/row_divider_12h_1px" />
-
+                    <!--英文和中文布局 基础信息部分布局不同-->
                     <LinearLayout
                         android:background="@color/white"
                         android:layout_width="match_parent"
-                        android:layout_height="185dp"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:paddingLeft="@dimen/padding_15"
                         android:paddingRight="@dimen/padding_15">
@@ -243,32 +243,41 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="32dp"
-                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
+                                android:layout_width="150dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/start_time" />
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
                                 android:id="@+id/invest_summary_tvStartTime"
                                 style="@style/text595959_12" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="32dp"
-                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
+                                android:layout_width="150dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/calc_way" />
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
+                                android:gravity="left"
                                 android:text="@string/calc_way_msg"
                                 android:id="@+id/invest_summary_tvCalcWay"
                                 style="@style/text595959_12" />
@@ -276,16 +285,21 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="32dp"
-                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
+                                android:layout_width="150dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/repay_way" />
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
+                                android:gravity="left"
                                 android:id="@+id/invest_summary_tvRepayWay"
                                 android:text="@string/repay_way_msg"
                                 style="@style/text595959_12" />
@@ -293,16 +307,20 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="32dp"
-                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
+                                android:layout_width="150dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/purchase_funds" />
 
                             <TextView
+                                android:paddingTop="@dimen/padding_8"
+                                android:paddingBottom="@dimen/padding_8"
                                 android:id="@+id/invest_summary_tvPurchaseFunds"
                                 style="@style/text595959_12" />
                         </LinearLayout>

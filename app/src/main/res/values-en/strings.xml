@@ -180,8 +180,8 @@
     <string name="certified">Verified</string>
     <string name="kyc_certify_retry">Retry</string>
     <string name="invest_success">Investment success </string>
-    <string name="unwind_line">Warning line</string>
-    <string name="cordon_line">Closing line</string>
+    <string name="unwind_line">Closing line</string>
+    <string name="cordon_line">Warning line</string>
     <!--PhoneCertifyActivity-->
     <string name="phone">Phone Number</string>
     <string name="sms_code">SMS Code</string>
@@ -195,7 +195,7 @@
     <string name="please_save_google_key">Tips: Remember to back up Google QR code or key</string>
     <string name="google_qrcode_key">Google QR Code and Private Key：</string>
     <string name="google_code">Google code</string>
-    <string name="please_input_google">Please enter Google verification code</string>
+    <string name="please_input_google">Enter Google code</string>
     <string name="copy">copy</string>
     <string name="copy_success">Copy success</string>
     <string name="google_certify_tips">Steps:\n1.iOS users download “google authenticator” from the app store, and Android users download “Google authenticator” in the play store or Google search.\n2. In the “Google Authenticator” application, click on the “+” sign in the upper right corner and select “Manually enter verification code”.\n3. Paste the above “Key” into the “Key” input field, fill in your LendChain account, and click “Finish”.\n4. Copy ”Google Verification Code“ and paste it into the ”Google Verification Code“ input field above. Do not delete this double verification password account, otherwise you will be unable to perform account operations; if you delete it by mistake, you can retrieve it again by resetting the key.\n5. Please keep your key in a safe place. In the event that your mobile phone is lost, you can use this key to restore your Google verification.";</string>
@@ -232,10 +232,10 @@
     <string name="loan_deadline_pay_interest">Accrued Interest</string>
     <string name="loan_confirm">Confirm</string>
     <string name="day_ri">days</string>
-    <string name="day_tian">days</string>
-    <string name="hour">hours</string>
-    <string name="minute">minutes</string>
-    <string name="second">seconds</string>
+    <string name="day_tian">&#160;d&#160;</string>
+    <string name="hour">&#160;h&#160;</string>
+    <string name="minute">&#160;m&#160;</string>
+    <string name="second">&#160;s&#160;</string>
     <string name="please_input_loan_count">Enter borrowed</string>
     <string name="please_input_mortgage_count">Enter mortgages</string>
     <string name="please_goto_certified_all">You need to complete the certification before borrowing</string>
@@ -276,6 +276,8 @@
     <string name="upload_document_material">Upload document materials</string>
     <string name="id_card_positive">Picture of ID(Front)</string>
     <string name="id_card_negative">Picture of ID(Back)</string>
+    <string name="passport_positive">Passport(Cover)</string>
+    <string name="passport_negative">Passport(Personal page)</string>
     <string name="id_card_tips">Please keep the identity information in the photo displayed intact, the font is clearly visible and the brightness is even.</string>
     <string name="id_card_self_tips">Upload a picture for yourself holding a paper and write on it. ”LendChain Certification”and the date.</string>
     <string name="self_photo">Picture of Yourself</string>
@@ -363,7 +365,7 @@
     <string name="confirm_nomal_repay">Whether to confirm normal repayment</string>
     <string name="repay_success">Repayment completion</string>
     <string name="look_loan_content"><u>View the content of the target</u></string>
-    <string name="least_add">Add at least</string>
+    <string name="least_add">Add at least&#160;</string>
     <!--AboutUsActivity-->
     <string name="what_is_lendchain">What is Lendchain?</string>
     <string name="version_name">Current version</string>
@@ -392,13 +394,13 @@
     <string name="withdraw_coin_add">Withdrawal Address</string>
     <string name="withdraw_cerfity">Withdrawal Verification</string>
     <string name="withdraw_coin_count">Amount</string>
-    <string name="withdraw_min_count">The minimum number is </string>
+    <string name="withdraw_min_count">The minimum number is&#160;</string>
     <string name="withdraw_real_money">Actual arrival&#160;:&#160;</string>
     <string name="withdraw_poundage">&#160;,&#160;Withdrawal fee&#160;:&#160;</string>
     <string name="withdraw_note_memo">Memo</string>
-    <string name="withdraw_confirm">Confirm withdrawal</string>
+    <string name="withdraw_confirm">Confirm</string>
     <string name="withdraw_note_memo_hint">Please enter the Memo</string>
-    <string name="withdraw_limit_lines">Warm prompt：%1$sThe maximum withdrawal limit within 24 hours is %2$s</string>
+    <string name="withdraw_limit_lines">Tip:the maximum amount of %1$s for withdrawing within 24 hours is %2$s</string>
     <string name="email_code">Email Code</string>
     <string name="please_input_withdraw_add">Please enter the withdrawal address</string>
     <string name="please_input_withdraw_count">Please enter the amount of withdrawal</string>
@@ -408,8 +410,8 @@
     <string name="transfer_platform">Transfer in LendChain</string>
     <string name="transfer_count">Amount</string>
     <string name="transfer_nickname_optional">Nickname\n<font color='#509FFF'>(Optional)</font></string>
-    <string name="transfer_phone_optional">Phone\n<font color='#509FFF'>(Optional)</font></string>
-    <string name="transfer_confirm">Confirm the transfer</string>
+    <string name="transfer_phone_optional">Phone Number\n<font color='#509FFF'>(Optional)</font></string>
+    <string name="transfer_confirm">Confirm</string>
     <string name="please_input_transfer_count">Enter Amount</string>
     <string name="please_input_transfer_cllection_nickname">Enter Payee Nickname</string>
     <string name="transfer_cerfity">Transfer validation</string>

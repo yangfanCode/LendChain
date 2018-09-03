@@ -385,7 +385,7 @@ public class InvestSummaryActivity extends BaseActivity {
         interestRates = investSummary.interestRates;
         borrowDays = investSummary.borrowDays;
         baseTitleBar.setTitle(investSummary.orderId);
-        baseTitleBar.setTitleChild(investSummary.nickname);
+        if(!TextUtils.isEmpty(investSummary.nickname))baseTitleBar.setTitleChild("("+investSummary.nickname+")");
         //创建viewpager
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(InvestSummaryFragment.newInstance(investSummary.desc), getString(R.string.invest_summary));

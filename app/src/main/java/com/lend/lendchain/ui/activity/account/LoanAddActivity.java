@@ -142,7 +142,7 @@ public class LoanAddActivity extends BaseActivity {
                     tvCloseLine.setText(CommonUtil.doubleTransRound6(closing)+" "+borrowCryptoCode+"(110%)");//平仓线
                     tvAddCode.setText(mortgageCryptoCode);//追加抵押code
                     double leastAdd=(warning-mortage)/price;
-                    etAddCount.setHint(getString(R.string.least_add).concat(CommonUtil.doubleTransRound6(leastAdd>0?leastAdd:0)).concat(mortgageCryptoCode));
+                    etAddCount.setHint(getString(R.string.least_add).concat(CommonUtil.doubleTransRound6(leastAdd>0?leastAdd:0)).concat(" "+mortgageCryptoCode));
                     if(borrowAmount!=0){
                         double rio=price*mortgageAmount/borrowAmount;
                         mortageSufficientRate=CommonUtil.doubleTransRoundTwo(rio*100,2);

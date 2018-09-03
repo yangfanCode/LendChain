@@ -119,7 +119,6 @@ public class WithDrawActivity extends BaseActivity {
                 TipsToast.showTips(getString(R.string.please_input_withdraw_count));
                 return;
             }
-            double d=Double.valueOf(count);
             if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
                 TipsToast.showTips(getString(R.string.withdraw_min_count) + CommonUtil.doubleTransRound6(minWithdraw));
                 return;

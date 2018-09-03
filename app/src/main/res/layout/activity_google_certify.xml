@@ -62,7 +62,8 @@
     </FrameLayout>
     <include layout="@layout/row_divider_12h_1px"/>
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_50"
         android:background="@color/white"
@@ -70,13 +71,16 @@
         android:paddingRight="@dimen/padding_15">
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             style="@style/text999999_14"
             android:layout_gravity="center_vertical"
             android:text="@string/sms_code" />
 
         <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:id="@+id/google_certify_etSmsCode"
-            android:layout_width="111dp"
             android:layout_height="@dimen/padding_15"
             android:layout_gravity="center"
             android:background="@null"
@@ -87,26 +91,34 @@
             android:theme="@style/MyEditText" />
 
         <TextView
+            android:gravity="right"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:id="@+id/google_certify_tvSendSmsCode"
             style="@style/text999999_14"
             android:layout_gravity="center_vertical|right"
             android:text="@string/send_verify_code"
             android:textColor="@color/text_999999_509fff_enabled_selector" />
-    </FrameLayout>
+    </LinearLayout>
     <include layout="@layout/row_divider_1px" />
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_50"
         android:background="@color/white"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/padding_15"
         android:paddingRight="@dimen/padding_15">
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             style="@style/text999999_14"
             android:layout_gravity="center_vertical"
             android:text="@string/google_code" />
 
         <EditText
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:id="@+id/google_certify_etGoogleCode"
             style="@style/text262626_14"
             android:layout_gravity="center"
@@ -116,7 +128,7 @@
             android:maxLength="6"
             android:textColorHint="@color/color_CCCCCC"
             android:theme="@style/MyEditText" />
-    </FrameLayout>
+    </LinearLayout>
     <TextView
         android:id="@+id/google_certify_btnConfirm"
         style="@style/buttonStyle"
