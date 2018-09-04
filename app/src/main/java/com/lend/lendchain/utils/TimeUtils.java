@@ -131,10 +131,10 @@ public class TimeUtils {
         min = ((diff / (60 * 1000)) - day * 24 * 60 - hour * 60);
         sec = (diff/1000-day*24*60*60-hour*60*60-min*60);
         String dayStr= ContextHelper.getApplication().getString(R.string.day_tian);
-        String hourStr= ContextHelper.getApplication().getString(R.string.hour);
-        String minStr= ContextHelper.getApplication().getString(R.string.minute);
-        String secStr= ContextHelper.getApplication().getString(R.string.second);
-        return day+dayStr+hour+hourStr+min+minStr+sec+secStr;//8天 2时40分5秒
+        String colonStr= ContextHelper.getApplication().getString(R.string.invest_colon);
+        String laterStr= ContextHelper.getApplication().getString(R.string.invest_later);
+        //5天 10:10:20 之后
+        return day+dayStr+" "+hour+colonStr+min+colonStr+sec+" "+laterStr;//8天 2时40分5秒
     }
 
 }

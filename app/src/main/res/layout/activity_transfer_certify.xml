@@ -20,8 +20,8 @@
         <include layout="@layout/row_divider_12h_1px"/>
         <FrameLayout
             android:background="@color/white"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15"
+            android:paddingLeft="@dimen/padding_12"
+            android:paddingRight="@dimen/padding_12"
             android:layout_width="match_parent"
             android:layout_height="@dimen/padding_50">
             <TextView
@@ -29,6 +29,7 @@
                 android:layout_gravity="center_vertical"
                 style="@style/text999999_14" />
             <EditText
+                android:layout_marginLeft="@dimen/padding_10"
                 android:id="@+id/transfer_certify_etEmailCode"
                 android:theme="@style/MyEditText"
                 android:background="@null"
@@ -49,8 +50,8 @@
         <include layout="@layout/row_divider_1px"/>
         <FrameLayout
             android:background="@color/white"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15"
+            android:paddingLeft="@dimen/padding_12"
+            android:paddingRight="@dimen/padding_12"
             android:layout_width="match_parent"
             android:layout_height="@dimen/padding_50">
             <TextView
@@ -58,6 +59,7 @@
                 android:layout_gravity="center_vertical"
                 style="@style/text999999_14" />
             <EditText
+                android:layout_marginLeft="@dimen/padding_10"
                 android:id="@+id/transfer_certify_etGoogleCode"
                 android:theme="@style/MyEditText"
                 android:background="@null"

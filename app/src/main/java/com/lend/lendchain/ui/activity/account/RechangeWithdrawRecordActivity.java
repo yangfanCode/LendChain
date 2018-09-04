@@ -58,7 +58,6 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
         adapter.addFrag(TransferRecordFragment.newInstance(),getString(R.string.transfer));
         adapter.addFrag(LVSendFragment.newInstance(),getString(R.string.send_LV));
         viewPager.setAdapter(adapter);
-        viewPager.setOffscreenPageLimit(3);
         tabLayout.setupWithViewPager(viewPager);
     }
 }

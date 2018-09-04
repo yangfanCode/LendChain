@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.fragment.rechargewithdraw.LVSendFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.lend.lendchain.widget.ListViewWithOptional
+        android:id="@+id/lvSendr_record_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:divider="@null"
+        android:layout_height="match_parent"/>
+</LinearLayout>

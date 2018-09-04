@@ -72,7 +72,7 @@
     <string name="Borrowed">차입 자산</string>
     <string name="minInvestAmount">최소 투자</string>
     <string name="investNow">지금 투자하기</string>
-    <string name="annualized">年化</string>
+    <string name="annualized">연이율</string>
     <string name="market">시세</string>
     <string name="currency">코인</string>
     <string name="latest_price">현재가</string>
@@ -137,7 +137,7 @@
     <string name="please_input_google_code">구글 인증번호 입력</string>
     <string name="paste">붙여넣기</string>
     <string name="new_user_not_enough">초보자 남은 한도가 부족합니다</string>
-    <string name="input_must_greater_minAmount">입력 금액은 최소 투자 금액보다 커야합니다.(최소</string>
+    <string name="input_must_greater_minAmount">입력 금액은 최소 투자 금액보다 커야합니다.</string>
     <string name="min">최소</string>
     <string name="invest_guidelines_text">자금은24h내로차관표적모집이100%에달하지못하거나24h내로담보물가격이하락폭20%를초과하면이번차관은성립되지않으며담보물은투자자에게상환됩니다.\n\n
     연체시간이7일에도달했을때LendChain은담보물에대한교할처리를진행합니다.연체수수료를덜어내고남은자산은투자비율에따라채권자에게돌려드립니다.\n\n
@@ -241,9 +241,8 @@
     <string name="loan_confirm">차입 확인</string>
     <string name="day_ri">일</string>
     <string name="day_tian">일</string>
-    <string name="hour">h</string>
-    <string name="minute">min</string>
-    <string name="second">s</string>
+    <string name="invest_colon">:</string>
+    <string name="invest_later">후에</string>
     <string name="please_input_loan_count">차입 수량을 입력하십시오</string>
     <string name="please_input_mortgage_count">담보 수량 입력하십시오</string>
     <string name="minimum_number_is">최소액은:</string>
@@ -371,7 +370,7 @@
     <string name="confirm_within_repay">연체 상환여부 확인하십시오</string>
     <string name="confirm_before_repay">미리 상환여부 확인하십시오</string>
     <string name="confirm_nomal_repay">상환여부 확인하십시오</string>
-    <string name="repay_success">还款成功</string>
+    <string name="repay_success">상환에 성공하다.</string>
     <string name="look_loan_content"><u>표적 상세 내역  보기</u></string>
     <string name="least_add">최소 추가액</string>
     <!--AboutUsActivity-->
@@ -395,7 +394,7 @@
     <string name="go_set">설정하기</string>
     <string name="warm_tip_set">주의사항:설정 완료후에 변경 불가능합니다</string>
     <string name="set_nickname">닉네임 설치</string>
-    <string name="please_input_nickname">请输入昵称</string>
+    <string name="please_input_nickname">닉네임을 입력하십시오.</string>
     <string name="please_input_regex_nickname">닉네임에 빈칸과 잘못된 문자을 넣을 수 없고 최대 8글자</string>
     <string name="set_success">닉네임 설정 성공</string>
     <!--WithDrawActivity-->

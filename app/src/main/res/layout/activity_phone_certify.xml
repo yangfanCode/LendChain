@@ -38,7 +38,8 @@
     </LinearLayout>
 
     <include layout="@layout/row_divider_1px" />
-    <FrameLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_50"
         android:background="@color/white"
@@ -46,11 +47,15 @@
         android:paddingRight="@dimen/padding_15">
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             style="@style/text999999_14"
             android:layout_gravity="center_vertical"
             android:text="@string/phone" />
 
         <EditText
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:id="@+id/phone_certify_etPhone"
             style="@style/text262626_14"
             android:layout_gravity="center"
@@ -60,11 +65,12 @@
             android:maxLength="15"
             android:textColorHint="@color/color_CCCCCC"
             android:theme="@style/MyEditText" />
-    </FrameLayout>
+    </LinearLayout>
 
     <include layout="@layout/row_divider_1px" />
 
-    <FrameLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_50"
         android:background="@color/white"
@@ -72,13 +78,16 @@
         android:paddingRight="@dimen/padding_15">
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             style="@style/text999999_14"
             android:layout_gravity="center_vertical"
             android:text="@string/sms_code" />
 
         <EditText
             android:id="@+id/phone_certify_etSmsCode"
-            android:layout_width="111dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="@dimen/padding_15"
             android:layout_gravity="center"
             android:background="@null"
@@ -89,12 +98,15 @@
             android:theme="@style/MyEditText" />
 
         <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="right"
             android:id="@+id/phone_certify_tvSendSmsCode"
             style="@style/text999999_14"
             android:layout_gravity="center_vertical|right"
             android:text="@string/send_verify_code"
             android:textColor="@color/text_999999_509fff_enabled_selector" />
-    </FrameLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/phone_certify_btnConfirm"

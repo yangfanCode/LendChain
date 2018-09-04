@@ -270,7 +270,7 @@ public interface AppApi {
      * @return
      */
     @GET("trade/deposit/index")
-    Observable<ResultBean<List<MyInvestList>>> myReChargeList(@QueryMap Map<String, Object> account);
+    Observable<ResultBean<List<RechargeWithDraw>>> myReChargeList(@QueryMap Map<String, Object> account);
     /**
      * 我的提现记录
      *

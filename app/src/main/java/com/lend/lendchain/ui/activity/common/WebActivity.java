@@ -22,6 +22,8 @@ import com.google.gson.Gson;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.CallWebModel;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.account.MyWalletActivity;
+import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.LoadAnimationUtils;
@@ -268,8 +270,9 @@ public class WebActivity extends BaseActivity implements OnClickListener {
             String str="";
             Map<String, Object> map = new HashMap<String, Object>();
             map = new Gson().fromJson(message, map.getClass());
-            String type = map.get("type").toString();
-            if("1.0".equals(type)||"01".equals(type)) {//靠海行动
+            double t= (double) map.get("type");
+            String type = String.valueOf((int)t);
+            if("1".equals(type)) {//靠海行动传token
                 CallWebModel model = new CallWebModel();
                 model.code = "2000";
                 model.message = "success";
@@ -277,8 +280,10 @@ public class WebActivity extends BaseActivity implements OnClickListener {
                 data.put("token", SPUtil.getToken());
                 model.data = data;
                 str = new Gson().toJson(model);
-            }else if("2.0".equals(type)){
-                TipsToast.showTips("2.0");
+            }else if("2".equals(type)){//安全认证
+                CommonUtil.openActicity(WebActivity.this, SafeCertifyActivity.class,null);
+            }else if("3".equals(type)){//我的钱包
+                CommonUtil.openActicity(WebActivity.this, MyWalletActivity.class,null);
             }
             return str;
         }
