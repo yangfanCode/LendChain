@@ -28,6 +28,7 @@ import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DisplayUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.TimeUtils;
@@ -190,7 +191,7 @@ public class InvestSummaryActivity extends BaseActivity {
                             @Override
                             public void onSuccess(ResultBean<SimpleBean> resultBean) {
                                 newUserAmount=resultBean.data.lastNewAmount;
-                                tvMortgageAsset.setText(CommonUtil.doubleTransRound6(newUserAmount)+" "+ investSummaryResultBean.data.borrowCryptoCode);
+                                tvMortgageAsset.setText(DoubleUtils.doubleTransRound6(newUserAmount)+" "+ investSummaryResultBean.data.borrowCryptoCode);
                             }
                         });//读取用户此币种余额
                     }
@@ -246,7 +247,7 @@ public class InvestSummaryActivity extends BaseActivity {
                                     double amountInput=Double.parseDouble(amountStr);
                                     if(amountInput<minInvestAmount){//小于起购
                                         if(!amountStr.equals(investLave)){//当余额小于最小起购 排除余额全投
-                                            TipsToast.showTips(getString(R.string.input_must_greater_minAmount)+"("+getString(R.string.min)+CommonUtil.doubleTransRound6(minInvestAmount)+")");//最小起购提示
+                                            TipsToast.showTips(getString(R.string.input_must_greater_minAmount)+"("+getString(R.string.min)+DoubleUtils.doubleTransRound6(minInvestAmount)+")");//最小起购提示
                                             return;
                                         }
                                         //此时允许余额全投
@@ -343,21 +344,21 @@ public class InvestSummaryActivity extends BaseActivity {
                     double rio=price*mortgageAmount/borrowAmount;
                     mfView.setProgress((int) (rio*100));//设置警戒线进度条数据
                 }
-                tvMortgagePrice.setText(getString(R.string.mortgage_price)+"  ".concat(CommonUtil.doubleTransRound6(price*mortgageAmount)).concat(" "+code));//抵押物市价
+                tvMortgagePrice.setText(getString(R.string.mortgage_price)+"  ".concat(DoubleUtils.doubleTransRound6(price*mortgageAmount)).concat(" "+code));//抵押物市价
             }
         }
     };
     //    1 抵押标 2 预告 3平台标 4新手预告 5新手标
     private void setData(InvestSummary investSummary) {
-        investLave=CommonUtil.doubleTransRound6(borrowAmount - investSummary.boughtAmount);
+        investLave= DoubleUtils.doubleTransRound6(DoubleUtils.sub(borrowAmount,investSummary.boughtAmount));
         //设置进度条布局
         int status=investSummary.status;
         if(borrowTypeId==1){//抵押标
             if(status>0){//抵押标满标展示警戒线布局
                 mfView.setVisibility(View.VISIBLE);
                 layoutPb.setVisibility(View.GONE);
-                mfView.setPoint1Text("("+CommonUtil.doubleTransRound6(borrowAmount*1.1).concat(" "+investSummary.borrowCryptoCode)+")");
-                mfView.setPoint2Text("("+CommonUtil.doubleTransRound6(borrowAmount*1.4).concat(" "+investSummary.borrowCryptoCode)+")");
+                mfView.setPoint1Text("("+DoubleUtils.doubleTransRound6(borrowAmount*1.1).concat(" "+investSummary.borrowCryptoCode)+")");
+                mfView.setPoint2Text("("+DoubleUtils.doubleTransRound6(borrowAmount*1.4).concat(" "+investSummary.borrowCryptoCode)+")");
             }else{
                 nomalProgress(investSummary);
             }
@@ -365,7 +366,7 @@ public class InvestSummaryActivity extends BaseActivity {
             NetApi.getCoinPrice(InvestSummaryActivity.this,false,String.valueOf(investSummary.mortgageCryptoId),String.valueOf(borrowCryptoId),priceObserver);
             btnConfirm.setEnabled(status==0);//按钮  设置是否可点击 除了0都不能点
             //抵押标第三个格数据
-            tvMortgageAsset.setText(CommonUtil.doubleTransRound6(mortgageAmount).concat(" "+investSummary.mortgageCryptoCode));
+            tvMortgageAsset.setText(DoubleUtils.doubleTransRound6(mortgageAmount).concat(" "+investSummary.mortgageCryptoCode));
         }else if(borrowTypeId==2){//平台标预告
             countDownTime(investSummary.startTime*1000);//按钮 预告显示倒计时
             nomalProgress(investSummary);
@@ -388,26 +389,32 @@ public class InvestSummaryActivity extends BaseActivity {
         if(!TextUtils.isEmpty(investSummary.nickname))baseTitleBar.setTitleChild("("+investSummary.nickname+")");
         //创建viewpager
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(InvestSummaryFragment.newInstance(investSummary.desc), getString(R.string.invest_summary));
-        adapter.addFrag(InvestRecordFragment.newInstance(investSummary.investList, code), getString(R.string.purchased_record));
-        if(borrowTypeId==1&&status>0){//追加记录页面
-            adapter.addFrag(AddRecordFragment.newInstance(investSummary.mortgateAddList, investSummary.mortgageCryptoCode), getString(R.string.add_record));
+        if(borrowTypeId==1){//抵押标特殊处理 详情改为须知
+            adapter.addFrag(InvestSummaryFragment.newInstance(getString(R.string.invest_guidelines_text)), getString(R.string.invest_guidelines));
+            adapter.addFrag(InvestRecordFragment.newInstance(investSummary.investList, code), getString(R.string.purchased_record));
+            if(borrowTypeId==1&&status>0){//追加记录页面
+                adapter.addFrag(AddRecordFragment.newInstance(investSummary.mortgateAddList, investSummary.mortgageCryptoCode), getString(R.string.add_record));
+            }
+        }else{
+            adapter.addFrag(InvestSummaryFragment.newInstance(investSummary.desc), getString(R.string.invest_summary));
+            adapter.addFrag(InvestRecordFragment.newInstance(investSummary.investList, code), getString(R.string.purchased_record));
+
         }
         customViewPager.setAdapter(adapter);
         customViewPager.setOffscreenPageLimit(3);
         customTabLayout.setupWithViewPager(customViewPager);
-        tvExpectAnnualized.setText(CommonUtil.doubleRoundFormat(interestRates * 360 * 100, 2));
-        tvPeriod.setText(borrowDays + getString(R.string.day));//周期
-        tvBorrowAmount.setText(CommonUtil.doubleTransRound6(borrowAmount) +" "+ investSummary.borrowCryptoCode);//借入资产
+        tvExpectAnnualized.setText(DoubleUtils.doubleRoundFormat(interestRates * 360 * 100, 2));
+        tvPeriod.setText(borrowDays + " "+getString(R.string.day));//周期
+        tvBorrowAmount.setText(DoubleUtils.doubleTransRound6(borrowAmount) +" "+ investSummary.borrowCryptoCode);//借入资产
         tvStartTime.setText(TimeUtils.getDateToStringS(borrowTypeId==1?investSummary.createTime:investSummary.startTime, TimeUtils.YYYY_MM_dd_HH_MM_SS1));//开始时间
         minInvestAmount=investSummary.minInvestAmount;
-        tvPurchaseFunds.setText(CommonUtil.doubleTransRound6(minInvestAmount) + " "+investSummary.borrowCryptoCode);//起购资金
+        tvPurchaseFunds.setText(DoubleUtils.doubleTransRound6(minInvestAmount) + " "+investSummary.borrowCryptoCode);//起购资金
     }
     //新手标第三个格数据
     private void newUser3thData(InvestSummary investSummary) {
         if(!SPUtil.isLogin()){//如果未登录取minAmount数据作为新手剩余额度 新手标 第3个格数据
             newUserAmount=investSummary.minAmount;
-            tvMortgageAsset.setText(CommonUtil.doubleTransRound6(newUserAmount)+" "+ investSummary.borrowCryptoCode);
+            tvMortgageAsset.setText(DoubleUtils.doubleTransRound6(newUserAmount)+" "+ investSummary.borrowCryptoCode);
         }
     }
 
@@ -416,11 +423,11 @@ public class InvestSummaryActivity extends BaseActivity {
      * @param investSummary
      */
     private void nomalProgress(InvestSummary investSummary) {
-        int progress= CommonUtil.doubleToIntRound( (investSummary.boughtAmount / borrowAmount * 100));//进度
+        int progress= DoubleUtils.doubleToIntRound( (investSummary.boughtAmount / borrowAmount * 100));//进度
         mfView.setVisibility(View.GONE);
         layoutPb.setVisibility(View.VISIBLE);
         progressBar.setProgress(progress);//进度条
-        tvPercent.setText(CommonUtil.doubleTransRoundTwo(progress, 2) + "%");//百分比
+        tvPercent.setText(DoubleUtils.doubleTransRoundTwo(investSummary.boughtAmount / borrowAmount * 100, 2) + "%");//百分比
         tvInvestLave.setText(investLave + " "+investSummary.borrowCryptoCode);//剩余可投
     }
 

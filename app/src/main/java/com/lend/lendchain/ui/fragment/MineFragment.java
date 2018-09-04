@@ -37,6 +37,7 @@ import com.lend.lendchain.ui.activity.common.WebActivity;
 import com.lend.lendchain.ui.activity.login.LoginActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
@@ -191,12 +192,12 @@ public class MineFragment extends Fragment {
         ivEye.setOnClickListener(v -> {
             if(SPUtil.getUserTotalAmountGone()){//隐藏状态时 需要显示
                 //总资产文字富文本
-                SpannableString spannableString = new SpannableString("≈"+CommonUtil.doubleTransRound6(totalAmount));
+                SpannableString spannableString = new SpannableString("≈"+DoubleUtils.doubleTransRound6(totalAmount));
                 //再构造一个改变字体大小的Span
                 spannableString.setSpan(new AbsoluteSizeSpan(20, true), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 tvTotalMoney.setText(spannableString);
-                tvPeriod.setText("≈"+CommonUtil.doubleTransRound6(profit));
-                tvOver.setText("≈"+CommonUtil.doubleTransRound6(lastAmount));
+                tvPeriod.setText("≈"+ DoubleUtils.doubleTransRound6(profit));
+                tvOver.setText("≈"+DoubleUtils.doubleTransRound6(lastAmount));
 
                 ivEye.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.icon_mine_eye_open));
             }else{//显示状态时  需要隐藏
@@ -239,12 +240,12 @@ public class MineFragment extends Fragment {
                 lastAmount=userInfoResultBean.data.lastAmount;
                 profit=userInfoResultBean.data.profit;
                 //总资产文字富文本
-                SpannableString spannableString = new SpannableString("≈"+CommonUtil.doubleTransRound6(totalAmount));
+                SpannableString spannableString = new SpannableString("≈"+DoubleUtils.doubleTransRound6(totalAmount));
                 //再构造一个改变字体大小的Span
                 spannableString.setSpan(new AbsoluteSizeSpan(20, true), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 tvTotalMoney.setText(SPUtil.getUserTotalAmountGone()?"****":spannableString);
-                tvPeriod.setText(SPUtil.getUserTotalAmountGone()?"****":"≈"+CommonUtil.doubleTransRound6(profit));
-                tvOver.setText(SPUtil.getUserTotalAmountGone()?"****":"≈"+CommonUtil.doubleTransRound6(lastAmount));
+                tvPeriod.setText(SPUtil.getUserTotalAmountGone()?"****":"≈"+DoubleUtils.doubleTransRound6(profit));
+                tvOver.setText(SPUtil.getUserTotalAmountGone()?"****":"≈"+DoubleUtils.doubleTransRound6(lastAmount));
                 ivEye.setImageBitmap(BitmapFactory.decodeResource(getResources(),SPUtil.getUserTotalAmountGone()?R.mipmap.icon_mine_eye_close:R.mipmap.icon_mine_eye_open));
                 ViewUtils.showViewsVisible(true,tvPeriod,tvOver,tvTotalMoney);
             }else{

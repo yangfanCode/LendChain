@@ -67,7 +67,9 @@
     <!--homeFragment-->
     <!--美元特殊处理-->
     <string name="symbol">1100</string>
-    <string name="borrowAmount">차입 자산</string>
+    <string name="BorrowAmount">차입 자산</string>
+    <string name="BorrowAssets">차입 자산</string>
+    <string name="Borrowed">차입 자산</string>
     <string name="minInvestAmount">최소 투자</string>
     <string name="investNow">지금 투자하기</string>
     <string name="annualized">年化</string>
@@ -109,6 +111,7 @@
     <string name="purchase_funds">최소 투자</string>
     <string name="scroll_to_load_market">위로 올려 상세보기</string>
     <string name="invest_summary">투자 상세 내역</string>
+    <string name="invest_guidelines">투자주의사항</string>
     <string name="purchased_record">구입 기록</string>
     <string name="add_record">추가 기록</string>
     <string name="calc_way_msg">입찰이 마감 후 이자를 계산한다</string>
@@ -136,6 +139,9 @@
     <string name="new_user_not_enough">초보자 남은 한도가 부족합니다</string>
     <string name="input_must_greater_minAmount">입력 금액은 최소 투자 금액보다 커야합니다.(최소</string>
     <string name="min">최소</string>
+    <string name="invest_guidelines_text">자금은24h내로차관표적모집이100%에달하지못하거나24h내로담보물가격이하락폭20%를초과하면이번차관은성립되지않으며담보물은투자자에게상환됩니다.\n\n
+    연체시간이7일에도달했을때LendChain은담보물에대한교할처리를진행합니다.연체수수료를덜어내고남은자산은투자비율에따라채권자에게돌려드립니다.\n\n
+    플랫폼은경고선(140%)과청산선(110%)을정하여,청산선=차관*110%,경고선=차관*140%,담보물자산가격이경고선에접하면시스템알림로채무자에게담보물을증가할것을요구합니다.담보물가격이청산선을접하면담보물에대한교할처리가진행됩니다.그러므로채무자는담보물에대한소유권을잃게되고교할처리된자산은채권자의소유로됩니다.</string>
     <!--LoginActivity-->
     <string name="login">로그인</string>
     <string name="login_now">바로 로그인</string>
@@ -293,7 +299,7 @@
     <string name="assets_manage">자산 관리</string>
     <string name="account_manage">계좌 관리</string>
     <string name="my_invest">나의 투자</string>
-    <string name="my_recharge_withdraw_record">충전과 인출 기록</string>
+    <string name="my_amount_record">자금기록</string>
     <string name="my_loan">나의 차입</string>
     <string name="user_center">나의 페이지</string>
     <string name="safe_cerfity">안전 인증</string>
@@ -323,9 +329,8 @@
     <string name="order_code">주문번호</string>
     <string name="recharge_add">충전 주소</string>
     <string name="withdraw_add">인출 인증</string>
-    <string name="recharge_record">충전 기록</string>
-    <string name="withdraw_record">인출기록</string>
     <string name="wait_udit">심사필료</string>
+    <string name="send_LV">LV지급기록</string>
     <string name="processing">처리 중</string>
     <string name="processed_finish">완료된</string>
     <string name="refuse">거부됐다</string>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.invest.InvestSummaryActivity">
-<!--英文和中文布局 基础信息部分布局不同-->
+<!--英文和中文韩文布局 基础信息部分布局不同-->
     <com.lend.lendchain.widget.BaseTitleBar
         android:id="@+id/base_title_bar"
         android:layout_width="match_parent"
@@ -222,7 +222,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="105dp"/>
                     <include layout="@layout/row_divider_12h_1px" />
-                    <!--英文和中文布局 基础信息部分布局不同-->
+                    <!--英文和中文韩文布局 基础信息部分布局不同-->
                     <LinearLayout
                         android:background="@color/white"
                         android:layout_width="match_parent"
@@ -249,7 +249,7 @@
                             <TextView
                                 android:paddingTop="@dimen/padding_8"
                                 android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:layout_width="100dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/start_time" />
@@ -269,7 +269,7 @@
                             <TextView
                                 android:paddingTop="@dimen/padding_8"
                                 android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:layout_width="100dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/calc_way" />
@@ -291,7 +291,7 @@
                             <TextView
                                 android:paddingTop="@dimen/padding_8"
                                 android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:layout_width="100dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/repay_way" />
@@ -313,7 +313,7 @@
                             <TextView
                                 android:paddingTop="@dimen/padding_8"
                                 android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:layout_width="100dp"
                                 style="@style/text999999_14"
                                 android:layout_marginRight="@dimen/padding_15"
                                 android:text="@string/purchase_funds" />

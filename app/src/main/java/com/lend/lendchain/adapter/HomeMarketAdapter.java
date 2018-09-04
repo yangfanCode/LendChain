@@ -14,7 +14,7 @@ import com.lend.lendchain.bean.MessageEvent;
 import com.lend.lendchain.bean.ViewHolder;
 import com.lend.lendchain.helper.RxBus;
 import com.lend.lendchain.utils.ColorUtils;
-import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.widget.chart.utils.NumberUtil;
 import com.lend.lendchain.widget.chart.view.HomeMarketFenshiView;
 
@@ -86,12 +86,12 @@ public class HomeMarketAdapter extends BaseAdapter {
         TextView tvLowest24h=viewHolder.getView(R.id.item_home_market_tvLowest24h);//24h最低
         HomeMarketFenshiView fenshiView=viewHolder.getView(R.id.item_home_market_fenshiView);//24h分时图
         tvPairName.setText(homeMarket.pairCode);//交易对名字
-        tvNewPrice.setText(CommonUtil.doubleTransRoundTwo(homeMarket.close,4));//美元
-        tvNewPriceRMB.setText(context.getString(R.string.RMB).concat(CommonUtil.doubleTransRoundTwo(homeMarket.close*rateRMB2Dollar,4)));//RMB
+        tvNewPrice.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.close,4));//美元
+        tvNewPriceRMB.setText(context.getString(R.string.RMB).concat(DoubleUtils.doubleTransRoundTwo(homeMarket.close*rateRMB2Dollar,4)));//RMB
         tvNewGain.setText(NumberUtil.calcGain(homeMarket.close,homeMarket.open));//涨跌幅
         tvNewGain.setTextColor(ColorUtils.getTextColorAsh(homeMarket.close,homeMarket.open));//涨跌幅颜色
-        tvHighest24h.setText(CommonUtil.doubleTransRoundTwo(homeMarket.high,2));//24h最高
-        tvLowest24h.setText(CommonUtil.doubleTransRoundTwo(homeMarket.low,2));//24h最高
+        tvHighest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.high,2));//24h最高
+        tvLowest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.low,2));//24h最高
         layout.setOnClickListener(onClickListener);//点击事件
         layout.setTag(R.id.view,line24hLayout);
         layout.setTag(R.id.position,position);

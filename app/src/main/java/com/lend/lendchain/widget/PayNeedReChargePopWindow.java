@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.ui.activity.account.MyWalletActivity;
 import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 
 
 /**
@@ -49,11 +50,11 @@ public class PayNeedReChargePopWindow {
         TextView tvIncome=contentView.findViewById(R.id.pay_need_recharge_tvIncome);
         TextView btnGoRecharge=contentView.findViewById(R.id.pay_need_recharge_btnGoRecharge);
         LinearLayout llIncome=contentView.findViewById(R.id.pay_need_recharge_llIcome);
-        tvOver.setText(CommonUtil.doubleTransRound6(amount)+" "+code);
-        tvOverP.setText(activity.getString(R.string.over_to_use).concat(CommonUtil.doubleTransRound6(amount)+""));
+        tvOver.setText(DoubleUtils.doubleTransRound6(amount)+" "+code);
+        tvOverP.setText(activity.getString(R.string.over_to_use).concat(DoubleUtils.doubleTransRound6(amount)+""));
         llIncome.setVisibility(income==0?View.GONE:View.VISIBLE);
-        if(llIncome.getVisibility()==View.VISIBLE)tvIncome.setText(CommonUtil.doubleTransRound6(income)+" "+code);//到期收益
-        btnGoRecharge.setText(activity.getString(R.string.over_lack_please_recharge).concat(CommonUtil.doubleTransRound6(amountInput-amount)+" "+code));
+        if(llIncome.getVisibility()==View.VISIBLE)tvIncome.setText(DoubleUtils.doubleTransRound6(income)+" "+code);//到期收益
+        btnGoRecharge.setText(activity.getString(R.string.over_lack_please_recharge)+" ".concat(DoubleUtils.doubleTransRound6(amountInput-amount)+" "+code));
         btnGoRecharge.setOnClickListener(v -> {
             dismiss();
             CommonUtil.openActicity(activity, MyWalletActivity.class,null);

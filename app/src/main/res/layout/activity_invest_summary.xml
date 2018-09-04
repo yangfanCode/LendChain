@@ -111,7 +111,7 @@
 
                                 <TextView
                                     style="@style/textFFFFFF_12"
-                                    android:text="@string/borrowAmount" />
+                                    android:text="@string/Borrowed" />
                             </LinearLayout>
 
                             <include
@@ -326,6 +326,7 @@
                 android:id="@+id/customTabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"/>
+            <include layout="@layout/row_divider_1px"/>
         </android.support.design.widget.AppBarLayout>
 
         <com.yangfan.widget.CustomViewPager

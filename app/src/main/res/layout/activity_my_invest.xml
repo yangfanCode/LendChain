@@ -19,11 +19,16 @@
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <com.lend.lendchain.widget.ListViewWithOptional
-            android:id="@+id/my_invest_lv"
+        <!--SmartRefreshLayout 设置emptyview 要套一层-->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@null" />
+            android:layout_height="match_parent">
+            <com.lend.lendchain.widget.ListViewWithOptional
+                android:id="@+id/my_invest_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null" />
+        </FrameLayout>
+
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

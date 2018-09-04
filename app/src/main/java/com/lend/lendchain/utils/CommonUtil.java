@@ -23,8 +23,6 @@ import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.ui.activity.login.LoginActivity;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -479,141 +477,7 @@ public class CommonUtil {
             }
         });
     }
-    /*******************************double数字格式化****************************************/
-
-    /**
-     * 将double格式化为指定小数位的String，不足小数位用0补全,不会四舍五入,直接截取
-     * setRoundingMode设置mode改变模式
-     *
-     * @param v     需要格式化的数字
-     * @param scale 小数点后保留几位
-     * @return
-     */
-    public static String doubleFormat(double v, int scale) {
-        DecimalFormat decimalFormat;
-        if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The   scale   must   be   a   positive   integer   or   zero");
-        }
-        if (scale == 0) {
-            decimalFormat = new DecimalFormat("0");
-            return decimalFormat.format(v);
-        }
-        String formatStr = "0.";
-        for (int i = 0; i < scale; i++) {
-            formatStr = formatStr + "0";
-        }
-        decimalFormat = new DecimalFormat(formatStr);
-        decimalFormat.setRoundingMode(RoundingMode.DOWN);
-        return decimalFormat.format(v);
-    }
-
-    /**
-     * 将double格式化为指定小数位的double，四舍五入,不足小数位用不会不全
-     *
-     * @param value
-     * @param scale 小数位数
-     * @return BigDecimal.ROUND_HALF_UP表示四舍五入，
-     * BigDecimal.ROUND_HALF_DOWN也是五舍六入，
-     * BigDecimal.ROUND_UP表示进位处理（就是直接加1），
-     * BigDecimal.ROUND_DOWN表示直接去掉尾数。
-     */
-    public static double doubleRound(double value, int scale) {
-        BigDecimal bd = new BigDecimal(value);
-        bd = bd.setScale(scale, BigDecimal.ROUND_HALF_UP);
-        return bd.doubleValue();
-    }
-
-    /**
-     * 将double格式化为指定小数位的double，四舍五入,不足小数位自动补全
-     *
-     * @param value
-     * @param scale
-     * @return
-     */
-    public static String doubleRoundFormat(double value, int scale) {
-        double d = doubleRound(value, scale);
-        return doubleFormat(d, scale);
-    }
-
-    /**
-     * double整数数无小数点,小数时有,原有double
-     *
-     * @param d
-     * @return
-     */
-    public static String doubleTrans(double d) {
-        if (Math.round(d) - d == 0) {
-            return String.valueOf((long) d);
-        }
-        return String.valueOf(d);
-    }
-
-    /**
-     * double整数无小数点,小数时有 不会四舍五入 自定义小数位数 不足小数位会补全
-     *
-     * @param d
-     * @return
-     */
-    public static String doubleTransFormatTwo(double d, int scale) {
-        if (Math.round(d) - d == 0) {
-            return String.valueOf((long) d);
-        }
-        return doubleFormat(d, scale);
-    }
-    /**
-     * double整数无小数点,小数时有 不会四舍五入 自定义小数位数 最多几位小数 不足小数位不会补全
-     *
-     * @param d
-     * @return
-     */
-    public static String doubleTransFormatThree(double d, int scale) {
-        String valueString=doubleFormat(d, scale);
-        int length=valueString.length();
-        for (int i = 0; i < length; i++) {
-            if (valueString.endsWith("0")) {
-                valueString = valueString.substring(0, valueString.length() - 1);
-            } else if (valueString.endsWith(".")) {
-                valueString = valueString.substring(0, valueString.length() - 1);
-                break;
-            } else
-                break;
-        }
-        return valueString;
-    }
-
-    /**
-     * double整数无小数点,小数时有 四舍五入 自定义小数位数 最多几位小数 不足小数位不会补全
-     *
-     * @param d
-     * @return
-     */
-    public static String doubleTransRoundTwo(double d, int scale) {
-        if (Math.round(d) - d == 0) {
-            return String.valueOf((long) d);
-        }
-        return String.valueOf(doubleRound(d, scale));
-    }
-
-    /**
-     * 6位小数 ,app主要应用格式
-     *
-     * @param d
-     * @return
-     */
-    public static String doubleTransRound6(double d) {
-        if (Math.round(d) - d == 0) {
-            return String.valueOf((long) d);
-        }
-        return doubleTransFormatThree(d, 6);
-    }
-
-    //四舍五入把double转化int整型，0.5进一，小于0.5不进一
-    public static int doubleToIntRound(double number) {
-        BigDecimal bd = new BigDecimal(number).setScale(0, BigDecimal.ROUND_HALF_UP);
-        return Integer.parseInt(bd.toString());
-    }
-
+    /***********************k线lib******************************************/
     public static double round2(double value) {
         return round(value, 2, 4);
     }
@@ -627,7 +491,7 @@ public class CommonUtil {
     public static double round8(double value) {
         return CommonUtil.round(value, 8, BigDecimal.ROUND_HALF_UP);
     }
-    /***********************k线******************************************/
+
     public static double getMarketInfoAdapter(double value) {
         return value > 1 || value < -1 ? CommonUtil.round2(value) : round8(value);
     }

@@ -5,7 +5,9 @@ import android.support.v4.view.ViewPager;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.fragment.rechargewithdraw.LVSendFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.ReChargeRecordFragment;
+import com.lend.lendchain.ui.fragment.rechargewithdraw.TransferRecordFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.WithDrawRecordFragment;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
@@ -42,7 +44,7 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
         baseTitleBar.setTitle(getString(R.string.recharge_withdraw_record));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         tabLayout.setViewHeight(DisplayUtil.dp2px(this,40));
-        tabLayout.setBottomLineWidth(DisplayUtil.dp2px(this,87));
+        tabLayout.setBottomLineWidth(DisplayUtil.dp2px(this,35));
         tabLayout.setBottomLineHeight(DisplayUtil.dp2px(this,2));
         tabLayout.setBottomLineHeightBgResId(R.color.color_509FFF);
         tabLayout.setmTextColorSelect(ColorUtils.COLOR_509FFF);
@@ -51,8 +53,10 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
         int width=getResources().getDisplayMetrics().widthPixels;
         tabLayout.setNeedEqual(true,width);
         CustomFragmentPagerAdapter adapter=new CustomFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(ReChargeRecordFragment.newInstance(),getString(R.string.recharge_record));
-        adapter.addFrag(WithDrawRecordFragment.newInstance(),getString(R.string.withdraw_record));
+        adapter.addFrag(ReChargeRecordFragment.newInstance(),getString(R.string.recharge));
+        adapter.addFrag(WithDrawRecordFragment.newInstance(),getString(R.string.withdraw));
+        adapter.addFrag(TransferRecordFragment.newInstance(),getString(R.string.transfer));
+        adapter.addFrag(LVSendFragment.newInstance(),getString(R.string.send_LV));
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(3);
         tabLayout.setupWithViewPager(viewPager);

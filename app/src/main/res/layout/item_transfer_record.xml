@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/transfer_record_llOrder"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_10"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15"
+        android:paddingTop="@dimen/padding_10">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_30">
+
+            <TextView
+                android:id="@+id/transfer_record_tvStatus"
+                style="@style/text262626_16"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/transfer_record_tvCount"
+                style="@style/text509FFF_16"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_30">
+
+            <TextView
+                android:id="@+id/transfer_record_tvTime"
+                style="@style/text999999_12"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="150dp"
+                android:gravity="right"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:id="@+id/transfer_record_tvOrderCode"
+                style="@style/text999999_12"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/color_EBF4FF"
+        android:id="@+id/transfer_record_llOrderAdd"
+        android:visibility="gone"
+        android:paddingTop="@dimen/padding_13"
+        android:paddingBottom="@dimen/padding_13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_15"
+        android:paddingRight="@dimen/padding_15">
+
+        <TextView
+            android:id="@+id/transfer_record_tvOrderAdd"
+            style="@style/text999999_12" />
+    </LinearLayout>
+
+    <include layout="@layout/row_divider_1px" />
+</LinearLayout>

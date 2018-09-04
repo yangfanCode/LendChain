@@ -257,7 +257,7 @@
                     android:drawablePadding="@dimen/padding_14"
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/padding_15"
-                    android:text="@string/my_recharge_withdraw_record" />
+                    android:text="@string/my_amount_record" />
 
                 <include
                     layout="@layout/row_divider_v"

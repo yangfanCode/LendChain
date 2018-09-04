@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.KeyBordUtils;
 import com.yangfan.widget.DecimalDigitsEditText;
 
@@ -234,7 +235,7 @@ public class KeyBoardInputPopWindow {
         tvCode1.setText(code);
         tvCode2.setText(code);
         tvCode3.setText(code);
-        tvAmount.setText(CommonUtil.doubleTransRound6(amount));
+        tvAmount.setText(DoubleUtils.doubleTransRound6(amount));
         etMoney.setFocusable(true);
         etMoney.setFocusableInTouchMode(true);
         etMoney.requestFocus();
@@ -242,7 +243,7 @@ public class KeyBoardInputPopWindow {
         tvAllInvest.setOnClickListener(v -> {//余额全投操作
             //当用余额小于标的余额时余额全投展示用户余额 当用户余额大于标的余额时展示标的余额
             if(amount<Double.parseDouble(investLave)){
-                etMoney.setText(CommonUtil.doubleTransRound6(amount));
+                etMoney.setText(DoubleUtils.doubleTransRound6(amount));
             }else{
                 etMoney.setText(investLave);
             }
@@ -268,7 +269,7 @@ public class KeyBoardInputPopWindow {
                         return;
                     }
                     income=Double.parseDouble(investMoney)*interestRates*borrowDays;
-                    tvIncome.setText(CommonUtil.doubleTransRound6(income));//计算收益
+                    tvIncome.setText(DoubleUtils.doubleTransRound6(income));//计算收益
                 }else{
                     if(TextUtils.isEmpty(investMoney)){
                         tvIncome.setText("0");//计算收益

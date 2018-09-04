@@ -20,6 +20,7 @@ import com.lend.lendchain.ui.activity.account.MyLoanSummaryActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.TimeUtils;
 import com.lend.lendchain.widget.TipsToast;
@@ -144,8 +145,8 @@ public class MyLoanListAdapter extends BaseAdapter {
         tvStatus.setText(getStatus(Integer.parseInt(myLoanList.status)));
         String code=myLoanList.borrowCryptoCode;
         String deadLine=!TextUtils.isEmpty(myLoanList.deadline)?TimeUtils.getDateToStringS(Long.parseLong(myLoanList.deadline),TimeUtils.YYYY_MM_dd_HH_MM_SS1):"";
-        tvLoanCount.setText(CommonUtil.doubleTransRound6(myLoanList.borrowAmount)+" "+code);
-        tvInterest.setText(CommonUtil.doubleTransRound6(myLoanList.interest)+" "+code);//利息
+        tvLoanCount.setText(DoubleUtils.doubleTransRound6(myLoanList.borrowAmount)+" "+code);
+        tvInterest.setText(DoubleUtils.doubleTransRound6(myLoanList.interest)+" "+code);//利息
         tvDeadLine.setText(deadLine);
         tvTime.setText(TimeUtils.getDateToStringS(Long.parseLong(myLoanList.createTime),TimeUtils.YYYY_MM_dd_HH_MM_SS1));
         layoutOperation.setVisibility("1".equals(myLoanList.status)?View.VISIBLE:View.GONE);
@@ -161,7 +162,7 @@ public class MyLoanListAdapter extends BaseAdapter {
         tvCode.setTag(R.id.str2,!TextUtils.isEmpty(myLoanList.quotaFullTime)?TimeUtils.getDateToStringS(Long.parseLong(myLoanList.quotaFullTime),TimeUtils.YYYY_MM_dd_HH_MM_SS1):"");
         tvCode.setTag(R.id.str3,!TextUtils.isEmpty(myLoanList.realPaybackTime)?TimeUtils.getDateToStringS(Long.parseLong(myLoanList.realPaybackTime),TimeUtils.YYYY_MM_dd_HH_MM_SS1):"");
         tvCode.setTag(R.id.str4,getStatus(Integer.parseInt(myLoanList.status)));
-        tvCode.setTag(R.id.str5,CommonUtil.doubleTransRound6(myLoanList.interest)+" "+code);
+        tvCode.setTag(R.id.str5,DoubleUtils.doubleTransRound6(myLoanList.interest)+" "+code);
         return viewHolder.getConvertView();
     }
     //状态   -2：募集失败（逾期）；-1募集失败；0 募集中;1募集成功，待还款；11提前还款；

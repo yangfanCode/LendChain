@@ -19,6 +19,7 @@ import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
@@ -102,7 +103,7 @@ public class WithDrawActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                 String input = s.toString().trim();
                 if (!TextUtils.isEmpty(input) && !input.endsWith(".") && Double.valueOf(input) >= minWithdraw) {
-                    tvRealMoney.setText(CommonUtil.doubleTransRound6(Double.parseDouble(input) - withdrawFee));
+                    tvRealMoney.setText(DoubleUtils.doubleTransRound6(Double.parseDouble(input) - withdrawFee));
                 } else {
                     tvRealMoney.setText("0");
                 }
@@ -120,7 +121,7 @@ public class WithDrawActivity extends BaseActivity {
                 return;
             }
             if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
-                TipsToast.showTips(getString(R.string.withdraw_min_count) + CommonUtil.doubleTransRound6(minWithdraw));
+                TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
                 return;
             }
             //读取用户此币种余额 是否不足
@@ -136,9 +137,9 @@ public class WithDrawActivity extends BaseActivity {
                 if (resultBean.data != null) {
                     withdrawFee = resultBean.data.withdrawFee;
                     minWithdraw = resultBean.data.minWithdraw;//最小提现
-                    tvPoundage.setText(CommonUtil.doubleTransRound6(withdrawFee));//手续费
+                    tvPoundage.setText(DoubleUtils.doubleTransRound6(withdrawFee));//手续费
                     etCount.setHint(getString(R.string.withdraw_min_count) + minWithdraw);
-                    tvLimit.setText(String.format(tvLimit.getText().toString(), cryptoCode, String.valueOf(CommonUtil.doubleTransRoundTwo(resultBean.data.dayWithdraw, 2))));//每日限额
+                    tvLimit.setText(String.format(tvLimit.getText().toString(), cryptoCode, String.valueOf(DoubleUtils.doubleTransRoundTwo(resultBean.data.dayWithdraw, 2))));//每日限额
                 }
             } else {
                 setHttpFailed(WithDrawActivity.this, resultBean);

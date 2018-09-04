@@ -17,6 +17,7 @@ import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DisplayUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.QRCodeUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
@@ -96,7 +97,7 @@ public class RechargeActivity extends BaseActivity {
             if (resultBean == null) return;
             if (resultBean.isSuccess()) {
                 if (resultBean.data != null) {
-                    tvTips.setText(String.format(getString(R.string.recharge_tips), code, CommonUtil.doubleTransRound6(resultBean.data.minDeposit), code));
+                    tvTips.setText(String.format(getString(R.string.recharge_tips), code, DoubleUtils.doubleTransRound6(resultBean.data.minDeposit), code));
                 }
             } else {
                 setHttpFailed(RechargeActivity.this, resultBean);

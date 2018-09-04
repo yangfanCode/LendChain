@@ -3,6 +3,7 @@ package com.lend.lendchain.ui.fragment.invest;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,10 @@ public class InvestSummaryFragment extends Fragment {
         ButterKnife.bind(this, rootView);
         if (getArguments() != null) {
             String desc = getArguments().getString(Constant.ARGS_PARAM1);
-            tvSummary.setText(desc);
+            if(!TextUtils.isEmpty(desc)){
+                tvSummary.setText(desc);
+                tvSummary.setVisibility(View.VISIBLE);
+            }
         }
     }
 }

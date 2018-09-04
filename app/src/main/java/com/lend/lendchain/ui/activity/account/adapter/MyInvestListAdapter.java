@@ -14,6 +14,7 @@ import com.lend.lendchain.bean.ViewHolder;
 import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.TimeUtils;
 
 import java.util.ArrayList;
@@ -77,9 +78,9 @@ public class MyInvestListAdapter extends BaseAdapter {
         tvName.setText(myInvestList.orderId);//name
         tvStatus.setText(getStatus(Integer.parseInt(myInvestList.status)));
         String code=myInvestList.cryptoCode;
-        tvInterest.setText(CommonUtil.doubleTransRound6(myInvestList.profit)+" "+code);
+        tvInterest.setText(DoubleUtils.doubleTransRound6(myInvestList.profit)+" "+code);
         tvCreateTime.setText(TimeUtils.getDateToStringS(myInvestList.ctime,TimeUtils.YYYY_MM_dd_HH_MM_SS1));
-        tvLoanAmount.setText(CommonUtil.doubleTransRound6(myInvestList.amount)+" "+code);
+        tvLoanAmount.setText(DoubleUtils.doubleTransRound6(myInvestList.amount)+" "+code);
         tvDeadLine.setText(TextUtils.isEmpty(myInvestList.deadline)?"":TimeUtils.getDateToStringMs(Long.parseLong(myInvestList.deadline),"yyyy-MM-dd HH:mm:ss"));
         tvRepayTime.setText("0".equals(myInvestList.cutoffTime)?"":TimeUtils.getDateToStringMs(Long.parseLong(myInvestList.cutoffTime),"yyyy-MM-dd HH:mm:ss"));
         tvName.setOnClickListener(onClickListener);

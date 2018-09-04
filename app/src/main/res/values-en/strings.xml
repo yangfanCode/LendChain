@@ -67,7 +67,9 @@
     <!--homeFragment-->
     <!--美元特殊处理-->
     <string name="symbol">1099</string>
-    <string name="borrowAmount">Borrow assets</string>
+    <string name="BorrowAmount">Borrow Amount</string>
+    <string name="BorrowAssets">Borrow assets</string>
+    <string name="Borrowed">Borrowed</string>
     <string name="minInvestAmount">Minimum limit</string>
     <string name="investNow">Invest</string>
     <string name="annualized">Rate (year)</string>
@@ -109,6 +111,7 @@
     <string name="purchase_funds">The minimum limit</string>
     <string name="scroll_to_load_market">To Top</string>
     <string name="invest_summary">Investment details</string>
+    <string name="invest_guidelines">Investment guidelines</string>
     <string name="purchased_record">Purchased records</string>
     <string name="add_record">Additional records</string>
     <string name="calc_way_msg">Calculate after getting full</string>
@@ -126,7 +129,7 @@
     <string name="invest_money">Invest Amount</string>
     <string name="last_income">Interest</string>
     <string name="last_income_1">Interest:</string>
-    <string name="over_lack_please_recharge">Insufficient balance, Recharge&#160;</string>
+    <string name="over_lack_please_recharge">Insufficient balance, Recharge</string>
     <string name="over_lack">Insufficient balance</string>
     <string name="pay_verify">Payment verification</string>
     <string name="pay">Payment</string>
@@ -136,6 +139,9 @@
     <string name="new_user_not_enough">Can\'t exceed the amount that a novice can buy</string>
     <string name="input_must_greater_minAmount">The input amount must be greater than the minimum initial investment amount</string>
     <string name="min">Min</string>
+    <string name="invest_guidelines_text">如果标的投资24小时内未达到100%，或24小时内抵押数字货币价格向下浮动超过20%，则该标的自动失效，并将货币归还给投资者。\n\n
+        在逾期时间达到7天时，平台会将抵押资产作交割处理，扣除逾期手续费后将资产按投资比例归还投资者。\n\n
+    平台制定警戒线（140%）及平仓线（110%），平仓线=借款金额*110%，警戒线=借款金额*140%。当抵押资产到达警戒线时，系统会提醒借款人增加抵押物。当抵押资产到达平仓线时，平台将会对抵押资产作交割处理并将归投资人所有，而抵押借款人不再拥有所抵押资产。</string>
     <!--LoginActivity-->
     <string name="login">Login</string>
     <string name="login_now">Login</string>
@@ -211,12 +217,13 @@
     <string name="count">Amount</string>
     <string name="my_wallet">My Wallet</string>
     <string name="coin_type">Coin</string>
-    <string name="recharge">Recharge</string>
+    <string name="recharge">Deposit</string>
     <string name="withdraw">Withdrawal</string>
     <string name="transfer">Transfer</string>
     <!--RechargeActivity-->
     <string name="recharge_address">Deposit Address</string>
     <string name="saoyisao_qrcode_address">Scan the QR code to get the recharge code address</string>
+    <string name="recharge_address_memo_tip">Please be sure to fill in Memo when recharging. If you do not fill in or fill in the wrong award, the amount of recharging will be lost and cannot be recovered.</string>
     <string name="recharge_tips">Tips:\n1.Please do not deposit non %1$s coins to LendChain which may lead to your asset unaccounted or lost.\n2.Validation of the entire network node is required. Deposit needs one-time network confirmation while withdrawal needs six times network confirmations.\n3.Each deposit must be can than %2$s %3$s.\n4.Your deposit address will not change frequently. We will inform you by website announcement or email if there is any change.\n5.Please make sure your computer and browser are secured to prevent tampering or leakage of information.</string>
     <!--LoanFragment-->
     <string name="i_want_loan">Borrow</string>
@@ -239,6 +246,7 @@
     <string name="second">&#160;later</string>
     <string name="please_input_loan_count">Enter borrowed</string>
     <string name="please_input_mortgage_count">Enter mortgages</string>
+    <string name="minimum_number_is">The minimum number is&#160;</string>
     <string name="please_goto_certified_all">You need to complete the certification before borrowing</string>
     <string name="please_set_nickname">Please set the nickname first</string>
     <string name="loan_success">Borrow successful</string>
@@ -254,7 +262,7 @@
     <!--SettingActivity-->
     <string name="update_pwd">Password Reset</string>
     <string name="setting">Settings</string>
-    <string name="login_out">Log out</string>
+    <string name="login_out">Logout</string>
     <string name="login_out_success">Logged out successfully</string>
     <string name="language">Language</string>
     <string name="chinese">简体中文</string>
@@ -290,8 +298,8 @@
     <string name="regiest_login">login / Sign Up</string>
     <string name="assets_manage">Asset Management</string>
     <string name="account_manage">Account management</string>
-    <string name="my_invest">My Assets</string>
-    <string name="my_recharge_withdraw_record">Transaction History</string>
+    <string name="my_invest">Loan History</string>
+    <string name="my_amount_record">资金记录...</string>
     <string name="my_loan">Borrowing History</string>
     <string name="user_center">My Account</string>
     <string name="safe_cerfity">Security Center</string>
@@ -299,7 +307,7 @@
     <string name="about_us">About Us</string>
     <string name="help_center">Help Center</string>
     <!--MyInvestListActivity-->
-    <string name="loan_amount">Borrow assets</string>
+    <string name="loan_amount">Loan Amount</string>
     <string name="interest">Interest</string>
     <string name="deadLine">Expiration time</string>
     <string name="wait_submit">Waiting</string>
@@ -321,8 +329,7 @@
     <string name="order_code">order number</string>
     <string name="recharge_add">Deposit Address</string>
     <string name="withdraw_add">Withdrawal Address</string>
-    <string name="recharge_record">Deposit History</string>
-    <string name="withdraw_record">Withdrawal History</string>
+    <string name="send_LV">LV发放</string>
     <string name="wait_udit">Under Review</string>
     <string name="processing">Are dealing with</string>
     <string name="processed_finish">Finished</string>

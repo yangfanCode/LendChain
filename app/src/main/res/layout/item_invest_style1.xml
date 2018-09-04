@@ -125,7 +125,7 @@
             <TextView
                 style="@style/text999999_12"
                 android:layout_gravity="right"
-                android:text="@string/borrowAmount" />
+                android:text="@string/Borrowed" />
         </LinearLayout>
     </FrameLayout>
 

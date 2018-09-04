@@ -45,7 +45,7 @@
     <string name="ali_vsdk_tips_finish">验证通过</string>
     <string name="ali_vsdk_tips_sub">为了你的帐号安全，本次登录需要进行验证。请将下方的图标，移动到圆形区域内</string>
     <string name="ali_vsdk_titlebar_back">返回</string>
-    <string name="ali_vsdk_titlebar_name"/>
+    <string name="ali_vsdk_titlebar_name" />
     <string name="ali_vsdk_verify_call_calling">电话拨打中...请留意一下来电</string>
     <string name="ali_vsdk_verify_call_dialog_cancel">取消</string>
     <string name="ali_vsdk_verify_call_dialog_ok">接听</string>
@@ -66,7 +66,9 @@
     <string name="ali_vsdk_verify_submit">提交</string>
     <!--homeFragment-->
     <string name="symbol">1099</string>
-    <string name="borrowAmount">借入资产</string>
+    <string name="BorrowAmount">借入资产</string>
+    <string name="BorrowAssets">借入资产</string>
+    <string name="Borrowed">借入资产</string>
     <string name="minInvestAmount">起购资金</string>
     <string name="investNow">立即投资</string>
     <string name="annualized">年化</string>
@@ -108,6 +110,7 @@
     <string name="purchase_funds">起购资金</string>
     <string name="scroll_to_load_market">向上拖动查看投资详情</string>
     <string name="invest_summary">投资详情</string>
+    <string name="invest_guidelines">投资须知</string>
     <string name="purchased_record">已购记录</string>
     <string name="add_record">追加记录</string>
     <string name="calc_way_msg">满标后当日计息</string>
@@ -135,6 +138,9 @@
     <string name="new_user_not_enough">新手剩余额度不足</string>
     <string name="input_must_greater_minAmount">输入金额必须大于最小起投金额</string>
     <string name="min">最小</string>
+    <string name="invest_guidelines_text">如果标的投资24小时内未达到100%，或24小时内抵押数字货币价格向下浮动超过20%，则该标的自动失效，并将货币归还给投资者。\n\n
+        在逾期时间达到7天时，平台会将抵押资产作交割处理，扣除逾期手续费后将资产按投资比例归还投资者。\n\n
+    平台制定警戒线（140%）及平仓线（110%），平仓线=借款金额*110%，警戒线=借款金额*140%。当抵押资产到达警戒线时，系统会提醒借款人增加抵押物。当抵押资产到达平仓线时，平台将会对抵押资产作交割处理并将归投资人所有，而抵押借款人不再拥有所抵押资产。</string>
     <!--LoginActivity-->
     <string name="login">登录</string>
     <string name="login_now">立即登录</string>
@@ -292,7 +298,7 @@
     <string name="assets_manage">资产管理</string>
     <string name="account_manage">账户管理</string>
     <string name="my_invest">我的投资</string>
-    <string name="my_recharge_withdraw_record">充提记录</string>
+    <string name="my_amount_record">资金记录</string>
     <string name="my_loan">我的借款</string>
     <string name="user_center">个人中心</string>
     <string name="safe_cerfity">安全认证</string>
@@ -322,8 +328,7 @@
     <string name="order_code">订单号</string>
     <string name="recharge_add">充值地址</string>
     <string name="withdraw_add">提现地址</string>
-    <string name="recharge_record">充值记录</string>
-    <string name="withdraw_record">提现记录</string>
+    <string name="send_LV">LV发放</string>
     <string name="wait_udit">待审核</string>
     <string name="processing">处理中</string>
     <string name="processed_finish">已完成</string>

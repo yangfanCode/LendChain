@@ -15,6 +15,7 @@ import com.lend.lendchain.ui.activity.account.adapter.MyWalletAdapter;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.ListViewWithOptional;
@@ -78,7 +79,7 @@ public class MyWalletActivity extends BaseActivity {
         map.put("access_token", SPUtil.getToken());
         NetClient.getInstance().getPost("", isShow, MyWalletActivity.this).getUserInfo(map).subscribeOn(Schedulers.io())
                 .flatMap(userInfoResultBean -> {
-                    myWalletTotalMoney=CommonUtil.doubleTransRound6(userInfoResultBean.data.totalAmount);//总余额
+                    myWalletTotalMoney= DoubleUtils.doubleTransRound6(userInfoResultBean.data.totalAmount);//总余额
                     Map<String, Object> mapWalletList = new HashMap<>();
                     mapWalletList.put("access_token", SPUtil.getToken());
                     mapWalletList.put("page", currentPage);

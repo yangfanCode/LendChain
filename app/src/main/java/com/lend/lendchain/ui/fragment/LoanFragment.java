@@ -35,6 +35,7 @@ import com.lend.lendchain.ui.activity.account.UserCenterActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.KeyBordUtils;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.utils.SPUtil;
@@ -187,7 +188,7 @@ public class LoanFragment extends Fragment {
         listLoadDeadLine.add("90".concat(getString(R.string.day_ri)));
         loadDeadLine = listLoadDeadLine.get(0);
         fnLoanDeadLine.setText(loadDeadLine);
-        tvSeekBarMax.setText(CommonUtil.doubleRoundFormat(max_other_rate * 100, 2) + "%");//最高利率
+        tvSeekBarMax.setText(DoubleUtils.doubleRoundFormat(max_other_rate * 100, 2) + "%");//最高利率
     }
 
     private void initData(boolean isShow) {
@@ -296,7 +297,7 @@ public class LoanFragment extends Fragment {
                     String input = s.toString().trim();
                     if (!TextUtils.isEmpty(input) && !input.endsWith(".")) {
                         //科学计数法
-                        etLoanCount.setText(CommonUtil.doubleTransRound6(Double.valueOf(input) * mortgateRate * price));
+                        etLoanCount.setText(DoubleUtils.doubleTransRound6(Double.valueOf(input) * mortgateRate * price));
                         calcLoanDeadLineInterest();//计算展示利息
                     } else {
                         if(TextUtils.isEmpty(input)){
@@ -323,7 +324,7 @@ public class LoanFragment extends Fragment {
                     String input = s.toString().trim();
                     if (!TextUtils.isEmpty(input) && !input.endsWith(".")) {
                         //科学计数法
-                        etMortgageCount.setText(CommonUtil.doubleTransRound6(Double.valueOf(input) / mortgateRate / price));
+                        etMortgageCount.setText(DoubleUtils.doubleTransRound6(Double.valueOf(input) / mortgateRate / price));
                         calcLoanDeadLineInterest();//计算展示利息
                     } else {
                         if(TextUtils.isEmpty(input)){
@@ -358,7 +359,7 @@ public class LoanFragment extends Fragment {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 double minrate = getMinRate();
                 LogUtils.LogE(LoanFragment.class, minrate + "");
-                tvSeekBarRate.setText(CommonUtil.doubleRoundFormat((getMinRate() + (max_other_rate - getMinRate()) / 100 * progress) * 100, 2) + "%");
+                tvSeekBarRate.setText(DoubleUtils.doubleRoundFormat((getMinRate() + (max_other_rate - getMinRate()) / 100 * progress) * 100, 2) + "%");
                 calcLoanDeadLineInterest();//计算展示利息
             }
 
@@ -391,7 +392,7 @@ public class LoanFragment extends Fragment {
                         }
                         double loanC=Double.parseDouble(loanCount);
                         if(loanC<minBorrowAmount){
-                            TipsToast.showTips(getString(R.string.minimum_number_is)+CommonUtil.doubleTransRound6(minBorrowAmount));
+                            TipsToast.showTips(getString(R.string.minimum_number_is)+DoubleUtils.doubleTransRound6(minBorrowAmount));
                             return;
                         }
                         //读取用户此币种余额 是否不足
@@ -462,7 +463,7 @@ public class LoanFragment extends Fragment {
                         double oldLoanCount = Double.valueOf(etLoanCount.getText().toString().trim());//选择的可借入数量
                         String days = loadDeadLine.replace(getString(R.string.day_ri), "");
                         String google = keyBoardInputPopWindow.getEditTextGoogleCode().getText().toString().trim();
-                        String rate = CommonUtil.doubleTransFormatTwo(Double.parseDouble(tvSeekBarRate.getText().toString().replace("%", "")) / 100, 4);//利率
+                        String rate = DoubleUtils.doubleTransFormatTwo(Double.parseDouble(tvSeekBarRate.getText().toString().replace("%", "")) / 100, 4);//利率
                         if (newLoanCount < oldLoanCount) {//如果可借不足 弹窗提示
                             CustomDialog.Builder builder = new CustomDialog.Builder(getActivity());
                             builder.setTitle(getString(R.string.warm_tips));
@@ -471,11 +472,11 @@ public class LoanFragment extends Fragment {
                             builder.setPositiveButton(getString(R.string.continue_), (dialog, which) -> {//按最新价格提交
                                 dialog.dismiss();
                                 if(newLoanCount<minBorrowAmount){//在判断一次最新的借入数量是否小于最小可借
-                                    TipsToast.showTips(getString(R.string.minimum_number_is)+CommonUtil.doubleTransRound6(minBorrowAmount));
+                                    TipsToast.showTips(getString(R.string.minimum_number_is)+DoubleUtils.doubleTransRound6(minBorrowAmount));
                                     return;
                                 }
-                                NetApi.createLoan(getActivity(), CommonUtil.doubleTransRound6(newLoanCount), loanCoin, coinId.get(loanCoin), days, google, rate
-                                        , CommonUtil.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, createLoanObserver);
+                                NetApi.createLoan(getActivity(), DoubleUtils.doubleTransRound6(newLoanCount), loanCoin, coinId.get(loanCoin), days, google, rate
+                                        , DoubleUtils.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, createLoanObserver);
                             });
                             dialog = builder.create();
                             builder.getNegativeButton().setTextColor(ColorUtils.COLOR_509FFF);
@@ -483,8 +484,8 @@ public class LoanFragment extends Fragment {
                             dialog.setCancelable(false);
                             dialog.show();
                         } else {
-                            NetApi.createLoan(getActivity(), CommonUtil.doubleTransRound6(oldLoanCount), loanCoin, coinId.get(loanCoin), days, google, rate
-                                    , CommonUtil.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, createLoanObserver);
+                            NetApi.createLoan(getActivity(), DoubleUtils.doubleTransRound6(oldLoanCount), loanCoin, coinId.get(loanCoin), days, google, rate
+                                    , DoubleUtils.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, createLoanObserver);
                         }
                     }
                 } else {
@@ -660,7 +661,7 @@ public class LoanFragment extends Fragment {
         String minRate = "USDT".equals(coin) ? min_usdt_rate * 100 + "%" : min_other_rate * 100 + "%";
         tvSeekBarMin.setText(minRate);//最低利率
         tvSeekBarRate.setText(minRate);//最低利率
-        tvSeekBarMax.setText(CommonUtil.doubleRoundFormat(max_other_rate * 100, 2) + "%");//最高利率
+        tvSeekBarMax.setText(DoubleUtils.doubleRoundFormat(max_other_rate * 100, 2) + "%");//最高利率
     }
 
     //获得最小利率的数值
@@ -678,7 +679,7 @@ public class LoanFragment extends Fragment {
         String loanCount = etLoanCount.getText().toString().trim();
         if (TextUtils.isEmpty(loanCount)) loanCount="0";
         int days = Integer.valueOf(loadDeadLine.replace(getString(R.string.day_ri), ""));
-        fnLoanDeadLinePay.setText(CommonUtil.doubleTransRound6(Double.parseDouble(loanCount) * getSelectRate() * days) + " " + loanCoin);//借入利息
+        fnLoanDeadLinePay.setText(DoubleUtils.doubleTransRound6(Double.parseDouble(loanCount) * getSelectRate() * days) + " " + loanCoin);//借入利息
     }
 
     public void setSeekBarEnabled(boolean enabled) {

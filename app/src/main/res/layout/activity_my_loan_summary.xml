@@ -57,7 +57,7 @@
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
-                    app:fnTitle="@string/loan_amount"
+                    app:fnTitle="@string/BorrowAmount"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
                     app:fnTopPadding="@dimen/padding_7" />

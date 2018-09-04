@@ -2,7 +2,7 @@ package com.lend.lendchain.widget.chart.utils;
 
 import android.text.TextUtils;
 
-import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -381,7 +381,7 @@ public class NumberUtil {
     //计算涨跌幅度
     public static String calcGain(double close,double open){
         String s=close>open?"+":(close<open?"-":"");
-        String d= CommonUtil.doubleRoundFormat(Math.abs(close-open)/open*100,2);
+        String d= DoubleUtils.doubleRoundFormat(Math.abs(close-open)/open*100,2);
         return s.concat(d).concat("%");
     }
 }

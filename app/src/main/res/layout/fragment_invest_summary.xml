@@ -2,14 +2,21 @@
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/color_F5F5F5"
     android:layout_height="match_parent"
 
     tools:context=".ui.fragment.invest.InvestSummaryFragment">
 
     <TextView
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:background="@color/white"
         android:id="@+id/invest_fragment_tvSummary"
-        android:layout_margin="@dimen/padding_15"
-        android:lineSpacingExtra="@dimen/padding_2"
+        android:paddingTop="@dimen/padding_16"
+        android:paddingBottom="@dimen/padding_36"
+        android:paddingLeft="@dimen/padding_16"
+        android:paddingRight="@dimen/padding_16"
+        android:lineSpacingExtra="@dimen/padding_3"
         style="@style/text595959_14" />
 
 </android.support.v4.widget.NestedScrollView>

@@ -21,12 +21,17 @@
         android:layout_height="match_parent"
         android:background="@color/color_F5F5F5">
 
-        <com.lend.lendchain.widget.ListViewWithOptional
-            android:id="@+id/my_loan_lv"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@color/color_F5F5F5"
-            android:dividerHeight="@dimen/padding_5" />
+            android:layout_height="match_parent">
+
+            <com.lend.lendchain.widget.ListViewWithOptional
+                android:id="@+id/my_loan_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/color_F5F5F5"
+                android:dividerHeight="@dimen/padding_5" />
+        </FrameLayout>
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

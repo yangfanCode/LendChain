@@ -1,40 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
+    android:background="@color/color_F5F5F5"
     tools:context=".ui.fragment.invest.InvestRecordFragment">
-    <RelativeLayout
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="@color/color_F5F5F5"
-        android:layout_height="@dimen/padding_40">
-        <TextView
-            android:layout_width="wrap_content"
-            android:ellipsize="end"
-            android:id="@+id/invest_record_tvNickNameText"
-            android:text="@string/user_name"
-            android:layout_centerVertical="true"
-            style="@style/text595959_12" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerInParent="true"
-            android:id="@+id/invest_record_tvAmount"
-            android:text="@string/amount"
-            android:layout_gravity="center"
-            style="@style/text595959_12" />
-        <TextView
-            android:text="@string/buy_time"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            style="@style/text595959_12" />
-    </RelativeLayout>
-    <com.handmark.pulltorefresh.library.PullRefreshRecyclerViewV
-        android:id="@+id/invest_record_recylerView"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/padding_40"
+            android:background="@color/color_F5F5F5"
+            android:paddingLeft="@dimen/padding_15"
+            android:paddingRight="@dimen/padding_15">
+
+            <TextView
+                android:id="@+id/invest_record_tvNickNameText"
+                style="@style/text595959_12"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:ellipsize="end"
+                android:text="@string/user_name" />
+
+            <TextView
+                android:id="@+id/invest_record_tvAmount"
+                style="@style/text595959_12"
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:text="@string/amount" />
+
+            <TextView
+                style="@style/text595959_12"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/buy_time" />
+        </RelativeLayout>
+
+        <com.handmark.pulltorefresh.library.PullRefreshRecyclerViewV
+            android:id="@+id/invest_record_recylerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <com.lend.lendchain.widget.OptionalLayout
+        android:background="@color/white"
+        android:id="@+id/optionalLayout"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent"/>
+</FrameLayout>

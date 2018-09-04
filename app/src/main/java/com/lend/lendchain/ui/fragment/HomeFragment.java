@@ -31,6 +31,7 @@ import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DisplayUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.CircleProgressBar;
@@ -146,6 +147,12 @@ public class HomeFragment extends Fragment {
                         } else {
                             TipsToast.showTips(listResultBean.message);
                         }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+//                        TipsToast.showTips(getString());
                     }
                 });
     }
@@ -349,9 +356,9 @@ public class HomeFragment extends Fragment {
             tvOrderType.setText(getOrderType(homeSupport.borrowTypeId));
             tvOrderDays.setText(homeSupport.borrowDays + getString(R.string.day_period));
             progressBar.setProgress((int) (homeSupport.boughtAmount / homeSupport.borrowAmount * 100));//进度条
-            tvAnnualized.setText(CommonUtil.doubleRoundFormat(homeSupport.interestRates * 360 * 100, 2));//2位小数
-            tvBorrowAmount.setText(CommonUtil.doubleTransRoundTwo(homeSupport.borrowAmount, 2).concat(" "+homeSupport.borrowCryptoCode));//单位不处理
-            tvMinInvestAmount.setText(CommonUtil.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" "+homeSupport.borrowCryptoCode));//单位不处理
+            tvAnnualized.setText(DoubleUtils.doubleRoundFormat(homeSupport.interestRates * 360 * 100, 2));//2位小数
+            tvBorrowAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.borrowAmount, 2).concat(" "+homeSupport.borrowCryptoCode));//单位不处理
+            tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" "+homeSupport.borrowCryptoCode));//单位不处理
             btnInvest.setOnClickListener(v1 -> {
                 Bundle bundle=new Bundle();
                 //传标的id

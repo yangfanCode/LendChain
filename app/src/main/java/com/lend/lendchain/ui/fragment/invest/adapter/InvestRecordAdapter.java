@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.InvestRecordList;
-import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.TimeUtils;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class InvestRecordAdapter extends RecyclerView.Adapter<InvestRecordAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         InvestRecordList investRecordList=list.get(position);
         holder.tvName.setText(investRecordList.nickname);//昵称
-        holder.tvAmount.setText(CommonUtil.doubleTransRound6(investRecordList.amount)+"");//金额
+        holder.tvAmount.setText(DoubleUtils.doubleTransRound6(investRecordList.amount)+"");//金额
         holder.tvTime.setText(TimeUtils.getDateToStringS(investRecordList.time,TimeUtils.YYYY_MM_dd_HH_MM_SS1));
     }
 

@@ -18,6 +18,7 @@ import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.TimeUtils;
@@ -154,15 +155,15 @@ public class MyLoanSummaryActivity extends BaseActivity {
         }
         fnCodeStatus.setTitle(summary.orderId);//标name
         fnCodeStatus.setText(status);//状态
-        fnLoanAmount.setText(CommonUtil.doubleTransRound6(summary.borrowAmount)+" "+summary.borrowCryptoCode);//借入金额
+        fnLoanAmount.setText(DoubleUtils.doubleTransRound6(summary.borrowAmount)+" "+summary.borrowCryptoCode);//借入金额
         fnInterst.setText(interest);//利息
         fnDeadLine.setText(!TextUtils.isEmpty(deadline)?TimeUtils.getDateToStringS(Long.parseLong(deadline),TimeUtils.YYYY_MM_dd_HH_MM_SS1):"");//到期时间
         fnSendTime.setText(!TextUtils.isEmpty(summary.createTime)? TimeUtils.getDateToStringS(Long.parseLong(summary.createTime),TimeUtils.YYYY_MM_dd_HH_MM_SS1):"");//发标时间
         fnFulledStandard.setText(quotaFullTime);//满标时间
         fnRepayTime.setText(realPaybackTime);//还款时间
-        fnMortage.setText(CommonUtil.doubleTransRound6(summary.mortgageAmount)+" "+summary.mortgageCryptoCode);//抵押物
-        int progress=CommonUtil.doubleToIntRound( (summary.boughtAmount / summary.borrowAmount * 100));//进度
-        fnRaisePercent.setText(CommonUtil.doubleTransRoundTwo(progress, 2) + "%");//募集百分比
+        fnMortage.setText(DoubleUtils.doubleTransRound6(summary.mortgageAmount)+" "+summary.mortgageCryptoCode);//抵押物
+        int progress=DoubleUtils.doubleToIntRound( (summary.boughtAmount / summary.borrowAmount * 100));//进度
+        fnRaisePercent.setText(DoubleUtils.doubleTransRoundTwo(progress, 2) + "%");//募集百分比
         ViewUtils.showViewsVisible(true,llParent);//显示父布局
     }
 

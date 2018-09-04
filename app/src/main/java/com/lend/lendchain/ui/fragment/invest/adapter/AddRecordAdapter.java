@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.AddRecordList;
-import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.TimeUtils;
 
 import java.util.List;
@@ -41,8 +41,8 @@ public class AddRecordAdapter extends RecyclerView.Adapter<AddRecordAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         AddRecordList addRecordList=list.get(position);
         holder.tvTime.setText(TimeUtils.getDateToStringMs(addRecordList.ctime,TimeUtils.YYYY_MM_dd_HH_MM_SS1));//时间
-        holder.tvAddAmount.setText(CommonUtil.doubleTransRound6(addRecordList.amount));//追加金额
-        holder.tvMortgageAmount.setText(CommonUtil.doubleTransRound6(addRecordList.preAmount));//抵押总额
+        holder.tvAddAmount.setText(DoubleUtils.doubleTransRound6(addRecordList.amount));//追加金额
+        holder.tvMortgageAmount.setText(DoubleUtils.doubleTransRound6(addRecordList.preAmount));//抵押总额
     }
 
     @Override

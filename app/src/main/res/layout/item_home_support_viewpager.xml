@@ -130,7 +130,7 @@
                                 style="@style/text999999_12"
                                 android:layout_alignLeft="@id/item_home_tvBorrowAmount"
                                 android:layout_below="@id/item_home_tvBorrowAmount"
-                                android:text="@string/borrowAmount" />
+                                android:text="@string/BorrowAssets" />
                         </RelativeLayout>
                     </LinearLayout>
 

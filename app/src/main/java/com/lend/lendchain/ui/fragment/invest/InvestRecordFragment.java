@@ -15,6 +15,7 @@ import com.lend.lendchain.R;
 import com.lend.lendchain.bean.InvestRecordList;
 import com.lend.lendchain.ui.fragment.invest.adapter.InvestRecordAdapter;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.RecycleViewDivider;
 
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ public class InvestRecordFragment extends Fragment {
     PullRefreshRecyclerViewV recyclerViewV;
     @BindView(R.id.invest_record_tvAmount)
     TextView tvAmount;
+    @BindView(R.id.optionalLayout)
+    OptionalLayout optionalLayout;
     private ArrayList<InvestRecordList> list;
     private String code;
     private View rootView;
@@ -68,6 +71,10 @@ public class InvestRecordFragment extends Fragment {
         tvAmount.setText(getString(R.string.amount).concat("("+code+")"));
         InvestRecordAdapter adapter = new InvestRecordAdapter(getActivity(), list);
         recyclerViewV.setAdapter(adapter);
+        if(list.size()==0){//空数据页面
+            optionalLayout.setTypeEnum(OptionalLayout.TypeEnum.NO_DATA);
+            optionalLayout.setVisibility(View.VISIBLE);
+        }
     }
 
 

@@ -18,6 +18,7 @@ import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.ViewUtils;
@@ -104,7 +105,7 @@ public class LoanAddActivity extends BaseActivity {
                 String input=s.toString().trim();
                 if(!TextUtils.isEmpty(input)&&!input.endsWith(".")){
                     double rio=price*(mortgageAmount+Double.parseDouble(input))/borrowAmount;
-                    tvAddRate.setText(CommonUtil.doubleTransFormatTwo(rio*100,2)+"%");
+                    tvAddRate.setText(DoubleUtils.doubleTransFormatTwo(rio*100,2)+"%");
                 }else{
                     if(TextUtils.isEmpty(input)){//展示默认
                         tvAddRate.setText(mortageSufficientRate+"%");
@@ -135,17 +136,17 @@ public class LoanAddActivity extends BaseActivity {
                     double warning=borrowAmount*1.4;//警戒线数值
                     double closing=borrowAmount*1.1;//平仓线数值
                     double mortage=mortgageAmount*price;//抵押价值
-                    tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" = "+ CommonUtil.doubleTransRound6(price)+" "+borrowCryptoCode);//抵押币种市价
-                    tvMortageCount.setText(CommonUtil.doubleTransRound6(mortgageAmount)+" "+mortgageCryptoCode);//抵押数量
-                    tvMortagePrize.setText(CommonUtil.doubleTransRound6(mortage)+" "+borrowCryptoCode);//抵押价值
-                    tvWarnLine.setText(CommonUtil.doubleTransRound6(warning)+" "+borrowCryptoCode+"(140%)");//警戒线
-                    tvCloseLine.setText(CommonUtil.doubleTransRound6(closing)+" "+borrowCryptoCode+"(110%)");//平仓线
+                    tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" = "+ DoubleUtils.doubleTransRound6(price)+" "+borrowCryptoCode);//抵押币种市价
+                    tvMortageCount.setText(DoubleUtils.doubleTransRound6(mortgageAmount)+" "+mortgageCryptoCode);//抵押数量
+                    tvMortagePrize.setText(DoubleUtils.doubleTransRound6(mortage)+" "+borrowCryptoCode);//抵押价值
+                    tvWarnLine.setText(DoubleUtils.doubleTransRound6(warning)+" "+borrowCryptoCode+"(140%)");//警戒线
+                    tvCloseLine.setText(DoubleUtils.doubleTransRound6(closing)+" "+borrowCryptoCode+"(110%)");//平仓线
                     tvAddCode.setText(mortgageCryptoCode);//追加抵押code
                     double leastAdd=(warning-mortage)/price;
-                    etAddCount.setHint(getString(R.string.least_add).concat(CommonUtil.doubleTransRound6(leastAdd>0?leastAdd:0)).concat(" "+mortgageCryptoCode));
+                    etAddCount.setHint(getString(R.string.least_add).concat(DoubleUtils.doubleTransRound6(leastAdd>0?leastAdd:0)).concat(" "+mortgageCryptoCode));
                     if(borrowAmount!=0){
                         double rio=price*mortgageAmount/borrowAmount;
-                        mortageSufficientRate=CommonUtil.doubleTransRoundTwo(rio*100,2);
+                        mortageSufficientRate=DoubleUtils.doubleTransRoundTwo(rio*100,2);
                         if(rio>1.4){
                             tvMortageSufficientRate.setText(mortageSufficientRate+"%"+getString(R.string.below_the_security_line));
                         }else{

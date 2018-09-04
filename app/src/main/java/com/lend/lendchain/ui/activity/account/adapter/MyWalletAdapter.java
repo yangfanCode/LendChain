@@ -19,6 +19,7 @@ import com.lend.lendchain.ui.activity.account.WithDrawActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.yangfan.widget.CustomDialog;
 
@@ -127,7 +128,7 @@ public class MyWalletAdapter extends BaseAdapter {
         TextView tvTransfer = viewHolder.getView(R.id.item_my_wallet_tvTransfer);
         ivIcon.setImageResource(res.get(myWalletList.cryptoCode));
         tvCoinType.setText(myWalletList.cryptoCode);//币种
-        tvCount.setText(CommonUtil.doubleTransRound6(myWalletList.amount));//数量
+        tvCount.setText(DoubleUtils.doubleTransRound6(myWalletList.amount));//数量
         tvRecharge.setOnClickListener(rechargeClick);
         tvWithdraw.setOnClickListener(withDrawClick);
         tvTransfer.setOnClickListener(transferClick);

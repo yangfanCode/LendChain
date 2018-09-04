@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.InvestList;
 import com.lend.lendchain.bean.ViewHolder;
-import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.widget.GradientTextView;
 
 import java.util.ArrayList;
@@ -96,20 +96,20 @@ public class InvestAllAdapter extends BaseAdapter {
         }
         int borrowTypeRes = getBorrowTypeRes(borrowTypeId);//右上角标识
         ivBorrowType.setImageBitmap(borrowTypeRes == 0 ? null : BitmapFactory.decodeResource(context.getResources(), borrowTypeRes));
-        tvDeadLine.setText(String.valueOf(investList.borrowDays).concat(context.getString(R.string.day)));
+        tvDeadLine.setText(String.valueOf(investList.borrowDays).concat(" "+context.getString(R.string.day)));
         if (type == 0) {
             GradientTextView tvdailyRate = viewHolder.getView(R.id.item_invest_tvdailyRate);//日利率
-            tvdailyRate.setText(CommonUtil.doubleRoundFormat(investList.interestRates * 360 * 100, 2) );
+            tvdailyRate.setText(DoubleUtils.doubleRoundFormat(investList.interestRates * 360 * 100, 2) );
             TextView tvBorrowAmount = viewHolder.getView(R.id.item_invest_tvBorrowAmount);//借入资产
-            tvBorrowAmount.setText(CommonUtil.doubleTransRound6(investList.borrowAmount).concat(" "+investList.borrowCryptoCode));
+            tvBorrowAmount.setText(DoubleUtils.doubleTransRound6(investList.borrowAmount).concat(" "+investList.borrowCryptoCode));
             ProgressBar progressBar = viewHolder.getView(R.id.item_invest_pb);//进度条
-            int progress = CommonUtil.doubleToIntRound((investList.boughtAmount / investList.borrowAmount * 100));
+            int progress = DoubleUtils.doubleToIntRound((investList.boughtAmount / investList.borrowAmount * 100));
             TextView tvPercent = viewHolder.getView(R.id.item_invest_tvPercent);//百分比
             progressBar.setProgress(progress);
-            tvPercent.setText(CommonUtil.doubleTransRoundTwo(progress, 2) + "%");//百分比
+            tvPercent.setText(DoubleUtils.doubleTransRoundTwo(investList.boughtAmount / investList.borrowAmount * 100, 2) + "%");//百分比
         }else{
             TextView tvdailyRate = viewHolder.getView(R.id.item_invest_tvdailyRate);//日利率
-            tvdailyRate.setText(CommonUtil.doubleRoundFormat(investList.interestRates * 360 * 100, 2) );
+            tvdailyRate.setText(DoubleUtils.doubleRoundFormat(investList.interestRates * 360 * 100, 2) );
         }
         return viewHolder.getConvertView();
     }
