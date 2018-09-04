@@ -44,6 +44,14 @@
             android:name="UMENG_CHANNEL"
             android:value="${CHANNEL_VALUE}" />
 
+        <!--&lt;!&ndash;屏幕适配&ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="design_width_in_dp"-->
+            <!--android:value="375"/>-->
+        <!--<meta-data-->
+            <!--android:name="design_height_in_dp"-->
+            <!--android:value="100000"/>-->
+
         <!-- app update fileProvider -->
         <provider
             android:name="android.support.v4.content.FileProvider"

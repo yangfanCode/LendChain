@@ -159,7 +159,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="100dp"
                     android:background="@drawable/row_pressed2"
                     android:paddingLeft="@dimen/padding_12"
                     android:paddingRight="@dimen/padding_12">
@@ -167,30 +167,42 @@
                     <TextView
                         android:id="@+id/loan_tvLoanInText"
                         style="@style/text999999_14"
-                        android:maxWidth="@dimen/round_head_height_60"
                         android:gravity="center_horizontal"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/padding_15"
                         android:layout_marginRight="@dimen/padding_5"
                         android:text="@string/loan_in_rate" />
 
                     <TextView
+                        android:layout_width="40dp"
                         android:id="@+id/loan_tvSeekBarMin"
                         style="@style/text262626_12"
-                        android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/loan_tvLoanInText" />
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="@dimen/padding_20"
+                        android:layout_centerVertical="true" />
 
                     <TextView
+                        android:layout_width="40dp"
+                        android:layout_marginTop="@dimen/padding_20"
                         android:id="@+id/loan_tvSeekBarMax"
                         style="@style/text262626_12"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true" />
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="@dimen/padding_20" />
+
+                    <TextView
+                        android:layout_below="@id/loan_tvLoanInText"
+                        android:layout_marginTop="@dimen/padding_5"
+                        android:id="@+id/loan_tvSeekBarRate"
+                        android:layout_centerHorizontal="true"
+                        style="@style/text262626_14" />
 
                     <SeekBar
+                        android:layout_alignParentBottom="true"
                         android:id="@+id/loan_seekBar"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/padding_30"
-                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="@dimen/padding_10"
                         android:layout_toLeftOf="@id/loan_tvSeekBarMax"
                         android:layout_toRightOf="@id/loan_tvSeekBarMin"
                         android:focusable="true"
@@ -200,14 +212,7 @@
                         android:splitTrack="false"
                         android:thumb="@mipmap/icon_seekbar_thumb" />
 
-                    <TextView
-                        android:id="@+id/loan_tvSeekBarRate"
-                        style="@style/text262626_14"
-                        android:layout_width="match_parent"
-                        android:layout_above="@id/loan_seekBar"
-                        android:layout_toLeftOf="@id/loan_tvSeekBarMax"
-                        android:layout_toRightOf="@id/loan_tvSeekBarMin"
-                        android:gravity="center" />
+
 
                 </RelativeLayout>
 

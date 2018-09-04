@@ -370,7 +370,7 @@ public class HomeFragment extends Fragment {
         }
         int size = listViews.size();
         ContentPagerAdapter adapter = new ContentPagerAdapter(listViews);
-//                    customViewPager.setPageMargin(DisplayUtil.dp2px(getActivity(),5));//设置间距 设置zoom不需要设置margain
+//        customViewPager.setPageMargin(DisplayUtil.dp2px(getActivity(),-25));//设置间距 调节两个item边距
         customViewPager.setOffscreenPageLimit(size);
         customViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         customViewPager.setAdapter(adapter);

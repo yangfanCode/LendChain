@@ -163,7 +163,7 @@ public class MyLoanSummaryActivity extends BaseActivity {
         fnRepayTime.setText(realPaybackTime);//还款时间
         fnMortage.setText(DoubleUtils.doubleTransRound6(summary.mortgageAmount)+" "+summary.mortgageCryptoCode);//抵押物
         int progress=DoubleUtils.doubleToIntRound( (summary.boughtAmount / summary.borrowAmount * 100));//进度
-        fnRaisePercent.setText(DoubleUtils.doubleTransRoundTwo(progress, 2) + "%");//募集百分比
+        fnRaisePercent.setText(DoubleUtils.doubleTransRoundTwo((summary.boughtAmount / summary.borrowAmount * 100), 2) + "%");//募集百分比
         ViewUtils.showViewsVisible(true,llParent);//显示父布局
     }
 

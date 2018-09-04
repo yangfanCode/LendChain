@@ -235,7 +235,7 @@
     <string name="mortgage_warnning_line">Mortgage warning line</string>
     <string name="mortgage_close_line">Mortgage closing line</string>
     <string name="loan_in_count">Borrowed Amount</string>
-    <string name="loan_in_rate">Interest\nRate\n(Daily)</string>
+    <string name="loan_in_rate">Interest Rate (Daily)</string>
     <string name="loan_deadline">Period</string>
     <string name="loan_deadline_pay_interest">Accrued Interest</string>
     <string name="loan_confirm">Confirm</string>

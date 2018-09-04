@@ -34,7 +34,7 @@
                     android:id="@+id/home_content_vp"
                     android:clipChildren="false"
                     android:layout_width="match_parent"
-                    android:layout_height="355dp"
+                    android:layout_height="350dp"
                     android:layout_marginLeft="@dimen/padding_50"
                     android:layout_marginRight="@dimen/padding_50"
                     android:layout_marginBottom="@dimen/padding_5"
