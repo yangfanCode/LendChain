@@ -4,7 +4,7 @@
     android:layout_height="192dp"
     android:orientation="vertical">
 
-    <include layout="@layout/row_divider_12h_1px" />
+    <include layout="@layout/row_divider_12h" />
 
     <FrameLayout
         android:layout_width="match_parent"

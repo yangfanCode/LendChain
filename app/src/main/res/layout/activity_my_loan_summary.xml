@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             app:btbBackground="@color/white" />
 
-        <include layout="@layout/row_divider_12h_1px" />
+        <include layout="@layout/row_divider_12h" />
 
         <LinearLayout
             android:background="@color/white"
@@ -40,7 +40,7 @@
                 app:fnTitleTextSize="16"
                 app:fnTopPadding="@dimen/padding_18" />
 
-            <include layout="@layout/row_divider_12h_1px" />
+            <include layout="@layout/row_divider_12h" />
 
             <LinearLayout
                 android:layout_width="match_parent"

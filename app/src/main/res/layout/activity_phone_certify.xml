@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         app:btbBackground="@color/white" />
 
-    <include layout="@layout/row_divider_12h_1px" />
+    <include layout="@layout/row_divider_12h" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_50"

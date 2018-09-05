@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         app:btbBackground="@color/white" />
 
-    <include layout="@layout/row_divider_12h_1px" />
+    <include layout="@layout/row_divider_12h" />
 
     <LinearLayout
         android:id="@+id/load_add_llParent"
@@ -136,7 +136,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <include layout="@layout/row_divider_12h_1px" />
+        <include layout="@layout/row_divider_12h" />
 
         <TextView
             style="@style/text262626_12"

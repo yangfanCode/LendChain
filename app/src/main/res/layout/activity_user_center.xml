@@ -42,7 +42,7 @@
                 android:layout_marginTop="@dimen/padding_15" />
         </LinearLayout>
 
-        <include layout="@layout/row_divider_12h_1px" />
+        <include layout="@layout/row_divider_12h" />
 
         <com.yangfan.widget.FormNormal
             android:id="@+id/user_center_fnPhone"

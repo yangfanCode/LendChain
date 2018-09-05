@@ -19,7 +19,7 @@ public class NetConst {
      * 此处为测试域名
      **/
     public static final String PRODUCT_HOST_TEST = "http://apitest.lendx.vip/";//debug主域名
-    public static final String PRODUCT_HOST_H5_TEST="https://info.lendx.vip/"; //H5debug主域名
+    public static final String PRODUCT_HOST_H5_TEST="http://info.lendx.vip/test/"; //H5debug主域名
 
 
 
@@ -39,7 +39,7 @@ public class NetConst {
     public static final String HOW_TO_PLAY_MORGTAGE="app/Helpdetail/Helpdetail.html?item=usemortgage&lang=";
     //抵押借款说明
     public static final String MORTGAGE_DESCRIPTION="app/Helpdetail/Helpdetail.html?item=mortgage&lang=";
-    //推荐有礼
+    //推荐有礼 靠海行动
     public static final String SUPPORT_GIFT="app/recommendact/recommendact.html?lang=";
 
 

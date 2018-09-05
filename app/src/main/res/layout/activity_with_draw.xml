@@ -29,7 +29,7 @@
             android:gravity="center"
             android:text="@string/withdraw_limit_lines" />
 
-        <include layout="@layout/row_divider_12h_1px" />
+        <include layout="@layout/row_divider_12h" />
 
         <TextView
             style="@style/text262626_12"
@@ -70,7 +70,7 @@
                 <!--android:text="@string/paste" />-->
         </FrameLayout>
 
-        <include layout="@layout/row_divider_12h_1px" />
+        <include layout="@layout/row_divider_12h" />
 
         <TextView
             style="@style/text262626_12"
@@ -156,7 +156,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <include layout="@layout/row_divider_12h_1px" />
+            <include layout="@layout/row_divider_12h" />
             <TextView
                 style="@style/text262626_12"
                 android:layout_width="match_parent"

@@ -150,7 +150,7 @@
                         android:gravity="center"
                         android:background="@color/color_E5F1FF"
                         android:layout_height="@dimen/padding_40" />
-                    <include layout="@layout/row_divider_12h_1px" />
+                    <include layout="@layout/row_divider_12h" />
                     <!--未满标的进度条布局-->
                     <LinearLayout
                         android:id="@+id/invest_summary_layoutPb"
@@ -221,7 +221,7 @@
                         android:background="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="105dp"/>
-                    <include layout="@layout/row_divider_12h_1px" />
+                    <include layout="@layout/row_divider_12h" />
                     <!--英文和中文布局 基础信息部分布局不同-->
                     <LinearLayout
                         android:background="@color/white"

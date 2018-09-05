@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:btbBackground="@color/white" />
 
-    <include layout="@layout/row_divider_12h_1px" />
+    <include layout="@layout/row_divider_12h" />
     <FrameLayout
         android:id="@+id/layoutContainer"
         android:layout_marginTop="@dimen/padding_12"

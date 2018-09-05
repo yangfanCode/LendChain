@@ -7,6 +7,8 @@
     tools:context="com.lend.lendchain.ui.fragment.HomeFragment">
 
     <com.lend.lendchain.widget.ScrollChangeView
+        android:overScrollMode="never"
+        android:scrollbars="none"
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

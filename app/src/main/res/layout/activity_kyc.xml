@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         app:btbBackground="@color/white" />
 
-    <include layout="@layout/row_divider_12h_1px" />
+    <include layout="@layout/row_divider_12h" />
     <com.yangfan.widget.FormNormal
         android:id="@+id/kyc_fnCountry"
         style="@style/CustomFormBaseStyle"

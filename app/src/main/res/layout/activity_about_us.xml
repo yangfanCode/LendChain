@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="wrap_content">
-            <include layout="@layout/row_divider_12h_1px" />
+            <include layout="@layout/row_divider_12h" />
             <com.yangfan.widget.FormNormal
                 android:id="@+id/abount_us_fnLendChain"
                 style="@style/FormNormalBaseStyle"
@@ -47,7 +47,7 @@
                 app:fnTextSize="16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_12h_1px"/>
+            <include layout="@layout/row_divider_12h"/>
             <com.yangfan.widget.FormNormal
                 android:id="@+id/abount_us_fnWeb"
                 style="@style/FormNormalBaseStyle"

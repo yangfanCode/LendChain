@@ -176,7 +176,7 @@
                     android:text="@string/regiest_login" />
             </LinearLayout>
 
-            <include layout="@layout/row_divider_12h_1px" />
+            <include layout="@layout/row_divider_12h" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -279,7 +279,7 @@
                     android:text="@string/my_loan" />
             </LinearLayout>
 
-            <include layout="@layout/row_divider_12h_1px" />
+            <include layout="@layout/row_divider_12h" />
 
             <TextView
                 android:layout_width="match_parent"

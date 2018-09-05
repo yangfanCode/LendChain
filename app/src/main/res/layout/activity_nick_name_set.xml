@@ -20,7 +20,7 @@
         android:gravity="center"
         android:background="@color/color_EBF4FF"
         android:layout_height="@dimen/padding_40" />
-    <include layout="@layout/row_divider_12h_1px" />
+    <include layout="@layout/row_divider_12h" />
     <FrameLayout
         android:background="@color/white"
         android:paddingLeft="@dimen/padding_15"

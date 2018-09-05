@@ -41,7 +41,7 @@
                     android:paddingLeft="@dimen/padding_15"
                     android:text="@string/loan_title_tips" />
 
-                <include layout="@layout/row_divider_12h_1px" />
+                <include layout="@layout/row_divider_12h" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/loan_fnLoanType"
@@ -55,7 +55,7 @@
                     app:fnTitleTextSize="14"
                     app:fnTopPadding="@dimen/padding_18" />
 
-                <include layout="@layout/row_divider_12h_1px" />
+                <include layout="@layout/row_divider_12h" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/loan_fnMortgageeCoin"
@@ -83,7 +83,7 @@
                     app:fnTitleTextSize="14"
                     app:fnTopPadding="@dimen/padding_18" />
 
-                <include layout="@layout/row_divider_12h_1px" />
+                <include layout="@layout/row_divider_12h" />
 
                 <FrameLayout
                     android:id="@+id/loan_mortgageCount_layout"
@@ -155,7 +155,7 @@
                         app:afterDot="6" />
                 </FrameLayout>
 
-                <include layout="@layout/row_divider_12h_1px" />
+                <include layout="@layout/row_divider_12h" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -216,7 +216,7 @@
 
                 </RelativeLayout>
 
-                <include layout="@layout/row_divider_12h_1px" />
+                <include layout="@layout/row_divider_12h" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/loan_fnLoanDeadLine"
@@ -230,7 +230,7 @@
                     app:fnTitleTextSize="14"
                     app:fnTopPadding="@dimen/padding_18" />
 
-                <include layout="@layout/row_divider_12h_1px" />
+                <include layout="@layout/row_divider_12h" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/loan_fnLoanDeadLinePay"
