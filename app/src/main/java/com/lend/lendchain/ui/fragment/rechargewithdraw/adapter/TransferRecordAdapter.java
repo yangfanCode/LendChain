@@ -1,6 +1,7 @@
 package com.lend.lendchain.ui.fragment.rechargewithdraw.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,8 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.bean.RechargeWithDraw;
+import com.lend.lendchain.bean.TransferRecord;
 import com.lend.lendchain.bean.ViewHolder;
+import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.TimeUtils;
 
@@ -24,7 +26,7 @@ import java.util.Set;
  */
 public class TransferRecordAdapter extends BaseAdapter {
     private Set<Integer> addPos=new LinkedHashSet<>();
-    private List<RechargeWithDraw>list=new ArrayList<>();
+    private List<TransferRecord>list=new ArrayList<>();
     private Context context;
     public TransferRecordAdapter(Context context){
         this.context=context;
@@ -42,13 +44,13 @@ public class TransferRecordAdapter extends BaseAdapter {
         }
     };
 
-    public void loadData(List<RechargeWithDraw>list){
+    public void loadData(List<TransferRecord>list){
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
     }
 
-    public void reLoadData(List<RechargeWithDraw>list){
+    public void reLoadData(List<TransferRecord>list){
         this.list.addAll(list);
         notifyDataSetChanged();
     }
@@ -70,56 +72,54 @@ public class TransferRecordAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        RechargeWithDraw rechargeWithDraw=list.get(position);
+        TransferRecord transferRecord=list.get(position);
         ViewHolder viewHolder=ViewHolder.get(context,convertView, R.layout.item_transfer_record);
         TextView tvStatus=viewHolder.getView(R.id.transfer_record_tvStatus);
         TextView tvCount=viewHolder.getView(R.id.transfer_record_tvCount);
         TextView tvTime=viewHolder.getView(R.id.transfer_record_tvTime);
         TextView tvOrderCode=viewHolder.getView(R.id.transfer_record_tvOrderCode);
-        TextView tvOrderAdd=viewHolder.getView(R.id.transfer_record_tvOrderAdd);
+        TextView tvAcount=viewHolder.getView(R.id.transfer_record_tvAcount);
         LinearLayout llOrderAdd=viewHolder.getView(R.id.transfer_record_llOrderAdd);
         LinearLayout llOrder=viewHolder.getView(R.id.transfer_record_llOrder);
-        int status=rechargeWithDraw.status;
-//        tvStatus.setText(type==1?getRechargeStatus(status):getWithDrawStatus(status));
-        tvCount.setText(DoubleUtils.doubleTransRound6(rechargeWithDraw.amount)+" "+rechargeWithDraw.cryptoCode);
-        tvTime.setText(TimeUtils.getDateToStringS(Long.parseLong(rechargeWithDraw.ctime),"yyyy.MM.dd HH:mm:ss"));
-        //订单号 充值 orderId 提现 txOrder
-//        tvOrderCode.setText(context.getString(R.string.order_code)+":"+(type==1?rechargeWithDraw.orderId:rechargeWithDraw.txOrder));//订单号
-        //地址 充值 addr addr 提现addrTo addr
-//        String orderAddText=type==1?rechargeWithDraw.addr.addr:rechargeWithDraw.addrTo.addr;
-//        tvOrderAdd.setText(type==1?context.getString(R.string.recharge_add):context.getString(R.string.withdraw_add)+":"+orderAddText);//充值地址
+        int type=transferRecord.transgerType;
+        tvStatus.setText(getTransferStatus(type));
+        tvCount.setTextColor(setTransferCountColor(type));//字体颜色
+        tvCount.setText((type==1?"+":"-")+ DoubleUtils.doubleTransRound6(transferRecord.transferAmount)+" "+transferRecord.code);//金额
+        tvTime.setText(TimeUtils.getDateToStringMs(Long.parseLong(transferRecord.transferTime),"yyyy.MM.dd HH:mm:ss"));
+        tvOrderCode.setText(context.getString(R.string.order_code)+":"+(TextUtils.isEmpty(transferRecord.transgerId)?"":transferRecord.transgerId));
+        tvAcount.setText(getTransferAccount(type)+":"+transferRecord.transferAcc);//账户
         llOrder.setOnClickListener(addOnClickListener);
         llOrder.setTag(R.id.position,position);
         llOrder.setTag(R.id.view,llOrderAdd);
         llOrderAdd.setVisibility(addPos.contains(position)?View.VISIBLE:View.GONE);
         return viewHolder.getConvertView();
     }
-    //充值类型状态
-    private String getRechargeStatus(int status){
+    //转账类型状态
+    private String getTransferStatus(int status){
         if(status==1){
-            return context.getString(R.string.confirming);
+            return context.getString(R.string.transferred_from_others_success);
         }else if(status==2){
-            return context.getString(R.string.wait_in_account);
-        }else if(status==3){
-            return context.getString(R.string.in_accounted);
+            return context.getString(R.string.transferred_to_others_success);
         }else{
             return "";
         }
     }
-    //提现类型状态
-    private String getWithDrawStatus(int status){
-        if(status==0){
-            return context.getString(R.string.wait_udit);
-        }else if(status==1){
-            return context.getString(R.string.processing);
+    //充值类型状态
+    private String getTransferAccount(int status){
+        if(status==1){
+            return context.getString(R.string.transferred_out_account);
         }else if(status==2){
-            return context.getString(R.string.processed_finish);
-        }else if(status==3){
-            return context.getString(R.string.refuse);
-        }else if(status==4){
-            return context.getString(R.string.beyond_the_limit);
+            return context.getString(R.string.transferred_in_account);
         }else{
             return "";
+        }
+    }
+    //字体颜色
+    private int setTransferCountColor(int status){
+        if(status==1){
+            return ColorUtils.COLOR_FF6343;
+        }else{
+            return ColorUtils.COLOR_1ECC27;
         }
     }
 }

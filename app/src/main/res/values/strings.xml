@@ -10,6 +10,7 @@
     <string name="down_sucess">下载成功</string>
     <string name="app_update">正在下载更新</string>
     <string name="now_is_the_latest_version">当前已经是最新版本</string>
+    <string name="app_update_text">更新</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -96,8 +97,8 @@
     <string name="ping2">平</string>
     <!--investSummaryActivity-->
     <string name="invest_confirm">立即投资</string>
-    <string name="expect_annualized">预计年化</string>
-    <string name="period">周期</string>
+    <string name="expect_annualized">预期年化</string>
+    <string name="period">期限</string>
     <string name="mortgage_asset">抵押资产</string>
     <string name="mortgage_price">抵押物市价</string>
     <string name="novice_over_amount">新手剩余额度</string>
@@ -234,7 +235,7 @@
     <string name="mortgage_warnning_line">抵押警戒线</string>
     <string name="mortgage_close_line">抵押平仓线</string>
     <string name="loan_in_count">借入数量</string>
-    <string name="loan_in_rate">借入利率</string>
+    <string name="loan_in_rate">借款利率</string>
     <string name="loan_deadline">借款期限</string>
     <string name="loan_deadline_pay_interest">到期应付利息</string>
     <string name="loan_confirm">确认借款</string>
@@ -260,7 +261,7 @@
     <!--SettingActivity-->
     <string name="update_pwd">修改密码</string>
     <string name="setting">设置</string>
-    <string name="login_out">退出登录</string>
+    <string name="login_out">安全退出</string>
     <string name="login_out_success">退出登录成功</string>
     <string name="language">语言</string>
     <string name="chinese">简体中文</string>
@@ -328,12 +329,17 @@
     <string name="recharge_add">充值地址</string>
     <string name="withdraw_add">提现地址</string>
     <string name="send_LV">LV发放</string>
+    <string name="send_LV_reason">发放原因</string>
     <string name="wait_udit">待审核</string>
     <string name="processing">处理中</string>
     <string name="processed_finish">已完成</string>
     <string name="refuse">拒绝</string>
     <string name="beyond_the_limit">超出限额</string>
     <string name="confirming">确认中</string>
+    <string name="transferred_from_others_success">转入成功</string>
+    <string name="transferred_to_others_success">转出成功</string>
+    <string name="transferred_in_account">转入账户</string>
+    <string name="transferred_out_account">转出账户</string>
     <string name="wait_in_account">待入账</string>
     <string name="in_accounted">已入账</string>
     <string name="recharge_speedup">充值加速</string>
@@ -420,6 +426,7 @@
     <string name="transfer_confirm">确认转账</string>
     <string name="please_input_transfer_count">请输入转账数量</string>
     <string name="please_input_transfer_cllection_nickname">请输入收款人昵称</string>
+    <string name="please_input_transfe_cllection_email">请输入收款人邮箱</string>
     <string name="transfer_cerfity">转账验证</string>
     <string name="transfer_warm_tips">温馨提醒：\n1.平台内转账 0 手续费。\n2.平台内转账后立即到账。 \n</string>
     <string name="transfer_success">转账成功</string>

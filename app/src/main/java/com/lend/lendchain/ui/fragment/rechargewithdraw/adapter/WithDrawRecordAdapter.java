@@ -22,14 +22,12 @@ import java.util.Set;
  * Created by yangfan
  * nrainyseason@163.com
  */
-public class RechargeWithDrawAdapter extends BaseAdapter {
+public class WithDrawRecordAdapter extends BaseAdapter {
     private Set<Integer> addPos=new LinkedHashSet<>();
     private List<RechargeWithDraw>list=new ArrayList<>();
     private Context context;
-    private int type;//1充值 2提现
-    public RechargeWithDrawAdapter(Context context,int type){
+    public WithDrawRecordAdapter(Context context){
         this.context=context;
-        this.type=type;
     }
     //点击显示隐藏
     private View.OnClickListener addOnClickListener= v -> {
@@ -73,44 +71,28 @@ public class RechargeWithDrawAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         RechargeWithDraw rechargeWithDraw=list.get(position);
-        ViewHolder viewHolder=ViewHolder.get(context,convertView, R.layout.item_recharge_withdraw_record);
-        TextView tvStatus=viewHolder.getView(R.id.recharge_with_record_tvStatus);
-        TextView tvCount=viewHolder.getView(R.id.recharge_with_record_tvCount);
-        TextView tvTime=viewHolder.getView(R.id.recharge_with_record_tvTime);
-        TextView tvOrderCode=viewHolder.getView(R.id.recharge_with_record_tvOrderCode);
-        TextView tvOrderAdd=viewHolder.getView(R.id.recharge_with_record_tvOrderAdd);
-        TextView tvHash=viewHolder.getView(R.id.recharge_with_record_tvHash);
-        LinearLayout llOrderAdd=viewHolder.getView(R.id.recharge_with_record_llOrderAdd);
-        LinearLayout llOrder=viewHolder.getView(R.id.recharge_with_record_llOrder);
+        ViewHolder viewHolder=ViewHolder.get(context,convertView, R.layout.item_withdraw_record);
+        TextView tvStatus=viewHolder.getView(R.id.withDraw_record_tvStatus);
+        TextView tvCount=viewHolder.getView(R.id.withDraw_record_tvCount);
+        TextView tvTime=viewHolder.getView(R.id.withDraw_record_tvTime);
+        TextView tvOrderCode=viewHolder.getView(R.id.withDraw_record_tvOrderCode);
+        TextView tvOrderAdd=viewHolder.getView(R.id.withDraw_record_tvOrderAdd);
+        LinearLayout llOrderAdd=viewHolder.getView(R.id.withDraw_record_llOrderAdd);
+        LinearLayout llOrder=viewHolder.getView(R.id.withDraw_record_llOrder);
         int status=rechargeWithDraw.status;
-        tvStatus.setText(type==1?getRechargeStatus(status):getWithDrawStatus(status));
-        tvCount.setText(DoubleUtils.doubleTransRound6(rechargeWithDraw.amount)+" "+rechargeWithDraw.cryptoCode);
+        tvStatus.setText(getWithDrawStatus(status));
+        tvCount.setText("-"+DoubleUtils.doubleTransRound6(rechargeWithDraw.amount)+" "+rechargeWithDraw.cryptoCode);
         tvTime.setText(TimeUtils.getDateToStringS(Long.parseLong(rechargeWithDraw.ctime),"yyyy.MM.dd HH:mm:ss"));
-        //订单号 充值 orderId 提现 txOrder
-        tvOrderCode.setText(context.getString(R.string.order_code)+":"+(type==1?rechargeWithDraw.orderId:rechargeWithDraw.txOrder));//订单号
-        //地址 充值 addr addr 提现addrTo addr
-        String orderAddText=type==1?rechargeWithDraw.addr.addr:rechargeWithDraw.addrTo.addr;
-        tvOrderAdd.setText(type==1?context.getString(R.string.recharge_add):context.getString(R.string.withdraw_add)+":"+orderAddText);//充值地址
-        tvHash.setVisibility(type==1?View.VISIBLE:View.GONE);//hash只有充值有
-        //充值 hash orderId
-        tvHash.setText(rechargeWithDraw.orderId);
+        //订单号 提现 txOrder
+        tvOrderCode.setText(context.getString(R.string.order_code)+":"+rechargeWithDraw.txOrder);//订单号
+        //地址 提现addrTo addr
+        String orderAddText=rechargeWithDraw.addrTo.addr;
+        tvOrderAdd.setText(context.getString(R.string.withdraw_add)+":"+orderAddText);//充值地址
         llOrder.setOnClickListener(addOnClickListener);
         llOrder.setTag(R.id.position,position);
         llOrder.setTag(R.id.view,llOrderAdd);
         llOrderAdd.setVisibility(addPos.contains(position)?View.VISIBLE:View.GONE);
         return viewHolder.getConvertView();
-    }
-    //充值类型状态
-    private String getRechargeStatus(int status){
-        if(status==1){
-            return context.getString(R.string.confirming);
-        }else if(status==2){
-            return context.getString(R.string.wait_in_account);
-        }else if(status==3){
-            return context.getString(R.string.in_accounted);
-        }else{
-            return "";
-        }
     }
     //提现类型状态
     private String getWithDrawStatus(int status){

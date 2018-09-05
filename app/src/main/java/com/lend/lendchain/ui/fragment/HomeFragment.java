@@ -22,6 +22,7 @@ import com.lend.lendchain.bean.HomeMarketKLine;
 import com.lend.lendchain.bean.HomeSupport;
 import com.lend.lendchain.bean.MessageEvent;
 import com.lend.lendchain.bean.ResultBean;
+import com.lend.lendchain.bean.VersionControl;
 import com.lend.lendchain.helper.RxBus;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
@@ -34,6 +35,7 @@ import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.lend.lendchain.versioncontrol.utils.ApkDownloadTools;
 import com.lend.lendchain.widget.CircleProgressBar;
 import com.lend.lendchain.widget.GradientTextView;
 import com.lend.lendchain.widget.MyListView;
@@ -155,6 +157,8 @@ public class HomeFragment extends Fragment {
 //                        TipsToast.showTips(getString());
                     }
                 });
+        //请求版本更新
+        NetApi.versionControl(getActivity(),versionObserver);
     }
 
     private void initListener() {
@@ -314,6 +318,29 @@ public class HomeFragment extends Fragment {
             } else {
                 TipsToast.showTips(listResultBean.message);
             }
+        }
+    };
+    //版本控制
+    Observer<ResultBean<VersionControl>> versionObserver=new NetClient.RxObserver<ResultBean<VersionControl>>() {
+        @Override
+        public void onSuccess(ResultBean<VersionControl> versionControlResultBean) {
+            if(versionControlResultBean==null)return;
+            if(versionControlResultBean.isSuccess()){
+                int versionId= CommonUtil.getVersionId(getActivity());//拿到应用版本号
+                //服务器获取版本号大于app版本号
+                if(Integer.valueOf(versionControlResultBean.data.build)>versionId){//展示更新弹窗
+                    ApkDownloadTools apkDownloadTools = new ApkDownloadTools(getActivity());
+                    apkDownloadTools.setShowToast(false);
+                    //是否需要强制更新
+                    boolean isForcedUpdate=versionId<Integer.valueOf(versionControlResultBean.data.minBuild);
+                    apkDownloadTools.showUpdateDialog(versionControlResultBean.data, isForcedUpdate);
+                }
+            }
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            super.onError(e);
         }
     };
 

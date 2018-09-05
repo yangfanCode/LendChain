@@ -8,8 +8,8 @@
         android:id="@+id/progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="fill_parent"
-        android:layout_height="5dp"
-        android:progressDrawable="@drawable/progressbar_bg_left_ff902e_gradient_ff6343"
+        android:layout_height="6dp"
+        android:progressDrawable="@drawable/progressbar_bg_left_60aaff_gradient_498efe_radio7"
         android:layout_margin="@dimen/padding_20"
         android:gravity="center_vertical" />
 

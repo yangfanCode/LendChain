@@ -15,19 +15,23 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.content.FileProvider;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import com.lend.lendchain.R;
+import com.lend.lendchain.bean.VersionControl;
 import com.lend.lendchain.helper.ContextHelper;
+import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.versioncontrol.interfaces.ApkDownloadListener;
-import com.lend.lendchain.widget.MyListView;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yangfan.utils.ToastTools;
 import com.yangfan.widget.CustomDialog;
@@ -215,70 +219,52 @@ public class ApkDownloadTools {
 //
 //    }
 
-//    /**
-//     *
-//     * @param model 更新接口数据 model
-//     * @param isForcedUpdate 是否强制更新
-//     */
-//    public void showUpdateDialog(VersionControlModel model, final boolean isForcedUpdate) {
-//        if (mContext == null) return;
-//        View view;
-//        ViewHolder viewHolder;
-//        view = LayoutInflater.from(mContext).inflate(
-//                R.layout.pop_new_version, null);
-//        viewHolder = new ViewHolder(view);
-////        String ss = "1.这软件牛逼<br>\r\n2.非常牛逼<br>\r\n3.此版本无bug<br>\r\n4.记得点赞";
-////
-////        ss.split("<br>");
-////        "description":"1.这软件牛逼<br>\r\n2.非常牛逼<br>\r\n3.此版本无bug<br>\r\n4.记得点赞"
-//        if (!TextUtils.isEmpty(model.getItem().getDesc())) {
-////            if (info.description.contains("<br>"))
-////                viewHolder.listContent.setAdapter(new NewVersionInfoAdapter(mContext, info.description.split("<br>")));
-////            else
-////                viewHolder.listContent.setAdapter(new NewVersionInfoAdapter(mContext, info.description.split("<br/>")));
-//                viewHolder.listContent.setAdapter(new NewVersionInfoAdapter(mContext, new String[]{model.getItem().getDesc()}));
-//        } else {
-//            viewHolder.listContent.setVisibility(View.GONE);
-//        }
-//        path=model.getItem().getUrl();//下载链接
-//        //viewHolder.tvCancelPop.setVisibility(isForcedUpdate ? View.GONE : View.VISIBLE);//强制更新取消按钮隐藏
-//        //viewHolder.imvClose.setVisibility(isForcedUpdate ? View.GONE : View.VISIBLE);
-//
-//        viewHolder.tvOkPop.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showDownloadDialog(isForcedUpdate);
-//                dialog.dismiss();
-//                if (apkDownloadListener != null)
-//                    apkDownloadListener.onOkClick();
-//            }
-//        });
-//        viewHolder.tvTitle.setText(model.getItem().getCurrentVersiontitle());//标题
-//        viewHolder.tvCancelPop.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                dialog.dismiss();
-//            }
-//        });
-////        viewHolder.imvClose.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                dialog.dismiss();
-////            }
-////        });
-//
-//        dialog = new CustomDialog(mContext, R.style.progress_dialog);
-//        dialog.addContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-//        dialog.setCancelable(false);
-//        dialog.show();
-//
-//        WindowManager.LayoutParams p = dialog.getWindow().getAttributes();  //获取对话框当前的参数值
-////        p.height = (int) (d.getHeight() * 0.3);
+    /**
+     * @param model          更新接口数据 model
+     * @param isForcedUpdate 是否强制更新
+     */
+    public void showUpdateDialog(VersionControl model, final boolean isForcedUpdate) {
+        if (mContext == null) return;
+        View view;
+        ViewHolder viewHolder;
+        view = LayoutInflater.from(mContext).inflate(
+                R.layout.pop_new_version, null);
+        viewHolder = new ViewHolder(view);
+        if (!TextUtils.isEmpty(model.content)) {
+            viewHolder.tvUpdateContent.setVisibility(View.VISIBLE);
+            viewHolder.tvUpdateContent.setText(Html.fromHtml(model.content));
+        } else {
+            viewHolder.tvUpdateContent.setVisibility(View.GONE);
+        }
+        path = model.download;//下载链接
+        viewHolder.tvCancelPop.setVisibility(isForcedUpdate ? View.GONE : View.VISIBLE);//强制更新取消按钮隐藏
+        viewHolder.viewDivider.setVisibility(isForcedUpdate ? View.GONE : View.VISIBLE);//强制更新取消按钮分割线隐藏
+        viewHolder.tvOkPop.setOnClickListener(v -> {
+            showDownloadDialog(isForcedUpdate);
+            dialog.dismiss();
+            if (apkDownloadListener != null)
+                apkDownloadListener.onOkClick();
+        });
+        viewHolder.tvCancelPop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog = new CustomDialog(mContext, R.style.progress_dialog);
+        dialog.addContentView(view, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        dialog.setCancelable(false);
+        dialog.show();
+
+        WindowManager.LayoutParams p = dialog.getWindow().getAttributes();  //获取对话框当前的参数值
+//        p.height = (int) (d.getHeight() * 0.3);
 //        p.width = (int) (CommonUtils.getScreenWidth(mContext) * 0.7);    //宽度设置为屏幕的0.72
-//        dialog.getWindow().setAttributes(p);     //设置生效
-//    }
+        p.width = DisplayUtil.dp2px(mContext,290f);    //宽度
+        dialog.getWindow().setAttributes(p);     //设置生效
+    }
+
     private void showDownloadDialog(boolean isForcedUpdate) {
-        if (isForcedUpdate) {
+//        if (isForcedUpdate) {
             Builder builder = new Builder(mContext);
             final LayoutInflater inflater = LayoutInflater.from(mContext);
             View v = inflater.inflate(R.layout.progress, null);
@@ -286,7 +272,7 @@ public class ApkDownloadTools {
             downloadDialog = builder.setTitle(mContext.getString(R.string.app_update)).setView(v).setCancelable(false)
                     .create();
             downloadDialog.show();
-        }
+//        }
         if (!isDownloading) {
             checkStoragePermissinss();
         }
@@ -395,16 +381,16 @@ public class ApkDownloadTools {
     static class ViewHolder {
         //        @BindView(R.id.imv_close)
 //        ImageView imvClose;
-        @BindView(R.id.list_content)
-        MyListView listContent;
         @BindView(R.id.tv_cancel_pop)
         TextView tvCancelPop;
-        @BindView(R.id.app_update_title)
-        TextView tvTitle;
+        @BindView(R.id.tv_update_content)
+        TextView tvUpdateContent;
         @BindView(R.id.tv_ok_pop)
         TextView tvOkPop;
         @BindView(R.id.lay_btn)
         LinearLayout layBtn;
+        @BindView(R.id.tv_update_divider)
+        View viewDivider;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

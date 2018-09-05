@@ -10,6 +10,7 @@
     <string name="down_sucess">Download successful</string>
     <string name="app_update">Downloading the update</string>
     <string name="now_is_the_latest_version">The current version is the latest</string>
+    <string name="app_update_text">Update</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -329,12 +330,17 @@
     <string name="recharge_add">Deposit Address</string>
     <string name="withdraw_add">Withdrawal Address</string>
     <string name="send_LV">LV issued</string>
+    <string name="send_LV_reason">issuedreason</string>
     <string name="wait_udit">Under Review</string>
     <string name="processing">Are dealing with</string>
     <string name="processed_finish">Finished</string>
     <string name="refuse">Refused</string>
     <string name="beyond_the_limit">Exceeded the amount</string>
     <string name="confirming">Waiting for confirmation</string>
+    <string name="transferred_from_others_success">Successfully transferred from</string>
+    <string name="transferred_to_others_success">Successfully transferred to</string>
+    <string name="transferred_in_account">account transferred to</string>
+    <string name="transferred_out_account">account transferred from</string>
     <string name="wait_in_account">Receiving</string>
     <string name="in_accounted">Received</string>
     <string name="recharge_speedup">Accelerate recharge</string>
@@ -421,6 +427,7 @@
     <string name="transfer_confirm">Confirm</string>
     <string name="please_input_transfer_count">Enter Amount</string>
     <string name="please_input_transfer_cllection_nickname">Enter Payee Nickname</string>
+    <string name="please_input_transfe_cllection_email">Enter Payee Email</string>
     <string name="transfer_cerfity">Transfer validation</string>
     <string name="transfer_warm_tips">Warm reminder:\n1. 0 service charge for transfer within the platform.\n2. Account will be received immediately after transfer within the platform.</string>
     <string name="transfer_success">Transfer success</string>

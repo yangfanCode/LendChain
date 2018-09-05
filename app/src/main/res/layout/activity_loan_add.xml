@@ -154,7 +154,7 @@
 
             <com.yangfan.widget.DecimalDigitsEditText
                 style="@style/text262626_16"
-                android:textColorHint="@color/colorCCCCCC"
+                android:textColorHint="@color/color_CCCCCC"
                 android:id="@+id/loan_add_etAddCount"
                 android:layout_width="240dp"
                 android:layout_height="@dimen/padding_20"

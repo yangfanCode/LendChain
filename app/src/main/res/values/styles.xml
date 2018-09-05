@@ -173,8 +173,7 @@
     <style name="text509FFF_12" parent="text595959_12">
         <item name="android:textColor">@color/color_509FFF</item>
     </style>
-    <style name="text509FFF_10" parent="text509FFF_12">
-        <item name="android:textSize">@dimen/text_size_10</item>
+    <style name="text509FFF_10" parent="text595959_10">
         <item name="android:textColor">@color/color_509FFF</item>
     </style>
     <style name="text509FFF_14" parent="text595959_14">
@@ -182,5 +181,11 @@
     </style>
     <style name="text509FFF_16" parent="text509FFF_14">
         <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+    <style name="textFF6343_16" parent="text509FFF_16">
+        <item name="android:textColor">@color/color_FF6343</item>
+    </style>
+    <style name="text1ECC27_16" parent="text509FFF_16">
+        <item name="android:textColor">@color/color_1ECC27</item>
     </style>
 </resources>

@@ -4,7 +4,6 @@ package com.lend.lendchain.ui.fragment;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -35,19 +34,15 @@ import com.lend.lendchain.ui.activity.common.HelpCenterActivity;
 import com.lend.lendchain.ui.activity.common.SettingActivity;
 import com.lend.lendchain.ui.activity.common.WebActivity;
 import com.lend.lendchain.ui.activity.login.LoginActivity;
+import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.SPUtil;
-import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.ViewUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshFooter;
-import com.scwang.smartrefresh.layout.api.RefreshHeader;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.RefreshState;
-import com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -131,6 +126,8 @@ public class MineFragment extends Fragment {
     private void initView() {
         ButterKnife.bind(this, parentView);
         refreshLayout.setEnableLoadMore(false);
+        //设置 我的页面 沉浸式刷新
+        refreshLayout.setRefreshHeader(new ClassicsHeader(getActivity()).setAccentColor(ColorUtils.WHITE).setFinishDuration(0).setTextTimeMarginTop(3f));
         initListener();
     }
 
@@ -156,38 +153,6 @@ public class MineFragment extends Fragment {
     }
 
     private void initListener() {
-        //根据滑动距离监听pulltorefrenshScrollview  进行状态栏颜色变化 下拉刷新时
-        //监听滑动改变状态栏颜色
-        refreshLayout.setOnMultiPurposeListener(new OnMultiPurposeListener() {
-            @Override
-            public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {
-                if(offset==0){
-                    StatusBarUtil.StatusBarDarkMode(getActivity());
-                }else{
-                    StatusBarUtil.StatusBarLightMode(getActivity());
-                }
-            }
-            @Override
-            public void onHeaderReleased(RefreshHeader header, int headerHeight, int maxDragHeight) { }
-            @Override
-            public void onHeaderStartAnimator(RefreshHeader header, int headerHeight, int maxDragHeight) { }
-            @Override
-            public void onHeaderFinish(RefreshHeader header, boolean success) { }
-            @Override
-            public void onFooterMoving(RefreshFooter footer, boolean isDragging, float percent, int offset, int footerHeight, int maxDragHeight) { }
-            @Override
-            public void onFooterReleased(RefreshFooter footer, int footerHeight, int maxDragHeight) { }
-            @Override
-            public void onFooterStartAnimator(RefreshFooter footer, int footerHeight, int maxDragHeight) { }
-            @Override
-            public void onFooterFinish(RefreshFooter footer, boolean success) { }
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) { }
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) { }
-            @Override
-            public void onStateChanged(@NonNull RefreshLayout refreshLayout, @NonNull RefreshState oldState, @NonNull RefreshState newState) { }
-        });
         refreshLayout.setOnRefreshListener(refreshlayout -> initData(false));
         ivEye.setOnClickListener(v -> {
             if(SPUtil.getUserTotalAmountGone()){//隐藏状态时 需要显示

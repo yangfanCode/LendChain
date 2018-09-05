@@ -17,8 +17,11 @@ import com.lend.lendchain.bean.MyWalletList;
 import com.lend.lendchain.bean.RMB2Dollar;
 import com.lend.lendchain.bean.RechargeWithDraw;
 import com.lend.lendchain.bean.ResultBean;
+import com.lend.lendchain.bean.SendLvRecord;
 import com.lend.lendchain.bean.SimpleBean;
+import com.lend.lendchain.bean.TransferRecord;
 import com.lend.lendchain.bean.UserInfo;
+import com.lend.lendchain.bean.VersionControl;
 import com.lend.lendchain.network.NetConst;
 
 import java.util.List;
@@ -354,4 +357,27 @@ public interface AppApi {
     @FormUrlEncoded
     @POST("trade/borrow/payback")
     Observable<ResultBean> payBack(@FieldMap Map<String, Object> account);
+    /**
+     * app版本更新
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("trade/system/notice")
+    Observable<ResultBean<VersionControl>> versionControl(@FieldMap Map<String, Object> account);
+    /**
+     * LV发放明细
+     *
+     * @return
+     */
+    @GET("trade/lv/detail")
+    Observable<ResultBean<SendLvRecord>> sendLvRecord(@QueryMap Map<String, Object> account);
+    /**
+     * 我的转账记录
+     *
+     * @return
+     */
+    @GET("trade/transfer/list")
+    Observable<ResultBean<List<TransferRecord>>> myTransferRecord(@QueryMap Map<String, Object> account);
+
 }

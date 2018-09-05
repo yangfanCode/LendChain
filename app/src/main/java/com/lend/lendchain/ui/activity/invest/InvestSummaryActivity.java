@@ -247,7 +247,7 @@ public class InvestSummaryActivity extends BaseActivity {
                                     double amountInput=Double.parseDouble(amountStr);
                                     if(amountInput<minInvestAmount){//小于起购
                                         if(!amountStr.equals(investLave)){//当余额小于最小起购 排除余额全投
-                                            TipsToast.showTips(getString(R.string.input_must_greater_minAmount)+"("+getString(R.string.min)+DoubleUtils.doubleTransRound6(minInvestAmount)+")");//最小起购提示
+                                            TipsToast.showTips(getString(R.string.input_must_greater_minAmount)+"("+getString(R.string.min)+DoubleUtils.doubleTransRound6(minInvestAmount)+").");//最小起购提示
                                             return;
                                         }
                                         //此时允许余额全投
@@ -404,7 +404,7 @@ public class InvestSummaryActivity extends BaseActivity {
         customViewPager.setOffscreenPageLimit(3);
         customTabLayout.setupWithViewPager(customViewPager);
         tvExpectAnnualized.setText(DoubleUtils.doubleRoundFormat(interestRates * 360 * 100, 2));
-        tvPeriod.setText(borrowDays + " "+getString(R.string.day));//周期
+        tvPeriod.setText(borrowDays + getString(R.string.day));//周期
         tvBorrowAmount.setText(DoubleUtils.doubleTransRound6(borrowAmount) +" "+ investSummary.borrowCryptoCode);//借入资产
         tvStartTime.setText(TimeUtils.getDateToStringS(borrowTypeId==1?investSummary.createTime:investSummary.startTime, TimeUtils.YYYY_MM_dd_HH_MM_SS1));//开始时间
         minInvestAmount=investSummary.minInvestAmount;

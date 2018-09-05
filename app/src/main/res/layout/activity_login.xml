@@ -57,7 +57,7 @@
             android:drawablePadding="@dimen/padding_10"
             android:hint="@string/please_input_email"
             android:paddingBottom="@dimen/padding_5"
-            android:textColorHint="@color/colorCCCCCC"
+            android:textColorHint="@color/color_CCCCCC"
             android:textColor="@color/color_262626"
             android:textSize="@dimen/text_size_14"
             android:theme="@style/MyEditText" />
@@ -72,7 +72,7 @@
                 android:background="@drawable/bg_e6e6e6_white_border_b"
                 android:drawableLeft="@mipmap/icon_pwd"
                 android:drawablePadding="@dimen/padding_10"
-                android:textColorHint="@color/colorCCCCCC"
+                android:textColorHint="@color/color_CCCCCC"
                 android:hint="@string/please_input_pwd"
                 android:inputType="textPassword"
                 android:typeface="normal"

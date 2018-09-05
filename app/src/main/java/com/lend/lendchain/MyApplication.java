@@ -21,6 +21,7 @@ import com.lend.lendchain.utils.SPUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.umeng.commonsdk.UMConfigure;
 
 import rx.Subscription;
 import rx.observers.SafeSubscriber;
@@ -38,7 +39,7 @@ public class MyApplication extends Application {
 	static {
 		//设置全局的Header构建器
 		SmartRefreshLayout.setDefaultRefreshHeaderCreator((context, layout) -> {
-            layout.setPrimaryColors(ColorUtils.WHITE);//全局设置主题颜色
+//            layout.setPrimaryColors(ColorUtils.WHITE);//全局设置主题颜色
 			//修改文案 国际化
 			ClassicsHeader.REFRESH_HEADER_PULLING=context.getString(R.string.refrensh_header_pulling);
 			ClassicsHeader.REFRESH_HEADER_FINISH=context.getString(R.string.refrensh_header_finish);
@@ -62,8 +63,9 @@ public class MyApplication extends Application {
 		MultiDex.install(this);
 		ContextHelper.initWithApplication(this);
 		SPUtil.initWithApplication(this);
-//		Fresco.initialize(this);
 		FrescoUtils.initialize(this);
+		UMConfigure.init(this, "5b8f748ab27b0a6597000155","",UMConfigure.DEVICE_TYPE_PHONE, "");//友盟初始化
+		UMConfigure.setLogEnabled(true);
 		LogUtils.setAppEnvEnum(AppEnvHelper.currentEnv());
 		initWebView();
 		initLangeuage();//初始化语言

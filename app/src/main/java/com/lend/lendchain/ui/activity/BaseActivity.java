@@ -34,6 +34,7 @@ import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.BaseTitleBar;
 import com.lend.lendchain.widget.TipsToast;
+import com.umeng.analytics.MobclickAgent;
 import com.yangfan.utils.CommonUtils;
 
 import java.util.ArrayList;
@@ -210,7 +211,7 @@ public abstract class BaseActivity extends FragmentActivity {
         super.onResume();
         isOnResume = true;
         ContextHelper.setLastActivity(this);
-        //MobclickAgent.onResume(this);//友盟统计
+        MobclickAgent.onResume(this);//友盟统计
         //getLoginData();
     }
 
@@ -221,7 +222,7 @@ public abstract class BaseActivity extends FragmentActivity {
     public void onPause() {
         super.onPause();
         isOnResume = false;
-        //MobclickAgent.onPause(this);//友盟统计
+        MobclickAgent.onPause(this);//友盟统计
         //onPauseIsLogin = isLogin();
         //释放掉没有取消订阅的对象
         for (Subscription sub: mSubscription) {

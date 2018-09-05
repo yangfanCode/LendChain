@@ -6,9 +6,20 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.rechargewithdraw.LVSendFragment">
 
-    <com.lend.lendchain.widget.ListViewWithOptional
-        android:id="@+id/lvSendr_record_lv"
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:divider="@null"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.lend.lendchain.widget.ListViewWithOptional
+                android:id="@+id/lvSendr_record_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null" />
+        </FrameLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

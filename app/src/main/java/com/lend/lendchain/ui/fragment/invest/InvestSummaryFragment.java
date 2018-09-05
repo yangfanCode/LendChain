@@ -3,6 +3,7 @@ package com.lend.lendchain.ui.fragment.invest;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,7 @@ public class InvestSummaryFragment extends Fragment {
         if (getArguments() != null) {
             String desc = getArguments().getString(Constant.ARGS_PARAM1);
             if(!TextUtils.isEmpty(desc)){
-                tvSummary.setText(desc);
+                tvSummary.setText(Html.fromHtml(desc));
                 tvSummary.setVisibility(View.VISIBLE);
             }
         }

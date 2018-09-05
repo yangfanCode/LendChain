@@ -39,7 +39,7 @@
             android:background="@null"
             style="@style/text262626_14"
             android:hint="@string/please_input_nickname"
-            android:textColorHint="@color/colorCCCCCC"
+            android:textColorHint="@color/color_CCCCCC"
             android:layout_gravity="center"
             android:layout_height="@dimen/padding_30" />
         <ImageView

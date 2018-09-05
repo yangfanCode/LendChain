@@ -2,24 +2,26 @@ package com.lend.lendchain.ui.fragment.rechargewithdraw;
 
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.bean.RechargeWithDraw;
 import com.lend.lendchain.bean.ResultBean;
+import com.lend.lendchain.bean.SendLvRecord;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
-import com.lend.lendchain.ui.fragment.rechargewithdraw.adapter.TransferRecordAdapter;
+import com.lend.lendchain.ui.fragment.rechargewithdraw.adapter.SendLvAdapter;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.TipsToast;
-
-import java.util.List;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,10 +33,12 @@ import rx.Observer;
 public class LVSendFragment extends Fragment {
     @BindView(R.id.lvSendr_record_lv)
     ListViewWithOptional lv;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
     private View parentView;
     private int currentPage = 1;
     private boolean isRefrensh = true;
-    private TransferRecordAdapter adapter;
+    private SendLvAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,47 +69,53 @@ public class LVSendFragment extends Fragment {
     private void initView() {
         ButterKnife.bind(this,parentView);
 //        lv.setMode(PullToRefreshBase.Mode.BOTH);
-        adapter=new TransferRecordAdapter(getActivity());
+        adapter=new SendLvAdapter(getActivity());
         lv.setAdapter(adapter);
     }
 
     private void initData(boolean isShow) {
         isRefrensh = true;
         currentPage = 1;
-        NetApi.myWithDrawList(getActivity(), isShow, SPUtil.getToken(),currentPage, Constant.PAGE_SIZE,rechargeRecordObserver );
+        NetApi.sendLvRecord(getActivity(), isShow, SPUtil.getToken(),currentPage, Constant.PAGE_SIZE,sendLvRecordObserver );
     }
 
     private void reLoadData() {
         isRefrensh = false;
-        NetApi.myWithDrawList(getActivity(), false, SPUtil.getToken(), ++currentPage, Constant.PAGE_SIZE, rechargeRecordObserver);
+        NetApi.sendLvRecord(getActivity(), false, SPUtil.getToken(), ++currentPage, Constant.PAGE_SIZE, sendLvRecordObserver);
     }
 
     private void initListener() {
-//        lv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-//            @Override
-//            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-//                initData(false);
-//            }
-//
-//            @Override
-//            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-//                reLoadData();
-//            }
-//        });
+        refreshLayout.setOnRefreshListener(refreshLayout -> {
+            initData(false);
+        });
+        refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                reLoadData();
+            }
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                initData(false);
+            }
+        });
     }
 
-    Observer<ResultBean<List<RechargeWithDraw>>> rechargeRecordObserver = new NetClient.RxObserver<ResultBean<List<RechargeWithDraw>>>() {
+    Observer<ResultBean<SendLvRecord>> sendLvRecordObserver = new NetClient.RxObserver<ResultBean<SendLvRecord>>() {
         @Override
-        public void onSuccess(ResultBean<List<RechargeWithDraw>> resultBean) {
+        public void onSuccess(ResultBean<SendLvRecord> resultBean) {
             if (resultBean == null) return;
             if (resultBean.isSuccess()) {
-                if(resultBean.data!=null&&resultBean.data.size()>0){
+                if(resultBean.data!=null&&resultBean.data.records.size()>0){
                     if(isRefrensh)
-                        adapter.loadData(resultBean.data);
+                        adapter.loadData(resultBean.data.records);
                     else
-                        adapter.reLoadData(resultBean.data);
+                        adapter.reLoadData(resultBean.data.records);
                 }else{
-                    lv.setEmptyView(OptionalLayout.TypeEnum.NO_DATA);
+                    if(currentPage==1){//一条数据都没有显示空数据
+                        lv.setEmptyView(OptionalLayout.TypeEnum.NO_DATA);
+                    }else{//上拉到底展示没有更多数据
+                        refreshLayout.finishLoadMoreWithNoMoreData();
+                    }
                 }
             } else {
                 TipsToast.showTips(resultBean.message);
@@ -114,14 +124,19 @@ public class LVSendFragment extends Fragment {
         @Override
         public void onCompleted() {
             super.onCompleted();
-//            lv.onRefreshComplete();
+            finishRefrensh();
         }
 
         @Override
         public void onError(Throwable e) {
             super.onError(e);
-//            lv.onRefreshComplete();
+            finishRefrensh();
             TipsToast.showTips(getString(R.string.netWorkError));
         }
     };
+
+    private void finishRefrensh() {
+        refreshLayout.finishRefresh();//传入false表示加载失败
+        refreshLayout.finishLoadMore();//传入false表示加载失败
+    }
 }

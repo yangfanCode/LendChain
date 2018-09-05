@@ -522,4 +522,38 @@ public class NetApi {
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+    /**
+     * app版本更新
+     */
+    public static void versionControl(Context context, Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("plat", "android");
+        NetClient.getInstance().getPost("", false, context).versionControl(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * LV发放明细
+     */
+    public static void sendLvRecord(Context context,boolean isShow,String access_token,int page,int page_size, Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("page", page);
+        map.put("page_size", page_size);
+        NetClient.getInstance().getPost("", isShow, context).sendLvRecord(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * 我的转账记录
+     */
+    public static void myTransferRecord(Context context,boolean isShow,String access_token,int page,int page_size, Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("pageNo", page);
+        map.put("pageSize", page_size);
+        NetClient.getInstance().getPost("", isShow, context).myTransferRecord(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

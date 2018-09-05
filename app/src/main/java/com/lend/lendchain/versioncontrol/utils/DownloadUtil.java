@@ -11,6 +11,7 @@ import java.io.InputStream;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -51,6 +52,8 @@ public class DownloadUtil {
      * @param listener 下载监听
      */
     public void download(final String url, final String saveDir, final String fileName, final OnDownloadListener listener) {
+        HttpUrl parsed = HttpUrl.parse(url);
+        if(parsed==null)return;//判断地址是否合法
         Request request = new Request.Builder().url(url).build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override

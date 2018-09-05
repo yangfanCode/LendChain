@@ -3,6 +3,7 @@ package com.lend.lendchain.ui.fragment.rechargewithdraw;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,13 +21,16 @@ import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
-import com.lend.lendchain.ui.fragment.rechargewithdraw.adapter.RechargeWithDrawAdapter;
+import com.lend.lendchain.ui.fragment.rechargewithdraw.adapter.RechargeAdapter;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.TipsToast;
 import com.lvfq.pickerview.OptionsPickerView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,10 +61,12 @@ public class ReChargeRecordFragment extends Fragment {
     ImageView ivClose;
     @BindView(R.id.dialog_recharge_speed_btnConfirm)
     TextView btnConfirm;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
     private View parentView;
     private int currentPage = 1;
     private boolean isRefrensh = true;
-    private RechargeWithDrawAdapter adapter;
+    private RechargeAdapter adapter;
     private OptionsPickerView optionsPickerView = null;
     private List<CoinList> list;
     private ArrayList<String> coins;//picker 数据
@@ -98,7 +104,7 @@ public class ReChargeRecordFragment extends Fragment {
     private void initView() {
         ButterKnife.bind(this, parentView);
 //        lv.setMode(PullToRefreshBase.Mode.BOTH);
-        adapter = new RechargeWithDrawAdapter(getActivity(), 1);
+        adapter = new RechargeAdapter(getActivity());
         lv.setAdapter(adapter);
         coins = new ArrayList<>();
         list=new ArrayList<>();
@@ -116,17 +122,16 @@ public class ReChargeRecordFragment extends Fragment {
     }
 
     private void initListener() {
-//        lv.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
-//            @Override
-//            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-//                initData(false);
-//            }
-//
-//            @Override
-//            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-//                reLoadData();
-//            }
-//        });
+        refreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                reLoadData();
+            }
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                initData(false);
+            }
+        });
         btnSpeedUp.setOnClickListener(v -> {
             NetApi.getCoinList(getActivity(), true, SPUtil.getToken(), coinListObserver);
         });
@@ -186,7 +191,11 @@ public class ReChargeRecordFragment extends Fragment {
                     else
                         adapter.reLoadData(resultBean.data);
                 } else {
-                    lv.setEmptyView(OptionalLayout.TypeEnum.NO_DATA);
+                    if(currentPage==1){//一条数据都没有显示空数据
+                        lv.setEmptyView(OptionalLayout.TypeEnum.NO_DATA);
+                    }else{//上拉到底展示没有更多数据
+                        refreshLayout.finishLoadMoreWithNoMoreData();
+                    }
                 }
             } else {
                 TipsToast.showTips(resultBean.message);
@@ -196,13 +205,13 @@ public class ReChargeRecordFragment extends Fragment {
         @Override
         public void onCompleted() {
             super.onCompleted();
-//            lv.onRefreshComplete();
+            finishRefrensh();
         }
 
         @Override
         public void onError(Throwable e) {
             super.onError(e);
-//            lv.onRefreshComplete();
+            finishRefrensh();
             TipsToast.showTips(getString(R.string.netWorkError));
         }
     };
@@ -271,5 +280,10 @@ public class ReChargeRecordFragment extends Fragment {
         etHash.getText().clear();
         tvCoin.setText(getString(R.string.coin_select));//展示必中选择
         coinsPos=0;
+    }
+
+    private void finishRefrensh() {
+        refreshLayout.finishRefresh();//传入false表示加载失败
+        refreshLayout.finishLoadMore();//传入false表示加载失败
     }
 }

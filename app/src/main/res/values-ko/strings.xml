@@ -10,6 +10,7 @@
     <string name="down_sucess">다운로드 성공</string>
     <string name="app_update">업데이트 중</string>
     <string name="now_is_the_latest_version">최신 버전을 사용 중입니다</string>
+    <string name="app_update_text">업데이트</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -137,7 +138,7 @@
     <string name="please_input_google_code">구글 인증번호 입력</string>
     <string name="paste">붙여넣기</string>
     <string name="new_user_not_enough">초보자 남은 한도가 부족합니다</string>
-    <string name="input_must_greater_minAmount">입력 금액은 최소 투자 금액보다 커야합니다.</string>
+    <string name="input_must_greater_minAmount">입력 금액은 최소 투자 금액보다 커야합니다</string>
     <string name="min">최소</string>
     <string name="invest_guidelines_text">자금은24h내로차관표적모집이100%에달하지못하거나24h내로담보물가격이하락폭20%를초과하면이번차관은성립되지않으며담보물은투자자에게상환됩니다.\n\n
     연체시간이7일에도달했을때LendChain은담보물에대한교할처리를진행합니다.연체수수료를덜어내고남은자산은투자비율에따라채권자에게돌려드립니다.\n\n
@@ -330,11 +331,16 @@
     <string name="withdraw_add">인출 인증</string>
     <string name="wait_udit">심사필료</string>
     <string name="send_LV">LV지급기록</string>
+    <string name="send_LV_reason">지급원인</string>
     <string name="processing">처리 중</string>
     <string name="processed_finish">완료된</string>
     <string name="refuse">거부됐다</string>
     <string name="beyond_the_limit">한도 초과</string>
     <string name="confirming">확인 중</string>
+    <string name="transferred_from_others_success">전입성공</string>
+    <string name="transferred_to_others_success">전출성공</string>
+    <string name="transferred_in_account">전입계정</string>
+    <string name="transferred_out_account">전출계정</string>
     <string name="wait_in_account">기입필요</string>
     <string name="in_accounted">기입완료</string>
     <string name="recharge_speedup">충전 가속화 확인</string>
@@ -421,6 +427,7 @@
     <string name="transfer_confirm">이체 확인</string>
     <string name="please_input_transfer_count">이체 수량 입력</string>
     <string name="please_input_transfer_cllection_nickname">수취인 닉네임 입력</string>
+    <string name="please_input_transfe_cllection_email">수취인 메일 주소를 입력</string>
     <string name="transfer_cerfity">이체 인증</string>
     <string name="transfer_warm_tips">알림:\n1.플랫폼에서 무료 이체.\n2.플랫폼에서 즉시 수령.\n</string>
     <string name="transfer_success">이체 완료</string>

@@ -18,9 +18,9 @@
             android:layout_alignParentBottom="true"
             android:background="@color/white"
             android:gravity="center"
+            android:orientation="vertical"
             android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15"
-            android:orientation="vertical">
+            android:paddingRight="@dimen/padding_15">
 
             <TextView
                 android:id="@+id/recharge_record_btnSpeedUp"
@@ -36,20 +36,24 @@
                 style="@style/text999999_12"
                 android:text="@string/recharge_speedup_tips" />
         </LinearLayout>
-        <!--套一层为了放emptyview-->
-        <FrameLayout
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/recharge_ll"
-            android:orientation="vertical">
-
-            <com.lend.lendchain.widget.ListViewWithOptional
-                android:id="@+id/recharge_record_lv"
+            android:layout_above="@id/recharge_ll">
+            <!--套一层为了放emptyview-->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:divider="@null" />
-        </FrameLayout>
+                android:layout_height="match_parent">
 
+                <com.lend.lendchain.widget.ListViewWithOptional
+                    android:id="@+id/recharge_record_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null" />
+            </FrameLayout>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
     </RelativeLayout>
     <!--充值加速布局,布局写死,避免wheelview,dialog冲突-->

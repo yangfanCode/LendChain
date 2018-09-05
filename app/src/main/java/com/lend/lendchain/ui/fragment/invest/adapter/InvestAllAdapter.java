@@ -96,7 +96,7 @@ public class InvestAllAdapter extends BaseAdapter {
         }
         int borrowTypeRes = getBorrowTypeRes(borrowTypeId);//右上角标识
         ivBorrowType.setImageBitmap(borrowTypeRes == 0 ? null : BitmapFactory.decodeResource(context.getResources(), borrowTypeRes));
-        tvDeadLine.setText(String.valueOf(investList.borrowDays).concat(" "+context.getString(R.string.day)));
+        tvDeadLine.setText(String.valueOf(investList.borrowDays).concat(context.getString(R.string.day)));
         if (type == 0) {
             GradientTextView tvdailyRate = viewHolder.getView(R.id.item_invest_tvdailyRate);//日利率
             tvdailyRate.setText(DoubleUtils.doubleRoundFormat(investList.interestRates * 360 * 100, 2) );

@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/padding_20"
                 android:background="@null"
-                android:hint="@string/please_input_email"
+                android:hint="@string/please_input_transfe_cllection_email"
                 android:inputType="textEmailAddress"
                 android:theme="@style/MyEditText" />
         </LinearLayout>
