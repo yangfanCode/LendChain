@@ -30,6 +30,7 @@ import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.PopUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.AccountValidatorUtil;
@@ -125,6 +126,8 @@ public class RegiestActivity extends BaseActivity {
             }
         });
         btnRegiest.setOnClickListener(v -> {
+            //友盟埋点 点击注册
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.MINE_SINGUP);
             //立即注册
             String email=etEmail.getText().toString().trim();
             String pwd=etPwd.getText().toString().trim();

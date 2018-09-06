@@ -16,6 +16,7 @@ import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
 import com.lend.lendchain.ui.fragment.invest.adapter.InvestAllAdapter;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.TipsToast;
@@ -85,6 +86,8 @@ public class InvestPlatFormFragment extends Fragment {
 
     private void initListener() {
         listView.setOnItemClickListener((parent, view, position, id) -> {
+            //友盟埋点 列表点击
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST_DETAIL);
             Bundle bundle=new Bundle();
             //传标的id
             bundle.putString(Constant.INTENT_EXTRA_DATA,investAllAdapter.getItem(position).id);

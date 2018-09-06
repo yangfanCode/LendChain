@@ -15,6 +15,7 @@ import com.lend.lendchain.R;
 import com.lend.lendchain.bean.AddRecordList;
 import com.lend.lendchain.ui.fragment.invest.adapter.AddRecordAdapter;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.RecycleViewDivider;
 
 import java.util.ArrayList;
@@ -32,17 +33,27 @@ public class AddRecordFragment extends Fragment {
     TextView tvAddAmount;
     @BindView(R.id.invest_record_tvMortgageAmount)
     TextView tvMortgageAmount;
+    @BindView(R.id.optionalLayout)
+    OptionalLayout optionalLayout;
     private ArrayList<AddRecordList> list;
     private String code;
-    private View rootView;
+    private View parentView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_add_record, container, false);
-        initView();
-        initData();
-        return rootView;
+
+        if (parentView == null) {
+            parentView = inflater.inflate(R.layout.fragment_add_record, container, false);
+            initView();
+            initData();
+        }
+        ViewGroup parent = (ViewGroup) parentView.getParent();
+        if (parent != null) {
+            parent.removeView(parentView);
+        }
+        ButterKnife.bind(this, parentView);
+        return parentView;
     }
 
     public static AddRecordFragment newInstance(ArrayList<AddRecordList> param1, String code) {
@@ -55,7 +66,7 @@ public class AddRecordFragment extends Fragment {
     }
 
     private void initView() {
-        ButterKnife.bind(this, rootView);
+        ButterKnife.bind(this, parentView);
         if (getArguments() != null) {
             list = getArguments().getParcelableArrayList(Constant.INTENT_EXTRA_DATA);
             code = getArguments().getString(Constant.ARGS_PARAM1);
@@ -71,6 +82,10 @@ public class AddRecordFragment extends Fragment {
         tvMortgageAmount.setText(getString(R.string.mortgage_amount).concat("\n("+code+")"));
         AddRecordAdapter adapter = new AddRecordAdapter(getActivity(), list);
         recyclerViewV.setAdapter(adapter);
+        if(list.size()==0){//空数据页面
+            optionalLayout.setTypeEnum(OptionalLayout.TypeEnum.NO_DATA);
+            optionalLayout.setVisibility(View.VISIBLE);
+        }
     }
 
 

@@ -32,6 +32,7 @@ import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.TimeUtils;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.lend.lendchain.widget.KeyBoardInputPopWindow;
 import com.lend.lendchain.widget.MortgageFullProgressView;
@@ -135,6 +136,8 @@ public class InvestSummaryActivity extends BaseActivity {
 
     private void initListener() {
         btnConfirm.setOnClickListener(v -> {
+            //友盟埋点 立即投资
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST);
             if (CommonUtil.isLoginElseGotoLogin(InvestSummaryActivity.this)) {//没登录自动跳转登录
                 if (SPUtil.getUserPhone() && SPUtil.getUserGoogle()) {//如果手机 和谷歌都认证
                     if (!TextUtils.isEmpty(nickName)) {
@@ -258,6 +261,8 @@ public class InvestSummaryActivity extends BaseActivity {
                                             return;
                                         }
                                     }
+                                    //友盟埋点 确认投资
+                                    UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST_CONFIRM);
                                     if(amount<amountInput){//余额不足 展示余额页面
                                         popupWindow.dismiss();
                                         double income=keyBoardInputPopWindow.getIncome();
@@ -271,6 +276,8 @@ public class InvestSummaryActivity extends BaseActivity {
                                     String amountStr=keyBoardInputPopWindow.getEditTextMoney().getText().toString().trim();
                                     String googleCode=keyBoardInputPopWindow.getEditTextGoogleCode().getText().toString().trim();
                                     if(!TextUtils.isEmpty(googleCode)){
+                                        //友盟埋点 提交谷歌验证码
+                                        UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST_SUBMIT_GOOGLECODE);
                                         NetApi.investCreat(InvestSummaryActivity.this,SPUtil.getToken(),borrowId,amountStr,googleCode,investCreateObserver);
                                     }
                                 }
@@ -300,6 +307,8 @@ public class InvestSummaryActivity extends BaseActivity {
         public void onSuccess(ResultBean resultBean) {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
+                //友盟埋点 投资成功
+                UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST_SUCCESSFUL);
                 TipsToast.showTips(getString(R.string.invest_success));
                 finish();
             }else{
@@ -401,7 +410,6 @@ public class InvestSummaryActivity extends BaseActivity {
 
         }
         customViewPager.setAdapter(adapter);
-        customViewPager.setOffscreenPageLimit(3);
         customTabLayout.setupWithViewPager(customViewPager);
         tvExpectAnnualized.setText(DoubleUtils.doubleRoundFormat(interestRates * 360 * 100, 2));
         tvPeriod.setText(borrowDays + getString(R.string.day));//周期

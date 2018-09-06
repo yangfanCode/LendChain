@@ -15,6 +15,7 @@ import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.yangfan.widget.FormNormal;
 
 import butterknife.BindView;
@@ -71,7 +72,11 @@ public class UserCenterActivity extends BaseActivity {
                     fnPhone.getImvIndicator().setVisibility(View.VISIBLE);
                     fnPhone.setImvIndicatorImageResource(R.mipmap.icon_jiantou_right);
                     fnPhone.setText(getString(R.string.go_set));//去设置
-                    fnPhone.setOnClickListener(v -> CommonUtil.openActicity(UserCenterActivity.this,PhoneCertifyActivity.class,null));
+                    fnPhone.setOnClickListener(v -> {
+                        //友盟埋点 点击手机认证
+                        UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_PHONE_VERIFY);
+                        CommonUtil.openActicity(UserCenterActivity.this,PhoneCertifyActivity.class,null);
+                    });
                 }else{
                     fnPhone.getImvIndicator().setVisibility(View.GONE);
                     fnPhone.setText(phone);

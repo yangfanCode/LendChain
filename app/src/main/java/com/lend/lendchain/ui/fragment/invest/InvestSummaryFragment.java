@@ -22,13 +22,22 @@ import butterknife.ButterKnife;
 public class InvestSummaryFragment extends Fragment {
     @BindView(R.id.invest_fragment_tvSummary)
     TextView tvSummary;
-    private View rootView;
+    private View parentView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView=inflater.inflate(R.layout.fragment_invest_summary, container, false);
-        initView();
-        return rootView;
+
+        // Inflate the layout for this fragment
+        if (parentView == null) {
+            parentView=inflater.inflate(R.layout.fragment_invest_summary, container, false);
+            initView();
+        }
+        ViewGroup parent = (ViewGroup) parentView.getParent();
+        if (parent != null) {
+            parent.removeView(parentView);
+        }
+        ButterKnife.bind(this, parentView);
+        return parentView;
     }
 
 
@@ -41,7 +50,7 @@ public class InvestSummaryFragment extends Fragment {
     }
 
     private void initView() {
-        ButterKnife.bind(this, rootView);
+        ButterKnife.bind(this, parentView);
         if (getArguments() != null) {
             String desc = getArguments().getString(Constant.ARGS_PARAM1);
             if(!TextUtils.isEmpty(desc)){

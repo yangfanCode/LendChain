@@ -14,6 +14,7 @@ import com.lend.lendchain.R;
 import com.lend.lendchain.ui.activity.account.MyWalletActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.DoubleUtils;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 
 
 /**
@@ -56,6 +57,8 @@ public class PayNeedReChargePopWindow {
         if(llIncome.getVisibility()==View.VISIBLE)tvIncome.setText(DoubleUtils.doubleTransRound6(income)+" "+code);//到期收益
         btnGoRecharge.setText(activity.getString(R.string.over_lack_please_recharge)+" ".concat(DoubleUtils.doubleTransRound6(amountInput-amount)+" "+code));
         btnGoRecharge.setOnClickListener(v -> {
+            //友盟埋点 跳转充值
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST_GOTORECHARGE);
             dismiss();
             CommonUtil.openActicity(activity, MyWalletActivity.class,null);
         });

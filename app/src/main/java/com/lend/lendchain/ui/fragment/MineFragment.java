@@ -40,6 +40,7 @@ import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
@@ -173,7 +174,11 @@ public class MineFragment extends Fragment {
             }
             SPUtil.setUserTotalAmountGone(!SPUtil.getUserTotalAmountGone());
         });
-        tvLogin.setOnClickListener(v -> CommonUtil.openActivityForResult(getActivity(),MineFragment.this, LoginActivity.class,Constant.REQUEST_CODE1));
+        tvLogin.setOnClickListener(v -> {
+            //友盟埋点 注册登录
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.MINE_LOGIN_SIGNUP);
+            CommonUtil.openActivityForResult(getActivity(),MineFragment.this, LoginActivity.class,Constant.REQUEST_CODE1);
+        });
         tvMyWallet.setOnClickListener(v -> CommonUtil.openActivityWithLogin(getActivity(), MyWalletActivity.class,null));
         tvMyInvest.setOnClickListener(v -> CommonUtil.openActivityWithLogin(getActivity(), MyInvestActivity.class,null));
         tvRechargrRecord.setOnClickListener(v -> CommonUtil.openActivityWithLogin(getActivity(), RechangeWithdrawRecordActivity.class,null));

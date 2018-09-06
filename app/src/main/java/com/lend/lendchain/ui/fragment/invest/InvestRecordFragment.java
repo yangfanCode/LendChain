@@ -35,15 +35,23 @@ public class InvestRecordFragment extends Fragment {
     OptionalLayout optionalLayout;
     private ArrayList<InvestRecordList> list;
     private String code;
-    private View rootView;
+    private View parentView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_invest_record, container, false);
-        initView();
-        initData();
-        return rootView;
+
+        if (parentView == null) {
+            parentView = inflater.inflate(R.layout.fragment_invest_record, container, false);
+            initView();
+            initData();
+        }
+        ViewGroup parent = (ViewGroup) parentView.getParent();
+        if (parent != null) {
+            parent.removeView(parentView);
+        }
+        ButterKnife.bind(this, parentView);
+        return parentView;
     }
 
     public static InvestRecordFragment newInstance(ArrayList<InvestRecordList> param1, String code) {
@@ -56,7 +64,7 @@ public class InvestRecordFragment extends Fragment {
     }
 
     private void initView() {
-        ButterKnife.bind(this, rootView);
+        ButterKnife.bind(this, parentView);
         if (getArguments() != null) {
             list = getArguments().getParcelableArrayList(Constant.INTENT_EXTRA_DATA);
             code = getArguments().getString(Constant.ARGS_PARAM1);

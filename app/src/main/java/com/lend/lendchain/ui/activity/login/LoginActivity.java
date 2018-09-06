@@ -25,6 +25,7 @@ import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.PopUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.CommonUtils;
@@ -96,6 +97,8 @@ public class LoginActivity extends BaseActivity {
             popupWindow.showAtLocation(ivSlices, Gravity.TOP | Gravity.LEFT, CommonUtils.getScreenWidth(LoginActivity.this) - width-DisplayUtil.dp2px(LoginActivity.this,22), location[1] - height);//展示按钮上方
         });
         btnLogin.setOnClickListener(v -> {
+            //友盟埋点 立即登录
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.MINE_LOGIN);
             String userName = etEmail.getText().toString().trim();
             String pwd = etPwd.getText().toString().trim();
             if (TextUtils.isEmpty(userName)) {

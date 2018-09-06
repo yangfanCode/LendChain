@@ -29,6 +29,7 @@ import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SelectPicturePopupWindowUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.versioncontrol.utils.FilePathUtils;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.CommonUtils;
@@ -105,6 +106,8 @@ public class IDCardCertifyActivity extends BaseActivity {
                 TipsToast.showTips(getString(R.string.please_upload_document_material));
                 return;
             }
+            //友盟埋点 提交身份认证
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_KYC_SUBMIT);
             NetApi.kycCertify(IDCardCertifyActivity.this, SPUtil.getToken(),kycInfo.countryCode,kycInfo.country,kycInfo.realName
             ,kycInfo.bornDate,kycInfo.type,kycInfo.documentNum,pic1,pic2,pic3,kycObserver);
         });

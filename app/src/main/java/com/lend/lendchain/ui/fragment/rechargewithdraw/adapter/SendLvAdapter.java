@@ -79,11 +79,11 @@ public class SendLvAdapter extends BaseAdapter {
         TextView tvDesc=viewHolder.getView(R.id.sendLv_record_tvDesc);
         LinearLayout llOrderAdd=viewHolder.getView(R.id.sendLv_record_llOrderAdd);
         LinearLayout llOrder=viewHolder.getView(R.id.sendLv_record_llOrder);
-        tvStatus.setText(detail.remark);//发放明细
+        tvStatus.setText(detail.reason);//发放原因
         tvCount.setText("+"+DoubleUtils.doubleTransRound6(detail.amount)+" "+detail.cryptoCode);
         tvTime.setText(TimeUtils.getDateToStringMs(Long.parseLong(detail.time),"yyyy.MM.dd HH:mm:ss"));
         tvOrderCode.setText(context.getString(R.string.order_code)+":"+detail.id);//订单号
-        tvDesc.setText(context.getString(R.string.send_LV_reason)+":"+detail.reason);//说明
+        tvDesc.setText(context.getString(R.string.send_LV_reason)+":"+detail.remark);//说明
         llOrder.setOnClickListener(addOnClickListener);
         llOrder.setTag(R.id.position,position);
         llOrder.setTag(R.id.view,llOrderAdd);

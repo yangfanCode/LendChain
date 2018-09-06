@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.lend.lendchain.helper.ContextHelper;
 import com.umeng.analytics.MobclickAgent;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,49 +21,36 @@ public class UmengAnalyticsHelper {
     public static final String KEY_DEVICE = "device";
 
     //for normal event
-    public static final String OPTIONAL_PAGE = "optional_page";  //自选页面
-    public static final String OPTIONAL_LOGIN = "optional_login";  //自选页面登录按钮
-    public static final String OPTIONAL_ADD = "optional_add";  //添加自选按钮
-    public static final String OPTIONAL_EDITOR = "optional_editor";  //编辑自选按钮
-    public static final String OPTIONAL_PAGE_LIST = "optional_page_list";  //自选页面列表
+    public static final String SAFE_SUBMIT_SMSCODE = "safe_submit_smsCode";  //提交手机验证码
+    public static final String SAFE_SUBMIT_GOOGLECODE = "safe_submit_googleCode";  //提交谷歌验证码
+    public static final String SAFE_PHONE_VERIFY = "safe_phone_verify";  //点击“手机认证”
+    public static final String SAFE_PHONE_BINDED_SUCCESSFUL = "safe_phone_binded_successful";  //手机绑定成功
+    public static final String SAFE_PHONE_BIND = "safe_phone_bind";  //点击“绑定”
 
-    public static final String MARKET_PAGE = "market_page";  //市值页面
-    public static final String MARKET_PAGE_LIST = "optional_page_list";  //市值页面列表
-    public static final String MARKET_SORT_NAME = "market_sort_name";  //市值页面按名称排序
-    public static final String MARKET_SORT_MARKET = "market_sort_market";  //市值页面按市值排序
-    public static final String MARKET_SORT_DEAL = "market_sort_deal";  //市值页面按成交量排序
-    public static final String MARKET_SORT_PRICE = "market_sort_price";  //市值页面按最新价排序
-    public static final String MARKET_SORT_INCREASE = "market_sort_increase";  //市值页面按24H涨跌幅排序
+    public static final String SAFE_KYC_VERIFY = "safe_kyc_verify";  //点击“身份认证”
+    public static final String SAFE_KYC_SUBMIT = "safe_kyc_submit";  //提交“身份认证”
+    public static final String SAFE_KYC_PERSONAL_SUBMIT = "safe_kyc_personal_submit";  //提交个人信息
+    public static final String SAFE_GOOGLE_VERIFY = "safe_google_verify";  //点击“谷歌认证”
+    public static final String SAFE_GOOGLE_BINDED_SUCCESSFUL = "safe_google_binded_successful";  //谷歌绑定成功
+    public static final String MINE_SINGUP_SUCCESS = "mine_singUp_success";  //我的注册成功
+    public static final String MINE_SINGUP = "mine_singUp";  //点击注册
 
-    public static final String TRANSACTION_PAGE = "transaction_page";  //交易对页面
-    public static final String TRANSACTION_PAGE_LIST = "transaction_page_list";  //交易对页面列表
-    public static final String TRANSACTION_SORT_NAME = "transaction_sort_name";  //交易对页面按名称排序
-    public static final String TRANSACTION_SORT_MARKET = "transaction_sort_market";  //交易对页面按市值排序
-    public static final String TRANSACTION_SORT_DEAL = "transaction_sort_deal";  //交易对页面按成交量排序
-    public static final String TRANSACTION_SORT_PRICE = "transaction_sort_price";  //交易对页面按最新价排序
-    public static final String TRANSACTION_SORT_INCREASE = "transaction_sort_increase";  //交易对页面按24H涨跌幅排序
+    public static final String MINE_LOGIN_SUCCESS = "mine_login_success";  //我的登录成功
+    public static final String MINE_LOGIN_SIGNUP = "mine_login_signUp";  //点击“注册/登录”
+    public static final String MINE_LOGIN = "mine_login";  //点击登录
+    public static final String LOAN_SUCCESSFUL = "loan_successful";  //借款成功
+    public static final String LOAN_SUBMIT_GOOGLECODE = "loan_submit_googleCode";  //点击提交谷歌验证码
+    public static final String LOAN_GOTORECHARGE = "loan_gotoRecharge";  //点击“跳转充值”
+    public static final String LOAN_CONFIRM = "loan_confirm";  //点击“确认借款”
 
-    public static final String DETAIL_PAGE = "detail_page";  //详情页面
-    public static final String DETAIL_ADD= "detail_add";  //详情页面添加自选
-    public static final String DETAIL_TABLE_TIME = "detail_table_time";  //详情页面分时按钮
-    public static final String DETAIL_TABLE_DAY = "detail_table_day";  //详情页面日线按钮
-    public static final String DETAIL_TABLE_WEEK = "detail_table_week";  //详情页面周线按钮
-    public static final String DETAIL_TABLE_MONTH = "detail_table_month";  //详情页面月线按钮
-    public static final String DETAIL_TABLE_FULLSCREEN = "detail_table_fullscreen";  //详情页面全屏按钮
-    public static final String DETAIL_MARKET = "detail_market";  //详情页面市场按钮
-    public static final String DETAIL_NEWS = "detail_news";  //详情页面新闻按钮
-    public static final String DETAIL_DISCUSSION = "detail_discussion";  //详情页面论币按钮
-    public static final String DETAIL_PROSPECTUS = "detail_prospectus";  //详情页面简介按钮
-    public static final String DETAIL_NEWS_LIST = "detail_news_list";  //详情页面新闻列表
-    public static final String DETAIL_DISCUSSION_SEND = "detail_discussion_send";  //详情页面论币列表发布内容
+    public static final String INVEST_SUCCESSFUL = "invest_successful";  //投资成功
+    public static final String INVEST_SUBMIT_GOOGLECODE= "invest_submit_googleCode";  //点击提交谷歌验证码
+    public static final String INVEST_GOTORECHARGE = "invest_gotoRecharge";  //点击“跳转充值”
+    public static final String INVEST_DETAIL = "invest_detail";  //投资页列表点击
+    public static final String INVEST_CONFIRM = "invest_confirm";  //点击“确认投资”
+    public static final String INVEST = "invest";  //点击“立即投资”
+    public static final String HOME_DETAIL = "home_detail";  //首页推荐立即投资
 
-    public static final String HOME_SEARCH = "home_search";  //行情页面搜索
-    public static final String HOME_MESSAGE = "home_message";  //行情页面消息
-    public static final String HOME_PAGE = "home_page";  //行情页面
-
-    public static final String NEWS_PAGE = "news_page";  //资讯页面
-    public static final String EXCHANGE_PAGE = "exchange_page";  //市场页面
-    public static final String MINE_PAGE = "mine_page";  //我的页面
 
     public static final String NEWS_NEWSFLASH = "news_newsflash";  //资讯-快讯页面
     public static final String NEWS_HEADLINES = "news_headlines";  //资讯-要闻页面
@@ -75,7 +63,6 @@ public class UmengAnalyticsHelper {
     public static final String EXCHANGE_SEARCH = "exchange_search";  //市场页面搜索按钮点击
     public static final String EXCHANGE_LIST = "exchange_list";  //市场列表点击
 
-    public static final String MINE_LOGIN = "mine_login";  //个人中心登录按钮
     public static final String MINE_EDITOR = "mine_editor";  //点击编辑资料
     public static final String MINE_COLLECT = "mine_collect";  //点击我的收藏
     public static final String MINE_SET= "mine_set";  //点击系统设置
@@ -96,7 +83,9 @@ public class UmengAnalyticsHelper {
 
 
     public static void umengEvent(String eventId) {
-        umengEvent(eventId, null);
+        Map<String, String> map=new HashMap<>();
+        map.put("lang",LanguageUtils.getUserLanguageSetting());
+        umengEvent(eventId, map);
     }
 
     public static void umengEvent(String eventId, Map<String, String> map) {

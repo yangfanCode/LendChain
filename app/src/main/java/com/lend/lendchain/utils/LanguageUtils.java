@@ -47,7 +47,7 @@ public class LanguageUtils {
         return lan;
     }
 
-    //根据系统选择的语言 返回自定义规则语言设置 locale-->lan 存
+    //根据Local返回自定义语言 locale-->lan 存
     public static String getCustomLangFromLocal(Locale locale){
         if(locale.getLanguage().equals(Locale.SIMPLIFIED_CHINESE.getLanguage())){
             return SIMPLIFIED_CHINESE;
@@ -57,7 +57,7 @@ public class LanguageUtils {
             return ENGLISH;
         }
     }
-    //根据语言返回Local lan-->locale 取
+    //根据自定义语言返回Local lan-->locale 取
     public static Locale getLocalFromCustomLang(String lan){
         if(lan.equals(SIMPLIFIED_CHINESE)){//简体中文
             return Locale.SIMPLIFIED_CHINESE;

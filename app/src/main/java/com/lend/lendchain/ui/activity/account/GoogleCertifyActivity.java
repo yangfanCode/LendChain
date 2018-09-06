@@ -19,6 +19,7 @@ import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.QRCodeUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.TipsToast;
 
 import butterknife.BindView;
@@ -69,6 +70,8 @@ public class GoogleCertifyActivity extends BaseActivity {
 
     private void initListener() {
         tvSendSmsCode.setOnClickListener(v -> {
+            //友盟埋点 提交验证码
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_SUBMIT_GOOGLECODE);
             NetApi.sendSMSCodeNoPhone(GoogleCertifyActivity.this,true,SPUtil.getToken(),sendSmsCodeObserver);
         });
         tvCopy.setOnClickListener(v -> {
@@ -144,6 +147,8 @@ public class GoogleCertifyActivity extends BaseActivity {
         public void onSuccess(ResultBean resultBean) {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
+                //友盟埋点 谷歌绑定成功
+                UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_GOOGLE_BINDED_SUCCESSFUL);
                 TipsToast.showTips(getString(R.string.certified_success));
                 SPUtil.setUserGoogle(1);//存谷歌认证状态
                 ContextHelper.getApplication().runDelay(GoogleCertifyActivity.this::finish,500);//延时关闭

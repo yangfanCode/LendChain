@@ -39,6 +39,7 @@ import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.KeyBordUtils;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.BaseTitleBar;
 import com.lend.lendchain.widget.KeyBoardInputPopWindow;
 import com.lend.lendchain.widget.PayNeedReChargePopWindow;
@@ -568,6 +569,8 @@ public class LoanFragment extends Fragment {
             if (resultBean == null) return;
             if (resultBean.isSuccess()) {
                 popupWindow.dismiss();
+                //友盟埋点 借款成功
+                UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.LOAN_SUCCESSFUL);
                 TipsToast.showTips(getString(R.string.loan_success));
                 CommonUtil.openActicity(getActivity(), MyLoanActivity.class,null);
             } else {
@@ -589,7 +592,11 @@ public class LoanFragment extends Fragment {
                 if(resultBean.data!=null){
                     String mortgageCount=etMortgageCount.getText().toString().trim();
                     double mortgageOver=resultBean.data.amount;
+                    //友盟埋点 确认借款
+                    UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.LOAN_CONFIRM);
                     if(Double.parseDouble(mortgageCount)>mortgageOver){//可抵押不足
+                        //友盟埋点 点击充值
+                        UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.LOAN_GOTORECHARGE);
                         PayNeedReChargePopWindow payNeedReChargePopWindow=new PayNeedReChargePopWindow(getActivity(),mortgageOver,mortgageCoin,Double.parseDouble(mortgageCount));
                         CommonUtil.setBackgroundAlpha(getActivity(), 0.5f);
                         payNeedReChargePopWindow.creatPop().showAtLocation(btnConfirm, Gravity.BOTTOM, 0, 0);
@@ -598,10 +605,11 @@ public class LoanFragment extends Fragment {
                             if (keyBoardInputPopWindow == null) {
                                 keyBoardInputPopWindow = new KeyBoardInputPopWindow(getActivity(), 2);
                                 keyBoardInputPopWindow.setOnOkClick(() -> {
+                                    //友盟埋点 确认谷歌验证码
+                                    UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.LOAN_SUBMIT_GOOGLECODE);
                                     initCreateLoanData();
                                 });
                                 keyBoardInputPopWindow.setOnCancelClick(() -> {
-                                    TipsToast.showTips("cancle");
                                 });
                             }
                             popupWindow = keyBoardInputPopWindow.creatPop();

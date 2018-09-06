@@ -15,6 +15,7 @@ import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.widget.CustomDialog;
 
@@ -56,16 +57,26 @@ public class SafeCertifyActivity extends BaseActivity {
     }
 
     private void initListener() {
-        tvPhone.setOnClickListener(v -> CommonUtil.openActicity(SafeCertifyActivity.this,PhoneCertifyActivity.class,null));
+        tvPhone.setOnClickListener(v -> {
+            //友盟埋点 点击手机认证
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_PHONE_VERIFY);
+            CommonUtil.openActicity(SafeCertifyActivity.this,PhoneCertifyActivity.class,null);
+        });
         //谷歌认证之前要先认证手机
         tvGoogle.setOnClickListener(v -> {
+            //友盟埋点 点击谷歌认证
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_GOOGLE_VERIFY);
             if(SPUtil.getUserPhone()){
                 CommonUtil.openActicity(SafeCertifyActivity.this,GoogleCertifyActivity.class,null);
             }else{
                 TipsToast.showTips(getString(R.string.please_cerfity_phone_first));
             }
         });
-        tvKyc.setOnClickListener(v -> CommonUtil.openActicity(SafeCertifyActivity.this,KycActivity.class,null));
+        tvKyc.setOnClickListener(v -> {
+            //友盟埋点 点击kyc
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_KYC_VERIFY);
+            CommonUtil.openActicity(SafeCertifyActivity.this,KycActivity.class,null);
+        });
     }
 
     @Override

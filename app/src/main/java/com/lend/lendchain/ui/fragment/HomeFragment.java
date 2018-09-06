@@ -35,6 +35,7 @@ import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.versioncontrol.utils.ApkDownloadTools;
 import com.lend.lendchain.widget.CircleProgressBar;
 import com.lend.lendchain.widget.GradientTextView;
@@ -113,7 +114,7 @@ public class HomeFragment extends Fragment {
         refreshLayout.setEnableLoadMore(false);
         adapter = new HomeMarketAdapter(getActivity());
         lvQuetes.setAdapter(adapter);
-        bannerData=new ArrayList<>();
+        bannerData = new ArrayList<>();
         getRxBus();
     }
 
@@ -130,9 +131,9 @@ public class HomeFragment extends Fragment {
                 .subscribeOn(Schedulers.io())
                 .flatMap(resultBean -> {
                     if (resultBean.isSuccess()) {
-                        if("en_US".equals(LanguageUtils.getLangForHttp())){
+                        if ("en_US".equals(LanguageUtils.getLangForHttp())) {
                             rateRMBDollar = 1;//汇率 //美元特殊处理
-                        }else{
+                        } else {
                             rateRMBDollar = resultBean.data.price;//汇率
                         }
                     }
@@ -158,7 +159,7 @@ public class HomeFragment extends Fragment {
                     }
                 });
         //请求版本更新
-        NetApi.versionControl(getActivity(),versionObserver);
+        NetApi.versionControl(getActivity(), versionObserver);
     }
 
     private void initListener() {
@@ -170,32 +171,52 @@ public class HomeFragment extends Fragment {
         refreshLayout.setOnMultiPurposeListener(new OnMultiPurposeListener() {
             @Override
             public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {
-                if(offset==0){
+                if (offset == 0) {
                     StatusBarUtil.StatusBarDarkMode(getActivity());
-                }else{
+                } else {
                     StatusBarUtil.StatusBarLightMode(getActivity());
                 }
             }
+
             @Override
-            public void onHeaderReleased(RefreshHeader header, int headerHeight, int maxDragHeight) { }
+            public void onHeaderReleased(RefreshHeader header, int headerHeight, int maxDragHeight) {
+            }
+
             @Override
-            public void onHeaderStartAnimator(RefreshHeader header, int headerHeight, int maxDragHeight) { }
+            public void onHeaderStartAnimator(RefreshHeader header, int headerHeight, int maxDragHeight) {
+            }
+
             @Override
-            public void onHeaderFinish(RefreshHeader header, boolean success) { }
+            public void onHeaderFinish(RefreshHeader header, boolean success) {
+            }
+
             @Override
-            public void onFooterMoving(RefreshFooter footer, boolean isDragging, float percent, int offset, int footerHeight, int maxDragHeight) { }
+            public void onFooterMoving(RefreshFooter footer, boolean isDragging, float percent, int offset, int footerHeight, int maxDragHeight) {
+            }
+
             @Override
-            public void onFooterReleased(RefreshFooter footer, int footerHeight, int maxDragHeight) { }
+            public void onFooterReleased(RefreshFooter footer, int footerHeight, int maxDragHeight) {
+            }
+
             @Override
-            public void onFooterStartAnimator(RefreshFooter footer, int footerHeight, int maxDragHeight) { }
+            public void onFooterStartAnimator(RefreshFooter footer, int footerHeight, int maxDragHeight) {
+            }
+
             @Override
-            public void onFooterFinish(RefreshFooter footer, boolean success) { }
+            public void onFooterFinish(RefreshFooter footer, boolean success) {
+            }
+
             @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) { }
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+            }
+
             @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) { }
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+            }
+
             @Override
-            public void onStateChanged(@NonNull RefreshLayout refreshLayout, @NonNull RefreshState oldState, @NonNull RefreshState newState) { }
+            public void onStateChanged(@NonNull RefreshLayout refreshLayout, @NonNull RefreshState oldState, @NonNull RefreshState newState) {
+            }
         });
         //根据滑动距离监听pulltorefrenshScrollview  进行状态栏颜色变化 下拉刷新时
         scrollView.setScrollViewListener((scrollView, x, y, oldx, oldy) -> {
@@ -230,12 +251,12 @@ public class HomeFragment extends Fragment {
         });
         bannerView.setOnBannerItemClickListener(i -> {//banner点击
             //不需要登录 或者需要登录并且已经登陆的 否则跳转登录
-            boolean isNeedLogin=bannerData.get(i).isNeedLogin();
-            if(!isNeedLogin||(isNeedLogin&&CommonUtil.isLoginElseGotoLogin(getActivity()))){
-                Bundle bundle=new Bundle();
-                bundle.putString(Constant.INTENT_EXTRA_URL,bannerData.get(i).href);
-                bundle.putString(Constant.INTENT_EXTRA_TITLE,bannerData.get(i).title);
-                CommonUtil.openActicity(getActivity(), WebActivity.class,bundle);
+            boolean isNeedLogin = bannerData.get(i).isNeedLogin();
+            if (!isNeedLogin || (isNeedLogin && CommonUtil.isLoginElseGotoLogin(getActivity()))) {
+                Bundle bundle = new Bundle();
+                bundle.putString(Constant.INTENT_EXTRA_URL, bannerData.get(i).href);
+                bundle.putString(Constant.INTENT_EXTRA_TITLE, bannerData.get(i).title);
+                CommonUtil.openActicity(getActivity(), WebActivity.class, bundle);
             }
         });
     }
@@ -262,16 +283,16 @@ public class HomeFragment extends Fragment {
     }
 
     //banner
-    Observer<Banner> bannerObserver=new NetClient.RxObserver<Banner>() {
+    Observer<Banner> bannerObserver = new NetClient.RxObserver<Banner>() {
         @Override
         public void onSuccess(Banner banner) {
-            if(banner==null)return;
+            if (banner == null) return;
             bannerData.clear();
-            if(LanguageUtils.SIMPLIFIED_CHINESE.equals(LanguageUtils.getUserLanguageSetting())){//简体中文
+            if (LanguageUtils.SIMPLIFIED_CHINESE.equals(LanguageUtils.getUserLanguageSetting())) {//简体中文
                 bannerData.addAll(banner.data.cn);
-            }else if(LanguageUtils.KOREAN.equals(LanguageUtils.getUserLanguageSetting())){//韩文
+            } else if (LanguageUtils.KOREAN.equals(LanguageUtils.getUserLanguageSetting())) {//韩文
                 bannerData.addAll(banner.data.ko);
-            }else{//英文
+            } else {//英文
                 bannerData.addAll(banner.data.en);
             }
             List<String> img_data = new ArrayList<>();
@@ -321,18 +342,18 @@ public class HomeFragment extends Fragment {
         }
     };
     //版本控制
-    Observer<ResultBean<VersionControl>> versionObserver=new NetClient.RxObserver<ResultBean<VersionControl>>() {
+    Observer<ResultBean<VersionControl>> versionObserver = new NetClient.RxObserver<ResultBean<VersionControl>>() {
         @Override
         public void onSuccess(ResultBean<VersionControl> versionControlResultBean) {
-            if(versionControlResultBean==null)return;
-            if(versionControlResultBean.isSuccess()){
-                int versionId= CommonUtil.getVersionId(getActivity());//拿到应用版本号
+            if (versionControlResultBean == null) return;
+            if (versionControlResultBean.isSuccess()) {
+                int versionId = CommonUtil.getVersionId(getActivity());//拿到应用版本号
                 //服务器获取版本号大于app版本号
-                if(Integer.valueOf(versionControlResultBean.data.build)>versionId){//展示更新弹窗
+                if (Integer.valueOf(versionControlResultBean.data.build) > versionId) {//展示更新弹窗
                     ApkDownloadTools apkDownloadTools = new ApkDownloadTools(getActivity());
                     apkDownloadTools.setShowToast(false);
                     //是否需要强制更新
-                    boolean isForcedUpdate=versionId<Integer.valueOf(versionControlResultBean.data.minBuild);
+                    boolean isForcedUpdate = versionId < Integer.valueOf(versionControlResultBean.data.minBuild);
                     apkDownloadTools.showUpdateDialog(versionControlResultBean.data, isForcedUpdate);
                 }
             }
@@ -378,20 +399,22 @@ public class HomeFragment extends Fragment {
             TextView tvMinInvestAmount = v.findViewById(R.id.item_home_tvMinInvestAmount);//最小投资额
             CircleProgressBar progressBar = v.findViewById(R.id.item_home_progressBar);//进度条
             GradientTextView tvAnnualized = v.findViewById(R.id.item_home_tvAnnualized);//年化
-            TextView btnInvest=v.findViewById(R.id.item_home_btnInvest);//立即投资
+            TextView btnInvest = v.findViewById(R.id.item_home_btnInvest);//立即投资
             tvOrderId.setText(homeSupport.orderId);
             tvOrderType.setText(getOrderType(homeSupport.borrowTypeId));
             tvOrderDays.setText(homeSupport.borrowDays + getString(R.string.day_period));
             progressBar.setProgress((int) (homeSupport.boughtAmount / homeSupport.borrowAmount * 100));//进度条
             tvAnnualized.setText(DoubleUtils.doubleRoundFormat(homeSupport.interestRates * 360 * 100, 2));//2位小数
-            tvBorrowAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.borrowAmount, 2).concat(" "+homeSupport.borrowCryptoCode));//单位不处理
-            tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" "+homeSupport.borrowCryptoCode));//单位不处理
+            tvBorrowAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.borrowAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
+            tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
             btnInvest.setOnClickListener(v1 -> {
-                Bundle bundle=new Bundle();
+                //友盟埋点
+                UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.HOME_DETAIL);
+                Bundle bundle = new Bundle();
                 //传标的id
-                bundle.putString(Constant.INTENT_EXTRA_DATA,homeSupport.id);
-                bundle.putInt(Constant.ARGS_PARAM1,Integer.valueOf(homeSupport.borrowTypeId));
-                CommonUtil.openActivityWithLogin(getActivity(), InvestSummaryActivity.class,bundle);
+                bundle.putString(Constant.INTENT_EXTRA_DATA, homeSupport.id);
+                bundle.putInt(Constant.ARGS_PARAM1, Integer.valueOf(homeSupport.borrowTypeId));
+                CommonUtil.openActivityWithLogin(getActivity(), InvestSummaryActivity.class, bundle);
             });
             listViews.add(v);
         }
@@ -413,15 +436,15 @@ public class HomeFragment extends Fragment {
      */
     private String getOrderType(String borrowTypeId) {
         if ("1".equals(borrowTypeId)) {
-            return "("+getString(R.string.mortgage)+")";
+            return "(" + getString(R.string.mortgage) + ")";
         } else if ("2".equals(borrowTypeId)) {
-            return "("+getString(R.string.preview)+")";
+            return "(" + getString(R.string.preview) + ")";
         } else if ("3".equals(borrowTypeId)) {
-            return "("+getString(R.string.platForm)+")";
+            return "(" + getString(R.string.platForm) + ")";
         } else if ("4".equals(borrowTypeId)) {
-            return "("+getString(R.string.novice_preview)+")";
+            return "(" + getString(R.string.novice_preview) + ")";
         } else if ("5".equals(borrowTypeId)) {
-            return "("+getString(R.string.novice)+")";
+            return "(" + getString(R.string.novice) + ")";
         } else {
             return "";
         }

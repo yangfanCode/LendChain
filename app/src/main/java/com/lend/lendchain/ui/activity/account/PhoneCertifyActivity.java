@@ -17,6 +17,7 @@ import com.lend.lendchain.ui.activity.common.SelectCountryCodeActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.TipsToast;
 
 import butterknife.BindView;
@@ -58,6 +59,8 @@ public class PhoneCertifyActivity extends BaseActivity {
     private void initListener() {
         tvCountryCodeDesc.setOnClickListener(v -> CommonUtil.openActicity(PhoneCertifyActivity.this, SelectCountryCodeActivity.class,null));
         tvSendSmsCode.setOnClickListener(v -> {
+            //友盟埋点 提交验证码
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_SUBMIT_SMSCODE);
             String phone=etPhone.getText().toString().trim();
             String countryCode=CountryCode.getCountryCode();
             if(!TextUtils.isEmpty(countryCode)){
@@ -73,6 +76,8 @@ public class PhoneCertifyActivity extends BaseActivity {
             }
         });
         btnConfirm.setOnClickListener(v -> {
+            //友盟埋点 点击绑定
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_PHONE_BIND);
             String phone=etPhone.getText().toString().trim();
             String countryCode=CountryCode.getCountryCode();
             String code=etSmsCode.getText().toString().trim();
@@ -131,6 +136,8 @@ public class PhoneCertifyActivity extends BaseActivity {
         public void onSuccess(ResultBean resultBean) {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
+                //友盟埋点 手机绑定成功
+                UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_PHONE_BINDED_SUCCESSFUL);
                 TipsToast.showTips(getString(R.string.certified_success));
                 SPUtil.setUserPhone(1);//存手机认证状态
                 ContextHelper.getApplication().runDelay(PhoneCertifyActivity.this::finish,500);//延时关闭
