@@ -13,6 +13,7 @@ import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.bean.TransferRecord;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
+import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.adapter.TransferRecordAdapter;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
@@ -118,7 +119,7 @@ public class TransferRecordFragment extends Fragment {
                     }
                 }
             } else {
-                TipsToast.showTips(resultBean.message);
+                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
             }
         }
         @Override

@@ -198,7 +198,7 @@ public class ReChargeRecordFragment extends Fragment {
                     }
                 }
             } else {
-                TipsToast.showTips(resultBean.message);
+                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
             }
         }
 
