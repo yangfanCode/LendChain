@@ -140,8 +140,8 @@
     <string name="new_user_not_enough">Can\'t exceed the amount that a novice can buy</string>
     <string name="input_must_greater_minAmount">The input amount must be greater than the minimum initial investment amount</string>
     <string name="min">Min</string>
-    <string name="invest_guidelines_text">If the underlying investment does not reach 100% within 24 hours, or if the price of the digital currency lowers more than 20% within 24 hours, the target will automatically become invalid and the digital currency of the investment will be returned to the investor.\n\n
-        When the overdue time reaches 7 days, LendChain will take over the collateral assets, and after deducting the overdue fees, the assets will be returned to the borrower according to the investment proportion.\n\n
+    <string name="invest_guidelines_text">1.If the underlying investment does not reach 100% within 24 hours, or if the price of the digital currency lowers more than 20% within 24 hours, the target will automatically become invalid and the digital currency of the investment will be returned to the investor.<![CDATA[<br/>]]><![CDATA[<br/>]]>
+        When the overdue time reaches 7 days, LendChain will take over the collateral assets, and after deducting the overdue fees, the assets will be returned to the borrower according to the investment proportion.<![CDATA[<br/>]]><![CDATA[<br/>]]>
     LendChain established a warning line (140%) and a closing line (110%), the closing line=borrowing amount * 110% and the warning line= borrowing amount * 140%. When the collateral assets reach the warning line, the system will remind the borrower to ask them to increase the collateral. When the collateral assets reach the closing line, the collateral assets will be processed for delivery, and the assets will be owned by the lenders.</string>
     <!--LoginActivity-->
     <string name="login">Login</string>
