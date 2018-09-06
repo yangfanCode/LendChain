@@ -50,6 +50,7 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener;
+import com.umeng.analytics.MobclickAgent;
 import com.yangfan.widget.CustomBannerView;
 import com.yangfan.widget.CustomViewPager;
 
@@ -368,6 +369,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+        MobclickAgent.onPageEnd("首页");
         if (!rxSubscription.isUnsubscribed()) {
             rxSubscription.unsubscribe();
         }
@@ -376,6 +378,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        MobclickAgent.onPageStart("首页");
         if (rxSubscription.isUnsubscribed()) {
             getRxBus();
         }

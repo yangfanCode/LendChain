@@ -38,6 +38,7 @@ import com.lend.lendchain.widget.KeyBoardInputPopWindow;
 import com.lend.lendchain.widget.MortgageFullProgressView;
 import com.lend.lendchain.widget.PayNeedReChargePopWindow;
 import com.lend.lendchain.widget.TipsToast;
+import com.umeng.analytics.MobclickAgent;
 import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
 import com.yangfan.widget.CustomTabLayout;
@@ -132,6 +133,18 @@ public class InvestSummaryActivity extends BaseActivity {
     private void initData() {
         NetApi.investSummary(this, true, borrowId, summaryObserver);
         if(SPUtil.isLogin())NetApi.getUserInfo(this,false,SPUtil.getToken(),userInfoObserver);//请求用户信息
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("投资页_详情");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("投资页_详情");
     }
 
     private void initListener() {

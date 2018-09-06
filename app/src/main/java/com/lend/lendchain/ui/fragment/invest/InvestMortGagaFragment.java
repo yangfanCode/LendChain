@@ -21,6 +21,7 @@ import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.List;
 
@@ -133,6 +134,20 @@ public class InvestMortGagaFragment extends Fragment {
             finishRefrensh();
         }
     };
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("投资页_抵押标");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("投资页_抵押标");
+    }
+
     private void finishRefrensh() {
         refreshLayout.finishRefresh();//传入false表示加载失败
         refreshLayout.finishLoadMore();//传入false表示加载失败

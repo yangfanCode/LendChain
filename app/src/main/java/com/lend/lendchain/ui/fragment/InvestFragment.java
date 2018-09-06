@@ -78,7 +78,6 @@ public class InvestFragment extends Fragment {
         int width=getResources().getDisplayMetrics().widthPixels;
         tabLayout.setNeedEqual(true,width);
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
