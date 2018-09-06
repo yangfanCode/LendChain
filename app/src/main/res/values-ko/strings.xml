@@ -339,8 +339,7 @@
     <string name="confirming">확인 중</string>
     <string name="transferred_from_others_success">전입성공</string>
     <string name="transferred_to_others_success">전출성공</string>
-    <string name="transferred_in_account">전입계정</string>
-    <string name="transferred_out_account">전출계정</string>
+    <string name="account_of_the_other_user">상대방 계정</string>
     <string name="wait_in_account">기입필요</string>
     <string name="in_accounted">기입완료</string>
     <string name="recharge_speedup">충전 가속화 확인</string>

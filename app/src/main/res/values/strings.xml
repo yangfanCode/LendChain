@@ -338,8 +338,7 @@
     <string name="confirming">确认中</string>
     <string name="transferred_from_others_success">转入成功</string>
     <string name="transferred_to_others_success">转出成功</string>
-    <string name="transferred_in_account">转入账户</string>
-    <string name="transferred_out_account">转出账户</string>
+    <string name="account_of_the_other_user">对方账户</string>
     <string name="wait_in_account">待入账</string>
     <string name="in_accounted">已入账</string>
     <string name="recharge_speedup">充值加速</string>

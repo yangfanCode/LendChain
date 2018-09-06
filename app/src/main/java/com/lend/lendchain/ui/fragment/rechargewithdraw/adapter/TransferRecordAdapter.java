@@ -87,7 +87,7 @@ public class TransferRecordAdapter extends BaseAdapter {
         tvCount.setText((type==1?"+":"-")+ DoubleUtils.doubleTransRound6(transferRecord.transferAmount)+" "+transferRecord.code);//金额
         tvTime.setText(TimeUtils.getDateToStringMs(Long.parseLong(transferRecord.transferTime),"yyyy.MM.dd HH:mm:ss"));
         tvOrderCode.setText(context.getString(R.string.order_code)+":"+(TextUtils.isEmpty(transferRecord.transgerId)?"":transferRecord.transgerId));
-        tvAcount.setText(getTransferAccount(type)+":"+transferRecord.transferAcc);//账户
+        tvAcount.setText(context.getString(R.string.account_of_the_other_user)+":"+transferRecord.transferAcc);//账户
         llOrder.setOnClickListener(addOnClickListener);
         llOrder.setTag(R.id.position,position);
         llOrder.setTag(R.id.view,llOrderAdd);
@@ -100,16 +100,6 @@ public class TransferRecordAdapter extends BaseAdapter {
             return context.getString(R.string.transferred_from_others_success);
         }else if(status==2){
             return context.getString(R.string.transferred_to_others_success);
-        }else{
-            return "";
-        }
-    }
-    //充值类型状态
-    private String getTransferAccount(int status){
-        if(status==1){
-            return context.getString(R.string.transferred_out_account);
-        }else if(status==2){
-            return context.getString(R.string.transferred_in_account);
         }else{
             return "";
         }

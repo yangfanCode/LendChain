@@ -339,8 +339,7 @@
     <string name="confirming">Waiting for confirmation</string>
     <string name="transferred_from_others_success">Successfully transferred from</string>
     <string name="transferred_to_others_success">Successfully transferred to</string>
-    <string name="transferred_in_account">account transferred to</string>
-    <string name="transferred_out_account">account transferred from</string>
+    <string name="account_of_the_other_user">account of the other user</string>
     <string name="wait_in_account">Receiving</string>
     <string name="in_accounted">Received</string>
     <string name="recharge_speedup">Accelerate recharge</string>
