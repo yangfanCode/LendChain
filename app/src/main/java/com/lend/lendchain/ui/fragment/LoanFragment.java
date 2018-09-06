@@ -160,7 +160,7 @@ public class LoanFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("借款页");
+        MobclickAgent.onPageStart("LoanFragment");
         setRefrensh();
     }
 
@@ -714,7 +714,7 @@ public class LoanFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("借款页");
+        MobclickAgent.onPageEnd("LoanFragment");
     }
 
 

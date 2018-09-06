@@ -122,13 +122,13 @@ public class MineFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("我的页面");
+        MobclickAgent.onPageStart("MineFragment");
         if(SPUtil.isLogin())setRefrensh();//登录状态切换或者返回刷新
     }
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("我的页面");
+        MobclickAgent.onPageEnd("MineFragment");
     }
     private void initView() {
         ButterKnife.bind(this, parentView);

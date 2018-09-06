@@ -139,13 +139,13 @@ public class InvestMortGagaFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("投资页_抵押标");
+        MobclickAgent.onPageStart("InvestMortGagaFragment");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("投资页_抵押标");
+        MobclickAgent.onPageEnd("InvestMortGagaFragment");
     }
 
     private void finishRefrensh() {

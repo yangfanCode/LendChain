@@ -138,13 +138,13 @@ public class InvestPlatFormFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("投资页_平台标");
+        MobclickAgent.onPageStart("InvestPlatFormFragment");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("投资页_平台标");
+        MobclickAgent.onPageEnd("InvestPlatFormFragment");
     }
 
     private void finishRefrensh() {

@@ -369,7 +369,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("首页");
+        MobclickAgent.onPageEnd("HomeFragment");
         if (!rxSubscription.isUnsubscribed()) {
             rxSubscription.unsubscribe();
         }
@@ -378,7 +378,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("首页");
+        MobclickAgent.onPageStart("HomeFragment");
         if (rxSubscription.isUnsubscribed()) {
             getRxBus();
         }
