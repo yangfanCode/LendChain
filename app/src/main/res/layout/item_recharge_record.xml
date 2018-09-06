@@ -7,7 +7,7 @@
     <LinearLayout
         android:id="@+id/recharge_record_llOrder"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="110dp"
         android:orientation="vertical"
         android:paddingBottom="@dimen/padding_10"
         android:paddingLeft="@dimen/padding_15"
@@ -29,45 +29,41 @@
                 android:layout_gravity="center_vertical|right" />
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_30">
+        <TextView
+            android:id="@+id/recharge_record_tvOrderCode"
+            style="@style/text999999_12"
+            android:layout_height="@dimen/padding_30"
+            android:gravity="center_vertical" />
 
-            <TextView
-                android:id="@+id/recharge_record_tvTime"
-                style="@style/text999999_12"
-                android:layout_gravity="center_vertical" />
+        <TextView
+            android:id="@+id/recharge_record_tvTime"
+            style="@style/text999999_12"
+            android:layout_height="@dimen/padding_30"
+            android:layout_gravity="center_vertical" />
 
-            <TextView
-                android:layout_width="150dp"
-                android:gravity="right"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:id="@+id/recharge_record_tvOrderCode"
-                style="@style/text999999_12"
-                android:layout_gravity="center_vertical|right" />
-        </FrameLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:background="@color/color_EBF4FF"
         android:id="@+id/recharge_record_llOrderAdd"
-        android:visibility="gone"
-        android:paddingTop="@dimen/padding_13"
-        android:paddingBottom="@dimen/padding_13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/color_EBF4FF"
         android:orientation="vertical"
+        android:paddingBottom="@dimen/padding_13"
         android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15">
+        android:paddingRight="@dimen/padding_15"
+        android:paddingTop="@dimen/padding_13"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/recharge_record_tvOrderAdd"
             style="@style/text999999_12" />
+
         <TextView
             android:id="@+id/recharge_record_tvHash"
-            android:layout_marginTop="@dimen/padding_5"
-            style="@style/text999999_12" />
+            style="@style/text999999_12"
+            android:layout_marginTop="@dimen/padding_5" />
     </LinearLayout>
 
     <include layout="@layout/row_divider_1px" />

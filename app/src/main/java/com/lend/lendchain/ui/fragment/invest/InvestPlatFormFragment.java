@@ -21,7 +21,6 @@ import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.umeng.analytics.MobclickAgent;
 
 import java.util.List;
 
@@ -33,7 +32,6 @@ import rx.Observer;
  * 投资平台标fragment
  */
 public class InvestPlatFormFragment extends Fragment {
-
     @BindView(R.id.invest_listView)
     ListViewWithOptional listView;
     @BindView(R.id.refreshLayout)
@@ -135,20 +133,9 @@ public class InvestPlatFormFragment extends Fragment {
         }
     };
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        MobclickAgent.onPageStart("InvestPlatFormFragment");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        MobclickAgent.onPageEnd("InvestPlatFormFragment");
-    }
-
     private void finishRefrensh() {
         refreshLayout.finishRefresh();//传入false表示加载失败
         refreshLayout.finishLoadMore();//传入false表示加载失败
     }
+
 }

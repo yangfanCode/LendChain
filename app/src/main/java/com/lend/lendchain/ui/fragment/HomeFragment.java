@@ -4,7 +4,6 @@ package com.lend.lendchain.ui.fragment;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -50,7 +49,6 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener;
-import com.umeng.analytics.MobclickAgent;
 import com.yangfan.widget.CustomBannerView;
 import com.yangfan.widget.CustomViewPager;
 
@@ -70,7 +68,8 @@ import rx.schedulers.Schedulers;
 /**
  * 首页fragment 沉浸式状态栏
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
+    private String tag="HomeFragment";
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @BindView(R.id.bannerView)
@@ -369,7 +368,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("HomeFragment");
+        //友盟页面统计混乱修复
+        onVisibilityChangedToUser(false, tag);
         if (!rxSubscription.isUnsubscribed()) {
             rxSubscription.unsubscribe();
         }
@@ -378,12 +378,22 @@ public class HomeFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("HomeFragment");
+        //友盟页面统计混乱修复
+        if(getUserVisibleHint()){
+            onVisibilityChangedToUser(true, tag);
+        }
         if (rxSubscription.isUnsubscribed()) {
             getRxBus();
         }
     }
-
+    //友盟页面统计混乱修复
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isResumed()){
+            onVisibilityChangedToUser(isVisibleToUser, tag);
+        }
+    }
     /**
      * 处理首页推荐数据
      *
@@ -474,6 +484,9 @@ public class HomeFragment extends Fragment {
             llController.addView(imageView);
         }
     }
+
+    @Override
+    protected void onVisible() { }
 
     //首页投资 内容viewPager适配器
     class ContentPagerAdapter extends PagerAdapter {

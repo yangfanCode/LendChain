@@ -4,7 +4,6 @@ package com.lend.lendchain.ui.fragment;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -44,7 +43,6 @@ import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,7 +51,8 @@ import rx.Observer;
 /**
  * 我的fragment
  */
-public class MineFragment extends Fragment {
+public class MineFragment extends BaseFragment {
+    private String tag="MineFragment";
     @BindView(R.id.my_wallet_tvEmail)
     TextView tvEmail;
     @BindView(R.id.refreshLayout)
@@ -118,18 +117,37 @@ public class MineFragment extends Fragment {
         ButterKnife.bind(this, parentView);
         return parentView;
     }
+
     //每次都刷新数据
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("MineFragment");
+        //友盟页面统计混乱修复
+        if(getUserVisibleHint()){
+            onVisibilityChangedToUser(true, tag);
+        }
         if(SPUtil.isLogin())setRefrensh();//登录状态切换或者返回刷新
     }
+
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("MineFragment");
+        //友盟页面统计混乱修复
+        onVisibilityChangedToUser(false, tag);
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isResumed()){
+            onVisibilityChangedToUser(isVisibleToUser, tag);
+        }
+    }
+
+    @Override
+    protected void onVisible() { }
+
+
     private void initView() {
         ButterKnife.bind(this, parentView);
         refreshLayout.setEnableLoadMore(false);

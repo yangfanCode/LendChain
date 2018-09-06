@@ -2,7 +2,6 @@ package com.lend.lendchain.ui.fragment;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +24,8 @@ import butterknife.ButterKnife;
 /**
  * 投资fragment
  */
-public class InvestFragment extends Fragment {
+public class InvestFragment extends BaseFragment {
+    private String tag="InvestFragment";
     @BindView(R.id.base_title_bar)
     BaseTitleBar baseTitleBar;
     @BindView(R.id.invest_tabLayout)
@@ -60,7 +60,7 @@ public class InvestFragment extends Fragment {
         adapter.addFrag(InvestPlatFormFragment.newInstance(),getString(R.string.platForm));
         adapter.addFrag(InvestMortGagaFragment.newInstance(),getString(R.string.mortgage));
         viewPager.setAdapter(adapter);
-        viewPager.setOffscreenPageLimit(3);
+//        viewPager.setOffscreenPageLimit(3);
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -78,6 +78,34 @@ public class InvestFragment extends Fragment {
         int width=getResources().getDisplayMetrics().widthPixels;
         tabLayout.setNeedEqual(true,width);
     }
+
+    //每次都刷新数据
+    @Override
+    public void onResume() {
+        super.onResume();
+        //友盟页面统计混乱修复
+        if(getUserVisibleHint()){
+            onVisibilityChangedToUser(true, tag);
+        }
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        //友盟页面统计混乱修复
+        onVisibilityChangedToUser(false, tag);
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isResumed()){
+            onVisibilityChangedToUser(isVisibleToUser, tag);
+        }
+    }
+
+    @Override
+    protected void onVisible() { }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

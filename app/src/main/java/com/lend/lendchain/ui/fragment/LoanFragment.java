@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -46,7 +45,6 @@ import com.lend.lendchain.widget.PayNeedReChargePopWindow;
 import com.lend.lendchain.widget.TipsToast;
 import com.lvfq.pickerview.OptionsPickerView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.umeng.analytics.MobclickAgent;
 import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.DecimalDigitsEditText;
 import com.yangfan.widget.FormNormal;
@@ -67,7 +65,8 @@ import rx.schedulers.Schedulers;
 /**
  * 借款fragment
  */
-public class LoanFragment extends Fragment {
+public class LoanFragment extends BaseFragment {
+    private String tag="LoanFragment";
     @BindView(R.id.base_title_bar)
     BaseTitleBar baseTitleBar;
     @BindView(R.id.loan_fnLoanType)
@@ -160,7 +159,10 @@ public class LoanFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("LoanFragment");
+        //友盟页面统计混乱修复
+        if(getUserVisibleHint()){
+            onVisibilityChangedToUser(true, tag);
+        }
         setRefrensh();
     }
 
@@ -714,9 +716,20 @@ public class LoanFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("LoanFragment");
+        //友盟页面统计混乱修复
+        onVisibilityChangedToUser(false, tag);
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isResumed()){
+            onVisibilityChangedToUser(isVisibleToUser, tag);
+        }
+    }
+
+    @Override
+    protected void onVisible() { }
 
     @Override
     public void onDestroyView() {

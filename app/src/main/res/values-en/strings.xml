@@ -330,7 +330,7 @@
     <string name="recharge_add">Deposit Address</string>
     <string name="withdraw_add">Withdrawal Address</string>
     <string name="send_LV">LV issued</string>
-    <string name="send_LV_reason">issuedreason</string>
+    <string name="send_LV_reason">Issued reason</string>
     <string name="wait_udit">Under Review</string>
     <string name="processing">Are dealing with</string>
     <string name="processed_finish">Finished</string>
@@ -339,7 +339,7 @@
     <string name="confirming">Waiting for confirmation</string>
     <string name="transferred_from_others_success">Successfully transferred from</string>
     <string name="transferred_to_others_success">Successfully transferred to</string>
-    <string name="account_of_the_other_user">Counterparty</string>
+    <string name="account_of_the_other_user">account of counterparty</string>
     <string name="wait_in_account">Receiving</string>
     <string name="in_accounted">Received</string>
     <string name="recharge_speedup">Accelerate recharge</string>

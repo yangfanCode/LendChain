@@ -138,13 +138,13 @@ public class InvestSummaryActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("投资页_详情");
+        MobclickAgent.onPageStart("InvestSummaryActivity");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("投资页_详情");
+        MobclickAgent.onPageEnd("InvestSummaryActivity");
     }
 
     private void initListener() {
