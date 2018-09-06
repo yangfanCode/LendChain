@@ -15,6 +15,7 @@ import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.KeyBordUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.TipsToast;
 import com.lvfq.pickerview.OptionsPickerView;
 import com.lvfq.pickerview.TimePickerView;
@@ -114,6 +115,8 @@ public class KycActivity extends BaseActivity {
             optionsPickerView.show();
         });
         btnNextStep.setOnClickListener(v -> {
+            //友盟埋点 提交个人信息
+            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_KYC_PERSONAL_SUBMIT);
             if(TextUtils.isEmpty(fnCountry.getText())){
                 TipsToast.showTips(getString(R.string.please_select_country_code));
                 return;

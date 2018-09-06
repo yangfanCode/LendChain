@@ -211,6 +211,8 @@ public class RegiestActivity extends BaseActivity {
         public void onSuccess(ResultBean resultBean) {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
+                //友盟埋点 注册成功
+                UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.MINE_SINGUP_SUCCESS);
                 String email=etEmail.getText().toString().trim();
                 String pwd=etPwd.getText().toString().trim();
                 NetApi.login(RegiestActivity.this, true, email, pwd, loginObserver);

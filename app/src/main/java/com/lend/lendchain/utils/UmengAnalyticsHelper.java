@@ -52,27 +52,6 @@ public class UmengAnalyticsHelper {
     public static final String HOME_DETAIL = "home_detail";  //首页推荐立即投资
 
 
-    public static final String NEWS_NEWSFLASH = "news_newsflash";  //资讯-快讯页面
-    public static final String NEWS_HEADLINES = "news_headlines";  //资讯-要闻页面
-    public static final String NEWS_TACTIC = "news_tactic";  //资讯-攻略页面
-    public static final String NEWS_NEWSFLASH_SHARE = "news_newsflash_share";  //快讯列表分享按钮点击
-    public static final String NEWS_HEADLINES_ROTATION = "news_headlines_rotation";  //要闻轮播图点击
-    public static final String NEWS_HEADLINES_LIST = "news_headlines_list";  //要闻列表点击
-    public static final String NEWS_TACTIC_LIST = "news_tactic_list";  //攻略列表点击
-
-    public static final String EXCHANGE_SEARCH = "exchange_search";  //市场页面搜索按钮点击
-    public static final String EXCHANGE_LIST = "exchange_list";  //市场列表点击
-
-    public static final String MINE_EDITOR = "mine_editor";  //点击编辑资料
-    public static final String MINE_COLLECT = "mine_collect";  //点击我的收藏
-    public static final String MINE_SET= "mine_set";  //点击系统设置
-
-    public static final String MINE_INVITE = "mine_invite";  //点击邀请好友
-    public static final String MINE_INVITE_01 = "mine_invite_01";  //点击分享后分享成功
-    public static final String MINE_ADVICE = "mine_advice";  //点击意见反馈
-    public static final String MINE_ADVICE_01 = "mine_advice_01";  //点击意见反馈后提交成功
-    public static final String MINE_ABOUT = "mine_about";  //点击关于我们
-
     public static final String HOME_WINDOWS_BUTTON_01 = "home_windows_button_01";  //首页弹窗去看看按钮点击UV
     public static final String HOME_WINDOWS_BUTTON_00 = "home_windows_button_00";  //首页弹窗关闭按钮点击UV
     public static final String INCOME_ADD_BUTTON = "income_add_button";  //收益统计添加交易按钮点击PV，UV

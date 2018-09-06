@@ -123,6 +123,8 @@ public class LoginActivity extends BaseActivity {
         public void onSuccess(ResultBean<Login> login) {
             if (login == null) return;
             if (login.isSuccess()) {
+                //友盟埋点 登录成功
+                UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.MINE_LOGIN_SUCCESS);
                 NetApi.getUserInfo(LoginActivity.this,false,login.access_token,userInfoObserver);
                 TipsToast.showTips(getString(R.string.login_success));
                 SPUtil.setToken(login.access_token);//存token

@@ -46,6 +46,7 @@ import com.lend.lendchain.widget.PayNeedReChargePopWindow;
 import com.lend.lendchain.widget.TipsToast;
 import com.lvfq.pickerview.OptionsPickerView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.umeng.analytics.MobclickAgent;
 import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.DecimalDigitsEditText;
 import com.yangfan.widget.FormNormal;
@@ -159,6 +160,7 @@ public class LoanFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        MobclickAgent.onPageStart("借款页");
         setRefrensh();
     }
 
@@ -708,6 +710,13 @@ public class LoanFragment extends Fragment {
         loadDeadLine = listLoadDeadLine.get(0);
         fnLoanDeadLine.setText(loadDeadLine);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("借款页");
+    }
+
 
     @Override
     public void onDestroyView() {

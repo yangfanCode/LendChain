@@ -44,6 +44,7 @@ import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -121,9 +122,14 @@ public class MineFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        MobclickAgent.onPageStart("我的页面");
         if(SPUtil.isLogin())setRefrensh();//登录状态切换或者返回刷新
     }
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("我的页面");
+    }
     private void initView() {
         ButterKnife.bind(this, parentView);
         refreshLayout.setEnableLoadMore(false);
@@ -239,6 +245,7 @@ public class MineFragment extends Fragment {
             refreshLayout.finishRefresh();
         }
     };
+
 
     @Override
     public void onDestroyView() {
