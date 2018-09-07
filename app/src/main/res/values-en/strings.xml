@@ -221,6 +221,7 @@
     <string name="recharge">Deposit</string>
     <string name="withdraw">Withdrawal</string>
     <string name="transfer">Transfer</string>
+    <string name="please_goto_certified_all_wallet">To ensure the security of your assets, please complete the safety certification first</string>
     <!--RechargeActivity-->
     <string name="recharge_address">Deposit Address</string>
     <string name="saoyisao_qrcode_address">Scan the QR code to get the recharge code address</string>

@@ -221,6 +221,7 @@
     <string name="recharge">충전</string>
     <string name="withdraw">인출</string>
     <string name="transfer">이체</string>
+    <string name="please_goto_certified_all_wallet">자산의 보안을 보장하기 위해 안전 인증을 먼저 완료하십시오.</string>
     <!--RechargeActivity-->
     <string name="recharge_address">충전 주소</string>
     <string name="saoyisao_qrcode_address">코드 스캐너,충천 코드 주소를 받기</string>

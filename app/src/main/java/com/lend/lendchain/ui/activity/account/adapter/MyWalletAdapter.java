@@ -151,7 +151,7 @@ public class MyWalletAdapter extends BaseAdapter {
         if (dialog == null) {
             CustomDialog.Builder builder = new CustomDialog.Builder(context);
             builder.setTitle(context.getString(R.string.warm_tips));
-            builder.setMessage(context.getString(R.string.please_goto_certified_all));
+            builder.setMessage(context.getString(R.string.please_goto_certified_all_wallet));
             builder.setNegativeButton(context.getString(R.string.look_again), (dialog, which) -> dialog.dismiss());
             builder.setPositiveButton(context.getString(R.string.go_certified), (dialog, which) -> {
                 CommonUtil.openActicity(context, SafeCertifyActivity.class, null);

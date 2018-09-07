@@ -221,6 +221,7 @@
     <string name="recharge">充值</string>
     <string name="withdraw">提现</string>
     <string name="transfer">转账</string>
+    <string name="please_goto_certified_all_wallet">为了保证您的资产安全，请先完成安全认证。</string>
     <!--RechargeActivity-->
     <string name="recharge_address">充值地址</string>
     <string name="saoyisao_qrcode_address">扫一扫二维码，获取充值码地址</string>
