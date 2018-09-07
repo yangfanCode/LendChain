@@ -39,6 +39,7 @@ import com.yangfan.utils.CommonUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.jessyan.autosize.AutoSize;
 import rx.Subscription;
 
 
@@ -80,6 +81,7 @@ public abstract class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 //        setSystemBarColor(R.color.transparent,true);//全局状态栏颜色
         StatusBarUtil.transparencyBar(this);
+        AutoSize.autoConvertDensityOfGlobal(this);//屏幕适配
         //MobSDK.init(this, "23cd30b2926a0", "3e5fa99b6d6709e6eee49b3622612fde");//sharedSDK
         ContextHelper.addActivity(this);
         ContextHelper.setLastActivity(this);
