@@ -12,7 +12,6 @@ import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
-import com.umeng.analytics.MobclickAgent;
 
 import java.lang.ref.WeakReference;
 
@@ -34,7 +33,7 @@ public class SplashActivity extends BaseActivity {
         }
         setContentView(R.layout.activity_splash);
         //不开启自动统计
-        MobclickAgent.openActivityDurationTrack(false);
+//        MobclickAgent.openActivityDurationTrack(false);
         StatusBarUtil.setStatusBarColor(SplashActivity.this, R.color.white);
         StatusBarUtil.StatusBarLightMode(SplashActivity.this);
         initView();

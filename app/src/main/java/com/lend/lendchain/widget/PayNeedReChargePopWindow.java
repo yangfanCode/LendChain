@@ -51,8 +51,8 @@ public class PayNeedReChargePopWindow {
         TextView tvIncome=contentView.findViewById(R.id.pay_need_recharge_tvIncome);
         TextView btnGoRecharge=contentView.findViewById(R.id.pay_need_recharge_btnGoRecharge);
         LinearLayout llIncome=contentView.findViewById(R.id.pay_need_recharge_llIcome);
-        tvOver.setText(DoubleUtils.doubleTransRound6(amount)+" "+code);
-        tvOverP.setText(activity.getString(R.string.over_to_use).concat(DoubleUtils.doubleTransRound6(amount)+""));
+        tvOver.setText(activity.getString(R.string.over_to_use).concat(DoubleUtils.doubleTransRound6(amount)+" "+code));
+        tvOverP.setText(DoubleUtils.doubleTransRound6(amount));
         llIncome.setVisibility(income==0?View.GONE:View.VISIBLE);
         if(llIncome.getVisibility()==View.VISIBLE)tvIncome.setText(DoubleUtils.doubleTransRound6(income)+" "+code);//到期收益
         btnGoRecharge.setText(activity.getString(R.string.over_lack_please_recharge)+" ".concat(DoubleUtils.doubleTransRound6(amountInput-amount)+" "+code));

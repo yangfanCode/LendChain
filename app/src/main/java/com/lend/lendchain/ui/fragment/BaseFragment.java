@@ -2,8 +2,6 @@ package com.lend.lendchain.ui.fragment;
 
 import android.support.v4.app.Fragment;
 
-import com.umeng.analytics.MobclickAgent;
-
 import rx.Subscription;
 
 /**
@@ -73,9 +71,9 @@ public abstract class BaseFragment extends Fragment {
      */
     public void onVisibilityChangedToUser(boolean isVisibleToUser, String tag){
         if(isVisibleToUser){
-            MobclickAgent.onPageStart(tag);
+//            MobclickAgent.onPageStart(tag);
         }else{
-            MobclickAgent.onPageEnd(tag);
+//            MobclickAgent.onPageEnd(tag);
         }
     }
 }

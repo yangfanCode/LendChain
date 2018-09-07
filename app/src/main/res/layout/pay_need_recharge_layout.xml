@@ -62,7 +62,6 @@
                 <com.lend.lendchain.widget.GradientTextView
                     android:id="@+id/pay_need_recharge_tvOverP"
                     style="@style/text262626_14"
-                    android:text="sdfsdf"
                     android:gravity="center"
                     android:layout_marginRight="@dimen/padding_10"
                     android:textSize="@dimen/text_size_16" />
