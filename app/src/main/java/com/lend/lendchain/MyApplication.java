@@ -21,12 +21,14 @@ import com.lend.lendchain.utils.SPUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
 
 import rx.Subscription;
 import rx.observers.SafeSubscriber;
 import rx.plugins.RxJavaObservableExecutionHook;
 import rx.plugins.RxJavaPlugins;
+
 
 
 /**
@@ -66,6 +68,8 @@ public class MyApplication extends Application {
 		FrescoUtils.initialize(this);
 		UMConfigure.init(this, "5b8f748ab27b0a6597000155","",UMConfigure.DEVICE_TYPE_PHONE, "");//友盟初始化
 		UMConfigure.setLogEnabled(true);
+		// isEnable: false-关闭错误统计功能；true-打开错误统计功能（默认打开）
+		MobclickAgent.setCatchUncaughtExceptions(!isDebug());
 		LogUtils.setAppEnvEnum(AppEnvHelper.currentEnv());
 		initWebView();
 		initLangeuage();//初始化语言
