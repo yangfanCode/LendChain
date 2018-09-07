@@ -155,7 +155,20 @@ public class HomeFragment extends BaseFragment {
                     @Override
                     public void onError(Throwable e) {
                         super.onError(e);
-//                        TipsToast.showTips(getString());
+                        //如果报错就按默认 汇率1处理
+                        NetApi.homeMarket(getActivity(), new NetClient.RxObserver<ResultBean<List<HomeMarket>>>() {
+                            @Override
+                            public void onSuccess(ResultBean<List<HomeMarket>> listResultBean) {
+                                if (listResultBean == null) return;
+                                if (listResultBean.isSuccess()) {
+                                    if (listResultBean.data != null) {
+                                        adapter.loadData(listResultBean.data, 1);
+                                    }
+                                } else {
+                                    TipsToast.showTips(listResultBean.message);
+                                }
+                            }
+                        });
                     }
                 });
         //请求版本更新
