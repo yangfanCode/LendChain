@@ -109,7 +109,7 @@ public class ContextHelper {
     /**
      * 移除finish所有 Activity
      */
-    public void finishAllActivity() {
+    public static void finishAllActivity() {
         for(int i = 0; i < mAct.size(); i++) {
             WeakReference<BaseActivity> act=mAct.valueAt(i);
             act.get().finish();
@@ -120,9 +120,9 @@ public class ContextHelper {
      * 退出app
      * @param context
      */
-    public void appExit(Context context) {
+    public static void appExit(Context context) {
         try {
-            this.finishAllActivity();
+            finishAllActivity();
             ActivityManager activityMgr = (ActivityManager) context.getSystemService("activity");
             activityMgr.restartPackage(context.getPackageName());
             activityMgr.killBackgroundProcesses(context.getPackageName());

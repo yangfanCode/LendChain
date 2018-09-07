@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.helper.AppManager;
+import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.utils.BitmapUtil;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.versioncontrol.utils.FilePathUtils;
@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * 裁剪图片的Activity
  */
-public class ClipImageActivity extends Activity implements OnClickListener {
+public class ClipImageActivity extends BaseActivity implements OnClickListener {
     public static final String RESULT_PATH = "image";
     private static final String KEY = "path";
     private ClipImageLayout mClipImageLayout = null;
@@ -35,10 +35,12 @@ public class ClipImageActivity extends Activity implements OnClickListener {
     }
 
     @Override
+    public void initView() { }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        AppManager.getAppManager().addActivity(this);
         setContentView(R.layout.activity_clip_image);
         mClipImageLayout = (ClipImageLayout) findViewById(R.id.clipImageLayout);
         Uri path = getIntent().getParcelableExtra(KEY);
@@ -85,7 +87,6 @@ public class ClipImageActivity extends Activity implements OnClickListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        AppManager.getAppManager().finishActivity(this);
         System.gc();
     }
 

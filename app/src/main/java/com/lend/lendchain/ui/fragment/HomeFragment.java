@@ -423,11 +423,18 @@ public class HomeFragment extends BaseFragment {
             TextView tvOrderDays = v.findViewById(R.id.item_home_tvOrderDays);//时间
             TextView tvBorrowAmount = v.findViewById(R.id.item_home_tvBorrowAmount);//借入资产
             TextView tvMinInvestAmount = v.findViewById(R.id.item_home_tvMinInvestAmount);//最小投资额
+            TextView tvMinAmountText = v.findViewById(R.id.item_home_tvMinAmountText);//最小投资额
             CircleProgressBar progressBar = v.findViewById(R.id.item_home_progressBar);//进度条
             GradientTextView tvAnnualized = v.findViewById(R.id.item_home_tvAnnualized);//年化
             TextView btnInvest = v.findViewById(R.id.item_home_btnInvest);//立即投资
             tvOrderId.setText(homeSupport.orderId);
-            tvOrderType.setText(getOrderType(homeSupport.borrowTypeId));
+            if("1".equals(homeSupport.borrowTypeId)){//抵押标显示昵称
+                tvOrderType.setText(getOrderType(homeSupport.nickname));
+                tvMinAmountText.setText(getString(R.string.mortgage_asset));//显示抵押资产
+            }else{
+                tvOrderType.setText(getOrderType(homeSupport.borrowTypeId));
+                tvMinAmountText.setText(getString(R.string.minInvestAmount));//显示起购资金
+            }
             tvOrderDays.setText(homeSupport.borrowDays + getString(R.string.day_period));
             progressBar.setProgress((int) (homeSupport.boughtAmount / homeSupport.borrowAmount * 100));//进度条
             tvAnnualized.setText(DoubleUtils.doubleRoundFormat(homeSupport.interestRates * 360 * 100, 2));//2位小数

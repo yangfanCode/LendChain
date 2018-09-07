@@ -42,7 +42,7 @@
                 android:text="@string/buy_time" />
         </RelativeLayout>
 
-        <com.handmark.pulltorefresh.library.PullRefreshRecyclerViewV
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/invest_record_recylerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

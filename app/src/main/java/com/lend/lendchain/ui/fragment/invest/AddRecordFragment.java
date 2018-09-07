@@ -4,13 +4,12 @@ package com.lend.lendchain.ui.fragment.invest;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.handmark.pulltorefresh.library.PullRefreshRecyclerViewV;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.AddRecordList;
 import com.lend.lendchain.ui.fragment.invest.adapter.AddRecordAdapter;
@@ -27,8 +26,8 @@ import butterknife.ButterKnife;
  * 追加 子fragment
  */
 public class AddRecordFragment extends Fragment {
-    @BindView(R.id.invest_record_recylerView)
-    PullRefreshRecyclerViewV recyclerViewV;
+    @BindView(R.id.invest_add_record_recylerView)
+    RecyclerView recyclerViewV;
     @BindView(R.id.invest_record_tvAddAmount)
     TextView tvAddAmount;
     @BindView(R.id.invest_record_tvMortgageAmount)
@@ -71,9 +70,12 @@ public class AddRecordFragment extends Fragment {
             list = getArguments().getParcelableArrayList(Constant.INTENT_EXTRA_DATA);
             code = getArguments().getString(Constant.ARGS_PARAM1);
         }
-        recyclerViewV.getRefreshableView().addItemDecoration(new RecycleViewDivider(
+        LinearLayoutManager mannagerTwo = new LinearLayoutManager(getActivity());
+        mannagerTwo.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewV.setLayoutManager(mannagerTwo);
+        //添加分割线
+        recyclerViewV.addItemDecoration(new RecycleViewDivider(
                 getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.xc_group_divider)));
-        recyclerViewV.setMode(PullToRefreshBase.Mode.DISABLED);
 
     }
 

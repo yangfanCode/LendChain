@@ -47,8 +47,8 @@
                 android:text="@string/mortgage_amount" />
         </RelativeLayout>
 
-        <com.handmark.pulltorefresh.library.PullRefreshRecyclerViewV
-            android:id="@+id/invest_record_recylerView"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/invest_add_record_recylerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

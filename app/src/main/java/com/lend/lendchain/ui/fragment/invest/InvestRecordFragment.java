@@ -4,13 +4,12 @@ package com.lend.lendchain.ui.fragment.invest;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.handmark.pulltorefresh.library.PullRefreshRecyclerViewV;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.InvestRecordList;
 import com.lend.lendchain.ui.fragment.invest.adapter.InvestRecordAdapter;
@@ -28,7 +27,7 @@ import butterknife.ButterKnife;
  */
 public class InvestRecordFragment extends Fragment {
     @BindView(R.id.invest_record_recylerView)
-    PullRefreshRecyclerViewV recyclerViewV;
+    RecyclerView recyclerViewV;
     @BindView(R.id.invest_record_tvAmount)
     TextView tvAmount;
     @BindView(R.id.optionalLayout)
@@ -69,9 +68,12 @@ public class InvestRecordFragment extends Fragment {
             list = getArguments().getParcelableArrayList(Constant.INTENT_EXTRA_DATA);
             code = getArguments().getString(Constant.ARGS_PARAM1);
         }
-        recyclerViewV.getRefreshableView().addItemDecoration(new RecycleViewDivider(
+        LinearLayoutManager mannagerTwo = new LinearLayoutManager(getActivity());
+        mannagerTwo.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerViewV.setLayoutManager(mannagerTwo);
+        //添加分割线
+        recyclerViewV.addItemDecoration(new RecycleViewDivider(
                 getContext(), LinearLayoutManager.HORIZONTAL, 1, getResources().getColor(R.color.xc_group_divider)));
-        recyclerViewV.setMode(PullToRefreshBase.Mode.DISABLED);
 
     }
 

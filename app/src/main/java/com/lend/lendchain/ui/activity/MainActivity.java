@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TabHost;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.helper.AppManager;
+import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.ui.fragment.HomeFragment;
 import com.lend.lendchain.ui.fragment.InvestFragment;
 import com.lend.lendchain.ui.fragment.LoanFragment;
@@ -151,7 +151,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if (mExitFlag) {
-            AppManager.getAppManager().appExit(this);
+            ContextHelper.appExit(this);
         } else {
             TipsToast.showTips("再次点击退出");
             mExitFlag = true;

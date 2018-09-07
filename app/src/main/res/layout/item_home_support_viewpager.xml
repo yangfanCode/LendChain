@@ -161,6 +161,7 @@
                                 android:layout_toRightOf="@id/item_home_view2" />
 
                             <TextView
+                                android:id="@+id/item_home_tvMinAmountText"
                                 style="@style/text999999_12"
                                 android:layout_alignLeft="@id/item_home_tvMinInvestAmount"
                                 android:layout_below="@id/item_home_tvMinInvestAmount"
