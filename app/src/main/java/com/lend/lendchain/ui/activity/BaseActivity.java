@@ -24,7 +24,6 @@ import com.lend.lendchain.MyApplication;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.helper.AndroidMHelper;
-import com.lend.lendchain.helper.AppManager;
 import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.service.Service;
 import com.lend.lendchain.utils.CommonUtil;
@@ -82,7 +81,6 @@ public abstract class BaseActivity extends FragmentActivity {
 //        setSystemBarColor(R.color.transparent,true);//全局状态栏颜色
         StatusBarUtil.transparencyBar(this);
         //MobSDK.init(this, "23cd30b2926a0", "3e5fa99b6d6709e6eee49b3622612fde");//sharedSDK
-        AppManager.getAppManager().addActivity(this);
         ContextHelper.addActivity(this);
         ContextHelper.setLastActivity(this);
         if (!notSetStatusBarTintResource) {
@@ -193,7 +191,6 @@ public abstract class BaseActivity extends FragmentActivity {
         super.onDestroy();
         //EventBus.getDefault().unregister(this);
         ContextHelper.removeActivity(getClass());
-        AppManager.getAppManager().finishActivity(this);
         System.gc();
     }
 

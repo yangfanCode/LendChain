@@ -1,5 +1,8 @@
 package com.lend.lendchain.helper;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.util.SparseArray;
 
 import com.lend.lendchain.MyApplication;
@@ -9,7 +12,7 @@ import java.lang.ref.WeakReference;
 
 /**
  * Created by yangfan on 2016/11/29.
- * 全局上下文 弱引用类
+ * 全局上下文 弱引用类 app管理类
  */
 public class ContextHelper {
 
@@ -28,6 +31,7 @@ public class ContextHelper {
 
     /**
      * 设置最后的
+     *
      * @param act
      */
     public static void setLastActivity(BaseActivity act) {
@@ -37,6 +41,7 @@ public class ContextHelper {
 
     /**
      * 最后一个Activity
+     *
      * @return
      */
     public static BaseActivity getLastActivity() {
@@ -46,6 +51,7 @@ public class ContextHelper {
 
     /**
      * 添加act
+     *
      * @param act
      * @param <T>
      */
@@ -56,6 +62,7 @@ public class ContextHelper {
 
     /**
      * 获取act
+     *
      * @param tClass
      * @param <T>
      * @return
@@ -67,6 +74,7 @@ public class ContextHelper {
 
     /**
      * 移除Act
+     *
      * @param tClass
      * @param <T>
      */
@@ -74,4 +82,54 @@ public class ContextHelper {
         mAct.remove(tClass.hashCode());
     }
 
+    /**
+     * 移除并finish Activity
+     *
+     * @param tClass
+     * @param <T>
+     */
+    public static <T extends BaseActivity> void finishActivity(Class<T> tClass) {
+        if(mAct.get(tClass.hashCode())!=null){
+            mAct.get(tClass.hashCode()).get().finish();
+            mAct.remove(tClass.hashCode());
+        }
+    }
+
+    /**
+     * 移除并finish Activity
+     * @param activity
+     */
+    public static void finishActivity(Activity activity) {
+        if(activity != null&&mAct.get(activity.getClass().hashCode())!=null) {
+            mAct.get(activity.getClass().hashCode()).get().finish();
+            mAct.remove(activity.getClass().hashCode());
+        }
+
+    }
+    /**
+     * 移除finish所有 Activity
+     */
+    public void finishAllActivity() {
+        for(int i = 0; i < mAct.size(); i++) {
+            WeakReference<BaseActivity> act=mAct.valueAt(i);
+            act.get().finish();
+        }
+        mAct.clear();
+    }
+    /**
+     * 退出app
+     * @param context
+     */
+    public void appExit(Context context) {
+        try {
+            this.finishAllActivity();
+            ActivityManager activityMgr = (ActivityManager) context.getSystemService("activity");
+            activityMgr.restartPackage(context.getPackageName());
+            activityMgr.killBackgroundProcesses(context.getPackageName());
+            System.exit(0);
+        } catch (Exception var3) {
+            ;
+        }
+
+    }
 }
