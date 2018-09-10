@@ -429,17 +429,18 @@ public class HomeFragment extends BaseFragment {
             TextView btnInvest = v.findViewById(R.id.item_home_btnInvest);//立即投资
             tvOrderId.setText(homeSupport.orderId);
             if("1".equals(homeSupport.borrowTypeId)){//抵押标显示昵称
-                tvOrderType.setText(getOrderType(homeSupport.nickname));
+                tvOrderType.setText("("+homeSupport.nickname+")");
                 tvMinAmountText.setText(getString(R.string.mortgage_asset));//显示抵押资产
+                tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.mortgageAmount, 2).concat(" " + homeSupport.mortgageCryptoCode));//单位不处理
             }else{
                 tvOrderType.setText(getOrderType(homeSupport.borrowTypeId));
                 tvMinAmountText.setText(getString(R.string.minInvestAmount));//显示起购资金
+                tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
             }
             tvOrderDays.setText(homeSupport.borrowDays + getString(R.string.day_period));
             progressBar.setProgress((int) (homeSupport.boughtAmount / homeSupport.borrowAmount * 100));//进度条
             tvAnnualized.setText(DoubleUtils.doubleRoundFormat(homeSupport.interestRates * 360 * 100, 2));//2位小数
             tvBorrowAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.borrowAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
-            tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
             btnInvest.setOnClickListener(v1 -> {
                 //友盟埋点
                 UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.HOME_DETAIL);
