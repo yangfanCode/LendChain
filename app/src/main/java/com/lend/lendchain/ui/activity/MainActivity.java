@@ -153,7 +153,7 @@ public class MainActivity extends BaseActivity {
         if (mExitFlag) {
             ContextHelper.appExit(this);
         } else {
-            TipsToast.showTips("再次点击退出");
+            TipsToast.showTips(getString(R.string.app_exit));
             mExitFlag = true;
             new Handler().postDelayed(new Runnable() {
                 @Override

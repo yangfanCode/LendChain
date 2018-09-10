@@ -21,6 +21,7 @@
     <string name="tab_loan">借款</string>
     <string name="tab_mine">我的</string>
     <!--自定义-->
+    <string name="app_exit">再次点击退出LendChain</string>
     <string name="refrensh_header_finish">刷新完成</string>
     <string name="refrensh_header_pulling">下拉可以刷新</string>
     <string name="refrensh_header_refreshing">正在刷新…</string>

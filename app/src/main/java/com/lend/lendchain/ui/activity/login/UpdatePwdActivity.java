@@ -80,6 +80,9 @@ public class UpdatePwdActivity extends BaseActivity {
                 TipsToast.showTips(getString(R.string.please_input_correct_pwd));//请输入正确格式
                 return;
             }
+            if(!checkPwdEquels()){
+                return;
+            }
             NetApi.updatePwd(UpdatePwdActivity.this,true, SPUtil.getToken(),oldPwd,newPwd,updatePwdObserver);
         });
     }
@@ -96,12 +99,14 @@ public class UpdatePwdActivity extends BaseActivity {
     }
 
     //检测两次输入密码一致性
-    private void checkPwdEquels() {
+    private boolean checkPwdEquels() {
         String pwd=etNewPwd.getText().toString().trim();
         String confrimPwd=etConfirm.getText().toString().trim();
         if(!pwd.equals(confrimPwd)){
             TipsToast.showTips(getString(R.string.pwd_not_equals));
+            return false;
         }
+        return true;
     }
 
     //修改密码

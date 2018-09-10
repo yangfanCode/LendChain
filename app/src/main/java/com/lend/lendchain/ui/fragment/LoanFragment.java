@@ -711,6 +711,7 @@ public class LoanFragment extends BaseFragment {
         seekBar.setProgress(0);
         loadDeadLine = listLoadDeadLine.get(0);
         fnLoanDeadLine.setText(loadDeadLine);
+        cbLoanRequire.setChecked(false);
     }
 
     @Override

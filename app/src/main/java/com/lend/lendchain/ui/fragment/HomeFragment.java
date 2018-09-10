@@ -447,7 +447,7 @@ public class HomeFragment extends BaseFragment {
                 //传标的id
                 bundle.putString(Constant.INTENT_EXTRA_DATA, homeSupport.id);
                 bundle.putInt(Constant.ARGS_PARAM1, Integer.valueOf(homeSupport.borrowTypeId));
-                CommonUtil.openActivityWithLogin(getActivity(), InvestSummaryActivity.class, bundle);
+                CommonUtil.openActicity(getActivity(), InvestSummaryActivity.class, bundle);
             });
             listViews.add(v);
         }

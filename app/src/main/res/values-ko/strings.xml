@@ -21,6 +21,7 @@
     <string name="tab_loan">대출</string>
     <string name="tab_mine">나의</string>
     <!--自定义-->
+    <string name="app_exit">다시 클릭하면 퇴출 LendChain</string>
     <string name="refrensh_header_finish">새로고침 완료</string>
     <string name="refrensh_header_pulling">다운 워드 새로고침</string>
     <string name="refrensh_header_refreshing">새로고침 중...</string>

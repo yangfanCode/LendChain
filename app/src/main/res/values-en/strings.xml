@@ -21,6 +21,7 @@
     <string name="tab_loan">Borrow</string>
     <string name="tab_mine">Me</string>
     <!--自定义-->
+    <string name="app_exit">Click again exit LendChain</string>
     <string name="refrensh_header_finish">Refresh Success</string>
     <string name="refrensh_header_pulling">Pull Down To Refresh</string>
     <string name="refrensh_header_refreshing">Refresh...</string>
@@ -178,7 +179,7 @@
     <string name="phone_certified">SMS Verification</string>
     <string name="google_certified">Google Authentication</string>
     <string name="kyc_certified">Know Your Customer</string>
-    <string name="kyc_refuse">Refuse\nreason</string>
+    <string name="kyc_refuse">Refuse reason</string>
     <string name="please_cerfity_phone_first">Please pass the mobile authentication first</string>
     <string name="please_goto_certified">In order to ensure the security of your investment income and account assets, you need to complete and pass the security certification before you can invest.</string>
     <string name="phone_certified_tip">For withdrawal, password reset and security settings</string>

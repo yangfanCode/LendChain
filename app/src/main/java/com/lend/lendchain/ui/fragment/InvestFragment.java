@@ -68,10 +68,10 @@ public class InvestFragment extends BaseFragment {
         ButterKnife.bind(this, parentView);
         baseTitleBar.getImvLeftBack().setVisibility(View.GONE);
         baseTitleBar.setTitle(getString(R.string.invest));
-        tabLayout.setViewHeight(DisplayUtil.dp2px(getActivity(),40));
-        tabLayout.setBottomLineWidth(DisplayUtil.dp2px(getActivity(),60));
-        tabLayout.setBottomLineHeight(DisplayUtil.dp2px(getActivity(),2));
-        tabLayout.setBottomLineHeightBgResId(R.color.color_509FFF);
+        tabLayout.setViewHeight(DisplayUtil.dp2px(getActivity(),40));//view高度
+        tabLayout.setBottomLineWidth(DisplayUtil.dp2px(getActivity(),60));//线宽度
+        tabLayout.setBottomLineHeight(DisplayUtil.dp2px(getActivity(),2));//线高度
+        tabLayout.setBottomLineHeightBgResId(R.color.color_509FFF);//线的资源可图片 可drawable
         tabLayout.setmTextColorSelect(ColorUtils.COLOR_509FFF);
         tabLayout.setmTextColorUnSelect(ColorUtils.COLOR_999999);
         tabLayout.setTextSize(14);
