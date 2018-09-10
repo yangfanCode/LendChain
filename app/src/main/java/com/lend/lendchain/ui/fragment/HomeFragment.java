@@ -382,7 +382,7 @@ public class HomeFragment extends BaseFragment {
     public void onPause() {
         super.onPause();
         //友盟页面统计混乱修复
-        onVisibilityChangedToUser(false, tag);
+//        onVisibilityChangedToUser(false, tag);
         if (!rxSubscription.isUnsubscribed()) {
             rxSubscription.unsubscribe();
         }
@@ -392,21 +392,21 @@ public class HomeFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         //友盟页面统计混乱修复
-        if(getUserVisibleHint()){
-            onVisibilityChangedToUser(true, tag);
-        }
+//        if(getUserVisibleHint()){
+//            onVisibilityChangedToUser(true, tag);
+//        }
         if (rxSubscription.isUnsubscribed()) {
             getRxBus();
         }
     }
     //友盟页面统计混乱修复
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if(isResumed()){
-            onVisibilityChangedToUser(isVisibleToUser, tag);
-        }
-    }
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if(isResumed()){
+//            onVisibilityChangedToUser(isVisibleToUser, tag);
+//        }
+//    }
     /**
      * 处理首页推荐数据
      *

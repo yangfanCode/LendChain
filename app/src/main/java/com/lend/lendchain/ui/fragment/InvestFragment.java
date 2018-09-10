@@ -84,24 +84,24 @@ public class InvestFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         //友盟页面统计混乱修复
-        if(getUserVisibleHint()){
-            onVisibilityChangedToUser(true, tag);
-        }
+//        if(getUserVisibleHint()){
+//            onVisibilityChangedToUser(true, tag);
+//        }
     }
     @Override
     public void onPause() {
         super.onPause();
         //友盟页面统计混乱修复
-        onVisibilityChangedToUser(false, tag);
+//        onVisibilityChangedToUser(false, tag);
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if(isResumed()){
-            onVisibilityChangedToUser(isVisibleToUser, tag);
-        }
-    }
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if(isResumed()){
+//            onVisibilityChangedToUser(isVisibleToUser, tag);
+//        }
+//    }
 
     @Override
     protected void onVisible() { }

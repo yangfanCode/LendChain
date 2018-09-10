@@ -228,7 +228,7 @@ public class LoanFragment extends BaseFragment {
                 })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getCoinPriceObserver);
-        NetApi.getUserInfo(getActivity(), false, SPUtil.getToken(), userInfoObserver);//请求用户信息
+        if(SPUtil.isLogin())NetApi.getUserInfo(getActivity(), false, SPUtil.getToken(), userInfoObserver);//请求用户信息
     }
 
     private void initListener() {
@@ -725,16 +725,16 @@ public class LoanFragment extends BaseFragment {
     public void onPause() {
         super.onPause();
         //友盟页面统计混乱修复
-        onVisibilityChangedToUser(false, tag);
+//        onVisibilityChangedToUser(false, tag);
     }
 
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if(isResumed()){
-            onVisibilityChangedToUser(isVisibleToUser, tag);
-        }
-    }
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        if(isResumed()){
+//            onVisibilityChangedToUser(isVisibleToUser, tag);
+//        }
+//    }
 
     @Override
     protected void onVisible() { }
