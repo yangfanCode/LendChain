@@ -214,6 +214,33 @@ public class KeyBoardInputPopWindow {
         return inputType;
     }
 
+    //设置是否可点击
+    public void setKeyEnabled(boolean enabled){
+        if(enabled){
+            mKeyboardView.setOnKeyboardActionListener(mOnKeyboardActionListener);
+        }else{
+            mKeyboardView.setOnKeyboardActionListener(new KeyboardView.OnKeyboardActionListener() {
+                @Override
+                public void onPress(int primaryCode) { }
+
+                @Override
+                public void onRelease(int primaryCode) { }
+                @Override
+                public void onKey(int primaryCode, int[] keyCodes) { }
+                @Override
+                public void onText(CharSequence text) { }
+                @Override
+                public void swipeLeft() { }
+                @Override
+                public void swipeRight() { }
+                @Override
+                public void swipeDown() { }
+                @Override
+                public void swipeUp() { }
+            });
+        }
+    }
+
     //设置确定文字
     public void setConfirmText(String text){
         mKeyboardView.setKeyBoardSubmitText(text);

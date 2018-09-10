@@ -39,6 +39,7 @@ import com.lend.lendchain.widget.MortgageFullProgressView;
 import com.lend.lendchain.widget.PayNeedReChargePopWindow;
 import com.lend.lendchain.widget.TipsToast;
 import com.umeng.analytics.MobclickAgent;
+import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
 import com.yangfan.widget.CustomTabLayout;
@@ -286,12 +287,15 @@ public class InvestSummaryActivity extends BaseActivity {
                                         keyBoardInputPopWindow.setInputGoogleCodeMode();
                                     }
                                 }else{//输入谷歌验证码模式点确定投资提交
-                                    String amountStr=keyBoardInputPopWindow.getEditTextMoney().getText().toString().trim();
-                                    String googleCode=keyBoardInputPopWindow.getEditTextGoogleCode().getText().toString().trim();
-                                    if(!TextUtils.isEmpty(googleCode)){
-                                        //友盟埋点 提交谷歌验证码
-                                        UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST_SUBMIT_GOOGLECODE);
-                                        NetApi.investCreat(InvestSummaryActivity.this,SPUtil.getToken(),borrowId,amountStr,googleCode,investCreateObserver);
+                                    if(!CommonUtils.isFastDoubleClick(0.5)){
+                                        String amountStr=keyBoardInputPopWindow.getEditTextMoney().getText().toString().trim();
+                                        String googleCode=keyBoardInputPopWindow.getEditTextGoogleCode().getText().toString().trim();
+                                        if(!TextUtils.isEmpty(googleCode)){
+                                            //友盟埋点 提交谷歌验证码
+                                            UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.INVEST_SUBMIT_GOOGLECODE);
+//                                        keyBoardInputPopWindow.setKeyEnabled(false);//点击之后不可点击
+                                            NetApi.investCreat(InvestSummaryActivity.this,SPUtil.getToken(),borrowId,amountStr,googleCode,investCreateObserver);
+                                        }
                                     }
                                 }
                             });
@@ -328,9 +332,19 @@ public class InvestSummaryActivity extends BaseActivity {
                 TipsToast.showTips(resultBean.message);
             }
         }
+
+        @Override
+        public void onCompleted() {
+            super.onCompleted();
+            //键盘可以点击
+//            keyBoardInputPopWindow.setKeyEnabled(true);
+        }
+
         @Override
         public void onError(Throwable e) {
             super.onError(e);
+            //键盘可以点击
+//            keyBoardInputPopWindow.setKeyEnabled(true);
             TipsToast.showTips(getString(R.string.netWorkError));
         }
     };

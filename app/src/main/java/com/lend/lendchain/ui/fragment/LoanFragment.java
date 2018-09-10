@@ -131,7 +131,7 @@ public class LoanFragment extends BaseFragment {
     private Dialog dialog = null;
     private long timestamp;//时间戳
     private String symbol, nickName;//牌价对标识
-    private boolean isFirst = false;
+    private boolean isFirst = true;
     private double minBorrowAmount;//最小借入限制
     private Dialog dialogLoan=null;
 
@@ -160,10 +160,16 @@ public class LoanFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         //友盟页面统计混乱修复
-        if(getUserVisibleHint()){
-            onVisibilityChangedToUser(true, tag);
+//        if(getUserVisibleHint()){
+//            onVisibilityChangedToUser(true, tag);
+//        }
+        if(isFirst){
+            setRefrensh();
+            isFirst=false;
+        }else{
+            initData(false);
         }
-        setRefrensh();
+
     }
 
     //返回自动刷新
@@ -703,6 +709,7 @@ public class LoanFragment extends BaseFragment {
 
     //设置默认状态
     private void setDefaultState() {
+        scrollView.fullScroll(ScrollView.FOCUS_UP);//滑到顶部
         etLoanCount.setFocusable(false);
         etMortgageCount.setFocusable(false);
         etLoanCount.getText().clear();

@@ -67,6 +67,7 @@ public class MyLoanSummaryActivity extends BaseActivity {
     private String borrowId,interest,deadline,quotaFullTime,realPaybackTime,status;
     private MyLoanSummary summary=null;
     private int position;//还款列表pos
+    private int type;//0 确认逾期还款  1 确认正常还款 2 确认提前还款
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,13 +115,13 @@ public class MyLoanSummaryActivity extends BaseActivity {
             builder.setTitle(getString(R.string.warm_tips));
             if((Long.valueOf(deadline)*1000)<System.currentTimeMillis()){
                 builder.setMessage(getString(R.string.confirm_within_repay));
-                status="13";
+                type=0;
             }else if((Long.valueOf(deadline)*1000)==System.currentTimeMillis()){
                 builder.setMessage(getString(R.string.confirm_nomal_repay));
-                status="12";
+                type=1;
             }else{
                 builder.setMessage(getString(R.string.confirm_before_repay));
-                status="11";
+                type=2;
             }
             builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.dismiss());
             builder.setPositiveButton(getString(R.string.confirm), (dialog, which) -> {
@@ -162,7 +163,6 @@ public class MyLoanSummaryActivity extends BaseActivity {
         fnFulledStandard.setText(quotaFullTime);//满标时间
         fnRepayTime.setText(realPaybackTime);//还款时间
         fnMortage.setText(DoubleUtils.doubleTransRound6(summary.mortgageAmount)+" "+summary.mortgageCryptoCode);//抵押物
-        int progress=DoubleUtils.doubleToIntRound( (summary.boughtAmount / summary.borrowAmount * 100));//进度
         fnRaisePercent.setText(DoubleUtils.doubleTransRoundTwo((summary.boughtAmount / summary.borrowAmount * 100), 2) + "%");//募集百分比
         ViewUtils.showViewsVisible(true,llParent);//显示父布局
     }
@@ -172,6 +172,7 @@ public class MyLoanSummaryActivity extends BaseActivity {
         super.onRestart();
         initData();
     }
+
 
     Observer<ResultBean<MyLoanSummary>> myLoanSummaryObserver=new NetClient.RxObserver<ResultBean<MyLoanSummary>>() {
         @Override
@@ -194,13 +195,21 @@ public class MyLoanSummaryActivity extends BaseActivity {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
                 TipsToast.showTips(getString(R.string.repay_success));
+                String sta;
+                if(type==0){
+                    sta="13";
+                }else if(type==1){
+                    sta="12";
+                }else{
+                    sta="11";
+                }
                 //成功后隐藏去还款
                 layoutGoRepay.setVisibility(View.GONE);
                 layoutAddMortage.setVisibility(View.VISIBLE);
                 llBtn.setVisibility(View.VISIBLE);
                 Bundle bundle=new Bundle();
                 bundle.putInt(Constant.INTENT_EXTRA_DATA,position);
-                bundle.putString(Constant.ARGS_PARAM1,status);
+                bundle.putString(Constant.ARGS_PARAM1,sta);
                 CommonUtil.openActicity(MyLoanSummaryActivity.this,MyLoanActivity.class,bundle);
             }else{
                 setHttpFailed(MyLoanSummaryActivity.this,resultBean);
