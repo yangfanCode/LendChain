@@ -557,7 +557,7 @@ public class CommonUtil {
      * @return
      */
     public static String getAppChannel() {
-        String channel = "android3601002";
+        String channel = "LendChain";
         try {
             ApplicationInfo appInfo = ContextHelper.getApplication().getPackageManager()
                     .getApplicationInfo(ContextHelper.getApplication().getPackageName(),

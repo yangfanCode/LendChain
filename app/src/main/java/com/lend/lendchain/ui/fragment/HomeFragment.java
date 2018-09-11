@@ -115,7 +115,7 @@ public class HomeFragment extends BaseFragment {
         adapter = new HomeMarketAdapter(getActivity());
         lvQuetes.setAdapter(adapter);
         bannerData = new ArrayList<>();
-        getRxBus();
+//        getRxBus();
     }
 
     private void initData(boolean isShow) {
@@ -395,7 +395,7 @@ public class HomeFragment extends BaseFragment {
 //        if(getUserVisibleHint()){
 //            onVisibilityChangedToUser(true, tag);
 //        }
-        if (rxSubscription.isUnsubscribed()) {
+        if (rxSubscription==null||rxSubscription.isUnsubscribed()) {
             getRxBus();
         }
     }
