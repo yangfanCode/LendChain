@@ -1,6 +1,7 @@
 package com.lend.lendchain.ui.activity.common;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.network.NetConst;
@@ -60,31 +61,45 @@ public class AboutUsActivity extends BaseActivity {
             CommonUtil.openActicity(AboutUsActivity.this,WebActivity.class,bundle);
         });
         fnVersionName.setText(CommonUtil.getVersionName(this));
-        fnWeb.getTextView().setOnClickListener(v -> {
+        TextView tvWeb=fnWeb.getTextView();
+        tvWeb.setPadding(5,5,5,5);
+        tvWeb.setOnClickListener(v -> {
             CommonUtil.clipboardStr(fnWeb.getText());
             showTipSuccess();
         });
-        fnWeChatAcount.getTextView().setOnClickListener(v -> {
+        TextView tvWeChatAcount=fnWeChatAcount.getTextView();
+        tvWeChatAcount.setPadding(5,5,5,5);
+        tvWeChatAcount.setOnClickListener(v -> {
             CommonUtil.clipboardStr(fnWeChatAcount.getText());
             showTipSuccess();
         });
-        fnSinaWeibo.getTextView().setOnClickListener(v -> {
+        TextView tvSinaWeibo=fnSinaWeibo.getTextView();
+        tvSinaWeibo.setPadding(5,5,5,5);
+        tvSinaWeibo.setOnClickListener(v -> {
             CommonUtil.clipboardStr(fnSinaWeibo.getText());
             showTipSuccess();
         });
-        fnTwitter.getTextView().setOnClickListener(v -> {
+        TextView tvTwitter=fnTwitter.getTextView();
+        tvTwitter.setPadding(5,5,5,5);
+        tvTwitter.setOnClickListener(v -> {
             CommonUtil.clipboardStr(fnTwitter.getText());
             showTipSuccess();
         });
-        fnTelegram.getTextView().setOnClickListener(v -> {
+        TextView tvTelegram=fnTelegram.getTextView();
+        tvTelegram.setPadding(5,5,5,5);
+        tvTelegram.setOnClickListener(v -> {
             CommonUtil.clipboardStr(fnTelegram.getText());
             showTipSuccess();
         });
-        fnFacebook.getTextView().setOnClickListener(v -> {
+        TextView tvFacebook=fnFacebook.getTextView();
+        tvFacebook.setPadding(5,5,5,5);
+        tvFacebook.setOnClickListener(v -> {
             CommonUtil.clipboardStr(fnFacebook.getText());
             showTipSuccess();
         });
-        fnInstagram.getTextView().setOnClickListener(v -> {
+        TextView tvInstagram=fnInstagram.getTextView();
+        tvInstagram.setPadding(5,5,5,5);
+        tvInstagram.setOnClickListener(v -> {
             CommonUtil.clipboardStr(fnInstagram.getText());
             showTipSuccess();
         });
