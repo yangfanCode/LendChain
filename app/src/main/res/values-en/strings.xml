@@ -113,7 +113,7 @@
     <string name="purchase_funds">The minimum limit</string>
     <string name="scroll_to_load_market">To Top</string>
     <string name="invest_summary">Investment details</string>
-    <string name="invest_guidelines">Investment guidelines</string>
+    <string name="invest_guidelines">Guidelines</string>
     <string name="purchased_record">Purchased records</string>
     <string name="add_record">Additional records</string>
     <string name="calc_way_msg">Calculate after getting full</string>
@@ -258,8 +258,8 @@
     <string name="please_read_borrowing_requirements">Please read the borrowing instructions first</string>
     <string name="loan_confirm_tips">Because the operation time is too long, the price of borrowing currency has decreased, and the corresponding amount of borrowing has also decreased, whether to continue borrowing</string>
     <string name="loan_title_tips">Note:\n1.The mortgage loan platform will charge 1% of the loan amount as a handling fee.\n2.You can do the early payment after at least 24 hours from the borrowing time.</string>
-    <string name="borrowing_requirements_tips">1.The loan will become effective.If the underlying investment does not reach 100% within 24 hours,or if the price of the digital currency lowers more than 20% within 24 hours,the target will automatically become invalid and the digital currency of the investment will be returned to the investor.\n
-        2.Before the end of the loan period,LendChain will remind the borrower to return the loan on time.If the loan is overdue,the borrower need pay overdue fees.When the overdue time reaches 7 days,LendChain will take over the collateral assets,and after deducting the overduefees,the assets will be returned to the borrower according to the investment proportion.\n
+    <string name="borrowing_requirements_tips">1.The loan will become effective.If the underlying investment does not reach 100% within 24 hours,or if the price of the digital currency lowers more than 20% within 24 hours,the target will automatically become invalid and the digital currency of the investment will be returned to the investor.\n\n
+        2.Before the end of the loan period,LendChain will remind the borrower to return the loan on time.If the loan is overdue,the borrower need pay overdue fees.When the overdue time reaches 7 days,LendChain will take over the collateral assets,and after deducting the overduefees,the assets will be returned to the borrower according to the investment proportion.\n\n
         3.LendChain established awarning line (140%) and a closing line(110%),the closing line=borrowing amount * 110% and the warning line=borrowing amount * 140%.When the collateral assets reach the warning line,the system will remind the borrower to ask them to increase the collateral.When the collateral assets reach the closing line,the collateral assets will be processed for delivery,and the assets will be owned by the lenders.</string>
     <!--SettingActivity-->
     <string name="update_pwd">Password Reset</string>

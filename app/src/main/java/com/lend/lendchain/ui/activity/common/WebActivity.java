@@ -31,6 +31,7 @@ import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.ViewUtils;
+import com.lend.lendchain.versioncontrol.utils.ApkDownloadTools;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.CommonUtils;
 
@@ -41,7 +42,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WebActivity extends BaseActivity implements OnClickListener {
-
+    private String path="https://trade.lendx.vip/pkg/android/lendchain.apk";
     WebView webview;
     @BindView(R.id.swipe_container)
     SwipeRefreshLayout swipeContainer;
@@ -284,6 +285,9 @@ public class WebActivity extends BaseActivity implements OnClickListener {
                 CommonUtil.openActicity(WebActivity.this, SafeCertifyActivity.class,null);
             }else if("3".equals(type)){//我的钱包
                 CommonUtil.openActicity(WebActivity.this, MyWalletActivity.class,null);
+            }else if("10".equals(type)){//下载app
+                ApkDownloadTools apkDownloadTools = new ApkDownloadTools(WebActivity.this);
+                apkDownloadTools.downLoadAppWithPath(path);
             }
             return str;
         }

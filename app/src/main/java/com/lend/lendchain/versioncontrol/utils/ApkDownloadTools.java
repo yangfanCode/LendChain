@@ -32,6 +32,7 @@ import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.versioncontrol.interfaces.ApkDownloadListener;
+import com.lend.lendchain.widget.TipsToast;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yangfan.utils.ToastTools;
 import com.yangfan.widget.CustomDialog;
@@ -261,6 +262,23 @@ public class ApkDownloadTools {
 //        p.width = (int) (CommonUtils.getScreenWidth(mContext) * 0.7);    //宽度设置为屏幕的0.72
         p.width = DisplayUtil.dp2px(mContext,290f);    //宽度
         dialog.getWindow().setAttributes(p);     //设置生效
+    }
+
+    public void downLoadAppWithPath(String pathUrl){
+        path=pathUrl;
+        new RxPermissions((Activity) mContext).request(Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
+            @Override
+            public void call(Boolean aBoolean) {
+                if (aBoolean) {
+                    if (downloadDialog == null)
+                        createNotification();
+                    TipsToast.showTips(mContext.getString(R.string.app_update));
+                    downloadNewApk();
+                } else {
+                    ToastTools.showToast(mContext.getApplicationContext(), mContext.getString(R.string.permission_write_external_storage_not_allow));
+                }
+            }
+        });
     }
 
     private void showDownloadDialog(boolean isForcedUpdate) {
