@@ -287,7 +287,7 @@ public class WebActivity extends BaseActivity implements OnClickListener {
                 CommonUtil.openActicity(WebActivity.this, MyWalletActivity.class,null);
             }else if("10".equals(type)){//下载app
                 ApkDownloadTools apkDownloadTools = new ApkDownloadTools(WebActivity.this);
-                apkDownloadTools.downLoadAppWithPath(path);
+                apkDownloadTools.downLoadAppWithPathH5(path);
             }
             return str;
         }

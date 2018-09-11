@@ -31,6 +31,7 @@ import com.lend.lendchain.bean.VersionControl;
 import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.LogUtils;
+import com.lend.lendchain.utils.PermissionsChecker;
 import com.lend.lendchain.versioncontrol.interfaces.ApkDownloadListener;
 import com.lend.lendchain.widget.TipsToast;
 import com.tbruyelle.rxpermissions.RxPermissions;
@@ -264,21 +265,21 @@ public class ApkDownloadTools {
         dialog.getWindow().setAttributes(p);     //设置生效
     }
 
-    public void downLoadAppWithPath(String pathUrl){
+    /**
+     * 配合H5页面做下载 子线程
+     * @param pathUrl
+     */
+    public void downLoadAppWithPathH5(String pathUrl){
         path=pathUrl;
-        new RxPermissions((Activity) mContext).request(Manifest.permission.WRITE_EXTERNAL_STORAGE).subscribe(new Action1<Boolean>() {
-            @Override
-            public void call(Boolean aBoolean) {
-                if (aBoolean) {
-                    if (downloadDialog == null)
-                        createNotification();
-                    TipsToast.showTips(mContext.getString(R.string.app_update));
-                    downloadNewApk();
-                } else {
-                    ToastTools.showToast(mContext.getApplicationContext(), mContext.getString(R.string.permission_write_external_storage_not_allow));
-                }
-            }
-        });
+        PermissionsChecker checker = new PermissionsChecker(mContext);
+        if(checker.lacksPermissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            ToastTools.showToast(mContext.getApplicationContext(), mContext.getString(R.string.permission_write_external_storage_not_allow));
+        }else{
+            if (downloadDialog == null)
+                createNotification();
+            downloadNewApk();
+            TipsToast.showTips(mContext.getString(R.string.app_update));
+        }
     }
 
     private void showDownloadDialog(boolean isForcedUpdate) {
