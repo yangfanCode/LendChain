@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="110dp"
+    android:layout_width="@dimen/qb_px_110"
     android:layout_height="wrap_content"
     android:gravity="center"
-    android:minHeight="100dp"
-    android:minWidth="100dp"
+    android:minHeight="@dimen/qb_px_100"
+    android:minWidth="@dimen/qb_px_100"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="@dimen/qb_px_10">
 
     <ImageView
         android:id="@+id/custom_toast_iv"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:gravity="center"
-        android:maxWidth="90dp"
+        android:maxWidth="@dimen/qb_px_90"
         android:text="正在加载,请稍候."
         android:textColor="@color/color_262626"
         android:textSize="13sp"

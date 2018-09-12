@@ -22,13 +22,13 @@
                 android:id="@+id/bannerView"
                 style="@style/CustomBannerView"
                 android:layout_width="match_parent"
-                android:layout_height="225dp" />
+                android:layout_height="@dimen/qb_px_210" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/padding_15"
-                android:layout_marginTop="@dimen/padding_15"
+                android:layout_marginBottom="@dimen/qb_px_15"
+                android:layout_marginTop="@dimen/qb_px_15"
                 android:clipChildren="false"
                 android:orientation="vertical">
                 <!--android:clipChildren="false"-->
@@ -36,25 +36,25 @@
                     android:id="@+id/home_content_vp"
                     android:clipChildren="false"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
-                    android:layout_marginLeft="@dimen/padding_50"
-                    android:layout_marginRight="@dimen/padding_50"
-                    android:layout_marginBottom="@dimen/padding_5"
-                    android:layout_marginTop="@dimen/padding_3" />
+                    android:layout_height="@dimen/qb_px_350"
+                    android:layout_marginLeft="@dimen/qb_px_50"
+                    android:layout_marginRight="@dimen/qb_px_50"
+                    android:layout_marginBottom="@dimen/qb_px_5"
+                    android:layout_marginTop="@dimen/qb_px_3" />
                 <!--小白点控制器-->
                 <LinearLayout
                     android:id="@+id/home_llController"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="@dimen/padding_20"
-                    android:layout_marginTop="@dimen/padding_10"
+                    android:layout_marginBottom="@dimen/qb_px_20"
+                    android:layout_marginTop="@dimen/qb_px_10"
                     android:orientation="horizontal" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/padding_50"
+                android:layout_height="@dimen/qb_px_50"
                 android:background="@color/white"
                 android:gravity="center"
                 android:text="@string/market"
@@ -64,10 +64,10 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/padding_30"
+                android:layout_height="@dimen/qb_px_30"
                 android:background="@color/white"
-                android:paddingLeft="@dimen/padding_21"
-                android:paddingRight="@dimen/padding_21">
+                android:paddingLeft="@dimen/qb_px_21"
+                android:paddingRight="@dimen/qb_px_21">
 
                 <TextView
                     style="@style/text999999_12"
@@ -91,7 +91,7 @@
                 android:id="@+id/home_quetes_lv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/padding_30"
+                android:layout_marginBottom="@dimen/qb_px_30"
                 android:divider="@color/xc_group_divider"
                 android:dividerHeight="@dimen/divider_height_1px" />
         </LinearLayout>

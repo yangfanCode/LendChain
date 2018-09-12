@@ -133,8 +133,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation(name: 'swipemenulist-release', ext: 'aar')
     implementation 'com.google.zxing:core:3.2.1'
-    /**屏幕适配**/
-    implementation 'me.jessyan:autosize:0.9.1'
     /** 下拉刷新 **/
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     //    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'

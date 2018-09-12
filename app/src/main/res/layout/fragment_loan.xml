@@ -39,10 +39,10 @@
                     <TextView
                         style="@style/text509FFF_12"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="@dimen/qb_px_70"
                         android:background="@color/color_EBF4FF"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/loan_title_tips"
                         android:textSize="@dimen/text_size_11" />
 
@@ -53,12 +53,12 @@
                         style="@style/CustomFormBaseStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fnBottomPadding="@dimen/padding_18"
+                        app:fnBottomPadding="@dimen/qb_px_18"
                         app:fnIndicatorResId="@mipmap/icon_jiantou"
                         app:fnTitle="@string/loan_type"
                         app:fnTitleTextColor="@color/color_999999"
                         app:fnTitleTextSize="14"
-                        app:fnTopPadding="@dimen/padding_18" />
+                        app:fnTopPadding="@dimen/qb_px_18" />
 
                     <include layout="@layout/row_divider_12h" />
 
@@ -67,12 +67,12 @@
                         style="@style/CustomFormBaseStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fnBottomPadding="@dimen/padding_18"
+                        app:fnBottomPadding="@dimen/qb_px_18"
                         app:fnIndicatorResId="@mipmap/icon_jiantou"
                         app:fnTitle="@string/mortgage_coin_type"
                         app:fnTitleTextColor="@color/color_999999"
                         app:fnTitleTextSize="14"
-                        app:fnTopPadding="@dimen/padding_18" />
+                        app:fnTopPadding="@dimen/qb_px_18" />
 
                     <include layout="@layout/row_divider_1px" />
 
@@ -81,29 +81,29 @@
                         style="@style/CustomFormBaseStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fnBottomPadding="@dimen/padding_18"
+                        app:fnBottomPadding="@dimen/qb_px_18"
                         app:fnIndicatorResId="@mipmap/icon_jiantou"
                         app:fnTitle="@string/loan_in_coin_type"
                         app:fnTitleTextColor="@color/color_999999"
                         app:fnTitleTextSize="14"
-                        app:fnTopPadding="@dimen/padding_18" />
+                        app:fnTopPadding="@dimen/qb_px_18" />
 
                     <include layout="@layout/row_divider_12h" />
 
                     <FrameLayout
                         android:id="@+id/loan_mortgageCount_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/padding_50"
+                        android:layout_height="@dimen/qb_px_50"
                         android:background="@drawable/row_pressed2"
                         android:clickable="true"
-                        android:paddingLeft="@dimen/padding_12"
-                        android:paddingRight="@dimen/padding_12">
+                        android:paddingLeft="@dimen/qb_px_12"
+                        android:paddingRight="@dimen/qb_px_12">
 
                         <TextView
                             style="@style/text999999_14"
                             android:layout_centerVertical="true"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginRight="@dimen/padding_5"
+                            android:layout_marginRight="@dimen/qb_px_5"
                             android:text="@string/mortgage_count" />
 
                         <com.yangfan.widget.DecimalDigitsEditText
@@ -129,17 +129,17 @@
                     <FrameLayout
                         android:id="@+id/loan_loanCount_layout"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/padding_50"
+                        android:layout_height="@dimen/qb_px_50"
                         android:background="@drawable/row_pressed2"
                         android:clickable="true"
-                        android:paddingLeft="@dimen/padding_12"
-                        android:paddingRight="@dimen/padding_12">
+                        android:paddingLeft="@dimen/qb_px_12"
+                        android:paddingRight="@dimen/qb_px_12">
 
                         <TextView
                             style="@style/text999999_14"
                             android:layout_centerVertical="true"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginRight="@dimen/padding_5"
+                            android:layout_marginRight="@dimen/qb_px_5"
                             android:text="@string/loan_in_count" />
 
                         <com.yangfan.widget.DecimalDigitsEditText
@@ -166,53 +166,53 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:background="@drawable/row_pressed2"
-                        android:paddingLeft="@dimen/padding_12"
-                        android:paddingRight="@dimen/padding_12">
+                        android:paddingLeft="@dimen/qb_px_12"
+                        android:paddingRight="@dimen/qb_px_12">
 
                         <TextView
                             android:id="@+id/loan_tvLoanInText"
                             style="@style/text999999_14"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/padding_5"
-                            android:layout_marginTop="@dimen/padding_15"
+                            android:layout_marginRight="@dimen/qb_px_5"
+                            android:layout_marginTop="@dimen/qb_px_15"
                             android:gravity="center_horizontal"
                             android:text="@string/loan_in_rate" />
 
                         <TextView
                             android:id="@+id/loan_tvSeekBarMin"
                             style="@style/text262626_12"
-                            android:layout_width="40dp"
+                            android:layout_width="@dimen/qb_px_40"
                             android:layout_alignParentBottom="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginBottom="@dimen/padding_20" />
+                            android:layout_marginBottom="@dimen/qb_px_20" />
 
                         <TextView
                             android:id="@+id/loan_tvSeekBarMax"
                             style="@style/text262626_12"
-                            android:layout_width="40dp"
+                            android:layout_width="@dimen/qb_px_40"
                             android:layout_alignParentBottom="true"
                             android:layout_alignParentRight="true"
-                            android:layout_marginBottom="@dimen/padding_20"
-                            android:layout_marginTop="@dimen/padding_20" />
+                            android:layout_marginBottom="@dimen/qb_px_20"
+                            android:layout_marginTop="@dimen/qb_px_20" />
 
                         <TextView
                             android:id="@+id/loan_tvSeekBarRate"
                             style="@style/text262626_14"
                             android:layout_below="@id/loan_tvLoanInText"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="@dimen/padding_5" />
+                            android:layout_marginTop="@dimen/qb_px_5" />
 
                         <SeekBar
                             android:id="@+id/loan_seekBar"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/padding_30"
+                            android:layout_height="@dimen/qb_px_30"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginBottom="@dimen/padding_10"
+                            android:layout_marginBottom="@dimen/qb_px_10"
                             android:layout_toLeftOf="@id/loan_tvSeekBarMax"
                             android:layout_toRightOf="@id/loan_tvSeekBarMin"
                             android:focusable="true"
-                            android:maxHeight="@dimen/padding_6"
-                            android:minHeight="@dimen/padding_6"
+                            android:maxHeight="@dimen/qb_px_6"
+                            android:minHeight="@dimen/qb_px_6"
                             android:progressDrawable="@drawable/progressbar_bg_left_ff902e_gradient_ff6343"
                             android:splitTrack="false"
                             android:thumb="@mipmap/icon_seekbar_thumb" />
@@ -227,12 +227,12 @@
                         style="@style/CustomFormBaseStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fnBottomPadding="@dimen/padding_18"
+                        app:fnBottomPadding="@dimen/qb_px_18"
                         app:fnIndicatorResId="@mipmap/icon_jiantou"
                         app:fnTitle="@string/loan_deadline"
                         app:fnTitleTextColor="@color/color_999999"
                         app:fnTitleTextSize="14"
-                        app:fnTopPadding="@dimen/padding_18" />
+                        app:fnTopPadding="@dimen/qb_px_18" />
 
                     <include layout="@layout/row_divider_12h" />
 
@@ -241,7 +241,7 @@
                         style="@style/CustomFormBaseStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fnBottomPadding="@dimen/padding_18"
+                        app:fnBottomPadding="@dimen/qb_px_18"
                         app:fnIndicatorResId="@mipmap/icon_jiantou"
                         app:fnIndicatorVisible="false"
                         app:fnTextColor="@color/color_509FFF"
@@ -249,21 +249,21 @@
                         app:fnTitle="@string/loan_deadline_pay_interest"
                         app:fnTitleTextColor="@color/color_999999"
                         app:fnTitleTextSize="14"
-                        app:fnTopPadding="@dimen/padding_18" />
+                        app:fnTopPadding="@dimen/qb_px_18" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/padding_20"
-                        android:layout_marginTop="@dimen/padding_15"
+                        android:layout_height="@dimen/qb_px_20"
+                        android:layout_marginTop="@dimen/qb_px_15"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
-                        android:paddingLeft="@dimen/padding_15">
+                        android:paddingLeft="@dimen/qb_px_15">
 
                         <CheckBox
                             android:id="@+id/loan_cbLoanRequire"
-                            android:layout_width="@dimen/padding_20"
-                            android:layout_height="@dimen/padding_20"
-                            android:layout_marginRight="@dimen/padding_10"
+                            android:layout_width="@dimen/qb_px_20"
+                            android:layout_height="@dimen/qb_px_20"
+                            android:layout_marginRight="@dimen/qb_px_10"
                             android:background="@drawable/bg_loan_checkbox"
                             android:button="@null" />
 
@@ -281,12 +281,12 @@
                         android:id="@+id/loan_btnConfirm"
                         style="@style/buttonStyle"
                         android:layout_width="match_parent"
-                        android:layout_height="44dp"
+                        android:layout_height="@dimen/qb_px_44"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="@dimen/padding_20"
-                        android:layout_marginLeft="@dimen/padding_15"
-                        android:layout_marginRight="@dimen/padding_15"
-                        android:layout_marginTop="@dimen/padding_30"
+                        android:layout_marginBottom="@dimen/qb_px_20"
+                        android:layout_marginLeft="@dimen/qb_px_15"
+                        android:layout_marginRight="@dimen/qb_px_15"
+                        android:layout_marginTop="@dimen/qb_px_30"
                         android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
                         android:text="@string/loan_confirm" />
                 </LinearLayout>

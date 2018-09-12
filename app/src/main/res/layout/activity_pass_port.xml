@@ -23,29 +23,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <TextView
                 style="@style/text595959_14"
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
+                android:layout_height="@dimen/qb_px_54"
                 android:gravity="center_vertical"
                 android:text="@string/upload_document_material" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="@dimen/qb_px_120"
                 android:orientation="horizontal">
 
                 <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="@dimen/qb_px_120"
                     android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/idcard_cerfity_ivIdCardPositive"
-                        android:layout_width="175dp"
+                        android:layout_width="@dimen/qb_px_175"
                         android:layout_gravity="center"
                         android:layout_height="match_parent"
                         android:background="@drawable/bg_262626_dash_border"
@@ -54,8 +54,8 @@
 
                     <ImageView
                         android:id="@+id/idcard_cerfity_ivPositiveCamera"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="@dimen/qb_px_52"
+                        android:layout_height="@dimen/qb_px_52"
                         android:layout_gravity="center"
                         android:src="@mipmap/icon_camera" />
                 </FrameLayout>
@@ -67,7 +67,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/padding_20">
+                    android:paddingLeft="@dimen/qb_px_20">
 
                     <TextView
                         style="@style/text509FFF_16"
@@ -75,26 +75,26 @@
 
                     <TextView
                         style="@style/text999999_12"
-                        android:layout_marginTop="@dimen/padding_10"
+                        android:layout_marginTop="@dimen/qb_px_10"
                         android:text="@string/id_card_tips" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="@dimen/padding_20"
+                android:layout_height="@dimen/qb_px_120"
+                android:layout_marginTop="@dimen/qb_px_20"
                 android:orientation="horizontal">
 
                 <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="@dimen/qb_px_120"
                     android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/idcard_cerfity_ivIdCardNagetive"
-                        android:layout_width="175dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/qb_px_175"
+                        android:layout_height="@dimen/qb_px_120"
                         android:layout_gravity="center"
                         android:background="@drawable/bg_262626_dash_border"
                         android:padding="@dimen/divider_height_1px"
@@ -102,8 +102,8 @@
 
                     <ImageView
                         android:id="@+id/idcard_cerfity_ivNagetiveCamera"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="@dimen/qb_px_52"
+                        android:layout_height="@dimen/qb_px_52"
                         android:layout_gravity="center"
                         android:src="@mipmap/icon_camera" />
                 </FrameLayout>
@@ -114,7 +114,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/padding_20">
+                    android:paddingLeft="@dimen/qb_px_20">
 
                     <TextView
                         style="@style/text509FFF_16"
@@ -122,26 +122,26 @@
 
                     <TextView
                         style="@style/text999999_12"
-                        android:layout_marginTop="@dimen/padding_10"
+                        android:layout_marginTop="@dimen/qb_px_10"
                         android:text="@string/id_card_tips" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginTop="@dimen/padding_20"
+                android:layout_height="@dimen/qb_px_120"
+                android:layout_marginTop="@dimen/qb_px_20"
                 android:orientation="horizontal">
 
                 <FrameLayout
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="@dimen/qb_px_120"
                     android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/idcard_cerfity_ivSelfPhoto"
-                        android:layout_width="175dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/qb_px_175"
+                        android:layout_height="@dimen/qb_px_120"
                         android:layout_gravity="center"
                         android:background="@drawable/bg_262626_dash_border"
                         android:padding="@dimen/divider_height_1px"
@@ -149,8 +149,8 @@
 
                     <ImageView
                         android:id="@+id/idcard_cerfity_ivSelfCamera"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
+                        android:layout_width="@dimen/qb_px_52"
+                        android:layout_height="@dimen/qb_px_52"
                         android:layout_gravity="center"
                         android:src="@mipmap/icon_camera" />
                 </FrameLayout>
@@ -161,7 +161,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/padding_20">
+                    android:paddingLeft="@dimen/qb_px_20">
 
                     <TextView
                         style="@style/text509FFF_16"
@@ -169,7 +169,7 @@
 
                     <TextView
                         style="@style/text999999_12"
-                        android:layout_marginTop="@dimen/padding_10"
+                        android:layout_marginTop="@dimen/qb_px_10"
                         android:text="@string/id_card_self_tips" />
                 </LinearLayout>
             </LinearLayout>
@@ -178,8 +178,8 @@
                 android:id="@+id/idcard_cerfity_btnConfirm"
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/padding_45"
-                android:layout_marginTop="@dimen/padding_30"
+                android:layout_height="@dimen/qb_px_45"
+                android:layout_marginTop="@dimen/qb_px_30"
                 android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
                 android:text="@string/finish" />
         </LinearLayout>

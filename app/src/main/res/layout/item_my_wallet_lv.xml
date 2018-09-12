@@ -2,23 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="112dp">
+    android:layout_height="@dimen/qb_px_112">
 
     <LinearLayout
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/round_head_height_60"
+        android:layout_height="@dimen/qb_px_60"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_25">
+        android:paddingLeft="@dimen/qb_px_25">
 
         <ImageView
             android:id="@+id/item_my_wallet_ivIcon"
-            android:layout_width="@dimen/padding_30"
-            android:layout_height="@dimen/padding_30"
-            android:layout_marginRight="@dimen/padding_10" />
+            android:layout_width="@dimen/qb_px_30"
+            android:layout_height="@dimen/qb_px_30"
+            android:layout_marginRight="@dimen/qb_px_10" />
 
         <TextView
-            android:layout_width="@dimen/round_head_height_60"
+            android:layout_width="@dimen/qb_px_60"
             android:id="@+id/item_my_wallet_tvCoinType"
             style="@style/text262626_16" />
 
@@ -35,7 +35,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:gravity="center_vertical"
-        android:layout_height="@dimen/padding_40"
+        android:layout_height="@dimen/qb_px_40"
         android:orientation="horizontal">
 
         <TextView
@@ -50,7 +50,7 @@
         <include
             layout="@layout/row_divider_v"
             android:layout_width="@dimen/divider_height_1px"
-            android:layout_height="@dimen/padding_20" />
+            android:layout_height="@dimen/qb_px_20" />
 
         <TextView
             android:layout_width="0dp"
@@ -65,7 +65,7 @@
         <include
             layout="@layout/row_divider_v"
             android:layout_width="@dimen/divider_height_1px"
-            android:layout_height="@dimen/padding_20" />
+            android:layout_height="@dimen/qb_px_20" />
 
         <TextView
             android:layout_width="0dp"
@@ -81,5 +81,5 @@
     <View
         android:layout_width="match_parent"
         android:background="@color/color_F5F5F5"
-        android:layout_height="@dimen/padding_12"/>
+        android:layout_height="@dimen/qb_px_12"/>
 </LinearLayout>

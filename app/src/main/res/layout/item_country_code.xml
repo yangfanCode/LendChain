@@ -5,11 +5,11 @@
     android:background="#fff">
     <RelativeLayout
         android:background="@color/color_F5F5F5"
-        android:paddingLeft="@dimen/padding_12"
+        android:paddingLeft="@dimen/qb_px_12"
         android:visibility="gone"
         android:id="@+id/item_country_titleLayout"
         android:layout_width="match_parent"
-        android:layout_height="27dp">
+        android:layout_height="@dimen/qb_px_27">
         <TextView
             android:id="@+id/country_catalog"
             android:layout_width="wrap_content"
@@ -28,14 +28,14 @@
     <RelativeLayout
         android:layout_below="@id/item_country_divider"
         android:layout_width="match_parent"
-        android:paddingLeft="@dimen/padding_12"
-        android:paddingRight="@dimen/padding_12"
+        android:paddingLeft="@dimen/qb_px_12"
+        android:paddingRight="@dimen/qb_px_12"
         android:layout_height="50dp">
 
         <TextView
             android:id="@+id/country_name"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/padding_20"
+            android:layout_marginLeft="@dimen/qb_px_20"
             android:singleLine="true"
             style="@style/text262626_12"/>
 
@@ -43,7 +43,7 @@
             android:layout_centerVertical="true"
             android:id="@+id/country_number"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/padding_20"
+            android:layout_marginRight="@dimen/qb_px_20"
             android:singleLine="true"
             style="@style/text262626_12" />
     </RelativeLayout>

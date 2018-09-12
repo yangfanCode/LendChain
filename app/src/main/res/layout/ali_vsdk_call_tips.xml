@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
+    android:layout_width="@dimen/qb_px_300"
     android:layout_height="wrap_content"
     android:background="@drawable/ali_vsdk_rect_gray"
     android:orientation="vertical">
@@ -8,19 +8,19 @@
     <TextView
         android:id="@+id/message"
         android:layout_width="match_parent"
-        android:layout_height="91dp"
+        android:layout_height="@dimen/qb_px_91"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="17dp" />
+        android:textSize="@dimen/text_size_17" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/qb_px_1"
         android:background="#dedede" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="51dp"
+        android:layout_height="@dimen/qb_px_51"
         android:orientation="horizontal">
 
         <Button
@@ -33,10 +33,10 @@
             android:singleLine="true"
             android:text="@string/ali_vsdk_verify_call_dialog_cancel"
             android:textColor="#1475ea"
-            android:textSize="17dp" />
+            android:textSize="@dimen/text_size_17" />
 
         <TextView
-            android:layout_width="1dp"
+            android:layout_width="@dimen/qb_px_1"
             android:layout_height="match_parent"
             android:background="#dedede" />
 
@@ -50,7 +50,7 @@
             android:singleLine="true"
             android:text="@string/ali_vsdk_verify_call_dialog_ok"
             android:textColor="#1475ea"
-            android:textSize="17dp" />
+            android:textSize="@dimen/text_size_17" />
     </LinearLayout>
 
 </LinearLayout>

@@ -18,9 +18,9 @@
             android:id="@+id/tips_icon"
             android:visibility="gone"
             android:src="@mipmap/ic_launcher"
-            android:layout_marginBottom="@dimen/padding_10"
-            android:layout_width="@dimen/padding_30"
-            android:layout_height="@dimen/padding_30" />
+            android:layout_marginBottom="@dimen/qb_px_10"
+            android:layout_width="@dimen/qb_px_30"
+            android:layout_height="@dimen/qb_px_30" />
         <TextView
             android:id="@+id/tips_msg"
             android:layout_width="wrap_content"

@@ -9,10 +9,10 @@
         android:id="@+id/tv_countryCode"
         style="@style/text262626_14"
         android:layout_height="38dp"
-        android:drawablePadding="@dimen/padding_5"
+        android:drawablePadding="@dimen/qb_px_5"
         android:gravity="center"
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_7"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_7"
         android:text="+86" />
 
     <include layout="@layout/row_divider_1px"/>

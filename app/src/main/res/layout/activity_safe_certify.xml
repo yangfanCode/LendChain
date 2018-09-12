@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="@dimen/padding_15">
+        android:padding="@dimen/qb_px_15">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -40,8 +40,8 @@
         </LinearLayout>
 
         <TextView
-            android:paddingTop="@dimen/padding_10"
-            android:paddingBottom="@dimen/padding_10"
+            android:paddingTop="@dimen/qb_px_10"
+            android:paddingBottom="@dimen/qb_px_10"
             android:gravity="center_vertical|right"
             android:textSize="@dimen/text_size_14"
             android:textColor="@color/text_999999_509fff_enabled_selector"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="@dimen/padding_15">
+        android:padding="@dimen/qb_px_15">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -75,8 +75,8 @@
         </LinearLayout>
 
         <TextView
-            android:paddingTop="@dimen/padding_10"
-            android:paddingBottom="@dimen/padding_10"
+            android:paddingTop="@dimen/qb_px_10"
+            android:paddingBottom="@dimen/qb_px_10"
             android:gravity="center_vertical|right"
             android:id="@+id/safe_certify_tvGoogle"
             android:textSize="@dimen/text_size_14"
@@ -92,7 +92,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="@dimen/padding_15">
+        android:padding="@dimen/qb_px_15">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -120,7 +120,7 @@
                 android:visibility="gone"
                 android:textSize="@dimen/text_size_14"
                 android:text="@string/kyc_refuse"
-                android:padding="@dimen/padding_10"
+                android:padding="@dimen/qb_px_10"
                 android:gravity="center"
                 android:textColor="@color/text_999999_509fff_enabled_selector"
                 android:layout_height="wrap_content"
@@ -134,8 +134,8 @@
                 android:textSize="@dimen/text_size_14"
                 android:gravity="center_vertical|right"
                 android:textColor="@color/text_999999_509fff_enabled_selector"
-                android:paddingTop="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_10"
+                android:paddingTop="@dimen/qb_px_10"
+                android:paddingBottom="@dimen/qb_px_10"
                 android:layout_height="wrap_content"
                  />
         </RelativeLayout>

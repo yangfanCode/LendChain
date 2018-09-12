@@ -7,8 +7,8 @@
         </shape>
     </item>
     <item
-        android:bottom="@dimen/divider_height_1dp"
-        android:top="@dimen/divider_height_1dp">
+        android:bottom="@dimen/qb_px_1"
+        android:top="@dimen/qb_px_1">
         <shape android:shape="rectangle">
             <solid android:color="@color/xc_group_divider1" />
         </shape>

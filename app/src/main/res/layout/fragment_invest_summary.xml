@@ -12,11 +12,11 @@
         android:visibility="gone"
         android:background="@color/white"
         android:id="@+id/invest_fragment_tvSummary"
-        android:paddingTop="@dimen/padding_16"
+        android:paddingTop="@dimen/qb_px_16"
         android:paddingBottom="@dimen/padding_36"
-        android:paddingLeft="@dimen/padding_16"
-        android:paddingRight="@dimen/padding_16"
-        android:lineSpacingExtra="@dimen/padding_3"
+        android:paddingLeft="@dimen/qb_px_16"
+        android:paddingRight="@dimen/qb_px_16"
+        android:lineSpacingExtra="@dimen/qb_px_3"
         style="@style/text595959_14" />
 
 </android.support.v4.widget.NestedScrollView>

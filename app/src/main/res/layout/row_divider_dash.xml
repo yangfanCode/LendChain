@@ -2,6 +2,6 @@
 <View xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/v_row_divider"
     android:layerType="software"
-    android:layout_height="@dimen/padding_2"
+    android:layout_height="@dimen/qb_px_2"
     android:layout_width="match_parent"
     android:background="@drawable/bg_dash_line"  />

@@ -5,5 +5,5 @@
         android:width="@dimen/divider_height_1px"
         android:color="@color/color_262626"
         android:dashGap="@dimen/padding_2"
-        android:dashWidth="@dimen/padding_4" />
+        android:dashWidth="@dimen/qb_px_4" />
 </shape>

@@ -8,24 +8,24 @@
     <LinearLayout
         android:id="@+id/keyboard_input_money_layout"
         android:layout_width="match_parent"
-        android:layout_height="202dp"
+        android:layout_height="@dimen/qb_px_202"
         android:background="@color/white"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_50"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:layout_height="@dimen/qb_px_50"
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <ImageView
                 android:id="@+id/keyboard_input_money_ivClose"
-                android:layout_width="@dimen/padding_25"
-                android:layout_height="@dimen/padding_25"
+                android:layout_width="@dimen/qb_px_25"
+                android:layout_height="@dimen/qb_px_25"
                 android:layout_gravity="center_vertical"
-                android:paddingBottom="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
+                android:paddingBottom="@dimen/qb_px_5"
+                android:paddingRight="@dimen/qb_px_10"
+                android:paddingTop="@dimen/qb_px_5"
                 android:src="@mipmap/icon_cha" />
 
             <TextView
@@ -44,9 +44,9 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_50"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:layout_height="@dimen/qb_px_50"
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <TextView
                 style="@style/text262626_14"
@@ -55,8 +55,8 @@
 
             <com.yangfan.widget.DecimalDigitsEditText
                 android:id="@+id/keyboard_input_money_etMoney"
-                android:layout_width="120dp"
-                android:layout_height="@dimen/padding_20"
+                android:layout_width="@dimen/qb_px_120"
+                android:layout_height="@dimen/qb_px_20"
                 android:layout_gravity="center"
                 android:background="@null"
                 android:inputType="numberDecimal"
@@ -75,9 +75,9 @@
         <include layout="@layout/row_divider_1px" />
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_50"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:layout_height="@dimen/qb_px_50"
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <TextView
                 style="@style/text262626_14"
@@ -86,7 +86,7 @@
 
             <TextView
                 android:id="@+id/keyboard_input_money_tvOver"
-                android:layout_width="120dp"
+                android:layout_width="@dimen/qb_px_120"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="left"
@@ -100,9 +100,9 @@
         <include layout="@layout/row_divider_1px" />
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_50"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:layout_height="@dimen/qb_px_50"
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <TextView
                 style="@style/text262626_14"
@@ -111,7 +111,7 @@
 
             <TextView
                 android:id="@+id/keyboard_input_money_tvIncome"
-                android:layout_width="120dp"
+                android:layout_width="@dimen/qb_px_120"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="0"
@@ -127,25 +127,25 @@
     <LinearLayout
         android:id="@+id/keyboard_input_googlecCode_layout"
         android:layout_width="match_parent"
-        android:layout_height="101dp"
+        android:layout_height="@dimen/qb_px_101"
         android:background="@color/white"
         android:visibility="gone"
         android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_50"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:layout_height="@dimen/qb_px_50"
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <ImageView
                 android:id="@+id/keyboard_input_googleCode_ivClose"
-                android:layout_width="@dimen/padding_25"
-                android:layout_height="@dimen/padding_25"
+                android:layout_width="@dimen/qb_px_25"
+                android:layout_height="@dimen/qb_px_25"
                 android:layout_gravity="center_vertical"
-                android:paddingBottom="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
+                android:paddingBottom="@dimen/qb_px_5"
+                android:paddingRight="@dimen/qb_px_10"
+                android:paddingTop="@dimen/qb_px_5"
                 android:src="@mipmap/icon_cha" />
 
             <TextView
@@ -159,9 +159,9 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_50"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:layout_height="@dimen/qb_px_50"
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <TextView
                 style="@style/text262626_14"
@@ -170,8 +170,8 @@
 
             <EditText
                 android:id="@+id/keyboard_input_money_etGoogleCode"
-                android:layout_width="120dp"
-                android:layout_height="@dimen/padding_20"
+                android:layout_width="@dimen/qb_px_120"
+                android:layout_height="@dimen/qb_px_20"
                 android:layout_gravity="center"
                 android:background="@null"
                 android:digits="0123456789"

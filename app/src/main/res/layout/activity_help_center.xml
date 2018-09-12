@@ -31,12 +31,12 @@
                 style="@style/FormNormalBaseStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fnBottomPadding="@dimen/padding_17"
+                app:fnBottomPadding="@dimen/qb_px_17"
                 app:fnIndicatorResId="@mipmap/icon_jiantou_right"
                 app:fnTitle="@string/rate_tips"
                 app:fnTitleTextColor="@color/color_262626"
                 app:fnTitleTextSize="16"
-                app:fnTopPadding="@dimen/padding_17" />
+                app:fnTopPadding="@dimen/qb_px_17" />
 
             <include layout="@layout/row_divider_1px" />
 
@@ -45,12 +45,12 @@
                 style="@style/FormNormalBaseStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fnBottomPadding="@dimen/padding_17"
+                app:fnBottomPadding="@dimen/qb_px_17"
                 app:fnIndicatorResId="@mipmap/icon_jiantou_right"
                 app:fnTitle="@string/risk_management"
                 app:fnTitleTextColor="@color/color_262626"
                 app:fnTitleTextSize="16"
-                app:fnTopPadding="@dimen/padding_17" />
+                app:fnTopPadding="@dimen/qb_px_17" />
 
             <include layout="@layout/row_divider_12h" />
 
@@ -59,12 +59,12 @@
                 style="@style/FormNormalBaseStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fnBottomPadding="@dimen/padding_17"
+                app:fnBottomPadding="@dimen/qb_px_17"
                 app:fnIndicatorResId="@mipmap/icon_jiantou_right"
                 app:fnTitle="@string/newbie_guide"
                 app:fnTitleTextColor="@color/color_262626"
                 app:fnTitleTextSize="16"
-                app:fnTopPadding="@dimen/padding_17" />
+                app:fnTopPadding="@dimen/qb_px_17" />
 
             <include layout="@layout/row_divider_1px" />
 
@@ -73,12 +73,12 @@
                 style="@style/FormNormalBaseStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fnBottomPadding="@dimen/padding_17"
+                app:fnBottomPadding="@dimen/qb_px_17"
                 app:fnIndicatorResId="@mipmap/icon_jiantou_right"
                 app:fnTitle="@string/how_to_play_with_mortgage_lending"
                 app:fnTitleTextColor="@color/color_262626"
                 app:fnTitleTextSize="16"
-                app:fnTopPadding="@dimen/padding_17" />
+                app:fnTopPadding="@dimen/qb_px_17" />
 
             <include layout="@layout/row_divider_1px" />
 
@@ -87,12 +87,12 @@
                 style="@style/FormNormalBaseStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fnBottomPadding="@dimen/padding_17"
+                app:fnBottomPadding="@dimen/qb_px_17"
                 app:fnIndicatorResId="@mipmap/icon_jiantou_right"
                 app:fnTitle="@string/mortgage_description"
                 app:fnTitleTextColor="@color/color_262626"
                 app:fnTitleTextSize="16"
-                app:fnTopPadding="@dimen/padding_17" />
+                app:fnTopPadding="@dimen/qb_px_17" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

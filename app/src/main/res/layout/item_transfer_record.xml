@@ -7,16 +7,16 @@
     <LinearLayout
         android:id="@+id/transfer_record_llOrder"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="@dimen/qb_px_110"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/padding_10"
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
-        android:paddingTop="@dimen/padding_10">
+        android:paddingBottom="@dimen/qb_px_10"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
+        android:paddingTop="@dimen/qb_px_10">
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_30">
+            android:layout_height="@dimen/qb_px_30">
 
             <TextView
                 android:id="@+id/transfer_record_tvStatus"
@@ -33,14 +33,14 @@
             android:text="asdasdasdsa"
             android:id="@+id/transfer_record_tvOrderCode"
             style="@style/text999999_12"
-            android:layout_height="@dimen/padding_30"
+            android:layout_height="@dimen/qb_px_30"
             android:gravity="center_vertical" />
 
         <TextView
             android:text="ghghghfgh"
             android:id="@+id/transfer_record_tvTime"
             style="@style/text999999_12"
-            android:layout_height="@dimen/padding_30"
+            android:layout_height="@dimen/qb_px_30"
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical" />
 
@@ -53,8 +53,8 @@
         android:background="@color/color_EBF4FF"
         android:orientation="vertical"
         android:paddingBottom="@dimen/padding_13"
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
         android:paddingTop="@dimen/padding_13"
         android:visibility="gone">
 

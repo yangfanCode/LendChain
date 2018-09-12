@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="3dp">
+    android:padding="@dimen/qb_px_3">
 
     <ImageView
         android:id="@+id/notificationImage"
@@ -12,7 +12,7 @@
         android:src="@mipmap/ic_launcher" />
     <TextView
         android:id="@+id/notificationPercent"
-        android:layout_width="40dp"
+        android:layout_width="@dimen/qb_px_40"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
@@ -28,8 +28,8 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/notificationImage"
         android:layout_toLeftOf="@id/notificationPercent"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp" />
+        android:paddingLeft="@dimen/qb_px_3"
+        android:paddingRight="@dimen/qb_px_3" />
 
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/notificationProgress"
         android:layout_alignLeft="@id/notificationProgress"
-        android:paddingLeft="3dp"
+        android:paddingLeft="@dimen/qb_px_3"
         android:textColor="@color/color_262626"
         android:textSize="16sp" />
 

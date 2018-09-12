@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="6dp"
         android:progressDrawable="@drawable/progressbar_bg_left_60aaff_gradient_498efe_radio7"
-        android:layout_margin="@dimen/padding_20"
+        android:layout_margin="@dimen/qb_px_20"
         android:gravity="center_vertical" />
 
 </LinearLayout> 

@@ -8,12 +8,12 @@
     <LinearLayout
         android:background="?android:attr/selectableItemBackground"
         android:id="@+id/item_home_market_layout"
-        android:paddingLeft="@dimen/padding_21"
-        android:paddingRight="@dimen/padding_21"
+        android:paddingLeft="@dimen/qb_px_21"
+        android:paddingRight="@dimen/qb_px_21"
         android:layout_width="match_parent"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_height="@dimen/padding_45">
+        android:layout_height="@dimen/qb_px_45">
 
         <TextView
             android:layout_width="0dp"
@@ -44,15 +44,15 @@
     </LinearLayout>
     <!--隐藏布局 kLine-->
     <LinearLayout
-        android:paddingLeft="@dimen/padding_21"
-        android:paddingRight="@dimen/padding_21"
+        android:paddingLeft="@dimen/qb_px_21"
+        android:paddingRight="@dimen/qb_px_21"
         android:visibility="gone"
         android:id="@+id/item_home_market_24hLayout"
         android:background="@color/color_EBF4FF"
         android:layout_width="match_parent"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_height="60dp">
+        android:layout_height="@dimen/qb_px_60">
         <LinearLayout
             android:layout_gravity="center_vertical"
             android:layout_width="0dp"
@@ -60,7 +60,7 @@
             android:orientation="vertical"
             android:layout_height="match_parent">
             <TextView
-                android:layout_marginTop="@dimen/padding_8"
+                android:layout_marginTop="@dimen/qb_px_8"
                 android:text="@string/highest24h"
                 style="@style/text999999_12" />
             <TextView
@@ -75,7 +75,7 @@
             android:orientation="vertical"
             android:layout_height="match_parent">
             <TextView
-                android:layout_marginTop="@dimen/padding_8"
+                android:layout_marginTop="@dimen/qb_px_8"
                 android:text="@string/lowest24h"
                 style="@style/text999999_12" />
             <TextView
@@ -91,13 +91,13 @@
             android:layout_height="match_parent">
             <TextView
                 android:layout_gravity="right"
-                android:layout_marginTop="@dimen/padding_8"
+                android:layout_marginTop="@dimen/qb_px_8"
                 android:text="@string/line24h"
                 style="@style/text999999_12" />
             <com.lend.lendchain.widget.chart.view.HomeMarketFenshiView
                 android:layout_gravity="right"
                 android:id="@+id/item_home_market_fenshiView"
-                android:layout_width="100dp"
+                android:layout_width="@dimen/qb_px_100"
                 android:layout_height="match_parent"/>
         </LinearLayout>
     </LinearLayout>

@@ -11,19 +11,19 @@
         style="@style/text509FFF_16"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:minHeight="@dimen/padding_100"
-        android:paddingBottom="@dimen/padding_30"
-        android:paddingLeft="@dimen/padding_20"
-        android:paddingRight="@dimen/padding_20"
-        android:paddingTop="@dimen/padding_30" />
+        android:minHeight="@dimen/qb_px_100"
+        android:paddingBottom="@dimen/qb_px_30"
+        android:paddingLeft="@dimen/qb_px_20"
+        android:paddingRight="@dimen/qb_px_20"
+        android:paddingTop="@dimen/qb_px_30" />
 
     <include layout="@layout/row_divider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="34dp"
-        android:layout_marginBottom="@dimen/padding_8"
-        android:layout_marginTop="@dimen/padding_8"
+        android:layout_marginBottom="@dimen/qb_px_8"
+        android:layout_marginTop="@dimen/qb_px_8"
         android:orientation="horizontal">
 
         <TextView

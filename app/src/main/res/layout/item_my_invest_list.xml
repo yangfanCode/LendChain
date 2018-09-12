@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="192dp"
+    android:layout_height="@dimen/qb_px_192"
     android:orientation="vertical">
 
     <include layout="@layout/row_divider_12h" />
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="66dp"
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15">
+        android:layout_height="@dimen/qb_px_66"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15">
 
         <LinearLayout
             android:layout_gravity="center_vertical"
@@ -22,7 +22,7 @@
                 android:background="@drawable/bg_textview_bottom_line"
                 android:id="@+id/item_my_invest_list_tvName"
                 style="@style/text509FFF_16"
-                android:layout_marginBottom="@dimen/padding_10" />
+                android:layout_marginBottom="@dimen/qb_px_10" />
 
             <TextView
                 android:id="@+id/item_my_invest_list_tvCreateTime"
@@ -36,16 +36,16 @@
     </FrameLayout>
     <include layout="@layout/row_divider_1px"/>
     <LinearLayout
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
-        android:paddingTop="@dimen/padding_10"
-        android:paddingBottom="@dimen/padding_10"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
+        android:paddingTop="@dimen/qb_px_10"
+        android:paddingBottom="@dimen/qb_px_10"
         android:layout_width="match_parent"
         android:layout_height="116dp"
         android:orientation="vertical">
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_24">
+            android:layout_height="@dimen/qb_px_24">
             <TextView
                 android:text="@string/loan_amount"
                 android:layout_gravity="center_vertical"
@@ -57,7 +57,7 @@
         </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_24">
+            android:layout_height="@dimen/qb_px_24">
             <TextView
                 android:text="@string/interest"
                 android:layout_gravity="center_vertical"
@@ -69,7 +69,7 @@
         </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_24">
+            android:layout_height="@dimen/qb_px_24">
             <TextView
                 android:text="@string/deadLine"
                 android:layout_gravity="center_vertical"
@@ -81,7 +81,7 @@
         </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_24">
+            android:layout_height="@dimen/qb_px_24">
             <TextView
                 android:text="@string/repay_time"
                 android:layout_gravity="center_vertical"

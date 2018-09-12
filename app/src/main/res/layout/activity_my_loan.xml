@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:divider="@color/color_F5F5F5"
-                android:dividerHeight="@dimen/padding_5" />
+                android:dividerHeight="@dimen/qb_px_5" />
         </FrameLayout>
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 

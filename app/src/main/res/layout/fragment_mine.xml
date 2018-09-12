@@ -25,7 +25,7 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_50">
+                android:paddingBottom="@dimen/qb_px_50">
 
                 <!--登录布局-->
                 <LinearLayout
@@ -37,8 +37,8 @@
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="44dp"
-                        android:paddingLeft="@dimen/padding_10">
+                        android:layout_height="@dimen/qb_px_44"
+                        android:paddingLeft="@dimen/qb_px_10">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -48,9 +48,9 @@
                             android:orientation="horizontal">
 
                             <com.facebook.drawee.view.SimpleDraweeView
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_marginRight="@dimen/padding_10"
+                                android:layout_width="@dimen/qb_px_15"
+                                android:layout_height="@dimen/qb_px_15"
+                                android:layout_marginRight="@dimen/qb_px_10"
                                 app:placeholderImage="@mipmap/logo"
                                 app:roundAsCircle="true" />
 
@@ -62,21 +62,21 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="196dp"
+                        android:layout_height="@dimen/qb_px_196"
                         android:background="@drawable/bg_4885ff_gradient_509fff"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="136dp"
+                            android:layout_height="@dimen/qb_px_136"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
                             <FrameLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/padding_21">
+                                android:layout_marginBottom="@dimen/qb_px_21">
 
                                 <TextView
                                     style="@style/textFFFFFF_12"
@@ -85,11 +85,11 @@
 
                                 <ImageView
                                     android:id="@+id/mine_ivEye"
-                                    android:layout_width="@dimen/padding_25"
-                                    android:layout_height="@dimen/padding_25"
+                                    android:layout_width="@dimen/qb_px_25"
+                                    android:layout_height="@dimen/qb_px_25"
                                     android:layout_gravity="right"
-                                    android:layout_marginRight="@dimen/padding_14"
-                                    android:padding="@dimen/divider_height_1dp"
+                                    android:layout_marginRight="@dimen/qb_px_14"
+                                    android:padding="@dimen/qb_px_1"
                                     android:src="@mipmap/icon_mine_eye_close" />
                             </FrameLayout>
 
@@ -105,7 +105,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="60dp"
+                            android:layout_height="@dimen/qb_px_60"
                             android:background="@color/color_black_5_persent"
                             android:orientation="horizontal">
 
@@ -123,13 +123,13 @@
                                 <TextView
                                     android:id="@+id/mine_tvPeriod"
                                     style="@style/textFFFFFF_18"
-                                    android:layout_marginTop="@dimen/padding_8" />
+                                    android:layout_marginTop="@dimen/qb_px_8" />
                             </LinearLayout>
 
                             <include
                                 layout="@layout/row_divider_v"
-                                android:layout_width="@dimen/divider_height_1dp"
-                                android:layout_height="@dimen/padding_20"
+                                android:layout_width="@dimen/qb_px_1"
+                                android:layout_height="@dimen/qb_px_20"
                                 android:layout_gravity="center_vertical" />
 
                             <LinearLayout
@@ -147,8 +147,8 @@
                                 <TextView
                                     android:id="@+id/mine_tvOver"
                                     style="@style/textFFFFFF_18"
-                                    android:layout_marginTop="@dimen/padding_8"
-                                    android:drawablePadding="@dimen/padding_3"
+                                    android:layout_marginTop="@dimen/qb_px_8"
+                                    android:drawablePadding="@dimen/qb_px_3"
                                     android:drawableRight="@mipmap/icon_jiantou_right_ffffff" />
                             </LinearLayout>
                         </LinearLayout>
@@ -158,26 +158,26 @@
                 <LinearLayout
                     android:id="@+id/mine_login_exit_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp"
+                    android:layout_height="@dimen/qb_px_240"
                     android:background="@drawable/bg_4885ff_gradient_509fff"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:visibility="gone">
 
                     <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="@dimen/qb_px_80"
+                        android:layout_height="@dimen/qb_px_80"
                         android:src="@mipmap/icon_mine_logo" />
 
                     <com.lend.lendchain.widget.SingleLineZoomTextView
                         android:id="@+id/mine_tvLogin"
                         style="@style/textFFFFFF_16"
-                        android:layout_width="120dp"
+                        android:layout_width="@dimen/qb_px_120"
                         android:layout_height="@dimen/padding_37"
-                        android:layout_marginTop="@dimen/padding_15"
+                        android:layout_marginTop="@dimen/qb_px_15"
                         android:background="@drawable/bg_509fff_transpant_border_radiu20"
                         android:gravity="center"
-                        android:padding="@dimen/padding_5"
+                        android:padding="@dimen/qb_px_5"
                         android:text="@string/regiest_login" />
                 </LinearLayout>
 
@@ -185,10 +185,10 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/padding_40"
+                    android:layout_height="@dimen/qb_px_40"
                     android:background="@color/white"
                     android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/padding_15"
+                    android:paddingLeft="@dimen/qb_px_15"
                     android:text="@string/assets_manage"
                     android:textSize="@dimen/text_size_12" />
 
@@ -196,12 +196,12 @@
                     layout="@layout/row_divider_1px"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/divider_height_1px"
-                    android:layout_marginLeft="@dimen/padding_15"
-                    android:layout_marginRight="@dimen/padding_15" />
+                    android:layout_marginLeft="@dimen/qb_px_15"
+                    android:layout_marginRight="@dimen/qb_px_15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/padding_50"
+                    android:layout_height="@dimen/qb_px_50"
                     android:background="@color/white"
                     android:orientation="horizontal">
 
@@ -213,15 +213,15 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_wallet"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/my_wallet" />
 
                     <include
                         layout="@layout/row_divider_v"
                         android:layout_width="@dimen/divider_height_1px"
-                        android:layout_height="@dimen/padding_19"
+                        android:layout_height="@dimen/qb_px_19"
                         android:layout_gravity="center_vertical" />
 
                     <TextView
@@ -232,9 +232,9 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_myinvest"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_14"
+                        android:paddingLeft="@dimen/qb_px_14"
                         android:text="@string/my_invest" />
                 </LinearLayout>
 
@@ -242,12 +242,12 @@
                     layout="@layout/row_divider_1px"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/divider_height_1px"
-                    android:layout_marginLeft="@dimen/padding_15"
-                    android:layout_marginRight="@dimen/padding_15" />
+                    android:layout_marginLeft="@dimen/qb_px_15"
+                    android:layout_marginRight="@dimen/qb_px_15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/padding_50"
+                    android:layout_height="@dimen/qb_px_50"
                     android:background="@color/white"
                     android:orientation="horizontal">
 
@@ -259,15 +259,15 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_record"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/my_amount_record" />
 
                     <include
                         layout="@layout/row_divider_v"
                         android:layout_width="@dimen/divider_height_1px"
-                        android:layout_height="@dimen/padding_19"
+                        android:layout_height="@dimen/qb_px_19"
                         android:layout_gravity="center_vertical" />
 
                     <TextView
@@ -278,9 +278,9 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_loan"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/my_loan" />
                 </LinearLayout>
 
@@ -288,10 +288,10 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/padding_40"
+                    android:layout_height="@dimen/qb_px_40"
                     android:background="@color/white"
                     android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/padding_14"
+                    android:paddingLeft="@dimen/qb_px_14"
                     android:text="@string/account_manage"
                     android:textSize="@dimen/text_size_12" />
 
@@ -299,12 +299,12 @@
                     layout="@layout/row_divider_1px"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/divider_height_1px"
-                    android:layout_marginLeft="@dimen/padding_15"
-                    android:layout_marginRight="@dimen/padding_15" />
+                    android:layout_marginLeft="@dimen/qb_px_15"
+                    android:layout_marginRight="@dimen/qb_px_15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/padding_50"
+                    android:layout_height="@dimen/qb_px_50"
                     android:background="@color/white"
                     android:orientation="horizontal">
 
@@ -316,15 +316,15 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_center"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/user_center" />
 
                     <include
                         layout="@layout/row_divider_v"
                         android:layout_width="@dimen/divider_height_1px"
-                        android:layout_height="@dimen/padding_19"
+                        android:layout_height="@dimen/qb_px_19"
                         android:layout_gravity="center_vertical" />
 
                     <FrameLayout
@@ -339,14 +339,14 @@
                             android:layout_height="match_parent"
                             android:background="?android:attr/selectableItemBackground"
                             android:drawableLeft="@mipmap/icon_mine_safe"
-                            android:drawablePadding="@dimen/padding_14"
+                            android:drawablePadding="@dimen/qb_px_14"
                             android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/padding_15"
+                            android:paddingLeft="@dimen/qb_px_15"
                             android:text="@string/safe_cerfity" />
 
                         <ImageView
-                            android:layout_width="43dp"
-                            android:layout_height="43dp"
+                            android:layout_width="@dimen/qb_px_43"
+                            android:layout_height="@dimen/qb_px_43"
                             android:layout_gravity="right"
                             android:src="@mipmap/icon_mine_kyc" />
                     </FrameLayout>
@@ -356,12 +356,12 @@
                     layout="@layout/row_divider_1px"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/divider_height_1px"
-                    android:layout_marginLeft="@dimen/padding_15"
-                    android:layout_marginRight="@dimen/padding_15" />
+                    android:layout_marginLeft="@dimen/qb_px_15"
+                    android:layout_marginRight="@dimen/qb_px_15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/padding_50"
+                    android:layout_height="@dimen/qb_px_50"
                     android:background="@color/white"
                     android:orientation="horizontal">
 
@@ -373,15 +373,15 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_support"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/support_gift" />
 
                     <include
                         layout="@layout/row_divider_v"
                         android:layout_width="@dimen/divider_height_1px"
-                        android:layout_height="@dimen/padding_19"
+                        android:layout_height="@dimen/qb_px_19"
                         android:layout_gravity="center_vertical" />
 
                     <TextView
@@ -392,9 +392,9 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_aboutus"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/about_us" />
                 </LinearLayout>
 
@@ -402,12 +402,12 @@
                     layout="@layout/row_divider_1px"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/divider_height_1px"
-                    android:layout_marginLeft="@dimen/padding_15"
-                    android:layout_marginRight="@dimen/padding_15" />
+                    android:layout_marginLeft="@dimen/qb_px_15"
+                    android:layout_marginRight="@dimen/qb_px_15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/padding_50"
+                    android:layout_height="@dimen/qb_px_50"
                     android:background="@color/white"
                     android:orientation="horizontal">
 
@@ -419,15 +419,15 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_helpcenter"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/help_center" />
 
                     <include
                         layout="@layout/row_divider_v"
                         android:layout_width="@dimen/divider_height_1px"
-                        android:layout_height="@dimen/padding_19"
+                        android:layout_height="@dimen/qb_px_19"
                         android:layout_gravity="center_vertical" />
 
                     <TextView
@@ -438,9 +438,9 @@
                         android:layout_weight="1"
                         android:background="?android:attr/selectableItemBackground"
                         android:drawableLeft="@mipmap/icon_mine_setting"
-                        android:drawablePadding="@dimen/padding_14"
+                        android:drawablePadding="@dimen/qb_px_14"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/padding_15"
+                        android:paddingLeft="@dimen/qb_px_15"
                         android:text="@string/setting" />
                 </LinearLayout>
             </LinearLayout>

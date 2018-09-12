@@ -16,7 +16,7 @@
         android:background="@color/white"
         android:id="@+id/invest_tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_40"/>
+        android:layout_height="@dimen/qb_px_40"/>
     <include layout="@layout/row_divider_1px"/>
     <android.support.v4.view.ViewPager
         android:id="@+id/invest_viewPager"

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="162dp"
+    android:layout_height="@dimen/qb_px_162"
     android:orientation="vertical">
     <include layout="@layout/row_divider_12h"/>
     <FrameLayout
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
         android:layout_width="match_parent"
-        android:layout_height="46dp">
+        android:layout_height="@dimen/qb_px_46">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -19,9 +19,9 @@
 
             <TextView
                 android:id="@+id/item_invest_tvType"
-                android:layout_width="@dimen/padding_17"
-                android:layout_height="@dimen/padding_17"
-                android:layout_marginRight="@dimen/padding_5"
+                android:layout_width="@dimen/qb_px_17"
+                android:layout_height="@dimen/qb_px_17"
+                android:layout_marginRight="@dimen/qb_px_5"
                 android:gravity="center"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_10" />
@@ -29,13 +29,13 @@
             <TextView
                 android:id="@+id/item_invest_tvName"
                 style="@style/text444444_14"
-                android:layout_marginRight="@dimen/padding_5" />
+                android:layout_marginRight="@dimen/qb_px_5" />
 
             <TextView
                 android:id="@+id/item_invest_tvNickName"
                 style="@style/text509FFF_12"
                 android:background="@drawable/bg_509fff_border_radiu2"
-                android:padding="@dimen/padding_4" />
+                android:padding="@dimen/qb_px_4" />
         </LinearLayout>
 
         <ImageView
@@ -43,22 +43,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|right"
-            android:maxHeight="32dp"
-            android:maxWidth="@dimen/padding_78" />
+            android:maxHeight="@dimen/qb_px_32"
+            android:maxWidth="@dimen/qb_px_78" />
     </FrameLayout>
 
     <include
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_2"
-        android:layout_marginRight="@dimen/padding_15"
-        android:layout_marginLeft="@dimen/padding_15"
+        android:layout_height="@dimen/qb_px_2"
+        android:layout_marginRight="@dimen/qb_px_15"
+        android:layout_marginLeft="@dimen/qb_px_15"
         layout="@layout/row_divider_dash" />
 
     <FrameLayout
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
         android:layout_width="match_parent"
-        android:layout_height="75dp">
+        android:layout_height="@dimen/qb_px_75">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
                     android:textColor="@color/color_FFBBAD"
                     android:id="@+id/item_invest_tvdailyRate"
                     android:layout_width="wrap_content"
-                    android:layout_marginRight="@dimen/divider_height_1dp"
+                    android:layout_marginRight="@dimen/qb_px_1"
                     android:layout_height="wrap_content"
                     android:textSize="24sp" />
 
@@ -85,20 +85,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="%"
-                    android:layout_marginBottom="@dimen/divider_height_1dp"
+                    android:layout_marginBottom="@dimen/qb_px_1"
                     android:textColor="@color/color_FFBBAD"
                     android:textSize="@dimen/text_size_12" />
             </LinearLayout>
 
 
             <TextView
-                android:layout_marginLeft="@dimen/padding_2"
+                android:layout_marginLeft="@dimen/qb_px_2"
                 style="@style/textCCCCCC_12"
                 android:text="@string/annualized" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="60dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
@@ -106,7 +106,7 @@
             <TextView
                 android:id="@+id/item_invest_tvDeadLine"
                 style="@style/textCCCCCC_16"
-                android:layout_marginBottom="@dimen/padding_5" />
+                android:layout_marginBottom="@dimen/qb_px_5" />
 
             <TextView
                 style="@style/textCCCCCC_12"
@@ -115,8 +115,8 @@
 
         <ImageView
             android:id="@+id/item_invest_ivState"
-            android:layout_width="@dimen/padding_78"
-            android:layout_height="54dp"
+            android:layout_width="@dimen/qb_px_78"
+            android:layout_height="@dimen/qb_px_54"
             android:layout_gravity="center_vertical|right"
             android:src="@mipmap/icon_full" />
     </FrameLayout>

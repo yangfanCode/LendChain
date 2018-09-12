@@ -14,10 +14,10 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_45"
+            android:layout_height="@dimen/qb_px_45"
             android:background="@color/color_F5F5F5"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <TextView
                 android:id="@+id/invest_record_tvNickNameText"
@@ -30,7 +30,7 @@
             <TextView
                 android:id="@+id/invest_record_tvAddAmount"
                 style="@style/text595959_12"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/qb_px_80"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
@@ -40,7 +40,7 @@
             <TextView
                 android:id="@+id/invest_record_tvMortgageAmount"
                 style="@style/text595959_12"
-                android:layout_width="80dp"
+                android:layout_width="@dimen/qb_px_80"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:gravity="center"

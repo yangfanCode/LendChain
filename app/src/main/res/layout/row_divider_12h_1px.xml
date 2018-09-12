@@ -2,5 +2,5 @@
 <View xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/v_row_divider"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/padding_12"
+    android:layout_height="@dimen/qb_px_12"
     android:background="@drawable/bg_divider_border_1px" />

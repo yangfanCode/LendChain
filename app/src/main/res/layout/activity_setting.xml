@@ -21,13 +21,13 @@
         style="@style/CustomFormBaseStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:fnBottomPadding="@dimen/padding_18"
+        app:fnBottomPadding="@dimen/qb_px_18"
         app:fnIndicatorResId="@mipmap/icon_jiantou_right"
         app:fnIndicatorVisible="true"
         app:fnTitle="@string/update_pwd"
         app:fnTitleTextColor="@color/color_262626"
         app:fnTitleTextSize="14"
-        app:fnTopPadding="@dimen/padding_18" />
+        app:fnTopPadding="@dimen/qb_px_18" />
 
     <include layout="@layout/row_divider_12h" />
     <com.yangfan.widget.FormNormal
@@ -35,20 +35,20 @@
         style="@style/CustomFormBaseStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:fnBottomPadding="@dimen/padding_18"
+        app:fnBottomPadding="@dimen/qb_px_18"
         app:fnIndicatorResId="@mipmap/icon_jiantou_right"
         app:fnIndicatorVisible="true"
         app:fnTitle="@string/language"
         app:fnTitleTextColor="@color/color_262626"
         app:fnTitleTextSize="14"
-        app:fnTopPadding="@dimen/padding_18" />
+        app:fnTopPadding="@dimen/qb_px_18" />
 
     <include layout="@layout/row_divider_12h" />
 
     <TextView
         android:id="@+id/setting_tvLoginOut"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_50"
+        android:layout_height="@dimen/qb_px_50"
         style="@style/text509FFF_16"
         android:text="@string/login_out"
         android:gravity="center"

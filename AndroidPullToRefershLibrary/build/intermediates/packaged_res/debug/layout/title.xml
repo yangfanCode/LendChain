@@ -7,7 +7,7 @@
         android:paddingLeft="4dp"
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="@dimen/qb_px_30">
         <TextView
             android:id="@+id/title_text"
             android:layout_width="wrap_content"

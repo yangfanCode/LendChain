@@ -6,7 +6,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,7 +39,7 @@ public class WithDrawActivity extends BaseActivity {
     @BindView(R.id.withdraw_etMemo)
     EditText etMemo;
     @BindView(R.id.withdraw_btnConfirm)
-    Button btnConfirm;
+    TextView btnConfirm;
     @BindView(R.id.withdraw_tvPoundage)
     TextView tvPoundage;
     @BindView(R.id.withdraw_tvRealMoney)

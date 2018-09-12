@@ -66,6 +66,7 @@ public class MyApplication extends Application {
 		ContextHelper.initWithApplication(this);
 		SPUtil.initWithApplication(this);
 		FrescoUtils.initialize(this);
+//		AutoSizeConfig.getInstance().setBaseOnWidth(false);
 		UMConfigure.init(this, "5b8f748ab27b0a6597000155","",UMConfigure.DEVICE_TYPE_PHONE, "");//友盟初始化
 		UMConfigure.setLogEnabled(true);
 		// isEnable: false-关闭错误统计功能；true-打开错误统计功能（默认打开）

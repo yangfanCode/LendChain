@@ -32,13 +32,13 @@
                 android:id="@+id/my_loan_summary_fnCodeStatus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fnBottomPadding="@dimen/padding_18"
+                app:fnBottomPadding="@dimen/qb_px_18"
                 app:fnIndicatorVisible="false"
                 app:fnTextColor="@color/color_509FFF"
                 app:fnTextSize="16"
                 app:fnTitleTextColor="@color/color_262626"
                 app:fnTitleTextSize="16"
-                app:fnTopPadding="@dimen/padding_18" />
+                app:fnTopPadding="@dimen/qb_px_18" />
 
             <include layout="@layout/row_divider_12h" />
 
@@ -46,120 +46,120 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/padding_17"
-                android:paddingTop="@dimen/padding_10">
+                android:paddingBottom="@dimen/qb_px_17"
+                android:paddingTop="@dimen/qb_px_10">
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnLoanAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/BorrowAmount"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnInterst"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/interest"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnDeadLine"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/deadLine"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnSendTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/send_time"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnFulledStandard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/fulled_standard"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnRepayTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/repay_time"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnMortage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/mortgage_thing"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
 
                 <com.yangfan.widget.FormNormal
                     android:id="@+id/my_loan_summary_fnRaisePercent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:fnBottomPadding="@dimen/padding_7"
+                    app:fnBottomPadding="@dimen/qb_px_7"
                     app:fnIndicatorVisible="false"
                     app:fnTextColor="@color/color_262626"
                     app:fnTextSize="14"
                     app:fnTitle="@string/raise_percent"
                     app:fnTitleTextColor="@color/color_999999"
                     app:fnTitleTextSize="14"
-                    app:fnTopPadding="@dimen/padding_7" />
+                    app:fnTopPadding="@dimen/qb_px_7" />
                 <TextView
                     android:id="@+id/my_loan_summary_tvGotoSummary"
-                    android:layout_marginTop="@dimen/padding_10"
-                    android:paddingTop="@dimen/padding_2"
-                    android:paddingLeft="@dimen/padding_2"
-                    android:paddingBottom="@dimen/padding_2"
+                    android:layout_marginTop="@dimen/qb_px_10"
+                    android:paddingTop="@dimen/qb_px_2"
+                    android:paddingLeft="@dimen/qb_px_2"
+                    android:paddingBottom="@dimen/qb_px_2"
                     android:layout_gravity="right"
-                    android:layout_marginRight="@dimen/padding_15"
+                    android:layout_marginRight="@dimen/qb_px_15"
                     android:text="@string/look_loan_content"
                     style="@style/text509FFF_14"/>
             </LinearLayout>
@@ -167,8 +167,8 @@
         <LinearLayout
             android:id="@+id/my_loan_summary_llBtn"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_40"
-            android:layout_marginTop="30dp"
+            android:layout_height="@dimen/qb_px_40"
+            android:layout_marginTop="@dimen/qb_px_30"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -182,7 +182,7 @@
                 <TextView
                     android:id="@+id/my_loan_summary_btnGoRepay"
                     style="@style/buttonStyle"
-                    android:layout_width="140dp"
+                    android:layout_width="@dimen/qb_px_140"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
@@ -200,7 +200,7 @@
                     android:id="@+id/my_loan_summary_btnAddMortage"
                     style="@style/buttonStyle"
                     android:textColor="@color/color_509FFF"
-                    android:layout_width="140dp"
+                    android:layout_width="@dimen/qb_px_140"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="@drawable/bg_509fff_border_radiu2"

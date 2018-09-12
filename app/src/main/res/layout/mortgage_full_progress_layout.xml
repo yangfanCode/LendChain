@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <FrameLayout
-        android:layout_marginBottom="@dimen/padding_2"
+        android:layout_marginBottom="@dimen/qb_px_2"
         android:layout_width="match_parent"
         android:layout_height="69dp">
 
@@ -18,19 +18,19 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginBottom="@dimen/divider_height_1dp"
+                android:layout_marginBottom="@dimen/qb_px_1"
                 style="@style/text509FFF_14"
                 android:text="@string/unwind_line" />
 
             <TextView
-                android:layout_marginBottom="@dimen/divider_height_1dp"
+                android:layout_marginBottom="@dimen/qb_px_1"
                 android:id="@+id/mortagage_full_tvUnWindCode"
                 style="@style/text595959_12"
                 android:textSize="@dimen/text_size_11" />
 
             <ImageView
                 android:layout_width="@dimen/padding_13"
-                android:layout_height="@dimen/padding_18"
+                android:layout_height="@dimen/qb_px_18"
                 android:src="@mipmap/icon_water" />
         </LinearLayout>
 
@@ -44,11 +44,11 @@
 
             <TextView
                 style="@style/text509FFF_14"
-                android:layout_marginBottom="@dimen/divider_height_1dp"
+                android:layout_marginBottom="@dimen/qb_px_1"
                 android:text="@string/cordon_line" />
 
             <TextView
-                android:layout_marginBottom="@dimen/divider_height_1dp"
+                android:layout_marginBottom="@dimen/qb_px_1"
                 android:id="@+id/mortagage_full_tvCordonCode"
                 style="@style/text595959_12"
                 android:text="1212121212QKC"
@@ -56,7 +56,7 @@
 
             <ImageView
                 android:layout_width="@dimen/padding_13"
-                android:layout_height="@dimen/padding_18"
+                android:layout_height="@dimen/qb_px_18"
                 android:src="@mipmap/icon_water" />
         </LinearLayout>
     </FrameLayout>
@@ -92,8 +92,8 @@
                 android:paddingRight="13px">
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -102,8 +102,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -112,8 +112,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -122,8 +122,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -132,8 +132,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -142,8 +142,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -152,8 +152,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -162,8 +162,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -172,8 +172,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -182,8 +182,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
                 <!--格子-->
                 <View
@@ -192,8 +192,8 @@
                     android:layout_weight="1" />
                 <!--线-->
                 <View
-                    android:layout_width="@dimen/divider_height_1dp"
-                    android:layout_height="@dimen/padding_6"
+                    android:layout_width="@dimen/qb_px_1"
+                    android:layout_height="@dimen/qb_px_6"
                     android:background="@color/white" />
             </LinearLayout>
         </FrameLayout>

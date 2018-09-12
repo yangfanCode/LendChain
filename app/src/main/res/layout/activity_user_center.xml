@@ -29,17 +29,17 @@
                 app:btbBackground="@drawable/bg_4885ff_gradient_509fff" />
 
             <com.facebook.drawee.view.SimpleDraweeView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="@dimen/padding_15"
+                android:layout_width="@dimen/qb_px_80"
+                android:layout_height="@dimen/qb_px_80"
+                android:layout_marginTop="@dimen/qb_px_15"
                 app:placeholderImage="@mipmap/icon_mine_logo"
                 app:roundAsCircle="true" />
 
             <TextView
                 android:id="@+id/user_center_tvUserName"
-                android:layout_marginBottom="@dimen/padding_29"
+                android:layout_marginBottom="@dimen/qb_px_29"
                 style="@style/textFFFFFF_16"
-                android:layout_marginTop="@dimen/padding_15" />
+                android:layout_marginTop="@dimen/qb_px_15" />
         </LinearLayout>
 
         <include layout="@layout/row_divider_12h" />
@@ -49,14 +49,14 @@
             style="@style/FormNormalBaseStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:fnBottomPadding="@dimen/padding_18"
+            app:fnBottomPadding="@dimen/qb_px_18"
             app:fnIndicatorVisible="false"
             app:fnTextColor="@color/color_595959"
             app:fnTextSize="16"
             app:fnTitle="@string/phone"
             app:fnTitleTextColor="@color/color_999999"
             app:fnTitleTextSize="16"
-            app:fnTopPadding="@dimen/padding_18" />
+            app:fnTopPadding="@dimen/qb_px_18" />
 
         <include layout="@layout/row_divider" />
 
@@ -65,13 +65,13 @@
             style="@style/FormNormalBaseStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:fnBottomPadding="@dimen/padding_18"
+            app:fnBottomPadding="@dimen/qb_px_18"
             app:fnIndicatorVisible="false"
             app:fnTextColor="@color/color_595959"
             app:fnTextSize="16"
             app:fnTitle="@string/nike_name"
             app:fnTitleTextColor="@color/color_999999"
             app:fnTitleTextSize="16"
-            app:fnTopPadding="@dimen/padding_18" />
+            app:fnTopPadding="@dimen/qb_px_18" />
     </LinearLayout>
 </LinearLayout>

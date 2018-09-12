@@ -52,7 +52,7 @@
 
     <style name="CustomBannerView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">150dp</item>
+        <item name="android:layout_height">@dimen/qb_px_150</item>
         <item name="android:background">@color/white</item>
         <item name="autoPlayDuration">4000</item>
         <item name="errorHolder">@drawable/icon_error_rectangle</item>

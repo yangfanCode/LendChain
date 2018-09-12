@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/tip_iv"
-    android:layout_width="110dp"
-    android:layout_height="56dp"
+    android:layout_width="@dimen/qb_px_110"
+    android:layout_height="@dimen/qb_px_56"
     android:background="@mipmap/icon_pwd_tip" />

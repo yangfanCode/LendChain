@@ -9,7 +9,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp">
+        android:layout_height="@dimen/qb_px_56">
 
         <TextView
             style="@style/text509FFF_16"
@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/dialog_loan_requirement_ivClose"
-            android:layout_width="@dimen/padding_18"
-            android:layout_height="@dimen/padding_18"
+            android:layout_width="@dimen/qb_px_18"
+            android:layout_height="@dimen/qb_px_18"
             android:layout_gravity="right|center_vertical"
             android:src="@mipmap/icon_cha" />
     </FrameLayout>
@@ -27,13 +27,13 @@
     <ScrollView
         android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="@dimen/qb_px_300">
 
 
         <com.lend.lendchain.widget.JustifyTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineSpacingExtra="@dimen/padding_7"
+            android:lineSpacingExtra="@dimen/qb_px_7"
             android:paddingBottom="31dp"
             android:text="@string/borrowing_requirements_tips" />
     </ScrollView>

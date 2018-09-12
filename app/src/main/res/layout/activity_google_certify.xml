@@ -17,7 +17,7 @@
     <TextView
         style="@style/text509FFF_12"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_40"
+        android:layout_height="@dimen/qb_px_40"
         android:textSize="@dimen/text_size_11"
         android:background="@color/color_EBF4FF"
         android:gravity="center"
@@ -26,36 +26,36 @@
     <include layout="@layout/row_divider_12h" />
 
     <TextView
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
         android:text="@string/google_qrcode_key"
         style="@style/text999999_14"
         android:background="@color/white"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="44dp" />
+        android:layout_height="@dimen/qb_px_44" />
     <FrameLayout
         android:background="@color/white"
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
-        android:paddingBottom="@dimen/padding_10"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
+        android:paddingBottom="@dimen/qb_px_10"
         android:layout_width="match_parent"
-        android:layout_height="95dp">
+        android:layout_height="@dimen/qb_px_95">
         <ImageView
             android:id="@+id/google_certify_ivQRCode"
             android:background="@color/color_999999"
-            android:layout_width="85dp"
+            android:layout_width="@dimen/qb_px_85"
             android:scaleType="fitXY"
-            android:layout_height="85dp" />
+            android:layout_height="@dimen/qb_px_85" />
         <TextView
-            android:layout_marginLeft="@dimen/padding_26"
+            android:layout_marginLeft="@dimen/qb_px_26"
             android:layout_gravity="center"
             android:id="@+id/google_certify_tvSecret"
             style="@style/text262626_16" />
         <TextView
             android:id="@+id/google_certify_tvCopy"
-            android:layout_marginRight="@dimen/padding_10"
-            android:padding="@dimen/padding_10"
+            android:layout_marginRight="@dimen/qb_px_10"
+            android:padding="@dimen/qb_px_10"
             android:layout_gravity="center_vertical|right"
             android:text="@string/copy"
             style="@style/text509FFF_14"/>
@@ -65,10 +65,10 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_50"
+        android:layout_height="@dimen/qb_px_50"
         android:background="@color/white"
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15">
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15">
 
         <TextView
             android:layout_width="0dp"
@@ -81,7 +81,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:id="@+id/google_certify_etSmsCode"
-            android:layout_height="@dimen/padding_15"
+            android:layout_height="@dimen/qb_px_15"
             android:layout_gravity="center"
             android:background="@null"
             android:hint="@string/please_input_smscode"
@@ -103,11 +103,11 @@
     <include layout="@layout/row_divider_1px" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_50"
+        android:layout_height="@dimen/qb_px_50"
         android:background="@color/white"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15">
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15">
 
         <TextView
             android:layout_width="0dp"
@@ -133,18 +133,18 @@
         android:id="@+id/google_certify_btnConfirm"
         style="@style/buttonStyle"
         android:layout_width="match_parent"
-        android:layout_marginLeft="@dimen/padding_15"
-        android:layout_marginRight="@dimen/padding_15"
-        android:layout_height="44dp"
+        android:layout_marginLeft="@dimen/qb_px_15"
+        android:layout_marginRight="@dimen/qb_px_15"
+        android:layout_height="@dimen/qb_px_44"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/padding_30"
+        android:layout_marginTop="@dimen/qb_px_30"
         android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
         android:gravity="center"
         android:text="@string/confirm" />
     <TextView
-        android:paddingLeft="@dimen/padding_15"
-        android:paddingRight="@dimen/padding_15"
-        android:layout_marginTop="@dimen/padding_15"
+        android:paddingLeft="@dimen/qb_px_15"
+        android:paddingRight="@dimen/qb_px_15"
+        android:layout_marginTop="@dimen/qb_px_15"
         android:text="@string/google_certify_tips"
         style="@style/text999999_12" />
 </LinearLayout>

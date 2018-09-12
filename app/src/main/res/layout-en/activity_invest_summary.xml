@@ -17,7 +17,7 @@
         style="@style/buttonStyle"
         android:id="@+id/invest_summary_btnConfirm"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_50"
+        android:layout_height="@dimen/qb_px_50"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_button_enable_selector"
         android:text="@string/invest_confirm" />
@@ -51,7 +51,7 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginBottom="@dimen/padding_19"
+                                android:layout_marginBottom="@dimen/qb_px_19"
                                 android:orientation="horizontal">
 
                                 <TextView
@@ -84,7 +84,7 @@
                                 <TextView
                                     android:id="@+id/invest_summary_tvPeriod"
                                     style="@style/textFFFFFF_12"
-                                    android:layout_marginBottom="@dimen/padding_5" />
+                                    android:layout_marginBottom="@dimen/qb_px_5" />
 
                                 <TextView
                                     style="@style/textFFFFFF_12"
@@ -93,8 +93,8 @@
 
                             <include
                                 layout="@layout/row_divider_v"
-                                android:layout_width="@dimen/divider_height_1dp"
-                                android:layout_height="@dimen/padding_20"
+                                android:layout_width="@dimen/qb_px_1"
+                                android:layout_height="@dimen/qb_px_20"
                                 android:layout_gravity="center_vertical" />
 
                             <LinearLayout
@@ -107,7 +107,7 @@
                                 <TextView
                                     android:id="@+id/invest_summary_tvBorrowAmount"
                                     style="@style/textFFFFFF_12"
-                                    android:layout_marginBottom="@dimen/padding_5" />
+                                    android:layout_marginBottom="@dimen/qb_px_5" />
 
                                 <TextView
                                     style="@style/textFFFFFF_12"
@@ -117,8 +117,8 @@
                             <include
                                 android:id="@+id/invest_summary_viewDivider3"
                                 layout="@layout/row_divider_v"
-                                android:layout_width="@dimen/divider_height_1dp"
-                                android:layout_height="@dimen/padding_20"
+                                android:layout_width="@dimen/qb_px_1"
+                                android:layout_height="@dimen/qb_px_20"
                                 android:layout_gravity="center_vertical" />
 
                             <LinearLayout
@@ -132,7 +132,7 @@
                                 <TextView
                                     android:id="@+id/invest_summary_tvMortgageAsset"
                                     style="@style/textFFFFFF_12"
-                                    android:layout_marginBottom="@dimen/padding_5" />
+                                    android:layout_marginBottom="@dimen/qb_px_5" />
 
                                 <TextView
                                     android:id="@+id/invest_summary_tvBorrowAmountText"
@@ -149,7 +149,7 @@
                         style="@style/text509FFF_14"
                         android:gravity="center"
                         android:background="@color/color_E5F1FF"
-                        android:layout_height="@dimen/padding_40" />
+                        android:layout_height="@dimen/qb_px_40" />
                     <include layout="@layout/row_divider_12h" />
                     <!--未满标的进度条布局-->
                     <LinearLayout
@@ -158,8 +158,8 @@
                         android:layout_height="105dp"
                         android:background="@color/white"
                         android:orientation="vertical"
-                        android:paddingLeft="@dimen/padding_15"
-                        android:paddingRight="@dimen/padding_15">
+                        android:paddingLeft="@dimen/qb_px_15"
+                        android:paddingRight="@dimen/qb_px_15">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -173,7 +173,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/qb_px_15"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
                             <!--从左开始的进度条-->
@@ -192,8 +192,8 @@
                                 android:id="@+id/item_invest_tvPercent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/padding_3"
-                                android:layout_marginRight="@dimen/padding_3"
+                                android:layout_marginLeft="@dimen/qb_px_3"
+                                android:layout_marginRight="@dimen/qb_px_3"
                                 android:gravity="center"
                                 android:textColor="@color/color_262626"
                                 android:textSize="@dimen/text_size_12" />
@@ -206,7 +206,7 @@
 
                             <TextView
                                 style="@style/text999999_12"
-                                android:layout_marginRight="@dimen/padding_5"
+                                android:layout_marginRight="@dimen/qb_px_5"
                                 android:text="@string/invest_lave" />
 
                             <TextView
@@ -228,8 +228,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:paddingLeft="@dimen/padding_15"
-                        android:paddingRight="@dimen/padding_15">
+                        android:paddingLeft="@dimen/qb_px_15"
+                        android:paddingRight="@dimen/qb_px_15">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -247,16 +247,16 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
+                                android:layout_width="@dimen/qb_px_150"
                                 style="@style/text999999_14"
-                                android:layout_marginRight="@dimen/padding_15"
+                                android:layout_marginRight="@dimen/qb_px_15"
                                 android:text="@string/start_time" />
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
                                 android:id="@+id/invest_summary_tvStartTime"
                                 style="@style/text595959_12" />
                         </LinearLayout>
@@ -267,16 +267,16 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
+                                android:layout_width="@dimen/qb_px_150"
                                 style="@style/text999999_14"
-                                android:layout_marginRight="@dimen/padding_15"
+                                android:layout_marginRight="@dimen/qb_px_15"
                                 android:text="@string/calc_way" />
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
                                 android:gravity="left"
                                 android:text="@string/calc_way_msg"
                                 android:id="@+id/invest_summary_tvCalcWay"
@@ -289,16 +289,16 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
+                                android:layout_width="@dimen/qb_px_150"
                                 style="@style/text999999_14"
-                                android:layout_marginRight="@dimen/padding_15"
+                                android:layout_marginRight="@dimen/qb_px_15"
                                 android:text="@string/repay_way" />
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
                                 android:gravity="left"
                                 android:id="@+id/invest_summary_tvRepayWay"
                                 android:text="@string/repay_way_msg"
@@ -311,16 +311,16 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
-                                android:layout_width="150dp"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
+                                android:layout_width="@dimen/qb_px_150"
                                 style="@style/text999999_14"
-                                android:layout_marginRight="@dimen/padding_15"
+                                android:layout_marginRight="@dimen/qb_px_15"
                                 android:text="@string/purchase_funds" />
 
                             <TextView
-                                android:paddingTop="@dimen/padding_8"
-                                android:paddingBottom="@dimen/padding_8"
+                                android:paddingTop="@dimen/qb_px_8"
+                                android:paddingBottom="@dimen/qb_px_8"
                                 android:id="@+id/invest_summary_tvPurchaseFunds"
                                 style="@style/text595959_12" />
                         </LinearLayout>

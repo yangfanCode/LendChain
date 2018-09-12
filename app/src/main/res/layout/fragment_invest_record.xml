@@ -13,10 +13,10 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/padding_45"
+            android:layout_height="@dimen/qb_px_45"
             android:background="@color/color_F5F5F5"
-            android:paddingLeft="@dimen/padding_15"
-            android:paddingRight="@dimen/padding_15">
+            android:paddingLeft="@dimen/qb_px_15"
+            android:paddingRight="@dimen/qb_px_15">
 
             <TextView
                 android:id="@+id/invest_record_tvNickNameText"
