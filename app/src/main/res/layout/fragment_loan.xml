@@ -109,6 +109,7 @@
                         <com.yangfan.widget.DecimalDigitsEditText
                             android:id="@+id/loan_etMortgageCount"
                             style="@style/text262626_16"
+                            android:textSize="@dimen/text_size_14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|right"
@@ -152,6 +153,7 @@
                             android:focusable="false"
                             android:gravity="right"
                             android:hint="@string/please_input_loan_count"
+                            android:textSize="@dimen/text_size_14"
                             android:inputType="numberDecimal"
                             android:maxLength="15"
                             android:maxLines="1"
@@ -286,7 +288,7 @@
                         android:layout_marginBottom="@dimen/qb_px_20"
                         android:layout_marginLeft="@dimen/qb_px_15"
                         android:layout_marginRight="@dimen/qb_px_15"
-                        android:layout_marginTop="@dimen/qb_px_30"
+                        android:layout_marginTop="@dimen/qb_px_15"
                         android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
                         android:text="@string/loan_confirm" />
                 </LinearLayout>

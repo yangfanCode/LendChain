@@ -30,6 +30,7 @@
     <color name="text_hint_color">#999999</color>
     <color name="colorWhite">#ffffff</color>
     <color name="xc_group_divider">#E6E6E6</color>
+    <color name="xc_group_divider_75_persent">#7fE6E6E6</color>
     <color name="xc_group_divider1">#EFEFEF</color>
     <color name="color_454545">#454545</color>
     <color name="color_ff6960">#FF6960</color>

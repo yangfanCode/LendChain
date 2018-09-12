@@ -452,6 +452,7 @@ public class LoanFragment extends BaseFragment {
                 builder.setContentView(view);
                 builder.setScreenRatioX(0.9);
                 dialogLoan=builder.create();
+                builder.setDialogBackGround(R.drawable.bg_white_radiu5);
             }
             dialogLoan.show();
         });

@@ -14,12 +14,14 @@
         <LinearLayout
             android:id="@+id/recharge_ll"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_112"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/white"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingLeft="@dimen/qb_px_15"
+            android:paddingTop="@dimen/qb_px_16"
+            android:paddingBottom="@dimen/qb_px_14"
             android:paddingRight="@dimen/qb_px_15">
 
             <TextView
@@ -27,8 +29,7 @@
                 style="@style/buttonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_44"
-                android:layout_marginBottom="@dimen/qb_px_15"
-                android:layout_marginTop="@dimen/qb_px_21"
+                android:layout_marginBottom="@dimen/qb_px_21"
                 android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
                 android:text="@string/recharge_speedup" />
 

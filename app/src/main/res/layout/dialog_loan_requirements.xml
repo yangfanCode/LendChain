@@ -27,7 +27,7 @@
     <ScrollView
         android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/qb_px_300">
+        android:layout_height="@dimen/qb_px_468">
 
 
         <com.lend.lendchain.widget.JustifyTextView

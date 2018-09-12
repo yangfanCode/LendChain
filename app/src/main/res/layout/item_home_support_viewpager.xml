@@ -53,14 +53,15 @@
                     android:layout_height="@dimen/qb_px_111">
                     <!--进度条-->
                     <com.lend.lendchain.widget.CircleProgressBar
+                        android:layout_gravity="center"
                         android:id="@+id/item_home_progressBar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:circleColor="@color/white"
-                        app:radius="47dp"
+                        app:radius="@dimen/qb_px_48"
                         app:ringBgColor="@color/color_CAE2FF"
                         app:ringColor="@color/color_509FFF"
-                        app:strokeWidth="@dimen/qb_px_8" />
+                        app:strokeWidth="@dimen/qb_px_7" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
