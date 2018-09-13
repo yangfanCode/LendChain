@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 /**
  * Created by yangfan
  * nrainyseason@163.com
- * TextView参差不齐
+ * TextView参差不齐 html文字无效
  */
 public class JustifyTextView extends android.support.v7.widget.AppCompatTextView {
     private int mLineY;

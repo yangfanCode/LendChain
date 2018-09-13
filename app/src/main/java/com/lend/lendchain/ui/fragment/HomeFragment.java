@@ -393,6 +393,8 @@ public class HomeFragment extends BaseFragment {
         if (!rxSubscription.isUnsubscribed()) {
             rxSubscription.unsubscribe();
         }
+        //结束轮播
+        banner.stopAutoPlay();
     }
 
     @Override
@@ -405,6 +407,8 @@ public class HomeFragment extends BaseFragment {
         if (rxSubscription==null||rxSubscription.isUnsubscribed()) {
             getRxBus();
         }
+        //开始轮播
+        banner.startAutoPlay();
     }
     //友盟页面统计混乱修复
 //    @Override
