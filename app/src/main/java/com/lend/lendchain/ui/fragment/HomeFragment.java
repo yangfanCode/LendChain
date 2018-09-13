@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.adapter.HomeMarketAdapter;
-import com.lend.lendchain.bean.Banner;
+import com.lend.lendchain.bean.BannerModel;
 import com.lend.lendchain.bean.HomeMarket;
 import com.lend.lendchain.bean.HomeMarketKLine;
 import com.lend.lendchain.bean.HomeSupport;
@@ -49,8 +49,11 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.RefreshState;
 import com.scwang.smartrefresh.layout.listener.OnMultiPurposeListener;
-import com.yangfan.widget.CustomBannerView;
+import com.yangfan.widget.CustomGlideImageLoader;
 import com.yangfan.widget.CustomViewPager;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,8 +75,8 @@ public class HomeFragment extends BaseFragment {
     private String tag="HomeFragment";
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
-    @BindView(R.id.bannerView)
-    CustomBannerView bannerView;
+    @BindView(R.id.banner)
+    Banner banner;
     @BindView(R.id.home_content_vp)
     CustomViewPager customViewPager;
     @BindView(R.id.scrollView)
@@ -87,7 +90,7 @@ public class HomeFragment extends BaseFragment {
     private HomeMarketAdapter adapter;
     private double rateRMBDollar;
     private Subscription rxSubscription;
-    private List<Banner.Detail> bannerData;
+    private List<BannerModel.Detail> bannerData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,6 +118,10 @@ public class HomeFragment extends BaseFragment {
         adapter = new HomeMarketAdapter(getActivity());
         lvQuetes.setAdapter(adapter);
         bannerData = new ArrayList<>();
+        banner.setImageLoader(new CustomGlideImageLoader());
+        //设置banner动画效果
+        banner.setBannerAnimation(Transformer.Default);
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
 //        getRxBus();
     }
 
@@ -262,7 +269,7 @@ public class HomeFragment extends BaseFragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
-        bannerView.setOnBannerItemClickListener(i -> {//banner点击
+        banner.setOnBannerListener(i -> {
             //不需要登录 或者需要登录并且已经登陆的 否则跳转登录
             boolean isNeedLogin = bannerData.get(i).isNeedLogin();
             if (!isNeedLogin || (isNeedLogin && CommonUtil.isLoginElseGotoLogin(getActivity()))) {
@@ -296,24 +303,24 @@ public class HomeFragment extends BaseFragment {
     }
 
     //banner
-    Observer<Banner> bannerObserver = new NetClient.RxObserver<Banner>() {
+    Observer<BannerModel> bannerObserver = new NetClient.RxObserver<BannerModel>() {
         @Override
-        public void onSuccess(Banner banner) {
-            if (banner == null) return;
+        public void onSuccess(BannerModel bannerModel) {
+            if (bannerModel == null) return;
             bannerData.clear();
             if (LanguageUtils.SIMPLIFIED_CHINESE.equals(LanguageUtils.getUserLanguageSetting())) {//简体中文
-                bannerData.addAll(banner.data.cn);
+                bannerData.addAll(bannerModel.data.cn);
             } else if (LanguageUtils.KOREAN.equals(LanguageUtils.getUserLanguageSetting())) {//韩文
-                bannerData.addAll(banner.data.ko);
+                bannerData.addAll(bannerModel.data.ko);
             } else {//英文
-                bannerData.addAll(banner.data.en);
+                bannerData.addAll(bannerModel.data.en);
             }
             List<String> img_data = new ArrayList<>();
             for (int i = 0, size = bannerData.size(); i < size; i++) {
                 img_data.add(bannerData.get(i).url);
             }
-            bannerView.setViewUrls(img_data);
-            bannerView.startAutoPlay();//开启轮播
+            banner.setImages(img_data);
+            banner.start();//开启轮播
         }
     };
     //首页推荐

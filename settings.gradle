@@ -1,1 +1,1 @@
-include ':app', ':AndroidPullToRefershLibrary', ':pickerview'
+include ':app', ':pickerview'

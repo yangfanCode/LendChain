@@ -7,20 +7,20 @@
     tools:context="com.lend.lendchain.ui.fragment.HomeFragment">
 
     <com.lend.lendchain.widget.ScrollChangeView
-        android:overScrollMode="never"
-        android:scrollbars="none"
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.yangfan.widget.CustomBannerView
-                android:id="@+id/bannerView"
-                style="@style/CustomBannerView"
+            <com.youth.banner.Banner
+                style="@style/Banner"
+                android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_210" />
 
@@ -34,13 +34,13 @@
                 <!--android:clipChildren="false"-->
                 <com.yangfan.widget.CustomViewPager
                     android:id="@+id/home_content_vp"
-                    android:clipChildren="false"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/qb_px_350"
+                    android:layout_marginBottom="@dimen/qb_px_5"
                     android:layout_marginLeft="@dimen/qb_px_50"
                     android:layout_marginRight="@dimen/qb_px_50"
-                    android:layout_marginBottom="@dimen/qb_px_5"
-                    android:layout_marginTop="@dimen/qb_px_3" />
+                    android:layout_marginTop="@dimen/qb_px_3"
+                    android:clipChildren="false" />
                 <!--小白点控制器-->
                 <LinearLayout
                     android:id="@+id/home_llController"

@@ -38,7 +38,6 @@ import com.lend.lendchain.widget.KeyBoardInputPopWindow;
 import com.lend.lendchain.widget.MortgageFullProgressView;
 import com.lend.lendchain.widget.PayNeedReChargePopWindow;
 import com.lend.lendchain.widget.TipsToast;
-import com.umeng.analytics.MobclickAgent;
 import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
@@ -135,13 +134,13 @@ public class InvestSummaryActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        MobclickAgent.onPageStart("InvestSummaryActivity");
+//        MobclickAgent.onPageStart("InvestSummaryActivity");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        MobclickAgent.onPageEnd("InvestSummaryActivity");
+//        MobclickAgent.onPageEnd("InvestSummaryActivity");
     }
 
     private void initListener() {

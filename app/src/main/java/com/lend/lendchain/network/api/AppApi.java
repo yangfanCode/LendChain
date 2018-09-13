@@ -1,7 +1,7 @@
 package com.lend.lendchain.network.api;
 
 
-import com.lend.lendchain.bean.Banner;
+import com.lend.lendchain.bean.BannerModel;
 import com.lend.lendchain.bean.CoinList;
 import com.lend.lendchain.bean.HomeMarket;
 import com.lend.lendchain.bean.HomeMarketKLine;
@@ -48,7 +48,7 @@ public interface AppApi {
      * @return
      */
     @GET(NetConst.BANNER)
-    Observable<Banner> banner();
+    Observable<BannerModel> banner();
 
     /**
      * 首页推荐

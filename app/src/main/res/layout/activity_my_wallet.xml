@@ -17,6 +17,7 @@
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
+        android:background="@drawable/bg_4885ff_gradient_509fff"
         android:layout_height="match_parent">
 
         <FrameLayout

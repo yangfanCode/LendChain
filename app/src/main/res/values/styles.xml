@@ -74,6 +74,17 @@
         <item name="unSelectedIndicatorStrokeColor">@color/white</item>
         <item name="cornerRadii">5dp</item>
     </style>
+    <!--Banner style-->
+    <style name="Banner">
+        <item name="delay_time">4000</item>
+        <item name="is_auto_play">true</item>
+        <item name="indicator_width">@dimen/qb_px_8</item>
+        <item name="indicator_height">@dimen/qb_px_8</item>
+        <item name="indicator_margin">@dimen/qb_px_4</item>
+        <item name="image_scale_type">center_crop</item>
+        <item name="indicator_drawable_selected">@drawable/banner_indicator_select</item>
+        <item name="indicator_drawable_unselected">@drawable/banner_indicator_unselect</item>
+    </style>
     <!--title 字体大小14  padding 12 20 12 20dp-->
     <style name="CustomFormBaseStyle" parent="FormNormalBaseStyle">
         <item name="fnTitleTextColor">@color/color_333333</item>

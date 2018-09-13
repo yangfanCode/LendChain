@@ -23,7 +23,7 @@ public class APPCommonNavigatorAdapter extends CommonNavigatorAdapter {
     //默认属性
     private final int DEFAULT_NOMAL_COLOR=ColorUtils.COLOR_999999;//默认正常颜色
     private final int DEFAULT_SELECT_COLOR=ColorUtils.COLOR_509FFF;//默认选中颜色
-    private final int DEFAULT_TEXT_SIZE=14;//默认字号14sp
+    private final int DEFAULT_TEXT_SIZE=14;//默认字号14sp textview默认14sp
     private List<CharSequence> mTitleDataList;
     private ViewPager viewPager;
     private ColorTransitionPagerTitleView colorTransitionPagerTitleView;
@@ -59,7 +59,7 @@ public class APPCommonNavigatorAdapter extends CommonNavigatorAdapter {
             colorTransitionPagerTitleView.setNormalColor(this.colorTransitionPagerTitleView.getNormalColor()==0?DEFAULT_NOMAL_COLOR:this.colorTransitionPagerTitleView.getNormalColor());
             colorTransitionPagerTitleView.setSelectedColor(this.colorTransitionPagerTitleView.getSelectedColor()==0?DEFAULT_SELECT_COLOR:this.colorTransitionPagerTitleView.getSelectedColor());
             //getTextSize 单位px 转sp
-            colorTransitionPagerTitleView.setTextSize(this.colorTransitionPagerTitleView.getTextSize()==DisplayUtil.sp2px(context,DEFAULT_TEXT_SIZE)?DEFAULT_TEXT_SIZE:DisplayUtil.px2sp(context,this.colorTransitionPagerTitleView.getTextSize()));
+            colorTransitionPagerTitleView.setTextSize((int)this.colorTransitionPagerTitleView.getTextSize()==DisplayUtil.sp2px(context,DEFAULT_TEXT_SIZE)?DEFAULT_TEXT_SIZE:DisplayUtil.px2sp(context,this.colorTransitionPagerTitleView.getTextSize()));
             colorTransitionPagerTitleView.setText(mTitleDataList.get(index));
             colorTransitionPagerTitleView.setOnClickListener(view -> viewPager.setCurrentItem(index));
             return colorTransitionPagerTitleView;

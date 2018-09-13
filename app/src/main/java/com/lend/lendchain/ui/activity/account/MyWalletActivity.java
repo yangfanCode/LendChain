@@ -21,6 +21,7 @@ import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,6 +52,8 @@ public class MyWalletActivity extends BaseActivity {
         StatusBarUtil.StatusBarDarkMode(MyWalletActivity.this);//状态栏图标白色
         int height = CommonUtil.getStatusBarHeight();//获取状态栏高度 设置padding
         baseTitleBar.setPadding(0, height, 0, 0);//设置是状态栏渐变色
+        //设置 我的钱包页面 沉浸式刷新
+        refreshLayout.setRefreshHeader(new ClassicsHeader(this).setAccentColor(ColorUtils.WHITE).setFinishDuration(0).setTextTimeMarginTop(3f));
     }
 
     @Override
