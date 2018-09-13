@@ -126,8 +126,8 @@ public class MineFragment extends BaseFragment {
 //            onVisibilityChangedToUser(true, tag);
 //        }
         //每次都刷新数据
-        if (isFirst) {
-            setRefrensh();//第一次刷新动画展示
+        if (isFirst&&SPUtil.isLogin()) {
+            setRefrensh();//第一次登录刷新动画展示
             isFirst = false;
         } else {
             initData(false);//以后没有动画
