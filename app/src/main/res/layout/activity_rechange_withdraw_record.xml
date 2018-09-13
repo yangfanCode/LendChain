@@ -13,11 +13,11 @@
         android:layout_height="wrap_content"
         app:btbBackground="@color/white" />
 
-    <com.yangfan.widget.CustomTabLayout
-        android:id="@+id/customTabLayout"
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/magicIndicator"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/qb_px_40"
-        android:background="@color/white" />
+        android:layout_height="@dimen/qb_px_40"/>
 
     <include layout="@layout/row_divider_1px" />
 

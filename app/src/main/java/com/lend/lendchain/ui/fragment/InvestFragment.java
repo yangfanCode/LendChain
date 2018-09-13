@@ -8,15 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lend.lendchain.R;
+import com.lend.lendchain.adapter.APPCommonNavigatorAdapter;
 import com.lend.lendchain.ui.fragment.invest.InvestAllFragment;
 import com.lend.lendchain.ui.fragment.invest.InvestMortGagaFragment;
 import com.lend.lendchain.ui.fragment.invest.InvestPlatFormFragment;
-import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
-import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.widget.BaseTitleBar;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
-import com.yangfan.widget.CustomTabLayout;
+
+import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.ViewPagerHelper;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,11 +27,13 @@ import butterknife.ButterKnife;
  * 投资fragment
  */
 public class InvestFragment extends BaseFragment {
-    private String tag="InvestFragment";
+    private String tag = "InvestFragment";
     @BindView(R.id.base_title_bar)
     BaseTitleBar baseTitleBar;
-    @BindView(R.id.invest_tabLayout)
-    CustomTabLayout tabLayout;
+    //    @BindView(R.id.invest_tabLayout)
+//    CustomTabLayout tabLayout;
+    @BindView(R.id.magicIndicator)
+    MagicIndicator magicIndicator;
     @BindView(R.id.invest_viewPager)
     ViewPager viewPager;
     private View parentView;
@@ -40,8 +44,8 @@ public class InvestFragment extends BaseFragment {
         if (parentView == null) {
             parentView = inflater.inflate(R.layout.fragment_invest, container,
                     false);
-            int height= CommonUtil.getStatusBarHeight();//获取状态栏高度 设置padding
-            parentView.setPadding(0,height,0,0);
+            int height = CommonUtil.getStatusBarHeight();//获取状态栏高度 设置padding
+            parentView.setPadding(0, height, 0, 0);
             initView();
             initData();
         }
@@ -55,30 +59,24 @@ public class InvestFragment extends BaseFragment {
     }
 
     private void initData() {
-        CustomFragmentPagerAdapter adapter=new CustomFragmentPagerAdapter(getChildFragmentManager());
-        adapter.addFrag(InvestAllFragment.newInstance(),getString(R.string.all));
-        adapter.addFrag(InvestPlatFormFragment.newInstance(),getString(R.string.platForm));
-        adapter.addFrag(InvestMortGagaFragment.newInstance(),getString(R.string.mortgage));
+        CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getChildFragmentManager());
+        adapter.addFrag(InvestAllFragment.newInstance(), getString(R.string.all));
+        adapter.addFrag(InvestPlatFormFragment.newInstance(), getString(R.string.platForm));
+        adapter.addFrag(InvestMortGagaFragment.newInstance(), getString(R.string.mortgage));
         viewPager.setAdapter(adapter);
-//        viewPager.setOffscreenPageLimit(3);
-        tabLayout.setupWithViewPager(viewPager);
+        viewPager.setOffscreenPageLimit(3);
+        CommonNavigator navigator=new CommonNavigator(getActivity());
+        navigator.setAdapter(new APPCommonNavigatorAdapter(adapter.getTitles(),viewPager));
+        navigator.setAdjustMode(true);
+        magicIndicator.setNavigator(navigator);
+        ViewPagerHelper.bind(magicIndicator, viewPager);
     }
 
     private void initView() {
         ButterKnife.bind(this, parentView);
         baseTitleBar.getImvLeftBack().setVisibility(View.GONE);
         baseTitleBar.setTitle(getString(R.string.invest));
-        tabLayout.setViewHeight(DisplayUtil.dp2px(getActivity(),40));//view高度
-        tabLayout.setBottomLineWidth(DisplayUtil.dp2px(getActivity(),60));//线宽度
-        tabLayout.setBottomLineHeight(DisplayUtil.dp2px(getActivity(),2));//线高度
-        tabLayout.setBottomLineHeightBgResId(R.color.color_509FFF);//线的资源可图片 可drawable
-        tabLayout.setmTextColorSelect(ColorUtils.COLOR_509FFF);
-        tabLayout.setmTextColorUnSelect(ColorUtils.COLOR_999999);
-        tabLayout.setTextSize(14);
-        int width=getResources().getDisplayMetrics().widthPixels;
-        tabLayout.setNeedEqual(true,width);
     }
-
     //每次都刷新数据
     @Override
     public void onResume() {
@@ -88,6 +86,7 @@ public class InvestFragment extends BaseFragment {
 //            onVisibilityChangedToUser(true, tag);
 //        }
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -104,7 +103,8 @@ public class InvestFragment extends BaseFragment {
 //    }
 
     @Override
-    protected void onVisible() { }
+    protected void onVisible() {
+    }
 
     @Override
     public void onDestroyView() {

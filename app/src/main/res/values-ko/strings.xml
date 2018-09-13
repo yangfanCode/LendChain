@@ -21,7 +21,7 @@
     <string name="tab_loan">대출</string>
     <string name="tab_mine">나의</string>
     <!--自定义-->
-    <string name="app_exit">다시 클릭하면 퇴출 LendChain</string>
+    <string name="app_exit">다시 클릭하여 앱 탈퇴하기</string>
     <string name="refrensh_header_finish">새로고침 완료</string>
     <string name="refrensh_header_pulling">다운 워드 새로고침</string>
     <string name="refrensh_header_refreshing">새로고침 중...</string>
@@ -264,7 +264,7 @@
     <!--SettingActivity-->
     <string name="update_pwd">비밀번호 변경</string>
     <string name="setting">설정</string>
-    <string name="login_out">로그인을 탈퇴하다</string>
+    <string name="login_out">안전하게 탈퇴하기</string>
     <string name="login_out_success">로그 아웃에서 성공하다</string>
     <string name="language">언어</string>
     <string name="chinese">简体中文</string>

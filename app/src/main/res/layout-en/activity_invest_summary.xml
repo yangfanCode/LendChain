@@ -339,11 +339,11 @@
                             android:text="@string/scroll_to_load_market" />
                     </FrameLayout>
                 </LinearLayout>
-            <com.yangfan.widget.CustomTabLayout
-                android:background="@color/white"
-                android:id="@+id/customTabLayout"
+            <net.lucode.hackware.magicindicator.MagicIndicator
                 android:layout_width="match_parent"
-                android:layout_height="40dp"/>
+                android:id="@+id/magicIndicator"
+                android:background="@color/white"
+                android:layout_height="@dimen/qb_px_40"/>
             <include layout="@layout/row_divider_1px"/>
         </android.support.design.widget.AppBarLayout>
 
