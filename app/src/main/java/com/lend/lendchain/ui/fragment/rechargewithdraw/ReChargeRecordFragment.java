@@ -148,7 +148,7 @@ public class ReChargeRecordFragment extends Fragment {
                 TipsToast.showTips(getString(R.string.please_select_coin));
                 return;
             }
-            if("ETH".equals(coin)||"QKC".equals(coin)){
+            if("ETH".equals(coin)||"QKC".equals(coin)||"DACC".equals(coin)){
                 if(hash.length()!=66||!hash.startsWith("0x")||!regexHash(hash)){
                     TipsToast.showTips(getString(R.string.hash_tips1));
                     return;

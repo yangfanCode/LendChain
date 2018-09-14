@@ -14,13 +14,21 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_height="@dimen/qb_px_60">
-
-        <TextView
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_weight="2"
-            android:id="@+id/item_home_market_tvPairName"
-            style="@style/text999999_14"
-            android:layout_gravity="center_vertical" />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/item_home_market_ivIcon"
+                android:layout_marginRight="@dimen/qb_px_10"
+                android:layout_width="@dimen/qb_px_25"
+                android:layout_height="@dimen/qb_px_25" />
+            <TextView
+                android:id="@+id/item_home_market_tvPairName"
+                style="@style/text999999_14"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="2"
@@ -103,7 +111,7 @@
             <com.lend.lendchain.widget.chart.view.HomeMarketFenshiView
                 android:layout_gravity="right"
                 android:id="@+id/item_home_market_fenshiView"
-                android:layout_width="@dimen/qb_px_100"
+                android:layout_width="@dimen/qb_px_80"
                 android:layout_height="match_parent"/>
         </LinearLayout>
     </LinearLayout>

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.MyWalletList;
 import com.lend.lendchain.bean.ViewHolder;
+import com.lend.lendchain.enums.CoinEnum;
 import com.lend.lendchain.ui.activity.account.PlatFormTranshferActivity;
 import com.lend.lendchain.ui.activity.account.RechargeActivity;
 import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
@@ -126,7 +127,8 @@ public class MyWalletAdapter extends BaseAdapter {
         TextView tvRecharge = viewHolder.getView(R.id.item_my_wallet_tvRecharge);
         TextView tvWithdraw = viewHolder.getView(R.id.item_my_wallet_tvWithdraw);
         TextView tvTransfer = viewHolder.getView(R.id.item_my_wallet_tvTransfer);
-        ivIcon.setImageResource(res.get(myWalletList.cryptoCode));
+//        ivIcon.setImageResource(res.get(myWalletList.cryptoCode));
+        ivIcon.setImageResource(CoinEnum.createWithCoinEnum(myWalletList.cryptoCode).getCoinIcon());
         tvCoinType.setText(myWalletList.cryptoCode);//币种
         tvCount.setText(DoubleUtils.doubleTransRound6(myWalletList.amount));//数量
         tvRecharge.setOnClickListener(rechargeClick);
