@@ -57,10 +57,8 @@
                 android:layout_height="@dimen/qb_px_50"
                 android:background="@color/white"
                 android:gravity="center"
-                android:text="@string/market"
-                android:textColor="@color/color_262626"
-                android:textSize="@dimen/text_size_14"
-                android:textStyle="bold" />
+                style="@style/text262626_16"
+                android:text="@string/market" />
 
             <FrameLayout
                 android:layout_width="match_parent"

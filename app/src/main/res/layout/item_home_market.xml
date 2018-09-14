@@ -13,13 +13,13 @@
         android:layout_width="match_parent"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_height="@dimen/qb_px_45">
+        android:layout_height="@dimen/qb_px_60">
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="2"
             android:id="@+id/item_home_market_tvPairName"
-            style="@style/text262626_14"
+            style="@style/text999999_14"
             android:layout_gravity="center_vertical" />
         <LinearLayout
             android:layout_width="0dp"
@@ -29,18 +29,24 @@
             <TextView
                 android:id="@+id/item_home_market_tvNewPrice"
                 style="@style/text262626_14"
-                android:layout_marginBottom="@dimen/padding_2" />
+                android:layout_marginBottom="@dimen/qb_px_8" />
             <TextView
                 android:id="@+id/item_home_market_tvNewPriceRMB"
                 style="@style/text999999_12" />
         </LinearLayout>
-
-        <TextView
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:id="@+id/item_home_market_tvNewGain"
-            style="@style/text262626_14"
-            android:gravity="right"/>
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="center_vertical|right"
+                android:layout_width="@dimen/qb_px_60"
+                android:layout_height="@dimen/qb_px_27"
+                android:id="@+id/item_home_market_tvNewGain"
+                style="@style/textFFFFFF_12"
+                android:gravity="center"/>
+        </FrameLayout>
+
     </LinearLayout>
     <!--隐藏布局 kLine-->
     <LinearLayout
@@ -67,7 +73,7 @@
                 android:gravity="center"
                 android:layout_height="match_parent"
                 android:id="@+id/item_home_market_tvHighest24h"
-                style="@style/text595959_12" />
+                style="@style/text262626_12" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -82,7 +88,7 @@
                 android:gravity="center"
                 android:layout_height="match_parent"
                 android:id="@+id/item_home_market_tvLowest24h"
-                style="@style/text595959_12" />
+                style="@style/text262626_12" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"

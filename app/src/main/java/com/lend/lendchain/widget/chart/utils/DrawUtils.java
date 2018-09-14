@@ -172,10 +172,13 @@ public class DrawUtils {
     }
 
     public static void drawPriceShader(Canvas canvas, float[] prices, float xUnit, float height, float max, float min) {
-        drawPriceShader(canvas, prices, xUnit, height, max, min, 0);
+        drawPriceShader(canvas, prices, xUnit, height, max, min, 0,ColorUtil.COLOR_SHADOW_START,ColorUtil.COLOR_SHADOW_END);
+    }
+    public static void drawHomeMarketPriceShader(Canvas canvas, float[] prices, float xUnit, float height, float max, float min) {
+        drawPriceShader(canvas, prices, xUnit, height, max, min, 0,ColorUtil.COLOR_HOME_MARKET_SHADOW_START,ColorUtil.COLOR_HOME_MARKET_SHADOW_END);
     }
 
-    public static void drawPriceShader(Canvas canvas, float[] prices, float xUnit, float height, float max, float min, float xOffset) {
+    public static void drawPriceShader(Canvas canvas, float[] prices, float xUnit, float height, float max, float min, float xOffset,int ColorShadowStart,int ColorShadowEnd) {
         if (prices == null || prices.length == 0) return;
         Path path = getLinesPath(prices, xUnit, height, max, min, 0, xOffset, true);
         Paint paint = new Paint();
@@ -191,7 +194,7 @@ public class DrawUtils {
         float yUnit = (max - min) / height;
         float heightY = height - (maxP - min) / yUnit;
 
-        LinearGradient linearGradient = new LinearGradient(0, heightY, 0, height, ColorUtil.COLOR_SHADOW_START, ColorUtil.COLOR_SHADOW_END, Shader.TileMode.CLAMP);
+        LinearGradient linearGradient = new LinearGradient(0, heightY, 0, height, ColorShadowStart, ColorShadowEnd, Shader.TileMode.CLAMP);
         paint.setShader(linearGradient);
 
         canvas.drawPath(path, paint);

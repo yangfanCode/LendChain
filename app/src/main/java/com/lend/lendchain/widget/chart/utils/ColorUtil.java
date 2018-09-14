@@ -37,6 +37,10 @@ public class ColorUtil {
     public static final int COLOR_SHADOW_START = Color.parseColor("#994EBEDC");
     // 阴影层 终点  色值
     public static final int COLOR_SHADOW_END = Color.parseColor("#004EBEDC");
+    // 首页行情阴影层 起始 色值
+    public static final int COLOR_HOME_MARKET_SHADOW_START = Color.parseColor("#99F5502E");
+    // 首页行情阴影层 终点  色值
+    public static final int COLOR_HOME_MARKET_SHADOW_END = Color.parseColor("#00F6802D");
 
     //跌颜色
     public static final int DECREASING_COLOR = ColorUtils.COLOR_1ECC27;
@@ -54,6 +58,8 @@ public class ColorUtil {
     //20均线颜色
     public static final int COLOR_SMA20 = Color.parseColor("#d88c3c");
 
+    //首页行情分时线价格颜色
+    public static final int COLOR_HOME_MARKET_LINE = Color.parseColor("#FF6343");
     //分时线价格颜色
     public static final int COLOR_PRICE_LINE = Color.parseColor("#2787B7");
     //分时线均线颜色

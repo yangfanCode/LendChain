@@ -17,10 +17,14 @@ public class ColorUtils {
     public static int TRANSPARENT = ContextCompat.getColor(ContextHelper.getApplication(), android.R.color.transparent);
     /**20212A**/
     public static int COLOR_20212A = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_20212A);
-    //跌颜色
+    /**1ECC27**/
     public static int COLOR_1ECC27 = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_1ECC27);
-    //涨颜色
+    /**FF6343**/
     public static int COLOR_FF6343 = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_FF6343);
+    //跌颜色
+    public static int COLOR_3BC642 = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_3BC642);
+    //涨颜色
+    public static int COLOR_FF4B14 = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_FF4B14);
     /**509FFF**/
     public static int COLOR_509FFF = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_509FFF);
     /**4885FF**/
@@ -51,6 +55,21 @@ public class ColorUtils {
         if (curr < change)
             return COLOR_1ECC27;
         return COLOR_FF6343;
+    }
+    /**
+     * 获取价格显示的背景，curr>change是红，等于是黑，小于是绿
+     * bg_3bc642_radiu2
+     *
+     * @param curr   当前价
+     * @param change 变化颜色的价格
+     * @return
+     */
+    public static int getTextBackAsh(double curr, double change) {
+        if (curr == change)
+            return R.drawable.bg_3bc642_radiu2;
+        if (curr < change)
+            return R.drawable.bg_3bc642_radiu2;
+        return R.drawable.bg_ff4b14_radiu2;
     }
 
     /**

@@ -402,7 +402,7 @@
     <string name="warm_tip_set">Tips: can not be changed after setting</string>
     <string name="set_nickname">Set nickname</string>
     <string name="please_input_nickname">Enter nickname</string>
-    <string name="please_input_regex_nickname">Nicknames cannot cont-ain space characters andinvalid characters, up toeight characters.</string>
+    <string name="please_input_regex_nickname">Nicknames cannot contain space characters and invalid characters, up to eight characters.</string>
     <string name="set_success">Set nickname successfully</string>
     <!--WithDrawActivity-->
     <string name="withdraw_coin_add">Withdrawal Address</string>

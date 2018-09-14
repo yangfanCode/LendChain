@@ -1,6 +1,9 @@
 package com.lend.lendchain.adapter;
 
 import android.content.Context;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,11 +88,14 @@ public class HomeMarketAdapter extends BaseAdapter {
         TextView tvHighest24h=viewHolder.getView(R.id.item_home_market_tvHighest24h);//24h最高
         TextView tvLowest24h=viewHolder.getView(R.id.item_home_market_tvLowest24h);//24h最低
         HomeMarketFenshiView fenshiView=viewHolder.getView(R.id.item_home_market_fenshiView);//24h分时图
-        tvPairName.setText(homeMarket.pairCode);//交易对名字
+        String piarCode=homeMarket.pairCode;//交易对
+        SpannableString spannableString=new SpannableString(piarCode);
+        spannableString.setSpan(new ForegroundColorSpan(ColorUtils.COLOR_262626), 0, piarCode.indexOf("/"), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        tvPairName.setText(spannableString);//交易对名字
         tvNewPrice.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.close,4));//美元
         tvNewPriceRMB.setText(context.getString(R.string.RMB).concat(DoubleUtils.doubleTransRoundTwo(homeMarket.close*rateRMB2Dollar,4)));//RMB
         tvNewGain.setText(NumberUtil.calcGain(homeMarket.close,homeMarket.open));//涨跌幅
-        tvNewGain.setTextColor(ColorUtils.getTextColorAsh(homeMarket.close,homeMarket.open));//涨跌幅颜色
+        tvNewGain.setBackgroundResource(ColorUtils.getTextBackAsh(homeMarket.close,homeMarket.open));//涨跌幅颜色
         tvHighest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.high,2));//24h最高
         tvLowest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.low,2));//24h最高
         layout.setOnClickListener(onClickListener);//点击事件

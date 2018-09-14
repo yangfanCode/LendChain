@@ -448,9 +448,9 @@ public class HomeMarketFenshiView extends ChartView {
         }
         //乘以1.001是为了让上下分别空一点出来
         double[] maxAndMin = LineUtil.getMaxAndMinByYd(yMax, yMin, yd);
-        DrawUtils.drawPriceShader(canvas, price, xUnit, mainH, (float) maxAndMin[0], (float) maxAndMin[1]);
+        DrawUtils.drawHomeMarketPriceShader(canvas, price, xUnit, mainH, (float) maxAndMin[0], (float) maxAndMin[1]);
 
-        DrawUtils.drawLines(canvas, price, xUnit, mainH, ColorUtil.COLOR_PRICE_LINE, (float) maxAndMin[0], (float) maxAndMin[1], false);
+        DrawUtils.drawLines(canvas, price, xUnit, mainH, ColorUtil.COLOR_HOME_MARKET_LINE, (float) maxAndMin[0], (float) maxAndMin[1], false);
     }
 
 

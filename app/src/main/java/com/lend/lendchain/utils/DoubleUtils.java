@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 /**
  * Created by yangfan
  * nrainyseason@163.com
+ * double 工具类 用String输出 避免科学计数法
  */
 public class DoubleUtils {
     /**
@@ -99,10 +100,10 @@ public class DoubleUtils {
      * BigDecimal.ROUND_UP表示进位处理（就是直接加1），
      * BigDecimal.ROUND_DOWN表示直接去掉尾数。
      */
-    public static double doubleRound(double value, int scale) {
+    public static String doubleRound(double value, int scale) {
         BigDecimal bd = new BigDecimal(value);
         bd = bd.setScale(scale, BigDecimal.ROUND_HALF_UP);
-        return bd.doubleValue();
+        return bd.toPlainString();
     }
 
     /**
@@ -113,8 +114,8 @@ public class DoubleUtils {
      * @return
      */
     public static String doubleRoundFormat(double value, int scale) {
-        double d = doubleRound(value, scale);
-        return doubleFormat(d, scale);
+        String d = doubleRound(value, scale);
+        return doubleFormat(Double.valueOf(d), scale);
     }
 
     /**

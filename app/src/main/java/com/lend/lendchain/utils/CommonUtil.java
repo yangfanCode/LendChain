@@ -510,7 +510,7 @@ public class CommonUtil {
         return bd2.setScale(newScale, BigDecimal.ROUND_HALF_UP);
     }
 
-    // 将科学计数法转换成一般数字 比如-1.23E-3 转换为 -0.00123 不四舍五入 0.000001
+    // 将科学计数法转换成一般数字 比如-1.23E-3 转换为 -0.00123 四舍五入 0.000001
     public static String getDoubleStringFromDouble(double value, int newScale) {
         if (newScale <= 0) return "" + value;
         BigDecimal bd2 = new BigDecimal(value);
