@@ -34,6 +34,7 @@ import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.BaseTitleBar;
 import com.lend.lendchain.widget.TipsToast;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 import com.yangfan.utils.CommonUtils;
 
 import java.util.ArrayList;
@@ -81,6 +82,7 @@ public abstract class BaseActivity extends FragmentActivity {
 //        setSystemBarColor(R.color.transparent,true);//全局状态栏颜色
         StatusBarUtil.transparencyBar(this);
         //MobSDK.init(this, "23cd30b2926a0", "3e5fa99b6d6709e6eee49b3622612fde");//sharedSDK
+        PushAgent.getInstance(this).onAppStart();//友盟统计添加
         ContextHelper.addActivity(this);
         ContextHelper.setLastActivity(this);
         if (!notSetStatusBarTintResource) {

@@ -92,7 +92,7 @@ public class HomeMarketAdapter extends BaseAdapter {
         TextView tvLowest24h=viewHolder.getView(R.id.item_home_market_tvLowest24h);//24h最低
         HomeMarketFenshiView fenshiView=viewHolder.getView(R.id.item_home_market_fenshiView);//24h分时图
         String piarCode=homeMarket.pairCode;//交易对
-        ivIcon.setImageResource(CoinEnum.createWithCoinEnum(piarCode.split("/")[0]).getCoinIcon());
+        ivIcon.setImageResource(CoinEnum.createWithCoinEnum(piarCode.split("/")[0]).getCoinIconBorder());
         SpannableString spannableString=new SpannableString(piarCode);
         spannableString.setSpan(new ForegroundColorSpan(ColorUtils.COLOR_262626), 0, piarCode.indexOf("/"), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvPairName.setText(spannableString);//交易对名字
@@ -100,8 +100,8 @@ public class HomeMarketAdapter extends BaseAdapter {
         tvNewPriceRMB.setText(context.getString(R.string.RMB).concat(DoubleUtils.doubleTransRoundTwo(homeMarket.close*rateRMB2Dollar,4)));//RMB
         tvNewGain.setText(NumberUtil.calcGain(homeMarket.close,homeMarket.open));//涨跌幅
         tvNewGain.setBackgroundResource(ColorUtils.getTextBackAsh(homeMarket.close,homeMarket.open));//涨跌幅颜色
-        tvHighest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.high,2));//24h最高
-        tvLowest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.low,2));//24h最高
+        tvHighest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.high,4));//24h最高
+        tvLowest24h.setText(DoubleUtils.doubleTransRoundTwo(homeMarket.low,4));//24h最高
         layout.setOnClickListener(onClickListener);//点击事件
         layout.setTag(R.id.view,line24hLayout);
         layout.setTag(R.id.position,position);

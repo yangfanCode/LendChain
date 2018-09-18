@@ -23,6 +23,8 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
 
 import rx.Subscription;
 import rx.observers.SafeSubscriber;
@@ -67,13 +69,14 @@ public class MyApplication extends Application {
 		SPUtil.initWithApplication(this);
 		FrescoUtils.initialize(this);
 //		AutoSizeConfig.getInstance().setBaseOnWidth(false);
-		UMConfigure.init(this, "5b8f748ab27b0a6597000155","",UMConfigure.DEVICE_TYPE_PHONE, "");//友盟初始化
+		UMConfigure.init(this, "5b8f748ab27b0a6597000155","",UMConfigure.DEVICE_TYPE_PHONE, "7e0061aa242949b832d78e87f1d2228b");//友盟初始化
 		UMConfigure.setLogEnabled(true);
 		// isEnable: false-关闭错误统计功能；true-打开错误统计功能（默认打开）
 		MobclickAgent.setCatchUncaughtExceptions(!isDebug());
 		LogUtils.setAppEnvEnum(AppEnvHelper.currentEnv());
 		initWebView();
 		initLangeuage();//初始化语言
+		initUMengPush();//友盟推送
 		RxJavaPlugins.getInstance().registerObservableExecutionHook(new RxJavaObservableExecutionHook() {//hook rxjava observer
 			@Override
 			public Subscription onSubscribeReturn(Subscription subscription) {
@@ -103,6 +106,22 @@ public class MyApplication extends Application {
 		String lan = LanguageUtils.getUserLanguageSetting();//读取语言设置
 		LogUtils.LogD(MyApplication.class, "================之前选择的语言 : " + lan);
 		LanguageUtils.saveLanguageSetting(LanguageUtils.getLocalFromCustomLang(lan));
+	}
+
+	//初始化友盟推送
+	private void initUMengPush(){
+		PushAgent mPushAgent = PushAgent.getInstance(this);
+			//注册推送服务，每次调用register方法都会回调该接口
+		mPushAgent.register(new IUmengRegisterCallback() {
+			@Override
+			public void onSuccess(String deviceToken) {
+				//注册成功会返回device token
+			}
+			@Override
+			public void onFailure(String s, String s1) {
+			}
+		});
+//		mPushAgent.setNotificationClickHandler(notificationClickHandler);
 	}
 
 	@Override
@@ -136,5 +155,19 @@ public class MyApplication extends Application {
 		}
 		return false;
 	}
+
+//	/**
+//	 * 友盟点击的回调
+//	 */
+//	UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
+//		@Override
+//		public void dealWithCustomAction(Context context, UMessage msg) {
+//			Toast.makeText(context, msg.custom, Toast.LENGTH_LONG).show();
+//			Intent intent=new Intent(context, MainActivity.class);
+//			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//			context.startActivity(intent);
+//		}
+//	};
+
 
 }
