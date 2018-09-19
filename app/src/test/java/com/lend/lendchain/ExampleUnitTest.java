@@ -30,5 +30,8 @@ public class ExampleUnitTest {
     }
     @Test
     public void test3() {
+        double d=1050.25858;
+//        System.out.println(doubleTransRound6(d));
     }
+
 }

@@ -52,7 +52,7 @@
             <TextView
                 style="@style/text999999_14"
                 android:layout_gravity="center_vertical"
-                android:text="@string/loan_in_amount" />
+                android:text="@string/BorrowAmount" />
 
             <TextView
                 android:id="@+id/item_myLoan_tvLoanCount"

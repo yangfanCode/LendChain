@@ -353,7 +353,6 @@
     <string name="hash_tips2">Please enter 64 bits of Hash, consisting of lowercase letters and numbers.</string>
     <string name="please_select_coin">Select currency</string>
     <!--myLoanActivity-->
-    <string name="loan_in_amount">Borrow Amount</string>
     <string name="go_repay">Repay</string>
     <string name="raise_failed">Failure</string>
     <string name="raise_failure">Overdue</string>

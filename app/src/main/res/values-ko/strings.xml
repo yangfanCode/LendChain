@@ -353,7 +353,6 @@
     <string name="hash_tips2">64자리의 충전 Hash(소문자와 숫자 보함)를 입력하십시오</string>
     <string name="please_select_coin">코인 중류 선택</string>
     <!--myLoanActivity-->
-    <string name="loan_in_amount">차입 액</string>
     <string name="go_repay">상환하기</string>
     <string name="raise_failed">모집 실패</string>
     <string name="raise_failure">연체</string>

@@ -391,8 +391,8 @@ public class InvestSummaryActivity extends BaseActivity {
             if (status > 0) {//抵押标满标展示警戒线布局
                 mfView.setVisibility(View.VISIBLE);
                 layoutPb.setVisibility(View.GONE);
-                mfView.setPoint1Text("(" + DoubleUtils.doubleTransRound6(borrowAmount * 1.1).concat(" " + investSummary.borrowCryptoCode) + ")");
-                mfView.setPoint2Text("(" + DoubleUtils.doubleTransRound6(borrowAmount * 1.4).concat(" " + investSummary.borrowCryptoCode) + ")");
+                mfView.setPoint1Text("(" + DoubleUtils.doubleTransRound6(DoubleUtils.mul(borrowAmount,1.1)).concat(" " + investSummary.borrowCryptoCode) + ")");
+                mfView.setPoint2Text("(" + DoubleUtils.doubleTransRound6(DoubleUtils.mul(borrowAmount,1.4)).concat(" " + investSummary.borrowCryptoCode) + ")");
             } else {
                 nomalProgress(investSummary);
             }

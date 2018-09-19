@@ -34,7 +34,7 @@
     <string name="take_a_picture">拍照</string>
     <string name="permission_write_external_storage_not_allow">存储设备读写权限未开启,可以在应用管理里重新开启</string>
     <string name="permission_camera_not_allow">相机权限未开启,可以在应用管理里重新开启</string>
-    <string name="confirm">确定</string>
+    <string name="confirm">确认</string>
     <string name="continue_">继续</string>
     <string name="no_login">未登录</string>
     <string name="no_data">暂无数据</string>
@@ -68,7 +68,7 @@
     <string name="ali_vsdk_verify_submit">提交</string>
     <!--homeFragment-->
     <string name="symbol">1099</string>
-    <string name="BorrowAmount">借入资产</string>
+    <string name="BorrowAmount">借入金额</string>
     <string name="BorrowAssets">借入资产</string>
     <string name="Borrowed">借入资产</string>
     <string name="minInvestAmount">起购资金</string>
@@ -323,7 +323,7 @@
     <string name="repay_finish">还款完成</string>
     <string name="mandatory_delivery">强制交割</string>
     <string name="forced_to_unwind">强制平仓</string>
-    <string name="fulled_standard">已满标</string>
+    <string name="fulled_standard">满标时间</string>
     <string name="invest_failed">投资失败</string>
     <string name="unknow">未知</string>
     <!--ReChargeWithdrawActivity-->
@@ -353,7 +353,6 @@
     <string name="hash_tips2">请输入64位充值的Hash,由小写字母及数字组成</string>
     <string name="please_select_coin">请选择币种</string>
     <!--myLoanActivity-->
-    <string name="loan_in_amount">借入金额</string>
     <string name="go_repay">去还款</string>
     <string name="raise_failed">募集失败</string>
     <string name="raise_failure">逾期</string>

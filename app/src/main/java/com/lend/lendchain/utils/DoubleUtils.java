@@ -64,7 +64,7 @@ public class DoubleUtils {
     }
 
     /**
-     * 将double格式化为指定小数位的String，不足小数位用0补全,不会四舍五入,直接截取
+     * 将double格式化为指定小数位的String，直接截取,不会四舍五入,不足小数位用0补全
      * setRoundingMode设置mode改变模式
      *
      * @param v     需要格式化的数字
@@ -72,26 +72,32 @@ public class DoubleUtils {
      * @return
      */
     public static String doubleFormat(double v, int scale) {
+        //部分小数出现问题 待解决
         DecimalFormat decimalFormat;
-        if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The   scale   must   be   a   positive   integer   or   zero");
-        }
-        if (scale == 0) {
-            decimalFormat = new DecimalFormat("0");
-            return decimalFormat.format(v);
-        }
-        String formatStr = "0.";
-        for (int i = 0; i < scale; i++) {
-            formatStr = formatStr + "0";
-        }
-        decimalFormat = new DecimalFormat(formatStr);
+        decimalFormat = new DecimalFormat();
         decimalFormat.setRoundingMode(RoundingMode.DOWN);
+        decimalFormat.setMaximumFractionDigits(scale);
+        decimalFormat.setMinimumFractionDigits(scale);
         return decimalFormat.format(v);
     }
 
     /**
-     * 将double格式化为指定小数位的double，四舍五入,不足小数位用不会不全
+     * 将double格式化为指定小数位的String，直接截取,不会四舍五入 自定义小数位数 最多几位小数 不足小数位不会补全0
+     *
+     * @param d
+     * @return
+     */
+    public static String doubleTransFormatThree(double d, int scale) {
+        String s=getFormatDouble(d);
+        int sca= s.length() - s.indexOf(".");
+        if(sca>6){
+            s=s.substring(0,s.indexOf(".")+scale+1);
+        }
+        return getNoneZeroDouble(s);
+    }
+
+    /**
+     * 将double格式化为指定小数位的String，四舍五入,不足小数位用不会补全
      *
      * @param value
      * @param scale 小数位数
@@ -107,7 +113,7 @@ public class DoubleUtils {
     }
 
     /**
-     * 将double格式化为指定小数位的double，四舍五入,不足小数位自动补全
+     * 将double格式化为指定小数位的String，四舍五入,不足小数位自动补全
      *
      * @param value
      * @param scale
@@ -143,26 +149,6 @@ public class DoubleUtils {
         }
         return doubleFormat(d, scale);
     }
-    /**
-     * double整数无小数点,小数时有 不会四舍五入 自定义小数位数 最多几位小数 不足小数位不会补全
-     *
-     * @param d
-     * @return
-     */
-    public static String doubleTransFormatThree(double d, int scale) {
-        String valueString=doubleFormat(d, scale);
-        int length=valueString.length();
-        for (int i = 0; i < length; i++) {
-            if (valueString.endsWith("0")) {
-                valueString = valueString.substring(0, valueString.length() - 1);
-            } else if (valueString.endsWith(".")) {
-                valueString = valueString.substring(0, valueString.length() - 1);
-                break;
-            } else
-                break;
-        }
-        return valueString;
-    }
 
     /**
      * double整数无小数点,小数时有 四舍五入 自定义小数位数 最多几位小数 不足小数位不会补全
@@ -179,6 +165,8 @@ public class DoubleUtils {
 
     /**
      * 6位小数 ,app主要应用格式
+     * 1050.25858->79 1050.25859 ->1050.258589
+     * 部分小数出现问题 所以自己截取
      *
      * @param d
      * @return
@@ -194,5 +182,33 @@ public class DoubleUtils {
     public static int doubleToIntRound(double number) {
         BigDecimal bd = new BigDecimal(number).setScale(0, BigDecimal.ROUND_HALF_UP);
         return Integer.parseInt(bd.toString());
+    }
+
+    /**
+     * double科学计数法转化
+     * @return
+     */
+    public static String getFormatDouble(double d){
+        BigDecimal bigDecimal = new BigDecimal(String.valueOf(d));
+        return getNoneZeroDouble(bigDecimal.toPlainString());
+    }
+
+    /**
+     * double去末尾0
+     * @return
+     */
+    public static String getNoneZeroDouble(String d){
+        String valueString=d;
+        int length=valueString.length();
+        for (int i = 0; i < length; i++) {
+            if (valueString.endsWith("0")) {
+                valueString = valueString.substring(0, valueString.length() - 1);
+            } else if (valueString.endsWith(".")) {
+                valueString = valueString.substring(0, valueString.length() - 1);
+                break;
+            } else
+                break;
+        }
+        return valueString;
     }
 }

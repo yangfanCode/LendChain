@@ -133,10 +133,14 @@ public class LoanAddActivity extends BaseActivity {
             if (resultBean.isSuccess()) {
                 if (resultBean.data != null) {
                     price = resultBean.data.price;
-                    double warning=borrowAmount*1.4;//警戒线数值
-                    double closing=borrowAmount*1.1;//平仓线数值
-                    double mortage=mortgageAmount*price;//抵押价值
-                    tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" = "+ DoubleUtils.doubleTransRound6(price)+" "+borrowCryptoCode);//抵押币种市价
+                    double warning=DoubleUtils.mul(borrowAmount,1.4);//警戒线数值
+                    double closing=DoubleUtils.mul(borrowAmount,1.1);//平仓线数值
+                    double mortage=DoubleUtils.mul(mortgageAmount,price);//抵押价值
+                    if(Double.valueOf(DoubleUtils.doubleTransRound6(price))==0){//数值太小 6位显示0的时候取元数据
+                        tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" = "+ DoubleUtils.getFormatDouble(price)+" "+borrowCryptoCode);//抵押币种市价
+                    }else{
+                        tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" = "+ DoubleUtils.doubleTransRound6(price)+" "+borrowCryptoCode);//抵押币种市价
+                    }
                     tvMortageCount.setText(DoubleUtils.doubleTransRound6(mortgageAmount)+" "+mortgageCryptoCode);//抵押数量
                     tvMortagePrize.setText(DoubleUtils.doubleTransRound6(mortage)+" "+borrowCryptoCode);//抵押价值
                     tvWarnLine.setText(DoubleUtils.doubleTransRound6(warning)+" "+borrowCryptoCode+"(140%)");//警戒线
@@ -147,12 +151,11 @@ public class LoanAddActivity extends BaseActivity {
                     if(borrowAmount!=0){
                         double rio=price*mortgageAmount/borrowAmount;
                         mortageSufficientRate=DoubleUtils.doubleTransRoundTwo(rio*100,2);
-                        if(rio>1.4){
+                        if(rio<1.4){//低于警戒线
                             tvMortageSufficientRate.setText(mortageSufficientRate+"%"+getString(R.string.below_the_security_line));
                         }else{
                             tvMortageSufficientRate.setText(mortageSufficientRate+"%");
                         }
-
                         tvAddRate.setText(mortageSufficientRate+"%");
                         ViewUtils.showViewsVisible(true,llParent,btnConfirm);//父布局显示
                     }
