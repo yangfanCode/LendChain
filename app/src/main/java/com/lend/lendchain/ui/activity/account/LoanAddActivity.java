@@ -137,9 +137,9 @@ public class LoanAddActivity extends BaseActivity {
                     double closing=DoubleUtils.mul(borrowAmount,1.1);//平仓线数值
                     double mortage=DoubleUtils.mul(mortgageAmount,price);//抵押价值
                     if(Double.valueOf(DoubleUtils.doubleTransRound6(price))==0){//数值太小 6位显示0的时候取元数据
-                        tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" = "+ DoubleUtils.getFormatDouble(price)+" "+borrowCryptoCode);//抵押币种市价
+                        tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" ≈ "+ DoubleUtils.getFormatDouble(price)+" "+borrowCryptoCode);//抵押币种市价
                     }else{
-                        tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" = "+ DoubleUtils.doubleTransRound6(price)+" "+borrowCryptoCode);//抵押币种市价
+                        tvMortageCoinPrice.setText("1 "+mortgageCryptoCode+" ≈ "+ DoubleUtils.doubleTransRound6(price)+" "+borrowCryptoCode);//抵押币种市价
                     }
                     tvMortageCount.setText(DoubleUtils.doubleTransRound6(mortgageAmount)+" "+mortgageCryptoCode);//抵押数量
                     tvMortagePrize.setText(DoubleUtils.doubleTransRound6(mortage)+" "+borrowCryptoCode);//抵押价值

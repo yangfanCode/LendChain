@@ -29,4 +29,6 @@ public class SimpleBean {
     public double withdrawFee;
     public double dayWithdraw;
     public double minBorrowAmount;
+    public int accountNum;//到账确认次数
+    public int withdrawNum;//提币确认次数
 }

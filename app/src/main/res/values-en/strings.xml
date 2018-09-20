@@ -227,7 +227,7 @@
     <string name="recharge_address">Deposit Address</string>
     <string name="saoyisao_qrcode_address">Scan the QR code to get the recharge code address</string>
     <string name="recharge_address_memo_tip">Please be sure to fill in Memo when recharging. If you do not fill in or fill in the wrong award, the amount of recharging will be lost and cannot be recovered.</string>
-    <string name="recharge_tips">Tips:\n1.Please do not deposit non %1$s coins to LendChain which may lead to your asset unaccounted or lost.\n2.Validation of the entire network node is required. Deposit needs one-time network confirmation while withdrawal needs six times network confirmations.\n3.Each deposit must be can than %2$s %3$s.\n4.Your deposit address will not change frequently. We will inform you by website announcement or email if there is any change.\n5.Please make sure your computer and browser are secured to prevent tampering or leakage of information.</string>
+    <string name="recharge_tips">Tips:\n1.Please do not deposit non %1$s coins to LendChain which may lead to your asset unaccounted or lost.\n2.Validation of the entire network node is required. Deposit needs %2$s-time network confirmation while withdrawal needs %3$s times network confirmations.\n3.Each deposit must be can than %4$s %5$s.\n4.Your deposit address will not change frequently. We will inform you by website announcement or email if there is any change.\n5.Please make sure your computer and browser are secured to prevent tampering or leakage of information.</string>
     <!--LoanFragment-->
     <string name="i_want_loan">Borrow</string>
     <string name="loan_type">Type</string>

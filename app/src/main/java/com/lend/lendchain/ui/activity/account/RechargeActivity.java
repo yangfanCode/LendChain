@@ -69,7 +69,7 @@ public class RechargeActivity extends BaseActivity {
 
     private void initData() {
         if(TextUtils.isEmpty(add))add="(null)";
-        NetApi.coinAttribute(RechargeActivity.this, true, SPUtil.getToken(), cryptoId, withDrawObserver);
+        NetApi.coinAttribute(RechargeActivity.this, true, SPUtil.getToken(), cryptoId, rechargeObserver);
         tvAddress.setText(add);
         llMemo.setVisibility(("GXS".equals(code) || "LV".equals(code)) ? View.VISIBLE : View.GONE);
         if (llMemo.getVisibility() == View.VISIBLE) tvMemo.setText(memo);
@@ -90,14 +90,14 @@ public class RechargeActivity extends BaseActivity {
         });
     }
 
-    Observer<ResultBean<SimpleBean>> withDrawObserver = new NetClient.RxObserver<ResultBean<SimpleBean>>() {
-        @SuppressLint("StringFormatInvalid")
+    Observer<ResultBean<SimpleBean>> rechargeObserver = new NetClient.RxObserver<ResultBean<SimpleBean>>() {
+        @SuppressLint("StringFormatMatches")
         @Override
         public void onSuccess(ResultBean<SimpleBean> resultBean) {
             if (resultBean == null) return;
             if (resultBean.isSuccess()) {
                 if (resultBean.data != null) {
-                    tvTips.setText(String.format(getString(R.string.recharge_tips), code, DoubleUtils.doubleTransRound6(resultBean.data.minDeposit), code));
+                    tvTips.setText(String.format(getString(R.string.recharge_tips), code,resultBean.data.accountNum,resultBean.data.withdrawNum, DoubleUtils.doubleTransRound6(resultBean.data.minDeposit), code));
                 }
             } else {
                 setHttpFailed(RechargeActivity.this, resultBean);

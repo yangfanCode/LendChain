@@ -170,6 +170,12 @@ public class WebActivity extends BaseActivity implements OnClickListener {
 
     WebViewClient webViewClient = new WebViewClient() {
         @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            // TODO Auto-generated method stub
+            view.loadUrl(url);
+            return true;//true自己处理跳转 刷新url false webview处理跳转
+        }
+        @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
             if (TextUtils.isEmpty(mTitle)) {
