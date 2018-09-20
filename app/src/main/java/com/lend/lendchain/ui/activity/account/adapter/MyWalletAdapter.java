@@ -128,7 +128,9 @@ public class MyWalletAdapter extends BaseAdapter {
         TextView tvWithdraw = viewHolder.getView(R.id.item_my_wallet_tvWithdraw);
         TextView tvTransfer = viewHolder.getView(R.id.item_my_wallet_tvTransfer);
 //        ivIcon.setImageResource(res.get(myWalletList.cryptoCode));
-        ivIcon.setImageResource(CoinEnum.createWithCoinEnum(myWalletList.cryptoCode).getCoinIcon());
+        if(CoinEnum.createWithCoinEnum(myWalletList.cryptoCode)!=null){
+            ivIcon.setImageResource(CoinEnum.createWithCoinEnum(myWalletList.cryptoCode).getCoinIcon());
+        }
         tvCoinType.setText(myWalletList.cryptoCode);//币种
         tvCount.setText(DoubleUtils.doubleTransRound6(myWalletList.amount));//数量
         tvRecharge.setOnClickListener(rechargeClick);
