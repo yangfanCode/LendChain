@@ -26,7 +26,7 @@
                 android:layout_marginBottom="@dimen/qb_px_1"
                 android:id="@+id/mortagage_full_tvUnWindCode"
                 style="@style/text595959_12"
-                android:textSize="@dimen/text_size_11" />
+                android:textSize="@dimen/text_size_10" />
 
             <ImageView
                 android:layout_width="@dimen/padding_13"
@@ -52,7 +52,7 @@
                 android:id="@+id/mortagage_full_tvCordonCode"
                 style="@style/text595959_12"
                 android:text="1212121212QKC"
-                android:textSize="@dimen/text_size_11" />
+                android:textSize="@dimen/text_size_10" />
 
             <ImageView
                 android:layout_width="@dimen/padding_13"

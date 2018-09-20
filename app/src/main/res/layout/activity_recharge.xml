@@ -59,7 +59,7 @@
                 android:paddingLeft="@dimen/qb_px_15"
                 android:text="@string/recharge_address" />
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_42"
                 android:background="@color/white"
@@ -68,18 +68,27 @@
                 android:paddingRight="@dimen/qb_px_15">
 
                 <TextView
+                    android:layout_marginLeft="@dimen/qb_px_5"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/recharge_tvCopy"
+                    style="@style/text509FFF_14"
+                    android:text="@string/copy" />
+
+                <TextView
+                    android:breakStrategy="simple"
+                    android:layout_width="match_parent"
+                    android:gravity="left"
                     android:id="@+id/recharge_tvAddress"
                     style="@style/text262626_14"
+                    android:layout_toLeftOf="@id/recharge_tvCopy"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/qb_px_15"
                     android:ellipsize="end"
                     android:maxLines="2" />
 
-                <TextView
-                    android:id="@+id/recharge_tvCopy"
-                    style="@style/text509FFF_14"
-                    android:layout_gravity="right"
-                    android:text="@string/copy" />
-            </FrameLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/recharge_llMemo"
@@ -112,6 +121,8 @@
                         android:layout_alignParentRight="true"
                         android:text="@string/copy" />
                     <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="left"
                         android:breakStrategy="simple"
                         android:layout_toLeftOf="@id/recharge_tvCopyM"
                         android:id="@+id/recharge_tvMemo"

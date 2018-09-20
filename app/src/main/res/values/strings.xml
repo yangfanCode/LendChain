@@ -116,7 +116,7 @@
     <string name="purchased_record">已购记录</string>
     <string name="add_record">追加记录</string>
     <string name="calc_way_msg">满标后当日计息</string>
-    <string name="repay_way_msg">到期一次性还本计息</string>
+    <string name="repay_way_msg">到期一次性还本付息</string>
     <string name="user_name">用户名</string>
     <string name="time">时间</string>
     <string name="add_amount">追加金额</string>
