@@ -89,7 +89,6 @@
             android:orientation="horizontal"
             android:paddingLeft="@dimen/qb_px_15"
             android:paddingRight="@dimen/qb_px_15">
-
             <com.yangfan.widget.DecimalDigitsEditText
                 android:id="@+id/withdraw_etCount"
                 android:layout_width="0dp"
@@ -98,7 +97,6 @@
                 android:background="@null"
                 android:maxLength="15"
                 android:inputType="numberDecimal"
-                app:afterDot="6"
                 android:textColor="@color/color_262626"
                 android:textColorHint="@color/color_CCCCCC"
                 android:textSize="@dimen/text_size_16"

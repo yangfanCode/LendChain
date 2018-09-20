@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.bean.SimpleBean;
+import com.lend.lendchain.enums.CoinEnum;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
@@ -71,6 +72,11 @@ public class WithDrawActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.withdraw));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        if(CoinEnum.LV.getCoinName().equals(cryptoCode)||CoinEnum.GXS.getCoinName().equals(cryptoCode)){
+            etCount.setAfterDot(5);//lv gxs 5位小数
+        }else{
+            etCount.setAfterDot(6);
+        }
         cryptoId = getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
         cryptoCode = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
         id = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
