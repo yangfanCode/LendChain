@@ -217,7 +217,7 @@ public class LoanAddActivity extends BaseActivity {
                                     NetApi.addMortgage(LoanAddActivity.this,SPUtil.getToken(),borrowId,google,amount,addMortageObserver);
                                 });
                                 keyBoardInputPopWindow.setOnCancelClick(() -> {
-                                    TipsToast.showTips("cancle");
+//                                    TipsToast.showTips("cancle");
                                 });
                             }
                             popupWindow = keyBoardInputPopWindow.creatPop();

@@ -499,10 +499,18 @@ public class LoanFragment extends BaseFragment {
                             NetApi.createLoan(getActivity(), DoubleUtils.doubleTransRound6(oldLoanCount), loanCoin, coinId.get(loanCoin), days, google, rate
                                     , DoubleUtils.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, createLoanObserver);
                         }
+                    }else{
+                        TipsToast.showTips(getString(R.string.netWorkError));
                     }
                 } else {
                     TipsToast.showTips(resultBean.message);
                 }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+                TipsToast.showTips(getString(R.string.netWorkError));
             }
         });
 
@@ -592,6 +600,7 @@ public class LoanFragment extends BaseFragment {
         @Override
         public void onError(Throwable e) {
             super.onError(e);
+            TipsToast.showTips(getString(R.string.netWorkError));
         }
     };
 
@@ -629,6 +638,8 @@ public class LoanFragment extends BaseFragment {
                         popupWindow.showAtLocation(btnConfirm, Gravity.BOTTOM, 0, 0);
                         keyBoardInputPopWindow.setConfirmText(getString(R.string.key_board_view_submit_pay));//设置确定文案
                     }
+                }else{
+                    TipsToast.showTips(getString(R.string.netWorkError));
                 }
             }else{
                 ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
