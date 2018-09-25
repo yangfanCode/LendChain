@@ -148,17 +148,17 @@ public class ReChargeRecordFragment extends Fragment {
                 TipsToast.showTips(getString(R.string.please_select_coin));
                 return;
             }
-            if("ETH".equals(coin)||"QKC".equals(coin)||"DACC".equals(coin)){
-                if(hash.length()!=66||!hash.startsWith("0x")||!regexHash(hash)){
-                    TipsToast.showTips(getString(R.string.hash_tips1));
-                    return;
-                }
-            }else{
-                if(hash.length()!=64||!regexHash(hash)){
-                    TipsToast.showTips(getString(R.string.hash_tips2));
-                    return;
-                }
-            }
+//            if("ETH".equals(coin)||"QKC".equals(coin)||"DACC".equals(coin)){
+//                if(hash.length()!=66||!hash.startsWith("0x")||!regexHash(hash)){
+//                    TipsToast.showTips(getString(R.string.hash_tips1));
+//                    return;
+//                }
+//            }else{
+//                if(hash.length()!=64||!regexHash(hash)){
+//                    TipsToast.showTips(getString(R.string.hash_tips2));
+//                    return;
+//                }
+//            }
             NetApi.rechargeSpeedCreate(getActivity(),true,SPUtil.getToken(),String.valueOf(list.get(coinsPos).uniqueId),hash,rechargeSpeedObserver);
         });
     }

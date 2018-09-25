@@ -2,6 +2,8 @@ package com.lend.lendchain;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -30,8 +32,16 @@ public class ExampleUnitTest {
     }
     @Test
     public void test3() {
-        double d=1050.25858;
-//        System.out.println(doubleTransRound6(d));
+        double a = 1040.921999;
+        double b = 1.1;
+        double result = a * b;
+        BigDecimal a1 = BigDecimal.valueOf(a);
+        BigDecimal b1 = BigDecimal.valueOf(b);
+
+        BigDecimal result1 = a1.multiply(b1);
+        System.out.println("控制台输出：" + a + " * " + b + " = " + result);
+        System.out.println("控制台输出2：" + a1 + " * " + b1 + " = " + result1);
+        System.out.println("计算器正确是：" + 1145.0142);
     }
 
 }

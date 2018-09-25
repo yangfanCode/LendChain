@@ -92,7 +92,9 @@ public class HomeMarketAdapter extends BaseAdapter {
         TextView tvLowest24h=viewHolder.getView(R.id.item_home_market_tvLowest24h);//24h最低
         HomeMarketFenshiView fenshiView=viewHolder.getView(R.id.item_home_market_fenshiView);//24h分时图
         String piarCode=homeMarket.pairCode;//交易对
-        ivIcon.setImageResource(CoinEnum.createWithCoinEnum(piarCode.split("/")[0]).getCoinIconBorder());
+        if(CoinEnum.createWithCoinEnum(piarCode.split("/")[0])!=null){
+            ivIcon.setImageResource(CoinEnum.createWithCoinEnum(piarCode.split("/")[0]).getCoinIconBorder());
+        }
         SpannableString spannableString=new SpannableString(piarCode);
         spannableString.setSpan(new ForegroundColorSpan(ColorUtils.COLOR_262626), 0, piarCode.indexOf("/"), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvPairName.setText(spannableString);//交易对名字

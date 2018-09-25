@@ -226,7 +226,7 @@
     <!--RechargeActivity-->
     <string name="recharge_address">充值地址</string>
     <string name="saoyisao_qrcode_address">扫一扫二维码，获取充值码地址</string>
-    <string name="recharge_address_memo_tip">充值时请务必填写Memo，不填或填错奖导致充值金额丢失，不可找回。</string>
+    <string name="recharge_address_memo_tip">充值时请务必填写Memo，不填或填错将导致充值金额丢失，不可找回。</string>
     <string name="recharge_tips">温馨提醒：\n1.请勿向上述地址充值任何非%1$s资产，否则资产将不可找回。\n2.您充值至上述地址后，需要整个网络节点的确认，%2$s次网络确认后到账，%3$s次网络确认后可提币。\n3.最小充值金额：%4$s %5$s ，小于最小金额的充值将不会上账。\n4.您的充值地址不会经常改变，可以重复充值；如有更改，我们会尽量通过网站公告或邮件通知您。\n5.请务必确认电脑及浏览器安全，防止信息被篡改或泄露。</string>
     <!--LoanFragment-->
     <string name="i_want_loan">我要借款</string>
