@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="wrap_content">
-            <ImageView
+            <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/item_home_market_ivIcon"
                 android:layout_marginRight="@dimen/qb_px_10"
                 android:layout_width="@dimen/qb_px_25"

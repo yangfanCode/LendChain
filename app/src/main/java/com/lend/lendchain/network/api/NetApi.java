@@ -556,4 +556,12 @@ public class NetApi {
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+    /**
+     * 币种图片列表
+     */
+    public static void coinIconList(Context context,Observer observer) {
+        NetClient.getInstance().getPost("", false, context).coinIconList().subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

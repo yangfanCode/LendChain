@@ -2,6 +2,7 @@ package com.lend.lendchain.network.api;
 
 
 import com.lend.lendchain.bean.BannerModel;
+import com.lend.lendchain.bean.CoinIconList;
 import com.lend.lendchain.bean.CoinList;
 import com.lend.lendchain.bean.HomeMarket;
 import com.lend.lendchain.bean.HomeMarketKLine;
@@ -379,5 +380,12 @@ public interface AppApi {
      */
     @GET("trade/transfer/list")
     Observable<ResultBean<List<TransferRecord>>> myTransferRecord(@QueryMap Map<String, Object> account);
+    /**
+     * 币种图片列表
+     *
+     * @return
+     */
+    @GET("trade/crypto/icon/list")
+    Observable<ResultBean<List<CoinIconList>>> coinIconList();
 
 }

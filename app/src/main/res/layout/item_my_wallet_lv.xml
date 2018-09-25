@@ -11,7 +11,7 @@
         android:orientation="horizontal"
         android:paddingLeft="@dimen/qb_px_25">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/item_my_wallet_ivIcon"
             android:layout_width="@dimen/qb_px_30"
             android:layout_height="@dimen/qb_px_30"

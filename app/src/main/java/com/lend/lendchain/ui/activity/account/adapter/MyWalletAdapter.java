@@ -6,21 +6,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.MyWalletList;
 import com.lend.lendchain.bean.ViewHolder;
-import com.lend.lendchain.enums.CoinEnum;
 import com.lend.lendchain.ui.activity.account.PlatFormTranshferActivity;
 import com.lend.lendchain.ui.activity.account.RechargeActivity;
 import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.WithDrawActivity;
+import com.lend.lendchain.utils.CoinIconUtils;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
+import com.lend.lendchain.utils.FrescoUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.yangfan.widget.CustomDialog;
 
@@ -121,16 +122,13 @@ public class MyWalletAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         MyWalletList myWalletList = list.get(position);
         ViewHolder viewHolder = ViewHolder.get(context, convertView, R.layout.item_my_wallet_lv);
-        ImageView ivIcon = viewHolder.getView(R.id.item_my_wallet_ivIcon);
+        SimpleDraweeView ivIcon = viewHolder.getView(R.id.item_my_wallet_ivIcon);
         TextView tvCoinType = viewHolder.getView(R.id.item_my_wallet_tvCoinType);
         TextView tvCount = viewHolder.getView(R.id.item_my_wallet_tvCount);
         TextView tvRecharge = viewHolder.getView(R.id.item_my_wallet_tvRecharge);
         TextView tvWithdraw = viewHolder.getView(R.id.item_my_wallet_tvWithdraw);
         TextView tvTransfer = viewHolder.getView(R.id.item_my_wallet_tvTransfer);
-//        ivIcon.setImageResource(res.get(myWalletList.cryptoCode));
-        if(CoinEnum.createWithCoinEnum(myWalletList.cryptoCode)!=null){
-            ivIcon.setImageResource(CoinEnum.createWithCoinEnum(myWalletList.cryptoCode).getCoinIcon());
-        }
+        FrescoUtils.showThumb(ivIcon, CoinIconUtils.getInstance().getIcon(myWalletList.cryptoCode));//图片
         tvCoinType.setText(myWalletList.cryptoCode);//币种
         tvCount.setText(DoubleUtils.doubleTransRound6(myWalletList.amount));//数量
         tvRecharge.setOnClickListener(rechargeClick);

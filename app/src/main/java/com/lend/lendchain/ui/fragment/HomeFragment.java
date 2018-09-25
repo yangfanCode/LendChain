@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.adapter.HomeMarketAdapter;
 import com.lend.lendchain.bean.BannerModel;
+import com.lend.lendchain.bean.CoinIconList;
 import com.lend.lendchain.bean.HomeMarket;
 import com.lend.lendchain.bean.HomeMarketKLine;
 import com.lend.lendchain.bean.HomeSupport;
@@ -28,6 +29,7 @@ import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.network.subscriber.SafeOnlyNextSubscriber;
 import com.lend.lendchain.ui.activity.common.WebActivity;
 import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
+import com.lend.lendchain.utils.CoinIconUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DisplayUtil;
@@ -72,7 +74,7 @@ import rx.schedulers.Schedulers;
  * 首页fragment 沉浸式状态栏
  */
 public class HomeFragment extends BaseFragment {
-    private String tag="HomeFragment";
+    private String tag = "HomeFragment";
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     @BindView(R.id.banner)
@@ -126,6 +128,8 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initData(boolean isShow) {
+        //请求APP 币种图片
+        NetApi.coinIconList(getActivity(), coinIconListObserver);
         //banner 接口
         NetApi.banner(getActivity(), bannerObserver);
         adapter.setShowPos(-1);//默认行情不展开
@@ -384,6 +388,15 @@ public class HomeFragment extends BaseFragment {
             super.onError(e);
         }
     };
+    Observer<ResultBean<List<CoinIconList>>> coinIconListObserver = new NetClient.RxObserver<ResultBean<List<CoinIconList>>>() {
+        @Override
+        public void onSuccess(ResultBean<List<CoinIconList>> coinIconListResultBean) {
+            if (coinIconListResultBean == null) return;
+            if (coinIconListResultBean.isSuccess()) {
+                CoinIconUtils.getInstance().setIcons(coinIconListResultBean.data);//存图片
+            }
+        }
+    };
 
     @Override
     public void onPause() {
@@ -404,7 +417,7 @@ public class HomeFragment extends BaseFragment {
 //        if(getUserVisibleHint()){
 //            onVisibilityChangedToUser(true, tag);
 //        }
-        if (rxSubscription==null||rxSubscription.isUnsubscribed()) {
+        if (rxSubscription == null || rxSubscription.isUnsubscribed()) {
             getRxBus();
         }
         //开始轮播
@@ -418,6 +431,7 @@ public class HomeFragment extends BaseFragment {
 //            onVisibilityChangedToUser(isVisibleToUser, tag);
 //        }
 //    }
+
     /**
      * 处理首页推荐数据
      *
@@ -439,11 +453,11 @@ public class HomeFragment extends BaseFragment {
             GradientTextView tvAnnualized = v.findViewById(R.id.item_home_tvAnnualized);//年化
             TextView btnInvest = v.findViewById(R.id.item_home_btnInvest);//立即投资
             tvOrderId.setText(homeSupport.orderId);
-            if("1".equals(homeSupport.borrowTypeId)){//抵押标显示昵称
-                tvOrderType.setText("("+homeSupport.nickname+")");
+            if ("1".equals(homeSupport.borrowTypeId)) {//抵押标显示昵称
+                tvOrderType.setText("(" + homeSupport.nickname + ")");
                 tvMinAmountText.setText(getString(R.string.mortgage_asset));//显示抵押资产
                 tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.mortgageAmount, 2).concat(" " + homeSupport.mortgageCryptoCode));//单位不处理
-            }else{
+            } else {
                 tvOrderType.setText(getOrderType(homeSupport.borrowTypeId));
                 tvMinAmountText.setText(getString(R.string.minInvestAmount));//显示起购资金
                 tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
@@ -518,7 +532,8 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    protected void onVisible() { }
+    protected void onVisible() {
+    }
 
     //首页投资 内容viewPager适配器
     class ContentPagerAdapter extends PagerAdapter {

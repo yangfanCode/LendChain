@@ -8,18 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.HomeMarket;
 import com.lend.lendchain.bean.MessageEvent;
 import com.lend.lendchain.bean.ViewHolder;
-import com.lend.lendchain.enums.CoinEnum;
 import com.lend.lendchain.helper.RxBus;
+import com.lend.lendchain.utils.CoinIconUtils;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.DoubleUtils;
+import com.lend.lendchain.utils.FrescoUtils;
 import com.lend.lendchain.widget.chart.utils.NumberUtil;
 import com.lend.lendchain.widget.chart.view.HomeMarketFenshiView;
 
@@ -81,7 +82,7 @@ public class HomeMarketAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         HomeMarket homeMarket=list.get(position);
         ViewHolder viewHolder=ViewHolder.get(context,convertView, R.layout.item_home_market);
-        ImageView ivIcon=viewHolder.getView(R.id.item_home_market_ivIcon);
+        SimpleDraweeView ivIcon=viewHolder.getView(R.id.item_home_market_ivIcon);
         TextView tvPairName=viewHolder.getView(R.id.item_home_market_tvPairName);
         TextView tvNewPrice=viewHolder.getView(R.id.item_home_market_tvNewPrice);
         TextView tvNewPriceRMB=viewHolder.getView(R.id.item_home_market_tvNewPriceRMB);
@@ -92,9 +93,7 @@ public class HomeMarketAdapter extends BaseAdapter {
         TextView tvLowest24h=viewHolder.getView(R.id.item_home_market_tvLowest24h);//24h最低
         HomeMarketFenshiView fenshiView=viewHolder.getView(R.id.item_home_market_fenshiView);//24h分时图
         String piarCode=homeMarket.pairCode;//交易对
-        if(CoinEnum.createWithCoinEnum(piarCode.split("/")[0])!=null){
-            ivIcon.setImageResource(CoinEnum.createWithCoinEnum(piarCode.split("/")[0]).getCoinIconBorder());
-        }
+        FrescoUtils.showThumb(ivIcon, CoinIconUtils.getInstance().getIcon(piarCode.split("/")[0]));//图片
         SpannableString spannableString=new SpannableString(piarCode);
         spannableString.setSpan(new ForegroundColorSpan(ColorUtils.COLOR_262626), 0, piarCode.indexOf("/"), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         tvPairName.setText(spannableString);//交易对名字
