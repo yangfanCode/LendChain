@@ -12,11 +12,13 @@ import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
+import com.yangfan.utils.CommonUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,6 +51,8 @@ public class TransferCertifyActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.transfer_cerfity));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         count=getIntent().getExtras().getString(Constant.ARGS_PARAM1);
         cryptoId=getIntent().getExtras().getString(Constant.ARGS_PARAM2);
         cryptoCode=getIntent().getExtras().getString(Constant.ARGS_PARAM3);

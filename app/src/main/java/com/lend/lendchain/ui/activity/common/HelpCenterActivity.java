@@ -9,6 +9,7 @@ import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
+import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.FormNormal;
 
 import butterknife.BindView;
@@ -39,6 +40,8 @@ public class HelpCenterActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.help_center));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         initListener();
     }
 

@@ -13,12 +13,14 @@ import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.singleton.CountryCode;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.activity.common.SelectCountryCodeActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.TipsToast;
+import com.yangfan.utils.CommonUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -51,6 +53,8 @@ public class PhoneCertifyActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         baseTitleBar.setTitle(getString(R.string.phone_certified));
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         //默认国家码
         tvCountryCodeDesc.setText(CountryCode.getCountryName()+" "+CountryCode.getCountryCode());
         initListener();

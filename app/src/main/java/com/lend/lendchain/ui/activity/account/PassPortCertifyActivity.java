@@ -21,6 +21,7 @@ import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.network.subscriber.SafeOnlyNextSubscriber;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.MainActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.BitmapUtil;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
@@ -83,6 +84,8 @@ public class PassPortCertifyActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.kyc_certify));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         loadAnimationUtils = new LoadAnimationUtils(this);
         initListener();
         if(getIntent().getExtras()!=null){

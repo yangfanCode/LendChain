@@ -14,6 +14,7 @@ import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
@@ -24,6 +25,7 @@ import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.TimeUtils;
 import com.lend.lendchain.utils.ViewUtils;
 import com.lend.lendchain.widget.TipsToast;
+import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.FormNormal;
 
@@ -82,6 +84,8 @@ public class MyLoanSummaryActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.loan_summary));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         borrowId=getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
         deadline=getIntent().getExtras().getString(Constant.ARGS_PARAM1);
         quotaFullTime=getIntent().getExtras().getString(Constant.ARGS_PARAM2);

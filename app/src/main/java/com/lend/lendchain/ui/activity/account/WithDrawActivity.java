@@ -16,12 +16,14 @@ import com.lend.lendchain.bean.SimpleBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
+import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.DecimalDigitsEditText;
 
 import butterknife.BindView;
@@ -71,6 +73,8 @@ public class WithDrawActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.withdraw));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         cryptoId = getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
         cryptoCode = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
         id = getIntent().getExtras().getString(Constant.ARGS_PARAM2);

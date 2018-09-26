@@ -22,6 +22,7 @@ import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.UserCenterActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.fragment.invest.AddRecordFragment;
 import com.lend.lendchain.ui.fragment.invest.InvestRecordFragment;
 import com.lend.lendchain.ui.fragment.invest.InvestSummaryFragment;
@@ -120,6 +121,8 @@ public class InvestSummaryActivity extends BaseActivity {
         baseTitleBar.getTvTitle().setTextColor(ColorUtils.WHITE);
         baseTitleBar.getTvTitleChild().setTextColor(ColorUtils.WHITE);
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         tvMortgagePrice.setVisibility(View.GONE);
         initData();
         initListener();

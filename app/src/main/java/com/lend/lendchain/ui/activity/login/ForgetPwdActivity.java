@@ -22,6 +22,7 @@ import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.PopUtils;
@@ -54,6 +55,8 @@ public class ForgetPwdActivity extends BaseActivity {
     TextView btnConfirm;
     @BindView(R.id.forget_ivClose)
     ImageView ivClose;
+    @BindView(R.id.forget_ivService)
+    ImageView ivService;
     private CountDownTimer timer;
     private PopupWindow popupWindow=null;
     @Override
@@ -69,14 +72,18 @@ public class ForgetPwdActivity extends BaseActivity {
         etPwd.setTypeface(Typeface.DEFAULT);
         etPwd.setTransformationMethod(new PasswordTransformationMethod());//修复inputType="textPassword" 时hint字体改变
         FrameLayout.LayoutParams params= (FrameLayout.LayoutParams) ivClose.getLayoutParams();
+        FrameLayout.LayoutParams params1= (FrameLayout.LayoutParams) ivService.getLayoutParams();
         int statusBar=CommonUtil.getStatusBarHeight();
         params.topMargin=statusBar+ DisplayUtil.dp2px(this,23f);
+        params1.topMargin=statusBar+ DisplayUtil.dp2px(this,23f);
         ivClose.setLayoutParams(params);
+        ivService.setLayoutParams(params1);
         initListener();
     }
 
     private void initListener() {
         ivClose.setOnClickListener(v -> finish());
+        ivService.setOnClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         tvSendVerifyCode.setOnClickListener(v -> {
             String email=etEmail.getText().toString().trim();
             if(AccountValidatorUtil.isEmail(email)){

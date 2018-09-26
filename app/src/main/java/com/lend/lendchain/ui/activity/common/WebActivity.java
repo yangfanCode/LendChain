@@ -65,6 +65,8 @@ public class WebActivity extends BaseActivity implements OnClickListener {
     @Override
     public void initView() {
         ButterKnife.bind(this);
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         utils = new LoadAnimationUtils(this);
         utils.showProcessAnimation();
         webview = new WebView(this);

@@ -20,6 +20,7 @@ import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.MainActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DisplayUtil;
@@ -49,6 +50,8 @@ public class LoginActivity extends BaseActivity {
     ImageView ivSlices;
     @BindView(R.id.login_ivClose)
     ImageView ivClose;
+    @BindView(R.id.login_ivService)
+    ImageView ivService;
     private PopupWindow popupWindow = null;
 
     @Override
@@ -61,12 +64,16 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void initView() {
         ButterKnife.bind(this);
+        ivService.setOnClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         etPwd.setTypeface(Typeface.DEFAULT);
         etPwd.setTransformationMethod(new PasswordTransformationMethod());//修复inputType="textPassword" 时hint字体改变
         FrameLayout.LayoutParams params= (FrameLayout.LayoutParams) ivClose.getLayoutParams();
+        FrameLayout.LayoutParams params1= (FrameLayout.LayoutParams) ivService.getLayoutParams();
         int statusBar=CommonUtil.getStatusBarHeight();
         params.topMargin=statusBar+ DisplayUtil.dp2px(this,23f);
+        params1.topMargin=statusBar+ DisplayUtil.dp2px(this,23f);
         ivClose.setLayoutParams(params);
+        ivService.setLayoutParams(params1);
         initListener();
     }
 

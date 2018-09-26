@@ -10,6 +10,7 @@ import com.lend.lendchain.R;
 import com.lend.lendchain.bean.KycInfo;
 import com.lend.lendchain.singleton.CountryCode;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.activity.common.SelectCountryCodeActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
@@ -67,6 +68,8 @@ public class KycActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.kyc_certify));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         listDocumentType=new ArrayList<>();
         listDocumentType.add(getString(R.string.id_card));
         listDocumentType.add(getString(R.string.passport));

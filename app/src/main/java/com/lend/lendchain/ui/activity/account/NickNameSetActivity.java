@@ -15,6 +15,7 @@ import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.PopUtils;
 import com.lend.lendchain.utils.SPUtil;
@@ -52,6 +53,8 @@ public class NickNameSetActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.set_nickname));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         initListener();
     }
 

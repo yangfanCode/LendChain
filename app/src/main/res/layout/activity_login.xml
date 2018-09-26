@@ -22,6 +22,13 @@
             android:layout_width="@dimen/qb_px_18"
             android:src="@mipmap/icon_cha_white"
             android:layout_height="@dimen/qb_px_18" />
+        <ImageView
+            android:id="@+id/login_ivService"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/qb_px_15"
+            android:layout_width="@dimen/qb_px_25"
+            android:src="@mipmap/icon_service"
+            android:layout_height="@dimen/qb_px_25" />
     </FrameLayout>
 
     <TextView

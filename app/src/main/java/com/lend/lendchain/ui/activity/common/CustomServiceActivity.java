@@ -48,51 +48,17 @@ public class CustomServiceActivity extends BaseActivity {
     private void webViewSetting() {
 //        syncCookie(this, url);
         WebSettings webSettings = webView.getSettings();
-        // 设置可以访问文件
-        webSettings.setAllowFileAccess(true);
-        // 如果访问的页面中有Javascript，则webView必须设置支持Javascript
-        webSettings.setJavaScriptEnabled(true);
-        // 修改ua使得web端正确判断
-        String ua = webSettings.getUserAgentString();
-        webSettings.setUserAgentString(
-                ua.concat(" app_lendchain_Android"));
-        // 尝试缓存
-        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-        webSettings.setDatabaseEnabled(true);// 开启 数据库存储机制
-        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
-        webSettings.setLoadWithOverviewMode(true);
-        // 设置编码
+        //设置编码
         webSettings.setDefaultTextEncodingName("utf-8");
-//        idwebSettings.setBuiltInZoomControls(true);
-        // 设置背景颜色 透明
-        webView.setBackgroundColor(Color.argb(0, 0, 0, 0));
-        // 设置本地调用对象及其接口
-        /*** 打开本地缓存提供JS调用// 开启DOM storage **/
+        webSettings.setUseWideViewPort(true);//适应分辨率
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setLoadsImagesAutomatically(true);
         webSettings.setDomStorageEnabled(true);
-        // 设置缓存大小
-        webSettings.setAppCacheMaxSize(1024 * 1024 * 8);
-        String appCachePath = getApplicationContext().getCacheDir()
-                .getAbsolutePath();
-        webSettings.setAppCachePath(appCachePath);
-        webSettings.setAllowFileAccess(true);
-        webSettings.setAppCacheEnabled(true);
-        webView.setHorizontalScrollBarEnabled(false);//水平不显示
-        webView.setVerticalScrollBarEnabled(false); //垂直不显示
-        // 支持用户输入获取手势焦点
-        webView.requestFocusFromTouch();
-        String cacheDirPath = this.getFilesDir().getAbsolutePath() + "cache/";
-        webSettings.setDatabasePath(cacheDirPath);// 设置缓存路径
-        webSettings.setDatabaseEnabled(true);
-        // 只需设置支持JS就自动打开IndexedDB存储机制
-        // Android 在4.4开始加入对 IndexedDB 的支持，只需打开允许 JS 执行的开关就好了。
+//        //支持js
+        webSettings.setJavaScriptEnabled(true);
+//        //设置背景颜色 透明
+        webView.setBackgroundColor(Color.argb(0, 0, 0, 0));
 
-        webSettings.setSavePassword(false);
-        webSettings.setSaveFormData(false);
-//
-//        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-//        webView.addJavascriptInterface(new JsInterface(this), "AndroidwebView");
-//        webSettings.setSupportZoom(false);
-//        webSettings.setDefaultTextEncodingName("utf-8");// 设置字符编码
         webView.setWebViewClient(webViewClient);// 会导致 js方法失效
         webView.setWebChromeClient(new WebChromeClient() {
             @Override

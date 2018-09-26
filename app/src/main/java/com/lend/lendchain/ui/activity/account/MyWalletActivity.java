@@ -12,6 +12,7 @@ import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.account.adapter.MyWalletAdapter;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
@@ -22,6 +23,7 @@ import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.yangfan.utils.CommonUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -62,6 +64,8 @@ public class MyWalletActivity extends BaseActivity {
         baseTitleBar.getTvTitle().setTextColor(ColorUtils.WHITE);
         baseTitleBar.setTitle(getString(R.string.my_wallet));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         refreshLayout.setEnableLoadMore(false);
         adapter = new MyWalletAdapter(MyWalletActivity.this);
         lv.setAdapter(adapter);

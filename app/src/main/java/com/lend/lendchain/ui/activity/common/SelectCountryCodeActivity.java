@@ -21,6 +21,7 @@ import com.lend.lendchain.widget.countrycode.CountrySortAdapter;
 import com.lend.lendchain.widget.countrycode.CountrySortModel;
 import com.lend.lendchain.widget.countrycode.GetCountryNameSort;
 import com.lend.lendchain.widget.countrycode.SideBar;
+import com.yangfan.utils.CommonUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,6 +66,8 @@ public class SelectCountryCodeActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.select_country_area));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         initData();
         getCountryList();
         initListener();
