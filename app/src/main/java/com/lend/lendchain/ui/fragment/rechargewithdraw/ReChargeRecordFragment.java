@@ -264,11 +264,11 @@ public class ReChargeRecordFragment extends Fragment {
                 layoutSpeed.setVisibility(View.GONE);
                 btnSpeedUp.setEnabled(true);//关闭充值加速时允许点击
                 setDeafultState();
-            }else if("-1".equals(resultBean.code)){//记录已提交
+            }else if("-1".equals(resultBean.code)){//报错提示
                 TipsToast.showTips(resultBean.message);
-                layoutSpeed.setVisibility(View.GONE);
-                btnSpeedUp.setEnabled(true);//关闭充值加速时允许点击
-                setDeafultState();
+//                layoutSpeed.setVisibility(View.GONE);
+//                btnSpeedUp.setEnabled(true);//关闭充值加速时允许点击
+//                setDeafultState();
             } else{
                 ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
             }
