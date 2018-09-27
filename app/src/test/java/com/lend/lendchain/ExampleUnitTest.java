@@ -43,5 +43,8 @@ public class ExampleUnitTest {
         System.out.println("控制台输出2：" + a1 + " * " + b1 + " = " + result1);
         System.out.println("计算器正确是：" + 1145.0142);
     }
+    @Test
+    public void test4() {
+    }
 
 }

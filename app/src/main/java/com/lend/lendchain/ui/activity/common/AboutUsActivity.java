@@ -11,7 +11,6 @@ import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
-import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.FormNormal;
 
 import butterknife.BindView;
@@ -51,8 +50,6 @@ public class AboutUsActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         baseTitleBar.setTitle(getString(R.string.about_us));
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         initListener();
     }
 

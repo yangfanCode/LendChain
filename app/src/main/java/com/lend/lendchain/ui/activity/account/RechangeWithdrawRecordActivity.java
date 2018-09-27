@@ -6,14 +6,12 @@ import android.support.v4.view.ViewPager;
 import com.lend.lendchain.R;
 import com.lend.lendchain.adapter.APPCommonNavigatorAdapter;
 import com.lend.lendchain.ui.activity.BaseActivity;
-import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.LVSendFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.ReChargeRecordFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.TransferRecordFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.WithDrawRecordFragment;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
-import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -48,8 +46,6 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.recharge_withdraw_record));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(ReChargeRecordFragment.newInstance(), getString(R.string.recharge));
         adapter.addFrag(WithDrawRecordFragment.newInstance(), getString(R.string.withdraw));

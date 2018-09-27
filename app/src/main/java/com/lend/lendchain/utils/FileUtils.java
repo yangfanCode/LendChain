@@ -360,7 +360,7 @@ public class FileUtils {
     public static String getCacheSize() {
         String size = "0.00M";
         try {
-            //size = getFormatSize(getFolderSize(ContextHelper.getApplication().getCacheDir())+getFolderSize(new File(PATH)));
+//            size = getFormatSize(getFolderSize(ContextHelper.getApplication().getCacheDir())+getFolderSize(new File(PATH)));
             size = getFormatSize(getFolderSize(new File(PATH)));
         } catch (Exception e) {
             e.printStackTrace();

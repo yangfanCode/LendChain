@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -146,6 +147,10 @@ public class ReChargeRecordFragment extends Fragment {
             String hash=etHash.getText().toString().trim();
             if(tvCoin.getText().equals(getString(R.string.coin_select))){
                 TipsToast.showTips(getString(R.string.please_select_coin));
+                return;
+            }
+            if(TextUtils.isEmpty(hash)){
+                TipsToast.showTips(getString(R.string.please_input_recharge_hash));
                 return;
             }
 //            if("ETH".equals(coin)||"QKC".equals(coin)||"DACC".equals(coin)){

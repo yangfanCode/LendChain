@@ -9,7 +9,6 @@ import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.account.adapter.MyInvestListAdapter;
-import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
@@ -17,7 +16,6 @@ import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.yangfan.utils.CommonUtils;
 
 import java.util.List;
 
@@ -47,8 +45,6 @@ public class MyInvestActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.my_invest));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         adapter = new MyInvestListAdapter(MyInvestActivity.this);
         lv.setAdapter(adapter);
         initData(true);

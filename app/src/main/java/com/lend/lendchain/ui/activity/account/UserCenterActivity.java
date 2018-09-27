@@ -12,12 +12,10 @@ import com.lend.lendchain.bean.UserInfo;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
-import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
-import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.FormNormal;
 
 import butterknife.BindView;
@@ -48,8 +46,6 @@ public class UserCenterActivity extends BaseActivity {
         baseTitleBar.setTitle(getString(R.string.user_center));
         baseTitleBar.getTvTitle().setTextColor(ColorUtils.WHITE);
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         int height= CommonUtil.getStatusBarHeight();
         llHead.setPadding(0,height,0,0);
         initData();

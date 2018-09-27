@@ -724,7 +724,7 @@ public class LoanFragment extends BaseFragment {
         String loanCount = etLoanCount.getText().toString().trim();
         if (TextUtils.isEmpty(loanCount)) loanCount="0";
         int days = Integer.valueOf(loadDeadLine.replace(getString(R.string.day_ri), ""));
-        fnLoanDeadLinePay.setText(DoubleUtils.doubleTransRound6(Double.parseDouble(loanCount) * getSelectRate() * days) + " " + loanCoin);//借入利息
+        fnLoanDeadLinePay.setText(DoubleUtils.doubleTransRound6(DoubleUtils.mul(DoubleUtils.mul(Double.parseDouble(loanCount),getSelectRate()),days)) + " " + loanCoin);//借入利息
     }
 
     public void setSeekBarEnabled(boolean enabled) {

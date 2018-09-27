@@ -17,7 +17,6 @@ import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
 import com.lvfq.pickerview.OptionsPickerView;
-import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.FormNormal;
 
 import java.util.ArrayList;
@@ -51,8 +50,6 @@ public class SettingActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         baseTitleBar.setTitle(getString(R.string.setting));
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         tvLoginOut.setVisibility(SPUtil.isLogin()? View.VISIBLE:View.GONE);
         languages=new ArrayList<>();
         languages.add(getString(R.string.chinese));//中文
