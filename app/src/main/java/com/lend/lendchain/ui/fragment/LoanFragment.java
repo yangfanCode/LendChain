@@ -238,12 +238,9 @@ public class LoanFragment extends BaseFragment {
         //借款类型
         fnLoanType.setOnClickListener(v -> {
             OptionsPickerView optionsPickerView = new OptionsPickerView(getActivity());
-            optionsPickerView.setOnoptionsSelectListener(new OptionsPickerView.OnOptionsSelectListener() {
-                @Override
-                public void onOptionsSelect(int options1, int option2, int options3) {
-                    loanType = listLoanTypeText.get(options1);
-                    fnLoanType.setText(loanType);
-                }
+            optionsPickerView.setOnoptionsSelectListener((options1, option2, options3) -> {
+                loanType = listLoanTypeText.get(options1);
+                fnLoanType.setText(loanType);
             });
             optionsPickerView.setCancelable(true);
             optionsPickerView.setPicker(listLoanTypeText);
@@ -254,7 +251,7 @@ public class LoanFragment extends BaseFragment {
         });
         //抵押币种
         fnMortgageeCoin.setOnClickListener(v -> {
-            ArrayList<String> list = calcMortgageData();//处理集合
+            ArrayList<String> list = calcMortgageData(loanCoin);//处理集合
             OptionsPickerView optionsPickerView = new OptionsPickerView(getActivity());
             optionsPickerView.setOnoptionsSelectListener((options1, option2, options3) -> {
                 mortgageCoin = list.get(options1);
@@ -272,7 +269,7 @@ public class LoanFragment extends BaseFragment {
         });
         //借入币种
         fnLoanCoin.setOnClickListener(v -> {
-            ArrayList<String> list = calcLoanData();//处理集合
+            ArrayList<String> list = calcLoanData(mortgageCoin);//处理集合
             OptionsPickerView optionsPickerView = new OptionsPickerView(getActivity());
             optionsPickerView.setOnoptionsSelectListener((options1, option2, options3) -> {
                 loanCoin = list.get(options1);
@@ -652,23 +649,41 @@ public class LoanFragment extends BaseFragment {
         }
     };
 
-    //选择抵押币种把借入币种相同数据删掉
-    private ArrayList<String> calcLoanData() {
-        ArrayList<String> list = new ArrayList<>();
-        list.addAll(listLoanCoinText);
-        list.remove(mortgageCoin);
-        return list;
+    //选择抵押币种把借入币种相同数据和不匹配删掉
+    private ArrayList<String> calcLoanData(String mortgaStr) {
+//        ArrayList<String> list = new ArrayList<>();
+//        list.addAll(listLoanCoinText);
+//        list.remove(mortgageCoin);
+        //对应抵押币种的交易对数据集合
+        ArrayList<String> listPairs = new ArrayList<>();
+        //判断是否有对应的交易对 否则删除
+        for (int i = 0, size = listPairTotal.size(); i < size; i++) {
+            LoanPairs loanPairs = listPairTotal.get(i);
+            if (loanPairs.mortgageRyptoCode.equals(mortgaStr)) {
+                listPairs.add(loanPairs.borrowCryptoCode);//添加抵押币种数据
+            }
+        }
+        return listPairs;
     }
 
-    //选择借入币种把抵押币种相同数据删掉
-    private ArrayList<String> calcMortgageData() {
-        ArrayList<String> list = new ArrayList<>();
-        list.addAll(listMortgageeCoinText);
-        list.remove(loanCoin);
-        return list;
+    //选择借入币种把抵押币种相同数据和不匹配删掉
+    private ArrayList<String> calcMortgageData(String loanText) {
+//        ArrayList<String> list = new ArrayList<>();
+//        list.addAll(listMortgageeCoinText);
+//        list.remove(loanCoin);
+        //对应抵押币种的交易对数据集合
+        ArrayList<String> listPairs = new ArrayList<>();
+        //判断是否有对应的交易对 否则删除
+        for (int i = 0, size = listPairTotal.size(); i < size; i++) {
+            LoanPairs loanPairs = listPairTotal.get(i);
+            if (loanPairs.borrowCryptoCode.equals(loanText)) {
+                listPairs.add(loanPairs.mortgageRyptoCode);//添加抵押币种数据
+            }
+        }
+        return listPairs;
     }
 
-    //寻找交易对
+    //寻找交易对的 抵押率
     private double getMortgateRate(String loanText, String mortgaStr) {
         for (int i = 0, size = listPairTotal.size(); i < size; i++) {
             LoanPairs loanPairs = listPairTotal.get(i);
