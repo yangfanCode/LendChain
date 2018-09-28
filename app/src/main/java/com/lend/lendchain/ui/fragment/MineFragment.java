@@ -28,6 +28,7 @@ import com.lend.lendchain.ui.activity.account.RechangeWithdrawRecordActivity;
 import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.UserCenterActivity;
 import com.lend.lendchain.ui.activity.common.AboutUsActivity;
+import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.activity.common.HelpCenterActivity;
 import com.lend.lendchain.ui.activity.common.SettingActivity;
 import com.lend.lendchain.ui.activity.common.WebActivity;
@@ -42,6 +43,7 @@ import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.yangfan.utils.CommonUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,6 +96,8 @@ public class MineFragment extends BaseFragment {
     ImageView ivEye;
     @BindView(R.id.mine_llOver)
     LinearLayout llOver;
+    @BindView(R.id.mine_ivService)
+    ImageView ivService;
     private double totalAmount;//总资产
     private double lastAmount;//可用余额
     private double profit;//昨日收益
@@ -186,6 +190,7 @@ public class MineFragment extends BaseFragment {
     }
 
     private void initListener() {
+        ivService.setOnClickListener(v -> CommonUtils.openActicity(getActivity(), CustomServiceActivity.class,null));
         refreshLayout.setOnRefreshListener(refreshlayout -> initData(false));
         ivEye.setOnClickListener(v -> {
             if (SPUtil.getUserTotalAmountGone()) {//隐藏状态时 需要显示
@@ -222,6 +227,7 @@ public class MineFragment extends BaseFragment {
         tvSupportGift.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putString(Constant.INTENT_EXTRA_URL, NetConst.dynamicBaseUrlForH5() + NetConst.SUPPORT_GIFT + LanguageUtils.getUserLanguageSetting());
+            bundle.putInt(Constant.ARGS_PARAM1, 1);
             CommonUtil.openActivityWithLogin(getActivity(), WebActivity.class, bundle);
         });
         tvSetting.setOnClickListener(v -> CommonUtil.openActivityForResult(getActivity(), MineFragment.this, SettingActivity.class, Constant.REQUEST_CODE1));

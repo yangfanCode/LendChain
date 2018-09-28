@@ -78,7 +78,6 @@ public class RegiestActivity extends BaseActivity {
     @Override
     public void initView() {
         ButterKnife.bind(this);
-        ivService.setOnClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         etPwd.setTypeface(Typeface.DEFAULT);
         etPwd.setTransformationMethod(new PasswordTransformationMethod());//修复inputType="textPassword" 时hint字体改变
         FrameLayout.LayoutParams params= (FrameLayout.LayoutParams) ivClose.getLayoutParams();
@@ -93,6 +92,7 @@ public class RegiestActivity extends BaseActivity {
 
     private void initListener() {
         ivClose.setOnClickListener(v -> finish());
+        ivService.setOnClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         tvSendVerifyCode.setOnClickListener(v -> {
             String email=etEmail.getText().toString().trim();
             if(AccountValidatorUtil.isEmail(email)){

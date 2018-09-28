@@ -145,6 +145,7 @@
             </LinearLayout>
 
             <TextView
+                android:breakStrategy="simple"
                 android:id="@+id/recharge_tvTips"
                 style="@style/text999999_12"
                 android:layout_marginTop="@dimen/qb_px_30"

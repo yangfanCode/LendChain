@@ -38,6 +38,7 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/qb_px_44"
+                        android:paddingRight="@dimen/qb_px_10"
                         android:paddingLeft="@dimen/qb_px_10">
 
                         <LinearLayout
@@ -58,6 +59,12 @@
                                 android:id="@+id/my_wallet_tvEmail"
                                 style="@style/textFFFFFF_16" />
                         </LinearLayout>
+                        <ImageView
+                            android:id="@+id/mine_ivService"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_width="@dimen/qb_px_25"
+                            android:src="@mipmap/icon_service"
+                            android:layout_height="@dimen/qb_px_25" />
                     </FrameLayout>
 
                     <LinearLayout

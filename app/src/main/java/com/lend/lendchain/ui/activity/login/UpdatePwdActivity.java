@@ -15,12 +15,10 @@ import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
-import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.widget.TipsToast;
-import com.yangfan.utils.CommonUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,8 +36,6 @@ public class UpdatePwdActivity extends BaseActivity {
     TextView btnConfirm;
     @BindView(R.id.update_ivClose)
     ImageView ivClose;
-    @BindView(R.id.update_ivService)
-    ImageView ivService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +47,6 @@ public class UpdatePwdActivity extends BaseActivity {
     @Override
     public void initView() {
         ButterKnife.bind(this);
-        ivService.setOnClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         etOldPwd.setTypeface(Typeface.DEFAULT);
         etOldPwd.setTransformationMethod(new PasswordTransformationMethod());//修复inputType="textPassword" 时hint字体改变
         etNewPwd.setTypeface(Typeface.DEFAULT);
@@ -59,12 +54,9 @@ public class UpdatePwdActivity extends BaseActivity {
         etConfirm.setTypeface(Typeface.DEFAULT);
         etConfirm.setTransformationMethod(new PasswordTransformationMethod());//修复inputType="textPassword" 时hint字体改变
         FrameLayout.LayoutParams params= (FrameLayout.LayoutParams) ivClose.getLayoutParams();
-        FrameLayout.LayoutParams params1= (FrameLayout.LayoutParams) ivService.getLayoutParams();
         int statusBar=CommonUtil.getStatusBarHeight();
         params.topMargin=statusBar+ DisplayUtil.dp2px(this,23f);
-        params1.topMargin=statusBar+ DisplayUtil.dp2px(this,23f);
         ivClose.setLayoutParams(params);
-        ivService.setLayoutParams(params1);
         initListener();
 
     }

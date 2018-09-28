@@ -48,7 +48,7 @@ public class WebActivity extends BaseActivity implements OnClickListener {
     SwipeRefreshLayout swipeContainer;
     String url;
     private LoadAnimationUtils utils;
-
+    private int flag;//0不显示客服,1显示客服
     private String mTitle;
 
     @SuppressLint("JavascriptInterface")
@@ -65,8 +65,6 @@ public class WebActivity extends BaseActivity implements OnClickListener {
     @Override
     public void initView() {
         ButterKnife.bind(this);
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         utils = new LoadAnimationUtils(this);
         utils.showProcessAnimation();
         webview = new WebView(this);
@@ -78,10 +76,15 @@ public class WebActivity extends BaseActivity implements OnClickListener {
             swipeContainer.setEnabled(isCanRefresh);
             url = bundle.getString(Constant.INTENT_EXTRA_URL, "");
             mTitle = bundle.getString(Constant.INTENT_EXTRA_TITLE, "");
+            flag=bundle.getInt(Constant.ARGS_PARAM1,0);
             if (!TextUtils.isEmpty(mTitle)) {
                 tvTitle.setText(mTitle);
             }
 
+        }
+        //展示客服
+        if(flag==1){
+            baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
         }
         setOnClick(this);
         ViewUtils.initSwipeLayout(swipeContainer, onRefreshListener, 100);
@@ -233,6 +236,9 @@ public class WebActivity extends BaseActivity implements OnClickListener {
                 } else {
                     finish();
                 }
+                break;
+            case R.id.imv_share:
+                CommonUtils.openActicity(this, CustomServiceActivity.class,null);
                 break;
         }
     }

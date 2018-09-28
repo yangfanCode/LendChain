@@ -61,7 +61,7 @@ public class MyLoanActivity extends BaseActivity implements MyInterface.notifyPo
     public void initView() {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.my_loan));
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
+        baseTitleBar.setLayLeftBackClickListener(v -> finish());
         adapter=new MyLoanListAdapter(this);
         lv.setAdapter(adapter);
         initData(true);

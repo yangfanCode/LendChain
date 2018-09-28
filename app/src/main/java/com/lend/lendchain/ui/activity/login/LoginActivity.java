@@ -64,7 +64,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void initView() {
         ButterKnife.bind(this);
-        ivService.setOnClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         etPwd.setTypeface(Typeface.DEFAULT);
         etPwd.setTransformationMethod(new PasswordTransformationMethod());//修复inputType="textPassword" 时hint字体改变
         FrameLayout.LayoutParams params= (FrameLayout.LayoutParams) ivClose.getLayoutParams();
@@ -79,6 +78,7 @@ public class LoginActivity extends BaseActivity {
 
     private void initListener() {
         ivClose.setOnClickListener(v -> finish());
+        ivService.setOnClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         tvGoRegiest.setOnClickListener(v -> {//去注册
             CommonUtil.openActicity(LoginActivity.this, RegiestActivity.class, null);
         });
