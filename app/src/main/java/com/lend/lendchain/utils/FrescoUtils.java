@@ -67,6 +67,26 @@ public class FrescoUtils {
     }
 
     /**
+     * 显示缩略图(下载回调)
+     *
+     * @param draweeView     draweeView
+     * @param url            url
+     */
+    public static void showThumb(SimpleDraweeView draweeView, String url,BaseControllerListener<ImageInfo> listener) {
+        if (url == null || "".equals(url))
+            return;
+        if (draweeView == null)
+            return;
+        initialize(draweeView.getContext());
+        DraweeController controller = Fresco.newDraweeControllerBuilder()
+                .setImageRequest(ImageRequest.fromUri(Uri.parse(url)))
+                .setOldController(draweeView.getController())
+                .setControllerListener(listener)
+                .build();
+        draweeView.setController(controller);
+    }
+
+    /**
      * initialize
      *
      * @param context context
