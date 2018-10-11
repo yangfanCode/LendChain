@@ -2,7 +2,6 @@ package com.lend.lendchain.ui.activity.invest;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -40,6 +39,7 @@ import com.lend.lendchain.widget.MortgageFullProgressView;
 import com.lend.lendchain.widget.PayNeedReChargePopWindow;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.CommonUtils;
+import com.yangfan.utils.CountDownTimer;
 import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
 import com.yangfan.widget.CustomViewPager;

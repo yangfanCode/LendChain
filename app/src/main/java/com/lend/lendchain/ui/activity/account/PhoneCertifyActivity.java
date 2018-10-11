@@ -1,7 +1,6 @@
 package com.lend.lendchain.ui.activity.account;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,6 +20,7 @@ import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.CommonUtils;
+import com.yangfan.utils.CountDownTimer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -102,7 +102,7 @@ public class PhoneCertifyActivity extends BaseActivity {
         timer=new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                tvSendSmsCode.setText(millisUntilFinished/1000+"s");
+                tvSendSmsCode.setText(timer.getMillisUntilSecond(millisUntilFinished)+"s");
             }
 
             @Override

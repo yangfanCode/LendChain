@@ -2,7 +2,6 @@ package com.lend.lendchain.ui.activity.login;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -36,6 +35,7 @@ import com.lend.lendchain.utils.ViewUtils;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.AccountValidatorUtil;
 import com.yangfan.utils.CommonUtils;
+import com.yangfan.utils.CountDownTimer;
 
 import java.util.Map;
 
@@ -160,7 +160,7 @@ public class RegiestActivity extends BaseActivity {
         timer=new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                tvSendVerifyCode.setText(millisUntilFinished/1000+"s");
+                tvSendVerifyCode.setText(timer.getMillisUntilSecond(millisUntilFinished)+"s");
             }
 
             @Override

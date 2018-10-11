@@ -1,7 +1,6 @@
 package com.lend.lendchain.ui.activity.account;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +18,7 @@ import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
 import com.yangfan.utils.CommonUtils;
+import com.yangfan.utils.CountDownTimer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -92,7 +92,7 @@ public class TransferCertifyActivity extends BaseActivity {
         timer=new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                tvSendCode.setText(millisUntilFinished/1000+"s");
+                tvSendCode.setText(timer.getMillisUntilSecond(millisUntilFinished)+"s");
             }
 
             @Override
