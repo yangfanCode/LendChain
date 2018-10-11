@@ -9,8 +9,10 @@ import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.LanguageUtils;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.yangfan.widget.FormNormal;
 
 import butterknife.BindView;
@@ -18,7 +20,8 @@ import butterknife.ButterKnife;
 
 public class AboutUsActivity extends BaseActivity {
 
-
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
     @BindView(R.id.abount_us_fnLendChain)
     FormNormal fnLendChain;
     @BindView(R.id.abount_us_fnVersionName)
@@ -50,6 +53,10 @@ public class AboutUsActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         baseTitleBar.setTitle(getString(R.string.about_us));
+        //初始化SmartRefrenshLayout属性
+        refreshLayout.setEnableRefresh(false);
+        refreshLayout.setEnableLoadMore(false);
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommon(refreshLayout);
         initListener();
     }
 

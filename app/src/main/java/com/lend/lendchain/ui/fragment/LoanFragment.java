@@ -39,6 +39,7 @@ import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.KeyBordUtils;
 import com.lend.lendchain.utils.LogUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.BaseTitleBar;
 import com.lend.lendchain.widget.KeyBoardInputPopWindow;
@@ -177,7 +178,7 @@ public class LoanFragment extends BaseFragment {
     //返回自动刷新
     public void setRefrensh() {
         scrollView.fullScroll(ScrollView.FOCUS_UP);//滑到顶部
-        refreshLayout.autoRefresh(100);
+        refreshLayout.autoRefresh();
     }
 
     private void initView() {
@@ -187,6 +188,8 @@ public class LoanFragment extends BaseFragment {
         baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
         baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(getActivity(), CustomServiceActivity.class,null));
         setSeekBarEnabled(false);
+        //初始化SmartRefrenshLayout属性
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommon(refreshLayout);
         refreshLayout.setEnableLoadMore(false);
         etLoanCount.clearFocus();
         etMortgageCount.clearFocus();

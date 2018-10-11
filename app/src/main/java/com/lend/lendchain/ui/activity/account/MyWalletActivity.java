@@ -17,6 +17,7 @@ import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.TipsToast;
@@ -52,8 +53,10 @@ public class MyWalletActivity extends BaseActivity {
         StatusBarUtil.StatusBarDarkMode(MyWalletActivity.this);//状态栏图标白色
         int height = CommonUtil.getStatusBarHeight();//获取状态栏高度 设置padding
         baseTitleBar.setPadding(0, height, 0, 0);//设置是状态栏渐变色
-        //设置 我的钱包页面 沉浸式刷新
+        //设置 我的钱包页面 沉浸式刷新 自定义构建器
         refreshLayout.setRefreshHeader(new ClassicsHeader(this).setAccentColor(ColorUtils.WHITE).setFinishDuration(0).setTextTimeMarginTop(3f));
+        //初始化SmartRefrenshLayout属性
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommonNoDrag(refreshLayout);
     }
 
     @Override

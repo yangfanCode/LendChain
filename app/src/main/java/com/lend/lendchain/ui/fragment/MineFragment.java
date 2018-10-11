@@ -39,6 +39,7 @@ import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -163,6 +164,8 @@ public class MineFragment extends BaseFragment {
         refreshLayout.setEnableLoadMore(false);
         //设置 我的页面 沉浸式刷新
         refreshLayout.setRefreshHeader(new ClassicsHeader(getActivity()).setAccentColor(ColorUtils.WHITE).setFinishDuration(0).setTextTimeMarginTop(3f));
+        //初始化SmartRefrenshLayout属性
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommonNoDrag(refreshLayout);
         initListener();
     }
 
@@ -186,7 +189,7 @@ public class MineFragment extends BaseFragment {
     //返回自动刷新
     public void setRefrensh() {
         scrollView.fullScroll(ScrollView.FOCUS_UP);//滑到顶部
-        refreshLayout.autoRefresh(100);
+        refreshLayout.autoRefresh();
     }
 
     private void initListener() {

@@ -6,153 +6,178 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.activity.common.AboutUsActivity">
+
     <com.lend.lendchain.widget.BaseTitleBar
         android:id="@+id/base_title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:btbBackground="@color/white" />
 
-    <com.lend.lendchain.widget.SpringBackScrollView
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
         android:background="@color/color_F5F5F5"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-            <include layout="@layout/row_divider_12h" />
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnLendChain"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/what_is_lendchain"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorResId="@mipmap/icon_jiantou_right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_1px"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnVersionName"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/version_name"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_262626"
-                app:fnTextSize="16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_12h"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnWeb"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/official_web"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_509FFF"
-                app:fnTextSize="16"
-                app:fnText="www.lendchain.io"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_1px"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnWeChatAcount"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/official_wechat_public_number"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_509FFF"
-                app:fnTextSize="16"
-                app:fnText="利德LendChain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_1px"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnSinaWeibo"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/official_sina_weibo"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_509FFF"
-                app:fnTextSize="16"
-                app:fnText="weibo.com/lendchain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_1px"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnTwitter"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/Twitter"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_509FFF"
-                app:fnTextSize="16"
-                app:fnText="twitter.com/lendchain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_1px"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnTelegram"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/Telegram"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_509FFF"
-                app:fnTextSize="16"
-                app:fnText="t.me/Lendchain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_1px"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnFacebook"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/Facebook"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_509FFF"
-                app:fnTextSize="16"
-                app:fnText="facebook.com/lendchain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <include layout="@layout/row_divider_1px"/>
-            <com.yangfan.widget.FormNormal
-                android:id="@+id/abount_us_fnInstagram"
-                style="@style/FormNormalBaseStyle"
-                app:fnTopPadding="@dimen/qb_px_15"
-                app:fnBottomPadding="@dimen/qb_px_15"
-                app:fnTitle="@string/Instagram"
-                app:fnTitleTextSize="16"
-                app:fnTitleTextColor="@color/color_262626"
-                app:fnIndicatorVisible="false"
-                app:fnTextColor="@color/color_509FFF"
-                app:fnTextSize="16"
-                app:fnText="instagram.com/lendchain/"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </com.lend.lendchain.widget.SpringBackScrollView>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <include layout="@layout/row_divider_12h" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnLendChain"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorResId="@mipmap/icon_jiantou_right"
+                    app:fnTitle="@string/what_is_lendchain"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_1px" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnVersionName"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnTextColor="@color/color_262626"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/version_name"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_12h" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnWeb"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnText="www.lendchain.io"
+                    app:fnTextColor="@color/color_509FFF"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/official_web"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_1px" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnWeChatAcount"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnText="利德LendChain"
+                    app:fnTextColor="@color/color_509FFF"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/official_wechat_public_number"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_1px" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnSinaWeibo"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnText="weibo.com/lendchain"
+                    app:fnTextColor="@color/color_509FFF"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/official_sina_weibo"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_1px" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnTwitter"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnText="twitter.com/lendchain"
+                    app:fnTextColor="@color/color_509FFF"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/Twitter"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_1px" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnTelegram"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnText="t.me/Lendchain"
+                    app:fnTextColor="@color/color_509FFF"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/Telegram"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_1px" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnFacebook"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnText="facebook.com/lendchain"
+                    app:fnTextColor="@color/color_509FFF"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/Facebook"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+
+                <include layout="@layout/row_divider_1px" />
+
+                <com.yangfan.widget.FormNormal
+                    android:id="@+id/abount_us_fnInstagram"
+                    style="@style/FormNormalBaseStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:fnBottomPadding="@dimen/qb_px_15"
+                    app:fnIndicatorVisible="false"
+                    app:fnText="instagram.com/lendchain/"
+                    app:fnTextColor="@color/color_509FFF"
+                    app:fnTextSize="16"
+                    app:fnTitle="@string/Instagram"
+                    app:fnTitleTextColor="@color/color_262626"
+                    app:fnTitleTextSize="16"
+                    app:fnTopPadding="@dimen/qb_px_15" />
+            </LinearLayout>
+        </ScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>

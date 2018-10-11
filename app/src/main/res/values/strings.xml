@@ -424,6 +424,7 @@
     <string name="transfer_count">转账数量</string>
     <string name="transfer_nickname_optional">昵称<font color='#509FFF'>(选填)</font></string>
     <string name="transfer_phone_optional">手机号<font color='#509FFF'>(选填)</font></string>
+    <!--<string name="test_test">手机号<font size='10'>(选填)</font></string>-->
     <string name="transfer_confirm">确认转账</string>
     <string name="please_input_transfer_count">请输入转账数量</string>
     <string name="please_input_transfer_cllection_nickname">请输入收款人昵称</string>

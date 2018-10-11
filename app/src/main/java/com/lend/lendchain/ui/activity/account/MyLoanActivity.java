@@ -16,6 +16,7 @@ import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.account.adapter.MyLoanListAdapter;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
@@ -62,6 +63,8 @@ public class MyLoanActivity extends BaseActivity implements MyInterface.notifyPo
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.my_loan));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        //初始化SmartRefrenshLayout属性
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommon(refreshLayout);
         adapter=new MyLoanListAdapter(this);
         lv.setAdapter(adapter);
         initData(true);

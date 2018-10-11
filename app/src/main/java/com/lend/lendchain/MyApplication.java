@@ -41,7 +41,7 @@ public class MyApplication extends Application {
 	private Handler mHandler = new Handler();
 	//static 代码段可以防止内存泄露
 	static {
-		//设置全局的Header构建器
+		//设置全局的Header构建器 自定义单独写
 		SmartRefreshLayout.setDefaultRefreshHeaderCreator((context, layout) -> {
 //            layout.setPrimaryColors(ColorUtils.WHITE);//全局设置主题颜色
 			//修改文案 国际化
@@ -52,7 +52,7 @@ public class MyApplication extends Application {
 			ClassicsHeader.REFRESH_HEADER_UPDATE=context.getString(R.string.refrensh_header_update);
             return new ClassicsHeader(context).setAccentColor(ColorUtils.COLOR_595959).setFinishDuration(0).setTextTimeMarginTop(3f);
         });
-		//设置全局的Footer构建器
+		//设置全局的Footer构建器 自定义单独写
 		SmartRefreshLayout.setDefaultRefreshFooterCreator((context, layout) -> {
             //指定为经典Footer，默认是 BallPulseFooter
 			//修改文案 国际化

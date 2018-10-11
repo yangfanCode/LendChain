@@ -11,6 +11,7 @@ import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.account.adapter.MyInvestListAdapter;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
@@ -45,6 +46,8 @@ public class MyInvestActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.my_invest));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        //初始化SmartRefrenshLayout属性
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommon(refreshLayout);
         adapter = new MyInvestListAdapter(MyInvestActivity.this);
         lv.setAdapter(adapter);
         initData(true);

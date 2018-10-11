@@ -16,6 +16,7 @@ import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
 import com.lend.lendchain.ui.fragment.invest.adapter.InvestAllAdapter;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
@@ -74,6 +75,8 @@ public class InvestAllFragment extends Fragment {
         ButterKnife.bind(this, parentView);
         investAllAdapter = new InvestAllAdapter(getActivity());
         listView.setAdapter(investAllAdapter);
+        //初始化SmartRefrenshLayout属性
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommon(refreshLayout);
     }
 
     private void initData(boolean isShow) {

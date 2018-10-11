@@ -17,6 +17,7 @@ import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.adapter.WithDrawRecordAdapter;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.widget.ListViewWithOptional;
 import com.lend.lendchain.widget.OptionalLayout;
 import com.lend.lendchain.widget.TipsToast;
@@ -71,7 +72,8 @@ public class WithDrawRecordFragment extends Fragment {
 
     private void initView() {
         ButterKnife.bind(this,parentView);
-//        lv.setMode(PullToRefreshBase.Mode.BOTH);
+        //初始化SmartRefrenshLayout属性
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutCommon(refreshLayout);
         adapter=new WithDrawRecordAdapter(getActivity());
         lv.setAdapter(adapter);
     }
