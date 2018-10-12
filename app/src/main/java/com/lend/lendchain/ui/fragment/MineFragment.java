@@ -23,12 +23,12 @@ import com.lend.lendchain.network.NetConst;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.account.MyInvestActivity;
 import com.lend.lendchain.ui.activity.account.MyLoanActivity;
+import com.lend.lendchain.ui.activity.account.MyMessageActivity;
 import com.lend.lendchain.ui.activity.account.MyWalletActivity;
 import com.lend.lendchain.ui.activity.account.RechangeWithdrawRecordActivity;
 import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.UserCenterActivity;
 import com.lend.lendchain.ui.activity.common.AboutUsActivity;
-import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.activity.common.HelpCenterActivity;
 import com.lend.lendchain.ui.activity.common.SettingActivity;
 import com.lend.lendchain.ui.activity.common.WebActivity;
@@ -97,8 +97,8 @@ public class MineFragment extends BaseFragment {
     ImageView ivEye;
     @BindView(R.id.mine_llOver)
     LinearLayout llOver;
-    @BindView(R.id.mine_ivService)
-    ImageView ivService;
+    @BindView(R.id.mine_ivMessage)
+    ImageView ivMessage;
     private double totalAmount;//总资产
     private double lastAmount;//可用余额
     private double profit;//昨日收益
@@ -193,7 +193,7 @@ public class MineFragment extends BaseFragment {
     }
 
     private void initListener() {
-        ivService.setOnClickListener(v -> CommonUtils.openActicity(getActivity(), CustomServiceActivity.class,null));
+        ivMessage.setOnClickListener(v -> CommonUtils.openActicity(getActivity(), MyMessageActivity.class,null));
         refreshLayout.setOnRefreshListener(refreshlayout -> initData(false));
         ivEye.setOnClickListener(v -> {
             if (SPUtil.getUserTotalAmountGone()) {//隐藏状态时 需要显示

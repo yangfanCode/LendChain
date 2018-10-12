@@ -39,6 +39,7 @@ public class StatusBarUtil {
 
     /**
      * 修改状态栏颜色，支持4.4以上版本
+     * 设置颜色之后 透明失效
      *
      * @param activity
      * @param colorId

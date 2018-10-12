@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.MyMessageActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_1px" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:background="@color/color_F5F5F5"
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.lend.lendchain.widget.ListViewWithOptional
+                android:id="@+id/my_message_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null" />
+        </FrameLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <FrameLayout
+        android:id="@+id/my_message_weChat"
+        android:background="@drawable/bg_4885ff_gradient_509fff"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_50">
+        <TextView
+            android:layout_gravity="center"
+            style="@style/textFFFFFF_16"
+            android:drawableLeft="@mipmap/icon_wechat"
+            android:drawablePadding="@dimen/qb_px_9"
+            android:text="@string/wechat_service" />
+    </FrameLayout>
+</LinearLayout>

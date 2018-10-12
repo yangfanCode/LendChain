@@ -35,6 +35,7 @@
     <string name="permission_write_external_storage_not_allow">存储设备读写权限未开启,可以在应用管理里重新开启</string>
     <string name="permission_camera_not_allow">相机权限未开启,可以在应用管理里重新开启</string>
     <string name="confirm">确认</string>
+    <string name="confirm_ding">确定</string>
     <string name="continue_">继续</string>
     <string name="no_login">未登录</string>
     <string name="no_data">暂无数据</string>
@@ -432,4 +433,21 @@
     <string name="transfer_cerfity">转账验证</string>
     <string name="transfer_warm_tips">温馨提醒：\n1.平台内转账 0 手续费。\n2.平台内转账后立即到账。 \n</string>
     <string name="transfer_success">转账成功</string>
+    <!--MyMessageActivity-->
+    <string name="my_message_unread">我的消息(未读)</string>
+    <string name="my_message_read">我的消息(已读)</string>
+    <string name="unread">未读</string>
+    <string name="read">已读</string>
+    <string name="my_message_read_detail">查看详情>></string>
+    <string name="wechat_service">微信客服：Lendx2018</string>
+    <string name="wechat_service_tip">微信客服账号已复制，\n现在前往微信</string>
+    <string name="wechat_open_failed">微信打开失败</string>
+    <string name="please_install_wechat">请安装微信</string>
+    <!--V2.3新增-->
+    <string name="existing_account">已有账号？</string>
+    <string name="no_account_yet">还没有账号？</string>
+    <string name="email_login">邮箱登录</string>
+    <string name="korea">韩国</string>
+    <string name="america">美国</string>
+    <string name="phone_login">手机号登录</string>
 </resources>

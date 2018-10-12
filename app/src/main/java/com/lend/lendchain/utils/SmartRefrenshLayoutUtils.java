@@ -43,4 +43,16 @@ public class SmartRefrenshLayoutUtils {
         //最大滑动高度比例
         smartRefreshLayout.setHeaderMaxDragRate(1.7f);
     }
+    /**
+     * 设置SmartRefrenshLayout的越界回弹属性,无上拉下拉效果,只用做回弹
+     * @param smartRefreshLayout
+     */
+    public void setSmartRefrenshLayoutDrag(SmartRefreshLayout smartRefreshLayout){
+        //禁止下拉
+        smartRefreshLayout.setEnableRefresh(false);
+        //禁止上拉
+        smartRefreshLayout.setEnableLoadMore(false);
+        //越界回弹
+        smartRefreshLayout.setEnableOverScrollDrag(true);//越界回弹
+    }
 }

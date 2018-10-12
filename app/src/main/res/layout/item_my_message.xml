@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/qb_px_152"
+    android:background="@color/color_F5F5F5"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/qb_px_15"
+    android:paddingRight="@dimen/qb_px_15">
+
+    <TextView
+        android:id="@+id/item_my_message_tvTime"
+        style="@style/text999999_12"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_42"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_110"
+        android:background="@drawable/bg_white_radiu2"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/qb_px_12"
+        android:paddingRight="@dimen/qb_px_12">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_46">
+
+            <TextView
+                android:id="@+id/item_my_message_tvTitle"
+                style="@style/text262626_16"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:text="@string/my_message_read_detail"
+                android:id="@+id/item_my_message_tvDetail"
+                android:padding="@dimen/qb_px_5"
+                style="@style/textCCCCCC_12"
+                android:textColor="@color/color_509FFF"
+                android:layout_gravity="center_vertical|right" />
+        </FrameLayout>
+
+        <include layout="@layout/row_divider_1px" />
+
+        <TextView
+            android:id="@+id/item_my_message_tvMessage"
+            style="@style/text999999_12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/qb_px_5"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/qb_px_16"
+            android:paddingTop="@dimen/qb_px_16" />
+    </LinearLayout>
+</LinearLayout>

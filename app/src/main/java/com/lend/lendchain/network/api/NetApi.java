@@ -564,4 +564,28 @@ public class NetApi {
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+    /**
+     * 我的消息列表
+     */
+    public static void messageList(Context context,boolean isShow,String access_token,int page,int page_size, int type,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("page", page);
+        map.put("page_size", page_size);
+        map.put("type", type);
+        NetClient.getInstance().getPost("", isShow, context).messageList(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * 我的消息列表
+     */
+    public static void messageDetail(Context context,boolean isShow,String access_token,String noticeId,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("noticeId", noticeId);
+        NetClient.getInstance().getPost("", isShow, context).messageDetail(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

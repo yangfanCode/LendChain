@@ -11,6 +11,7 @@ import com.lend.lendchain.bean.InvestList;
 import com.lend.lendchain.bean.InvestSummary;
 import com.lend.lendchain.bean.LoanPairs;
 import com.lend.lendchain.bean.Login;
+import com.lend.lendchain.bean.MessageList;
 import com.lend.lendchain.bean.MyInvestList;
 import com.lend.lendchain.bean.MyLoanList;
 import com.lend.lendchain.bean.MyLoanSummary;
@@ -387,5 +388,19 @@ public interface AppApi {
      */
     @GET("trade/crypto/icon/list")
     Observable<ResultBean<List<CoinIconList>>> coinIconList();
+    /**
+     * 我的消息列表
+     *
+     * @return
+     */
+    @GET("trade/notice/getList")
+    Observable<ResultBean<MessageList>> messageList(@QueryMap Map<String, Object> account);
+    /**
+     * 我的消息列表
+     *
+     * @return
+     */
+    @GET("trade/notice/get")
+    Observable<ResultBean<MessageList.Item>> messageDetail(@QueryMap Map<String, Object> account);
 
 }

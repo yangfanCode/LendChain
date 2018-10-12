@@ -24,12 +24,14 @@ public class ListViewWithOptional extends ListView {
 
     //设置emptyView
     public void setEmptyView(OptionalLayout.TypeEnum typeEnum) {
-        OptionalLayout optionalLayout = (OptionalLayout) LayoutInflater.from(getContext()).inflate(R.layout.no_data_view, null);
-        optionalLayout.setTypeEnum(typeEnum);
-        ViewGroup parent = ((ViewGroup) getParent());
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        optionalLayout.setLayoutParams(params);
-        parent.addView(optionalLayout);
-        setEmptyView(optionalLayout);
+        if(getEmptyView()==null){
+            OptionalLayout optionalLayout = (OptionalLayout) LayoutInflater.from(getContext()).inflate(R.layout.no_data_view, null);
+            optionalLayout.setTypeEnum(typeEnum);
+            ViewGroup parent = ((ViewGroup) getParent());
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            optionalLayout.setLayoutParams(params);
+            parent.addView(optionalLayout);
+            setEmptyView(optionalLayout);
+        }
     }
 }

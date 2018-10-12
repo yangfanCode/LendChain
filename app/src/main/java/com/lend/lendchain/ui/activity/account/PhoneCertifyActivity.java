@@ -70,7 +70,7 @@ public class PhoneCertifyActivity extends BaseActivity {
             if(!TextUtils.isEmpty(countryCode)){
                 if(!TextUtils.isEmpty(phone)){
                     if(phone.length()>6){
-                        NetApi.sendSMSCode(PhoneCertifyActivity.this,true, SPUtil.getToken(),phone,countryCode.replace("+",""),sendSMSObserver);
+                        NetApi.sendSMSCode(PhoneCertifyActivity.this,true, SPUtil.getToken(),phone,countryCode,sendSMSObserver);
                     }else{
                         TipsToast.showTips(getString(R.string.please_input_correct_phone));
                     }
@@ -93,7 +93,7 @@ public class PhoneCertifyActivity extends BaseActivity {
                 TipsToast.showTips(getString(R.string.please_input_smscode));
                 return;
             }
-            NetApi.phoneCertify(PhoneCertifyActivity.this,true,SPUtil.getToken(),phone,code,countryCode.replace("+",""),phoneCertifyObserver);
+            NetApi.phoneCertify(PhoneCertifyActivity.this,true,SPUtil.getToken(),phone,code,countryCode,phoneCertifyObserver);
         });
     }
     //倒计时

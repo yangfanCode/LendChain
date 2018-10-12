@@ -71,7 +71,7 @@ public abstract class BaseActivity extends FragmentActivity {
     protected boolean isCanRequest = true;// true 可以请求
 
     protected boolean notSetStatusBarTintResource = false;// 是否 不改变状态栏
-    protected boolean fitSystemWindows = true;
+    protected boolean fitSystemWindows = true;//true 不上到状态来  false顶到状态栏
 //    protected int statusBarTintResource = R.color.color_statusbar_bg;
     protected String languageSetting = "";
     private List<Subscription> mSubscription = new ArrayList<>();//订阅管理器

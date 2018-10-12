@@ -120,15 +120,23 @@
             style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/qb_px_44"
-            android:layout_marginBottom="@dimen/qb_px_15"
+            android:layout_marginBottom="@dimen/qb_px_45"
             android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu22_selector"
             android:text="@string/confirm_update" />
-
-        <TextView
-            android:id="@+id/forget_tvGoRegiest"
-            style="@style/text509FFF_14"
-            android:layout_width="match_parent"
-            android:gravity="right"
-            android:text="@string/go_regiest" />
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/no_account_yet"
+                style="@style/text999999_14"/>
+            <TextView
+                android:id="@+id/forget_tvGoRegiest"
+                style="@style/text509FFF_14"
+                android:layout_width="match_parent"
+                android:gravity="right"
+                android:text="@string/regiest_now" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

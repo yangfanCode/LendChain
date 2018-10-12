@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fitSystemWindows = false;//首页设置沉浸式 home沉浸式 其他fragment设置状态栏颜色
+        fitSystemWindows = false;//首页设置沉浸式 顶到状态栏 home沉浸式 其他fragment设置状态栏颜色
         setContentView(R.layout.activity_main);
         instance=this;
     }

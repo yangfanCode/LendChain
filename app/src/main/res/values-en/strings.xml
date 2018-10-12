@@ -35,6 +35,7 @@
     <string name="permission_write_external_storage_not_allow">Read/write permission of storage device is not enabled</string>
     <string name="permission_camera_not_allow">Camera permissions are not enabled</string>
     <string name="confirm">Confirm</string>
+    <string name="confirm_ding">Confirm</string>
     <string name="continue_">Continue</string>
     <string name="no_login">Not logged in</string>
     <string name="no_data">No Records</string>

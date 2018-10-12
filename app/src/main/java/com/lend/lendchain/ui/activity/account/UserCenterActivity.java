@@ -48,6 +48,7 @@ public class UserCenterActivity extends BaseActivity {
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         int height= CommonUtil.getStatusBarHeight();
         llHead.setPadding(0,height,0,0);
+        fnNickName.setOnClickListener(v -> CommonUtil.openActicity(UserCenterActivity.this,NickNameSetActivity.class,null));
         initData();
     }
 
@@ -86,10 +87,11 @@ public class UserCenterActivity extends BaseActivity {
                     fnNickName.getImvIndicator().setVisibility(View.VISIBLE);
                     fnNickName.setImvIndicatorImageResource(R.mipmap.icon_jiantou_right);
                     fnNickName.setText(getString(R.string.go_set));//去设置
-                    fnNickName.setOnClickListener(v -> CommonUtil.openActicity(UserCenterActivity.this,NickNameSetActivity.class,null));
+                    fnNickName.setEnabled(true);
                 }else{
                     fnNickName.getImvIndicator().setVisibility(View.GONE);
                     fnNickName.setText(nikeName);
+                    fnNickName.setEnabled(false);
                 }
             }
         }

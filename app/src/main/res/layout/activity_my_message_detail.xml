@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.MyMessageDetailActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_1px" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:paddingLeft="@dimen/qb_px_15"
+                android:paddingRight="@dimen/qb_px_15"
+                android:paddingTop="@dimen/qb_px_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/item_my_message_detail_tvTitle"
+                    android:layout_marginBottom="@dimen/qb_px_15"
+                    style="@style/text262626_16" />
+                <TextView
+                    android:id="@+id/item_my_message_detail_tvTime"
+                    android:layout_marginBottom="@dimen/qb_px_15"
+                    style="@style/text999999_12" />
+                <TextView
+                    android:breakStrategy="simple"
+                    android:id="@+id/my_message_detail_tvMessage"
+                    style="@style/text595959_14"
+                    android:lineSpacingExtra="@dimen/qb_px_5"
+                    android:layout_width="match_parent" />
+            </LinearLayout>
+        </ScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

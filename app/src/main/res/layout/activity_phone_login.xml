@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".ui.activity.login.RegiestActivity">
+    tools:context=".ui.activity.login.LoginActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,13 +17,13 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/bg_login" />
         <ImageView
-            android:id="@+id/regiest_ivClose"
+            android:id="@+id/login_ivClose"
             android:layout_marginLeft="@dimen/qb_px_15"
             android:layout_width="@dimen/qb_px_18"
             android:src="@mipmap/icon_cha_white"
             android:layout_height="@dimen/qb_px_18" />
         <ImageView
-            android:id="@+id/regiest_ivService"
+            android:id="@+id/login_ivService"
             android:layout_gravity="right"
             android:layout_marginRight="@dimen/qb_px_15"
             android:layout_width="@dimen/qb_px_25"
@@ -32,12 +32,12 @@
     </FrameLayout>
 
     <TextView
-        android:textSize="@dimen/text_size_20"
-        android:textColor="@color/color_262626"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_20"
+        android:textColor="@color/color_262626"
         android:layout_marginTop="@dimen/qb_px_17"
-        android:text="@string/regiest" />
+        android:text="@string/login" />
 
     <View
         android:layout_width="@dimen/qb_px_16"
@@ -48,71 +48,63 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/qb_px_40"
-        android:paddingRight="@dimen/qb_px_40">
-
-        <EditText
-            android:id="@+id/regiest_etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_32"
+        android:layout_marginLeft="@dimen/qb_px_40"
+        android:layout_marginRight="@dimen/qb_px_40"
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_marginBottom="@dimen/qb_px_24"
-            android:layout_marginTop="@dimen/qb_px_49"
+            android:layout_marginTop="@dimen/qb_px_48"
             android:background="@drawable/bg_e6e6e6_white_border_b"
-            android:drawableLeft="@mipmap/icon_email"
-            android:drawablePadding="@dimen/qb_px_10"
-            android:hint="@string/please_input_email"
-            android:paddingBottom="@dimen/qb_px_5"
-            android:textColor="@color/color_262626"
-            android:textSize="@dimen/text_size_14"
-            android:theme="@style/MyEditText" />
-
-        <FrameLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_32"
-            android:layout_marginBottom="@dimen/qb_px_24">
-
+            android:layout_height="@dimen/qb_px_32">
+            <TextView
+                android:id="@+id/login_tvCountryCode"
+                android:layout_height="match_parent"
+                android:drawableLeft="@mipmap/icon_phone"
+                android:gravity="center"
+                android:paddingRight="@dimen/qb_px_10"
+                android:drawablePadding="@dimen/qb_px_10"
+                android:text="86"
+                style="@style/text262626_14" />
+            <include
+                android:layout_marginRight="@dimen/qb_px_10"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/divider_height_1px"
+                android:layout_height="@dimen/qb_px_20"
+                layout="@layout/row_divider_v"/>
             <EditText
-                android:id="@+id/regiest_etEmailCode"
+                android:id="@+id/login_etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="@string/please_input_phone"
+                android:textColorHint="@color/color_CCCCCC"
+                android:textColor="@color/color_262626"
+                android:textSize="@dimen/text_size_14"
+                android:theme="@style/MyEditText"/>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_marginBottom="@dimen/qb_px_30"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_32">
+            <EditText
+                android:id="@+id/login_etPwd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_e6e6e6_white_border_b"
-                android:drawableLeft="@mipmap/icon_verify_code"
-                android:drawablePadding="@dimen/qb_px_10"
-                android:hint="@string/please_input_email_code"
-                android:paddingBottom="@dimen/qb_px_5"
-                android:textColor="@color/color_262626"
-                android:textSize="@dimen/text_size_14"
-                android:theme="@style/MyEditText" />
-
-            <TextView
-                android:id="@+id/regiest_tvSendVerifyCode"
-                style="@style/text509FFF_14"
-                android:layout_gravity="right|center_vertical"
-                android:text="@string/send_verify_code"
-                android:textColor="@color/text_999999_509fff_enabled_selector" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_32"
-            android:layout_marginBottom="@dimen/qb_px_24">
-
-            <EditText
-                android:id="@+id/regiest_etPwd"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_32"
-                android:background="@drawable/bg_e6e6e6_white_border_b"
                 android:drawableLeft="@mipmap/icon_pwd"
                 android:drawablePadding="@dimen/qb_px_10"
+                android:textColorHint="@color/color_CCCCCC"
                 android:hint="@string/please_input_pwd"
                 android:inputType="textPassword"
+                android:typeface="normal"
                 android:paddingBottom="@dimen/qb_px_5"
                 android:textColor="@color/color_262626"
                 android:textSize="@dimen/text_size_14"
                 android:theme="@style/MyEditText" />
             <ImageView
-                android:id="@+id/regiest_ivSlices"
+                android:id="@+id/login_ivSlices"
                 android:layout_gravity="center_vertical|right"
                 android:layout_width="@dimen/qb_px_30"
                 android:src="@mipmap/icon_slices"
@@ -122,44 +114,45 @@
                 android:layout_height="@dimen/qb_px_30" />
         </FrameLayout>
 
-
-        <EditText
-            android:id="@+id/regiest_etInviteCode"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_32"
-            android:layout_marginBottom="@dimen/qb_px_30"
-            android:background="@drawable/bg_e6e6e6_white_border_b"
-            android:drawableLeft="@mipmap/icon_invited_code"
-            android:drawablePadding="@dimen/qb_px_10"
-            android:hint="@string/please_input_invited_code"
-            android:paddingBottom="@dimen/qb_px_5"
-            android:textColor="@color/color_262626"
-            android:textSize="@dimen/text_size_14"
-            android:theme="@style/MyEditText" />
-
         <TextView
-            android:id="@+id/regiest_btnRegiest"
+            android:id="@+id/login_btnLogin"
             style="@style/buttonStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/qb_px_44"
-            android:layout_marginBottom="@dimen/qb_px_30"
+            android:layout_marginBottom="@dimen/qb_px_15"
             android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu22_selector"
-            android:text="@string/regiest_now" />
+            android:text="@string/login_now" />
+
+        <FrameLayout
+            android:layout_marginBottom="@dimen/qb_px_45"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/login_tvForgetPwd"
+                style="@style/text509FFF_14"
+                android:text="@string/forget_pwd" />
+
+            <TextView
+                android:id="@+id/login_tvGoEmailLogin"
+                style="@style/text509FFF_14"
+                android:layout_gravity="right"
+                android:text="@string/email_login" />
+        </FrameLayout>
         <LinearLayout
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <TextView
-                android:text="@string/existing_account"
+                android:text="@string/no_account_yet"
                 style="@style/text999999_14"/>
             <TextView
-                android:id="@+id/regiest_tvGoLogin"
+                android:id="@+id/regiest_tvRegiestNow"
                 style="@style/text509FFF_14"
                 android:layout_width="match_parent"
                 android:gravity="right"
-                android:text="@string/login_now" />
+                android:text="@string/regiest_now" />
         </LinearLayout>
-        
     </LinearLayout>
 </LinearLayout>

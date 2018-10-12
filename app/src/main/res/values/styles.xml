@@ -8,6 +8,7 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:windowBackground">@color/colorWhite</item>
     </style>
+
     <style name="TranslucentTheme" parent="BaseAppTheme">
         <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
     </style>
@@ -26,6 +27,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="progress_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -34,6 +36,7 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
     <style name="progress_dialog2" parent="progress_dialog">
         <item name="android:backgroundDimAmount">0</item>
     </style>
@@ -97,14 +100,17 @@
         <item name="fnRightPadding">12dp</item>
         <item name="fnIndicatorResId">@mipmap/btn_com_h</item>
     </style>
+
     <style name="popWindow_animation">
         <item name="android:windowEnterAnimation">@anim/popupwindow_enter</item>
         <item name="android:windowExitAnimation">@anim/popupwindow_exit</item>
     </style>
+
     <style name="popWindow_animation1">
         <item name="android:windowEnterAnimation">@anim/popipwindow_show</item>
         <item name="android:windowExitAnimation">@anim/popupwindow_hide</item>
     </style>
+
     <style name="MyEditText" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">@color/color_509FFF</item>
         <item name="colorControlActivated">@color/color_509FFF</item>
@@ -122,81 +128,110 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
     <style name="text4A4A4A_16" parent="textParent">
         <item name="android:textColor">@color/color_4A4A4A</item>
         <item name="android:textSize">@dimen/text_size_16</item>
     </style>
+
     <style name="textFFFFFF_16" parent="text4A4A4A_16">
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="textFFFFFF_20" parent="textFFFFFF_16">
         <item name="android:textSize">@dimen/text_size_20</item>
     </style>
+
     <style name="textFFFFFF_14" parent="textFFFFFF_16">
         <item name="android:textSize">@dimen/text_size_14</item>
     </style>
+
     <style name="textFFFFFF_12" parent="textFFFFFF_16">
         <item name="android:textSize">@dimen/text_size_12</item>
     </style>
+
     <style name="textFFFFFF_18" parent="textFFFFFF_16">
         <item name="android:textSize">@dimen/text_size_18</item>
     </style>
+
     <style name="text262626_16" parent="textParent">
         <item name="android:textColor">@color/color_262626</item>
         <item name="android:textSize">@dimen/text_size_16</item>
     </style>
+
     <style name="text262626_12" parent="text262626_16">
         <item name="android:textSize">@dimen/text_size_12</item>
     </style>
+
     <style name="text262626_14" parent="text262626_16">
         <item name="android:textSize">@dimen/text_size_14</item>
     </style>
+
     <style name="text444444_14" parent="text262626_14">
         <item name="android:textColor">@color/color_444444</item>
     </style>
+
     <style name="text999999_12" parent="text262626_12">
         <item name="android:textColor">@color/color_999999</item>
     </style>
+
     <style name="text999999_14" parent="text999999_12">
         <item name="android:textSize">@dimen/text_size_14</item>
     </style>
+
     <style name="textCCCCCC_12" parent="text262626_12">
         <item name="android:textColor">@color/color_CCCCCC</item>
     </style>
+
     <style name="textCCCCCC_16" parent="textCCCCCC_12">
         <item name="android:textSize">@dimen/text_size_16</item>
     </style>
+
     <style name="textCCCCCC_14" parent="textCCCCCC_12">
         <item name="android:textSize">@dimen/text_size_14</item>
     </style>
+
     <style name="text595959_12" parent="textCCCCCC_12">
         <item name="android:textColor">@color/color_595959</item>
     </style>
+
     <style name="text595959_10" parent="text595959_12">
         <item name="android:textSize">@dimen/text_size_10</item>
     </style>
+
     <style name="text595959_14" parent="text595959_12">
         <item name="android:textSize">@dimen/text_size_14</item>
     </style>
+
     <style name="text595959_16" parent="text595959_12">
         <item name="android:textSize">@dimen/text_size_16</item>
     </style>
+
     <style name="text509FFF_12" parent="text595959_12">
         <item name="android:textColor">@color/color_509FFF</item>
     </style>
+
     <style name="text509FFF_10" parent="text595959_10">
         <item name="android:textColor">@color/color_509FFF</item>
     </style>
+
     <style name="text509FFF_14" parent="text595959_14">
         <item name="android:textColor">@color/color_509FFF</item>
     </style>
+
     <style name="text509FFF_16" parent="text509FFF_14">
         <item name="android:textSize">@dimen/text_size_16</item>
     </style>
+
     <style name="textFF6343_16" parent="text509FFF_16">
         <item name="android:textColor">@color/color_FF6343</item>
     </style>
+
     <style name="text1ECC27_16" parent="text509FFF_16">
         <item name="android:textColor">@color/color_1ECC27</item>
     </style>
+
+    <style name="BaseAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="BaseAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

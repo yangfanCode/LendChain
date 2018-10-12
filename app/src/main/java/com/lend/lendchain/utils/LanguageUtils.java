@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
 import com.lend.lendchain.helper.ContextHelper;
+import com.lend.lendchain.singleton.CountryCode;
 
 import java.util.Locale;
 
@@ -90,6 +91,7 @@ public class LanguageUtils {
      */
     public static void saveLanguageSetting(Locale locale) {
         SPUtil.put(SPUtil.KEY_LANGUAGE_SETTING, getCustomLangFromLocal(locale));
+        CountryCode.clearData();//默认语言修改
         Resources resources = ContextHelper.getApplication().getResources();
         DisplayMetrics dm = resources.getDisplayMetrics();
         Configuration config = resources.getConfiguration();

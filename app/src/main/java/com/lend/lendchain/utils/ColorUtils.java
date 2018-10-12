@@ -37,6 +37,10 @@ public class ColorUtils {
     public static int COLOR_595959 = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_595959);
     /**F5F5F5**/
     public static int COLOR_F5F5F5 = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_F5F5F5);
+    /**CCCCCC**/
+    public static int COLOR_CCCCCC = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_CCCCCC);
+    /**000000**/
+    public static int COLOR_000000 = ContextCompat.getColor(ContextHelper.getApplication(), R.color.color_000000);
 
 
 
