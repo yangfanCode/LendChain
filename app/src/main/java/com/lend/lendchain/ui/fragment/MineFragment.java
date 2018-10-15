@@ -99,6 +99,8 @@ public class MineFragment extends BaseFragment {
     LinearLayout llOver;
     @BindView(R.id.mine_ivMessage)
     ImageView ivMessage;
+    @BindView(R.id.mine_viewRedPoint)
+    View viewRedPoint;
     private double totalAmount;//总资产
     private double lastAmount;//可用余额
     private double profit;//昨日收益
@@ -243,6 +245,7 @@ public class MineFragment extends BaseFragment {
         public void onSuccess(ResultBean<UserInfo> userInfoResultBean) {
             if (userInfoResultBean == null) return;
             if (userInfoResultBean.isSuccess()) {
+                viewRedPoint.setVisibility((int)userInfoResultBean.data.noticeAmount==0?View.GONE:View.VISIBLE);//小红点
                 tvEmail.setText(TextUtils.isEmpty(userInfoResultBean.data.nickname) ? userInfoResultBean.data.email : userInfoResultBean.data.nickname);//用户名
                 SPUtil.setUserPhone(userInfoResultBean.data.identif.phone);//存手机认证状态
                 SPUtil.setUserGoogle(userInfoResultBean.data.identif.google);//存谷歌认证状态

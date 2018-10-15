@@ -8,6 +8,7 @@ package com.lend.lendchain.bean;
 public class UserInfo {
     public String country_code;
     public double totalAmount;
+    public double noticeAmount;
     public String phone;
     public String nickname;
     public Identif identif;

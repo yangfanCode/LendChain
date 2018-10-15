@@ -49,8 +49,8 @@
                             android:orientation="horizontal">
 
                             <com.facebook.drawee.view.SimpleDraweeView
-                                android:layout_width="@dimen/qb_px_15"
-                                android:layout_height="@dimen/qb_px_15"
+                                android:layout_width="@dimen/qb_px_35"
+                                android:layout_height="@dimen/qb_px_35"
                                 android:layout_marginRight="@dimen/qb_px_10"
                                 app:placeholderImage="@mipmap/logo"
                                 app:roundAsCircle="true" />
@@ -59,12 +59,23 @@
                                 android:id="@+id/my_wallet_tvEmail"
                                 style="@style/textFFFFFF_16" />
                         </LinearLayout>
-                        <ImageView
-                            android:id="@+id/mine_ivMessage"
+                        <FrameLayout
                             android:layout_gravity="right|center_vertical"
                             android:layout_width="@dimen/qb_px_22"
-                            android:src="@mipmap/icon_message"
-                            android:layout_height="@dimen/qb_px_22" />
+                            android:layout_height="@dimen/qb_px_22">
+                            <ImageView
+                                android:id="@+id/mine_ivMessage"
+                                android:layout_width="@dimen/qb_px_22"
+                                android:src="@mipmap/icon_message"
+                                android:layout_height="@dimen/qb_px_22" />
+                            <View
+                                android:id="@+id/mine_viewRedPoint"
+                                android:layout_gravity="right"
+                                android:layout_width="@dimen/qb_px_8"
+                                android:background="@drawable/bg_red_circle"
+                                android:layout_height="@dimen/qb_px_8"/>
+                        </FrameLayout>
+
                     </FrameLayout>
 
                     <LinearLayout

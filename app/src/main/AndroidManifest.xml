@@ -63,16 +63,37 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustResize" />
+        <!--urlScheme唤醒配置-->
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:configChanges="orientation|locale|layoutDirection|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+            <!--要想在别的App上能成功调起App，必须添加intent过滤器-->
+            <!--比如lendchain://pay/result?tradeNo=xxx&state=yyyy-->
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <data
+                    android:host="pay"
+                    android:path="/result"
+                    android:scheme="lendchain"/>
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".ui.activity.GuidePageActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.MainActivity"
-            android:configChanges="orientation|locale|layoutDirection|keyboard"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name=".ui.activity.MainActivity"-->
+            <!--android:configChanges="orientation|locale|layoutDirection|keyboard"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:screenOrientation="portrait" />-->
         <activity
             android:name=".ui.activity.invest.InvestSummaryActivity"
             android:configChanges="orientation"

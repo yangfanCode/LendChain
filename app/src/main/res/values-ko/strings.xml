@@ -432,4 +432,21 @@
     <string name="transfer_cerfity">이체 인증</string>
     <string name="transfer_warm_tips">알림:\n1.플랫폼에서 무료 이체.\n2.플랫폼에서 즉시 수령.\n</string>
     <string name="transfer_success">이체 완료</string>
+    <!--MyMessageActivity-->
+    <string name="my_message_unread">나의 소식 (읽지 않음)</string>
+    <string name="my_message_read">나의 소식(읽음)</string>
+    <string name="unread">읽지 않음</string>
+    <string name="read">읽음</string>
+    <string name="my_message_read_detail">자세 사항>></string>
+    <string name="wechat_service">위쳇 문의(Lendx2018)</string>
+    <string name="wechat_service_tip">위챗 고객센터 계정은 이미 복사되어 지금은 위챗으로 간다</string>
+    <string name="wechat_open_failed">마이크로 편지는 실패를하였다.</string>
+    <string name="please_install_wechat">마이크로 편지를 작성 해 주세요.</string>
+    <!--V2.3新增-->
+    <string name="existing_account">아이디 있으신가요?</string>
+    <string name="no_account_yet">아직 아이디가 없으신가요 ?</string>
+    <string name="email_login">이메일 인증 등록</string>
+    <string name="korea">한국</string>
+    <string name="america">미국</string>
+    <string name="phone_login">휴대폰 인증 등록</string>
 </resources>

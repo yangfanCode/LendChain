@@ -49,6 +49,7 @@ public class MyMessageDetailActivity extends BaseActivity {
         id=getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
         title=getIntent().getExtras().getString(Constant.ARGS_PARAM1);
         baseTitleBar.setTitle(title);
+        baseTitleBar.setLayLeftBackClickListener(v -> finish());
         baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
         baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         //设置回弹属性

@@ -432,4 +432,21 @@
     <string name="transfer_cerfity">Transfer validation</string>
     <string name="transfer_warm_tips">Warm reminder:\n1. 0 service charge for transfer within the platform.\n2. Account will be received immediately after transfer within the platform.</string>
     <string name="transfer_success">Transfer success</string>
+    <!--MyMessageActivity-->
+    <string name="my_message_unread">My Information (Unread)</string>
+    <string name="my_message_read">My Information (Read)</string>
+    <string name="unread">Unread</string>
+    <string name="read">Read</string>
+    <string name="my_message_read_detail">View details>></string>
+    <string name="wechat_service">WeChat customer service : Lendx2018</string>
+    <string name="wechat_service_tip">WeChat customer service account has been copied to clipboard, \n go to WeChat and add it.</string>
+    <string name="wechat_open_failed">WeChat open failed</string>
+    <string name="please_install_wechat">Please install WeChat</string>
+    <!--V2.3新增-->
+    <string name="existing_account">Already have an account?</string>
+    <string name="no_account_yet">Don\'t have an account yet?</string>
+    <string name="email_login">Email Login</string>
+    <string name="korea">Korea</string>
+    <string name="america">The United States</string>
+    <string name="phone_login">Mobile number login</string>
 </resources>
