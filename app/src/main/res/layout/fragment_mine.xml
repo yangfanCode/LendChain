@@ -71,6 +71,7 @@
                             <View
                                 android:id="@+id/mine_viewRedPoint"
                                 android:layout_gravity="right"
+                                android:visibility="gone"
                                 android:layout_width="@dimen/qb_px_8"
                                 android:background="@drawable/bg_red_circle"
                                 android:layout_height="@dimen/qb_px_8"/>
