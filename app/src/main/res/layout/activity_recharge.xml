@@ -13,145 +13,16 @@
         android:layout_height="wrap_content"
         app:btbBackground="@color/white" />
 
-    <ScrollView
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/magicIndicator"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@mipmap/bg_slices">
+        android:layout_height="@dimen/qb_px_40"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/qb_px_30"
-            android:orientation="vertical">
+    <include layout="@layout/row_divider_1px" />
 
-            <include layout="@layout/row_divider_12h" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_145"
-                android:background="@color/white"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/recharge_ivQRCode"
-                    android:layout_width="@dimen/qb_px_95"
-                    android:layout_height="@dimen/qb_px_95"
-                    android:background="@color/xc_group_divider"
-                    android:padding="@dimen/qb_px_1" />
-
-                <TextView
-                    style="@style/text999999_12"
-                    android:layout_marginTop="@dimen/qb_px_10"
-                    android:text="@string/saoyisao_qrcode_address" />
-            </LinearLayout>
-
-            <include layout="@layout/row_divider_12h" />
-
-
-            <TextView
-                android:id="@+id/recharge_tvAddressText"
-                style="@style/text262626_12"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_53"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/qb_px_15"
-                android:text="@string/recharge_address" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_42"
-                android:background="@color/white"
-                android:paddingBottom="@dimen/qb_px_5"
-                android:paddingLeft="@dimen/qb_px_15"
-                android:paddingRight="@dimen/qb_px_15">
-
-                <TextView
-                    android:layout_marginLeft="@dimen/qb_px_5"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:id="@+id/recharge_tvCopy"
-                    style="@style/text509FFF_14"
-                    android:text="@string/copy" />
-
-                <TextView
-                    android:breakStrategy="simple"
-                    android:layout_width="match_parent"
-                    android:gravity="left"
-                    android:id="@+id/recharge_tvAddress"
-                    style="@style/text262626_14"
-                    android:layout_toLeftOf="@id/recharge_tvCopy"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/qb_px_15"
-                    android:ellipsize="end"
-                    android:maxLines="2" />
-
-
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/recharge_llMemo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <include layout="@layout/row_divider_1px" />
-                <TextView
-                    android:id="@+id/recharge_tvMemoText"
-                    style="@style/text262626_12"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_53"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/qb_px_15"
-                    android:text="@string/withdraw_note_memo" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_40"
-                    android:background="@color/white"
-                    android:paddingBottom="@dimen/qb_px_5"
-                    android:paddingLeft="@dimen/qb_px_15"
-                    android:paddingRight="@dimen/qb_px_15">
-                    <TextView
-                        android:id="@+id/recharge_tvCopyM"
-                        style="@style/text509FFF_14"
-                        android:layout_marginLeft="@dimen/qb_px_5"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:text="@string/copy" />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:gravity="left"
-                        android:breakStrategy="simple"
-                        android:layout_toLeftOf="@id/recharge_tvCopyM"
-                        android:id="@+id/recharge_tvMemo"
-                        style="@style/text262626_14"
-                        android:layout_centerVertical="true"
-                        android:ellipsize="end"
-                        android:maxLines="2" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_50"
-                    android:background="@color/color_FFDDD7"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/qb_px_15"
-                    android:paddingRight="@dimen/qb_px_15"
-                    android:text="@string/recharge_address_memo_tip"
-                    android:textColor="@color/color_FF3D3D"
-                    android:textSize="@dimen/text_size_12" />
-            </LinearLayout>
-
-            <TextView
-                android:breakStrategy="simple"
-                android:id="@+id/recharge_tvTips"
-                style="@style/text999999_12"
-                android:layout_marginTop="@dimen/qb_px_30"
-                android:lineSpacingExtra="@dimen/padding_2"
-                android:paddingLeft="@dimen/qb_px_15"
-                android:paddingRight="@dimen/qb_px_15" />
-        </LinearLayout>
-    </ScrollView>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/recharge_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

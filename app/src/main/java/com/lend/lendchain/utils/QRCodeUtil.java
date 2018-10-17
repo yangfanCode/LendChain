@@ -36,6 +36,7 @@ public class QRCodeUtil {
      *
      * @param text 需要生成二维码的文字、网址等
      * @param size 需要生成二维码的大小（）
+     * @param margin 设置白边
      * @return bitmap
      */
     public static Bitmap createQrcode(String text, int size,int margin) {

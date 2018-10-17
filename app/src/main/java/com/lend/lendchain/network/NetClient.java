@@ -58,6 +58,10 @@ public class NetClient {
         if (isShow) {
             if (activity != null) {
                 //此处待优化
+                if(loadAnimationUtils!=null){
+                    loadAnimationUtils.closeProcessAnimation();
+                    loadAnimationUtils = null;
+                }
                 loadAnimationUtils = new LoadAnimationUtils(activity);
                 loadAnimationUtils.showProcessAnimation(text);
             }
@@ -78,6 +82,10 @@ public class NetClient {
     public AppApi getPost(String text, boolean isShow, Context activity, Map<String, String> headerParamsMap) {
         if (isShow) {
             if (activity != null) {
+                if(loadAnimationUtils!=null){
+                    loadAnimationUtils.closeProcessAnimation();
+                    loadAnimationUtils = null;
+                }
                 loadAnimationUtils = new LoadAnimationUtils(activity);
                 loadAnimationUtils.showProcessAnimation(text);
             }
@@ -96,6 +104,10 @@ public class NetClient {
     public AppApi getPost(String text, boolean isShow, Context activity, String baseUrl) {
         if (isShow) {
             if (activity != null) {
+                if(loadAnimationUtils!=null){
+                    loadAnimationUtils.closeProcessAnimation();
+                    loadAnimationUtils = null;
+                }
                 loadAnimationUtils = new LoadAnimationUtils(activity);
                 loadAnimationUtils.showProcessAnimation(text);
             }
@@ -115,6 +127,10 @@ public class NetClient {
     public AppApi getPost(String text, boolean isShow, Context activity, Map<String, String> headerParamsMap, String baseUrl) {
         if (isShow) {
             if (activity != null) {
+                if(loadAnimationUtils!=null){
+                    loadAnimationUtils.closeProcessAnimation();
+                    loadAnimationUtils = null;
+                }
                 loadAnimationUtils = new LoadAnimationUtils(activity);
                 loadAnimationUtils.showProcessAnimation(text);
             }
