@@ -24,7 +24,9 @@ import com.lend.lendchain.utils.DisplayUtil;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.QRCodeUtil;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.widget.TipsToast;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,6 +50,8 @@ public class NomalRechargeFragment extends Fragment {
     TextView tvTips;
     @BindView(R.id.recharge_llMemo)
     LinearLayout llMemo;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
     private String add , code, memo, cryptoId;//币种
     private View parentView;
     @Override
@@ -88,6 +92,7 @@ public class NomalRechargeFragment extends Fragment {
             code = getArguments().getString(Constant.ARGS_PARAM3);
             cryptoId = getArguments().getString(Constant.ARGS_PARAM4);
         }
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
         initData();
         initListener();
     }

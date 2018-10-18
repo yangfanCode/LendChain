@@ -132,7 +132,7 @@ public class MyWalletActivity extends BaseActivity {
                 }
 
             } else {
-                TipsToast.showTips(resultBean.message);
+                setHttpFailed(MyWalletActivity.this,resultBean);
             }
         }
 

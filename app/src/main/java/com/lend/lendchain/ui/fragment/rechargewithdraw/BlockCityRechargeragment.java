@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.yangfan.widget.DecimalDigitsEditText;
 
 import butterknife.BindView;
@@ -25,6 +27,8 @@ public class BlockCityRechargeragment extends Fragment {
     TextView btnConfirm;
     @BindView(R.id.blockcity_recharge_tvCoin)
     TextView tvCoin;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
     private View parentView;
     private String code;
     @Override
@@ -65,6 +69,7 @@ public class BlockCityRechargeragment extends Fragment {
             code = getArguments().getString(Constant.ARGS_PARAM1);
 //            cryptoId = getArguments().getString(Constant.ARGS_PARAM4);
         }
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
         initData();
         initListener();
     }

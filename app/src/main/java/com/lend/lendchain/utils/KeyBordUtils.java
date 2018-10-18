@@ -3,6 +3,7 @@ package com.lend.lendchain.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.InputType;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -60,7 +61,7 @@ public class KeyBordUtils {
     }
 
     /**
-     * edittext屏蔽系统键盘响应
+     * edittext屏蔽系统键盘响应(点击无法调取系统键盘,配合自定义键盘使用)
      *
      * @param editText
      */
@@ -94,10 +95,25 @@ public class KeyBordUtils {
      * @param editText
      */
     public static void setEditTextFocus(Context context,EditText editText){
+        if(editText==null)return;
         editText.setFocusable(true);
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
         openKeybord(context,editText);
+    }
+
+    /**
+     * edittext不获取焦点 不弹出键盘
+     * @param editText
+     */
+    public static void setEditTextNoFocus(EditText editText){
+        if(editText==null)return;
+        ViewGroup parent= (ViewGroup) editText.getParent();
+        if(parent!=null){
+            parent.setFocusable(true);
+            parent.setFocusableInTouchMode(true);
+        }
+
     }
 
 }

@@ -23,8 +23,11 @@ import com.lend.lendchain.ui.activity.account.rechargewithdraw.WithDrawCertifyAc
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
+import com.lend.lendchain.utils.KeyBordUtils;
 import com.lend.lendchain.utils.SPUtil;
+import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.widget.TipsToast;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.yangfan.widget.DecimalDigitsEditText;
 import com.yangfan.widget.FormNormal;
 
@@ -62,6 +65,8 @@ public class NomalWithDrawFragment extends Fragment {
     LinearLayout llMemo;
     @BindView(R.id.withdraw_fnOver)
     FormNormal fnOver;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout refreshLayout;
     private String cryptoId, cryptoCode, id, count;
     private double withdrawFee, minWithdraw;//手续费
     private Dialog dialog = null;
@@ -97,18 +102,21 @@ public class NomalWithDrawFragment extends Fragment {
     }
 
     private void initView(){
+        ButterKnife.bind(this, parentView);
         if(getArguments()!=null){
             cryptoId = getArguments().getString(Constant.ARGS_PARAM1);
             cryptoCode = getArguments().getString(Constant.ARGS_PARAM2);
             id = getArguments().getString(Constant.ARGS_PARAM3);
             count = getArguments().getString(Constant.ARGS_PARAM4);
         }
+        SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
         etCount.setAfterDot(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ?5:6);//lv gxs 5位小数
         llMemo.setVisibility(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? View.VISIBLE : View.GONE);
         tvRealMoneyCoin.setText(cryptoCode);
         tvPoundageCoin.setText(cryptoCode);
         tvCoin.setText(cryptoCode);
         fnOver.setText(count.concat(" "+cryptoCode));//可用余额
+        KeyBordUtils.setEditTextNoFocus(etAdd);
     }
 
     private void initData(){

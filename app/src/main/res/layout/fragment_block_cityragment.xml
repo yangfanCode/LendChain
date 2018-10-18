@@ -1,84 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_slices"
+    android:orientation="vertical"
     tools:context=".ui.fragment.rechargewithdraw.BlockCityRechargeragment">
 
-
-    <LinearLayout
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/qb_px_30">
+        android:layout_height="match_parent">
 
-        <include layout="@layout/row_divider_12h" />
-
-        <LinearLayout
-            android:paddingLeft="@dimen/qb_px_15"
-            android:paddingRight="@dimen/qb_px_15"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_83"
-            android:background="@color/white"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:text="@string/recharge_amount"
-                style="@style/text262626_12"
-                android:gravity="center_vertical"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_52" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/qb_px_30">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_marginLeft="@dimen/qb_px_15"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:id="@+id/blockcity_recharge_tvCoin"
-                    style="@style/text595959_14"/>
-                <com.yangfan.widget.DecimalDigitsEditText
-                    android:id="@+id/blockcity_recharge_etCount"
-                    android:layout_toLeftOf="@id/blockcity_recharge_tvCoin"
+                <include layout="@layout/row_divider_12h" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:maxLength="15"
-                    android:inputType="numberDecimal"
-                    android:textColor="@color/color_262626"
-                    android:textColorHint="@color/color_CCCCCC"
-                    android:textSize="@dimen/text_size_16"
-                    android:theme="@style/MyEditText" />
-            </RelativeLayout>
-        </LinearLayout>
+                    android:layout_height="@dimen/qb_px_83"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/qb_px_15"
+                    android:paddingRight="@dimen/qb_px_15">
 
-        <include layout="@layout/row_divider_1px" />
+                    <TextView
+                        style="@style/text262626_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/qb_px_52"
+                        android:gravity="center_vertical"
+                        android:text="@string/recharge_amount" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/blockcity_recharge_tvCoin"
+                            style="@style/text595959_14"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/qb_px_15" />
+
+                        <com.yangfan.widget.DecimalDigitsEditText
+                            android:id="@+id/blockcity_recharge_etCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toLeftOf="@id/blockcity_recharge_tvCoin"
+                            android:background="@null"
+                            android:inputType="numberDecimal"
+                            android:maxLength="15"
+                            android:textColor="@color/color_262626"
+                            android:textColorHint="@color/color_CCCCCC"
+                            android:textSize="@dimen/text_size_16"
+                            android:theme="@style/MyEditText" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <include layout="@layout/row_divider_1px" />
 
 
-        <TextView
-            style="@style/text999999_12"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_61"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/qb_px_15"
-            android:lineSpacingExtra="@dimen/padding_2"
-            android:paddingRight="@dimen/qb_px_15"
-            android:text="@string/blockcity_wallet_recharge_tip" />
+                <TextView
+                    style="@style/text999999_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_61"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:lineSpacingExtra="@dimen/padding_2"
+                    android:paddingLeft="@dimen/qb_px_15"
+                    android:paddingRight="@dimen/qb_px_15"
+                    android:text="@string/blockcity_wallet_recharge_tip" />
 
-        <TextView
-            android:id="@+id/blockcity_recharge_btnConfirm"
-            style="@style/buttonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/qb_px_44"
-            android:layout_marginLeft="@dimen/qb_px_15"
-            android:layout_marginRight="@dimen/qb_px_15"
-            android:layout_marginTop="@dimen/qb_px_30"
-            android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
-            android:text="@string/confirm_recharge" />
-    </LinearLayout>
-
-</ScrollView>
+                <TextView
+                    android:id="@+id/blockcity_recharge_btnConfirm"
+                    style="@style/buttonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/qb_px_44"
+                    android:layout_marginLeft="@dimen/qb_px_15"
+                    android:layout_marginRight="@dimen/qb_px_15"
+                    android:layout_marginTop="@dimen/qb_px_30"
+                    android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+                    android:text="@string/confirm_recharge" />
+            </LinearLayout>
+        </ScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>
