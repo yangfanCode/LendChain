@@ -1,4 +1,4 @@
-package com.lend.lendchain.ui.activity.account;
+package com.lend.lendchain.ui.activity.account.certify;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -46,7 +46,7 @@ import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class PassPortCertifyActivity extends BaseActivity {
+public class IDCardCertifyActivity extends BaseActivity {
 
     @BindView(R.id.idcard_cerfity_ivIdCardPositive)
     ImageView ivIdCardPositive;
@@ -73,11 +73,9 @@ public class PassPortCertifyActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pass_port);
-        StatusBarUtil.StatusBarLightMode(PassPortCertifyActivity.this);
-
+        setContentView(R.layout.activity_idcard_certify);
+        StatusBarUtil.StatusBarLightMode(IDCardCertifyActivity.this);
     }
-
 
     @Override
     public void initView() {
@@ -113,20 +111,20 @@ public class PassPortCertifyActivity extends BaseActivity {
             }
             //友盟埋点 提交身份认证
             UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.SAFE_KYC_SUBMIT);
-            NetApi.kycCertify(PassPortCertifyActivity.this, SPUtil.getToken(),kycInfo.countryCode,kycInfo.country,kycInfo.realName
-                    ,kycInfo.bornDate,kycInfo.type,kycInfo.documentNum,pic1,pic2,pic3,kycObserver);
+            NetApi.kycCertify(IDCardCertifyActivity.this, SPUtil.getToken(),kycInfo.countryCode,kycInfo.country,kycInfo.realName
+            ,kycInfo.bornDate,kycInfo.type,kycInfo.documentNum,pic1,pic2,pic3,kycObserver);
         });
     }
     //展示 拍照 相册 pop
     private void showPopWindow() {
         if (mPopupWindow == null) {
             if (selectPicturePopupWindowUtils == null)
-                selectPicturePopupWindowUtils = new SelectPicturePopupWindowUtils(PassPortCertifyActivity.this);
+                selectPicturePopupWindowUtils = new SelectPicturePopupWindowUtils(IDCardCertifyActivity.this);
             mPopupWindow = selectPicturePopupWindowUtils.showSelectPicturePopupWindow();
         }
         if (mPopupWindow != null) {
             mPopupWindow.showAtLocation(btnConfirm, Gravity.BOTTOM, 0, 0);
-            CommonUtil.setBackgroundAlpha(PassPortCertifyActivity.this, 0.5f);
+            CommonUtil.setBackgroundAlpha(IDCardCertifyActivity.this, 0.5f);
         }
     }
 
@@ -147,7 +145,8 @@ public class PassPortCertifyActivity extends BaseActivity {
             return;
         }
         loadAnimationUtils.closeProcessAnimation();
-        NetApi.uploadPic(PassPortCertifyActivity.this,headFile,upLoadPicObserver);
+        NetApi.uploadPic(IDCardCertifyActivity.this,headFile,upLoadPicObserver);
+//        NetApi.getQiNiuKey(Html5Activity.this,userId, TransactionType.QINIU_PARAMETERS.getTransactionType(),uploadPhotoObserver);
 
     }
     private void compressImage(String path) {
@@ -257,7 +256,7 @@ public class PassPortCertifyActivity extends BaseActivity {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
                 TipsToast.showTips(getString(R.string.please_wait_check));
-                ContextHelper.getApplication().runDelay(() -> CommonUtil.openActicity(PassPortCertifyActivity.this, MainActivity.class,null), 500);
+                ContextHelper.getApplication().runDelay(() -> CommonUtil.openActicity(IDCardCertifyActivity.this, MainActivity.class,null), 500);
             }else{
                 TipsToast.showTips(resultBean.message);
             }

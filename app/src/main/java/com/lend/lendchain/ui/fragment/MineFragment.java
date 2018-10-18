@@ -25,8 +25,8 @@ import com.lend.lendchain.ui.activity.account.MyInvestActivity;
 import com.lend.lendchain.ui.activity.account.MyLoanActivity;
 import com.lend.lendchain.ui.activity.account.MyMessageActivity;
 import com.lend.lendchain.ui.activity.account.MyWalletActivity;
-import com.lend.lendchain.ui.activity.account.RechangeWithdrawRecordActivity;
-import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
+import com.lend.lendchain.ui.activity.account.rechargewithdraw.RechangeWithdrawRecordActivity;
+import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.UserCenterActivity;
 import com.lend.lendchain.ui.activity.common.AboutUsActivity;
 import com.lend.lendchain.ui.activity.common.HelpCenterActivity;
@@ -42,6 +42,7 @@ import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.utils.ViewUtils;
+import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.yangfan.utils.CommonUtils;
@@ -275,6 +276,7 @@ public class MineFragment extends BaseFragment {
         public void onError(Throwable e) {
             super.onError(e);
             refreshLayout.finishRefresh();
+            TipsToast.showTips(getString(R.string.netWorkError));
         }
 
         @Override

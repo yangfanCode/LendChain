@@ -19,7 +19,7 @@ import com.lend.lendchain.bean.UserInfo;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
-import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
+import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.UserCenterActivity;
 import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.fragment.invest.AddRecordFragment;

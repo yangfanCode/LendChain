@@ -1,4 +1,4 @@
-package com.lend.lendchain.ui.activity.account;
+package com.lend.lendchain.ui.activity.account.rechargewithdraw;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;

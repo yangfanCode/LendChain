@@ -1,4 +1,4 @@
-package com.lend.lendchain.ui.activity.account;
+package com.lend.lendchain.ui.activity.account.rechargewithdraw;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +11,7 @@ import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.account.MyWalletActivity;
 import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
@@ -124,6 +125,7 @@ public class WithDrawCertifyActivity extends BaseActivity {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
                 TipsToast.showTips(getString(R.string.withdraw_success));
+                //此处不提示 跳转到充值提现状态页面
                 CommonUtil.openActicity(WithDrawCertifyActivity.this,MyWalletActivity.class,null);
             }else{
                 setHttpFailed(WithDrawCertifyActivity.this,resultBean);

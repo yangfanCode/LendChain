@@ -457,4 +457,7 @@
     <string name="recharge_amount">充值金额</string>
     <string name="confirm_recharge">确认充值</string>
     <string name="blockcity_wallet_recharge_tip">将布洛克中的GXG资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
+    <string name="number_wallet_withdraw">数字钱包提现</string>
+    <string name="blockcity_wallet_withdraw">布洛克钱包提现</string>
+    <string name="over_to_use1">可用余额</string>
 </resources>

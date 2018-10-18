@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/color_F5F5F5"
     android:orientation="vertical"
-    tools:context=".ui.activity.account.GoogleCertifyActivity">
+    tools:context=".ui.activity.account.certify.GoogleCertifyActivity">
 
     <com.lend.lendchain.widget.BaseTitleBar
         android:id="@+id/base_title_bar"

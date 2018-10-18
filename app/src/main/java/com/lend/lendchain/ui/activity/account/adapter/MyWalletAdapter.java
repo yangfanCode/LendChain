@@ -13,9 +13,9 @@ import com.lend.lendchain.R;
 import com.lend.lendchain.bean.MyWalletList;
 import com.lend.lendchain.bean.ViewHolder;
 import com.lend.lendchain.ui.activity.account.PlatFormTranshferActivity;
-import com.lend.lendchain.ui.activity.account.RechargeActivity;
-import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
-import com.lend.lendchain.ui.activity.account.WithDrawActivity;
+import com.lend.lendchain.ui.activity.account.rechargewithdraw.RechargeActivity;
+import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
+import com.lend.lendchain.ui.activity.account.rechargewithdraw.WithDrawActivity;
 import com.lend.lendchain.utils.CoinIconUtils;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
@@ -65,10 +65,12 @@ public class MyWalletAdapter extends BaseAdapter {
             String cryptoId = (String) v.getTag(R.id.code);
             String code = (String) v.getTag(R.id.str);
             String id = (String) v.getTag(R.id.str1);
+            String count = (String) v.getTag(R.id.str2);
             Bundle bundle = new Bundle();
             bundle.putString(Constant.INTENT_EXTRA_DATA, cryptoId);
             bundle.putString(Constant.ARGS_PARAM1, code);
             bundle.putString(Constant.ARGS_PARAM2, id);
+            bundle.putString(Constant.ARGS_PARAM3, count);
             CommonUtil.openActicity(context, WithDrawActivity.class, bundle);
         } else {
             showCerfityDialog();
@@ -130,7 +132,8 @@ public class MyWalletAdapter extends BaseAdapter {
         TextView tvTransfer = viewHolder.getView(R.id.item_my_wallet_tvTransfer);
         FrescoUtils.showThumb(ivIcon, CoinIconUtils.getInstance().getIcon(myWalletList.cryptoCode));//图片
         tvCoinType.setText(myWalletList.cryptoCode);//币种
-        tvCount.setText(DoubleUtils.doubleTransRound6(myWalletList.amount));//数量
+        String count=DoubleUtils.doubleTransRound6(myWalletList.amount);//数量
+        tvCount.setText(count);
         tvRecharge.setOnClickListener(rechargeClick);
         tvWithdraw.setOnClickListener(withDrawClick);
         tvTransfer.setOnClickListener(transferClick);
@@ -139,6 +142,7 @@ public class MyWalletAdapter extends BaseAdapter {
         tvWithdraw.setTag(R.id.code, myWalletList.cryptoId);
         tvWithdraw.setTag(R.id.str, myWalletList.cryptoCode);
         tvWithdraw.setTag(R.id.str1, myWalletList.id);
+        tvWithdraw.setTag(R.id.str2, count);
         tvTransfer.setTag(R.id.code, myWalletList.cryptoId);
         tvTransfer.setTag(R.id.str, myWalletList.cryptoCode);
         if (myWalletList.depositAddrs != null) {

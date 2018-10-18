@@ -63,37 +63,40 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="adjustResize" />
-        <!--urlScheme唤醒配置-->
+        <!-- urlScheme唤醒配置 -->
         <activity
             android:name=".ui.activity.MainActivity"
             android:configChanges="orientation|locale|layoutDirection|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait" >
-            <!--要想在别的App上能成功调起App，必须添加intent过滤器-->
-            <!--比如lendchain://pay/result?tradeNo=xxx&state=yyyy-->
+            android:screenOrientation="portrait">
+
+            <!-- 要想在别的App上能成功调起App，必须添加intent过滤器 -->
+            <!-- 比如lendchain://pay/result?tradeNo=xxx&state=yyyy -->
             <intent-filter>
-                <!--协议部分，随便设置-->
+
+                <!-- 协议部分，随便设置 -->
                 <data
                     android:host="pay"
                     android:path="/result"
-                    android:scheme="lendchain"/>
-                <!--下面这几行也必须得设置-->
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                    android:scheme="lendchain" />
+                <!-- 下面这几行也必须得设置 -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.activity.GuidePageActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <!--<activity-->
-            <!--android:name=".ui.activity.MainActivity"-->
-            <!--android:configChanges="orientation|locale|layoutDirection|keyboard"-->
-            <!--android:launchMode="singleTask"-->
-            <!--android:screenOrientation="portrait" />-->
+        <!-- <activity -->
+        <!-- android:name=".ui.activity.MainActivity" -->
+        <!-- android:configChanges="orientation|locale|layoutDirection|keyboard" -->
+        <!-- android:launchMode="singleTask" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".ui.activity.invest.InvestSummaryActivity"
             android:configChanges="orientation"
@@ -110,12 +113,12 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.SafeCertifyActivity"
+            android:name=".ui.activity.account.certify.SafeCertifyActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.PhoneCertifyActivity"
+            android:name=".ui.activity.account.certify.PhoneCertifyActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -125,7 +128,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.GoogleCertifyActivity"
+            android:name=".ui.activity.account.certify.GoogleCertifyActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -135,7 +138,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.RechargeActivity"
+            android:name=".ui.activity.account.rechargewithdraw.RechargeActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -145,12 +148,12 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.KycActivity"
+            android:name=".ui.activity.account.certify.KycActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.IDCardCertifyActivity"
+            android:name=".ui.activity.account.certify.IDCardCertifyActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -160,7 +163,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.PassPortCertifyActivity"
+            android:name=".ui.activity.account.certify.PassPortCertifyActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -171,7 +174,7 @@
             android:screenOrientation="portrait" />
         <!-- adjustPan键盘覆盖屏幕 -->
         <activity
-            android:name=".ui.activity.account.RechangeWithdrawRecordActivity"
+            android:name=".ui.activity.account.rechargewithdraw.RechangeWithdrawRecordActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -217,12 +220,12 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.WithDrawActivity"
+            android:name=".ui.activity.account.rechargewithdraw.WithDrawActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.WithDrawCertifyActivity"
+            android:name=".ui.activity.account.rechargewithdraw.WithDrawCertifyActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -232,7 +235,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.activity.account.TransferCertifyActivity"
+            android:name=".ui.activity.account.rechargewithdraw.TransferCertifyActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
@@ -261,7 +264,8 @@
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.login.PhoneLoginActivity"></activity>
+        <activity android:name=".ui.activity.login.PhoneLoginActivity" />
+        <activity android:name=".ui.activity.account.rechargewithdraw.RechargeWithDrawStateActivity"></activity>
     </application>
 
 </manifest>

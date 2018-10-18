@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.rechargewithdraw.RechargeWithDrawStateActivity">
+
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_12h" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:background="@color/color_F5F5F5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/qb_px_38"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/recharge_withdraw_state_ivState"
+                android:layout_width="@dimen/qb_px_70"
+                android:layout_height="@dimen/qb_px_70"
+                android:src="@mipmap/icon_rechargewith_success"
+                android:layout_marginTop="@dimen/qb_px_31" />
+
+            <TextView
+                android:id="@+id/recharge_withdraw_state_tvState"
+                style="@style/text262626_16"
+                android:layout_marginTop="@dimen/qb_px_16" />
+
+            <TextView
+                android:id="@+id/recharge_withdraw_state_tvCoinText"
+                style="@style/text999999_12"
+                android:layout_marginTop="@dimen/qb_px_30" />
+
+            <TextView
+                android:id="@+id/recharge_withdraw_state_tvCoinCount"
+                style="@style/text262626_16"
+                android:layout_marginTop="@dimen/qb_px_17"
+                android:textSize="@dimen/text_size_40" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/qb_px_33"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_38"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/recharge_withdraw_state_tvSubmit1"
+                        style="@style/text509FFF_16"
+                        android:layout_width="@dimen/qb_px_140"
+                        android:layout_height="@dimen/qb_px_38"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_509fff_border_radiu2" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/recharge_withdraw_state_tvSubmit2"
+                        android:layout_width="@dimen/qb_px_140"
+                        android:layout_height="@dimen/qb_px_38"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_4885ff_gradient_509fff_radiu2" />
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

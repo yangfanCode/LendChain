@@ -1,5 +1,6 @@
-package com.lend.lendchain.ui.activity.account;
+package com.lend.lendchain.ui.activity.account.rechargewithdraw;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
@@ -7,8 +8,8 @@ import com.lend.lendchain.R;
 import com.lend.lendchain.adapter.APPCommonNavigatorAdapter;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
-import com.lend.lendchain.ui.fragment.rechargewithdraw.BlockCityRechargeragment;
-import com.lend.lendchain.ui.fragment.rechargewithdraw.NomalRechargeFragment;
+import com.lend.lendchain.ui.fragment.rechargewithdraw.BlockCityWithDrawFragment;
+import com.lend.lendchain.ui.fragment.rechargewithdraw.NomalWithDrawFragment;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.yangfan.utils.CommonUtils;
@@ -21,37 +22,37 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigat
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RechargeActivity extends BaseActivity {
-    @BindView(R.id.recharge_viewPager)
+public class WithDrawActivity extends BaseActivity {
+
+    @BindView(R.id.withdraw_viewPager)
     ViewPager viewPager;
     @BindView(R.id.magicIndicator)
     MagicIndicator magicIndicator;
-    private String add , code, memo, cryptoId;//币种
+    private String cryptoId, cryptoCode, id,count;
+    private Dialog dialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recharge);
-        StatusBarUtil.setStatusBarColor(RechargeActivity.this, R.color.white);
-        StatusBarUtil.StatusBarLightMode(RechargeActivity.this);
+        setContentView(R.layout.activity_with_draw);
+        StatusBarUtil.setStatusBarColor(WithDrawActivity.this, R.color.white);
+        StatusBarUtil.StatusBarLightMode(WithDrawActivity.this);
     }
 
     @Override
     public void initView() {
         ButterKnife.bind(this);
-        if (getIntent().getExtras() != null) {
-            add = getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
-            memo = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
-            code = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
-            cryptoId = getIntent().getExtras().getString(Constant.ARGS_PARAM3);
-        }
-        baseTitleBar.setTitle(getString(R.string.recharge));
+        baseTitleBar.setTitle(getString(R.string.withdraw));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
         baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
+        cryptoId = getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
+        cryptoCode = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
+        id = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
+        count = getIntent().getExtras().getString(Constant.ARGS_PARAM3);
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(NomalRechargeFragment.newInstance(add,memo,code,cryptoId), getString(R.string.number_wallet_recharge));
-        adapter.addFrag(BlockCityRechargeragment.newInstance(code), getString(R.string.blockcity_wallet_recharge));
+        adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.number_wallet_withdraw));
+        adapter.addFrag(BlockCityWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.blockcity_wallet_withdraw));
         viewPager.setAdapter(adapter);
         CommonNavigator navigator = new CommonNavigator(this);
         navigator.setAdjustMode(true);

@@ -23,7 +23,7 @@ import com.lend.lendchain.R;
 import com.lend.lendchain.bean.CallWebModel;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.account.MyWalletActivity;
-import com.lend.lendchain.ui.activity.account.SafeCertifyActivity;
+import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.LoadAnimationUtils;

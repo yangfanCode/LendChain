@@ -1,4 +1,4 @@
-package com.lend.lendchain.ui.activity.account;
+package com.lend.lendchain.ui.activity.account.certify;
 
 import android.os.Bundle;
 import android.text.TextUtils;

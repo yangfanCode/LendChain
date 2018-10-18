@@ -1,11 +1,14 @@
-package com.lend.lendchain.ui.activity.account;
+package com.lend.lendchain.ui.fragment.rechargewithdraw;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,22 +19,23 @@ import com.lend.lendchain.bean.SimpleBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
-import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
+import com.lend.lendchain.ui.activity.account.rechargewithdraw.WithDrawCertifyActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
-import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.widget.TipsToast;
-import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.DecimalDigitsEditText;
+import com.yangfan.widget.FormNormal;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import rx.Observer;
 
-public class WithDrawActivity extends BaseActivity {
-
+/**
+ *数字钱包提现
+ */
+public class NomalWithDrawFragment extends Fragment {
     //    @BindView(R.id.withdraw_tvPaste)
 //    TextView tvPaste;
     @BindView(R.id.withdraw_etAdd)
@@ -56,41 +60,60 @@ public class WithDrawActivity extends BaseActivity {
     TextView tvCoin;
     @BindView(R.id.with_draw_llMemo)
     LinearLayout llMemo;
-    private String cryptoId, cryptoCode, id;
+    @BindView(R.id.withdraw_fnOver)
+    FormNormal fnOver;
+    private String cryptoId, cryptoCode, id, count;
     private double withdrawFee, minWithdraw;//手续费
     private Dialog dialog = null;
+    private View parentView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_with_draw);
-        StatusBarUtil.setStatusBarColor(WithDrawActivity.this, R.color.white);
-        StatusBarUtil.StatusBarLightMode(WithDrawActivity.this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        if (parentView == null) {
+            parentView = inflater.inflate(R.layout.fragment_nomal_with_draw, container,
+                    false);
+            initView();
+            initData();
+            initListener();
+        }
+        ViewGroup parent = (ViewGroup) parentView.getParent();
+        if (parent != null) {
+            parent.removeView(parentView);
+        }
+        ButterKnife.bind(this, parentView);
+        return parentView;
+    }
+    public static NomalWithDrawFragment newInstance(String param1, String param2, String param3, String param4) {
+        NomalWithDrawFragment fragment = new NomalWithDrawFragment();
+        Bundle args = new Bundle();
+        args.putString(Constant.ARGS_PARAM1, param1);
+        args.putString(Constant.ARGS_PARAM2, param2);
+        args.putString(Constant.ARGS_PARAM3, param3);
+        args.putString(Constant.ARGS_PARAM4, param4);
+        fragment.setArguments(args);
+        return fragment;
     }
 
-    @Override
-    public void initView() {
-        ButterKnife.bind(this);
-        baseTitleBar.setTitle(getString(R.string.withdraw));
-        baseTitleBar.setLayLeftBackClickListener(v -> finish());
-        baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
-        cryptoId = getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
-        cryptoCode = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
-        id = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
+    private void initView(){
+        if(getArguments()!=null){
+            cryptoId = getArguments().getString(Constant.ARGS_PARAM1);
+            cryptoCode = getArguments().getString(Constant.ARGS_PARAM2);
+            id = getArguments().getString(Constant.ARGS_PARAM3);
+            count = getArguments().getString(Constant.ARGS_PARAM4);
+        }
         etCount.setAfterDot(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ?5:6);//lv gxs 5位小数
         llMemo.setVisibility(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? View.VISIBLE : View.GONE);
         tvRealMoneyCoin.setText(cryptoCode);
         tvPoundageCoin.setText(cryptoCode);
         tvCoin.setText(cryptoCode);
-        initData();
-        initListener();
+        fnOver.setText(count.concat(" "+cryptoCode));//可用余额
     }
 
-    private void initData() {
-        NetApi.coinAttribute(WithDrawActivity.this, true, SPUtil.getToken(), cryptoId, withDrawObserver);
+    private void initData(){
+        NetApi.coinAttribute(getActivity(), true, SPUtil.getToken(), cryptoId, withDrawObserver);
     }
-
     private void initListener() {
 //        tvPaste.setOnClickListener(v -> {
 //            String str = CommonUtil.clipboardPasteStr();
@@ -129,7 +152,7 @@ public class WithDrawActivity extends BaseActivity {
                 return;
             }
             //读取用户此币种余额 是否不足
-            NetApi.getCoinCount(WithDrawActivity.this,false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
+            NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
         });
     }
 
@@ -146,7 +169,7 @@ public class WithDrawActivity extends BaseActivity {
                     tvLimit.setText(String.format(tvLimit.getText().toString(), cryptoCode, String.valueOf(DoubleUtils.doubleTransRoundTwo(resultBean.data.dayWithdraw, 2))));//每日限额
                 }
             } else {
-                setHttpFailed(WithDrawActivity.this, resultBean);
+                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
             }
         }
 
@@ -174,11 +197,11 @@ public class WithDrawActivity extends BaseActivity {
                         bundle.putString(Constant.ARGS_PARAM2, count);
                         bundle.putString(Constant.ARGS_PARAM3, memo);
                         bundle.putString(Constant.ARGS_PARAM4, id);
-                        CommonUtil.openActicity(WithDrawActivity.this, WithDrawCertifyActivity.class, bundle);
+                        CommonUtil.openActicity(getActivity(), WithDrawCertifyActivity.class, bundle);
                     }
                 }
             }else{
-                setHttpFailed(WithDrawActivity.this,resultBean);
+                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
             }
         }
         @Override
