@@ -3,6 +3,7 @@ package com.lend.lendchain.ui.activity.account.rechargewithdraw;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.adapter.APPCommonNavigatorAdapter;
@@ -11,6 +12,7 @@ import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.BlockCityWithDrawFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.NomalWithDrawFragment;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
@@ -51,8 +53,14 @@ public class WithDrawActivity extends BaseActivity {
         id = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
         count = getIntent().getExtras().getString(Constant.ARGS_PARAM3);
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.number_wallet_withdraw));
-        adapter.addFrag(BlockCityWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.blockcity_wallet_withdraw));
+        String lan= LanguageUtils.getUserLanguageSetting();
+        if(LanguageUtils.SIMPLIFIED_CHINESE.equals(lan)) {//只有中文显示 布洛克
+            adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.number_wallet_withdraw));
+            adapter.addFrag(BlockCityWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.blockcity_wallet_withdraw));
+        }else{
+            adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.number_wallet_withdraw));
+            magicIndicator.setVisibility(View.GONE);//隐藏tab
+        }
         viewPager.setAdapter(adapter);
         CommonNavigator navigator = new CommonNavigator(this);
         navigator.setAdjustMode(true);

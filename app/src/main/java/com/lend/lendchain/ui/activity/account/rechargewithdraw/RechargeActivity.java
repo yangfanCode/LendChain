@@ -2,6 +2,7 @@ package com.lend.lendchain.ui.activity.account.rechargewithdraw;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.adapter.APPCommonNavigatorAdapter;
@@ -10,6 +11,7 @@ import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.BlockCityRechargeragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.NomalRechargeFragment;
 import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.LanguageUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.yangfan.utils.CommonUtils;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
@@ -50,8 +52,14 @@ public class RechargeActivity extends BaseActivity {
         baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
         baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(NomalRechargeFragment.newInstance(add,memo,code,cryptoId), getString(R.string.number_wallet_recharge));
-        adapter.addFrag(BlockCityRechargeragment.newInstance(code), getString(R.string.blockcity_wallet_recharge));
+        String lan= LanguageUtils.getUserLanguageSetting();
+        if(LanguageUtils.SIMPLIFIED_CHINESE.equals(lan)){//只有中文显示 布洛克
+            adapter.addFrag(NomalRechargeFragment.newInstance(add,memo,code,cryptoId), getString(R.string.number_wallet_recharge));
+            adapter.addFrag(BlockCityRechargeragment.newInstance(code), getString(R.string.blockcity_wallet_recharge));
+        }else{
+            adapter.addFrag(NomalRechargeFragment.newInstance(add,memo,code,cryptoId), getString(R.string.number_wallet_recharge));
+            magicIndicator.setVisibility(View.GONE);//隐藏tab
+        }
         viewPager.setAdapter(adapter);
         CommonNavigator navigator = new CommonNavigator(this);
         navigator.setAdjustMode(true);
