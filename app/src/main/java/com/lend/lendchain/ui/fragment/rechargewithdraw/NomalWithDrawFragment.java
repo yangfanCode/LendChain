@@ -65,6 +65,8 @@ public class NomalWithDrawFragment extends Fragment {
     LinearLayout llMemo;
     @BindView(R.id.withdraw_fnOver)
     FormNormal fnOver;
+    @BindView(R.id.withdraw_tvOverWithDraw)
+    TextView tvOverWithDraw;
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     private String cryptoId, cryptoCode, id, count;
@@ -144,6 +146,7 @@ public class NomalWithDrawFragment extends Fragment {
                 }
             }
         });
+        tvOverWithDraw.setOnClickListener(v -> etCount.setText(count));
         btnConfirm.setOnClickListener(v -> {
             String address = etAdd.getText().toString().trim();
             String count = etCount.getText().toString().trim();

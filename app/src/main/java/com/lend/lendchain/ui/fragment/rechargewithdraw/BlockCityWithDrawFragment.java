@@ -58,6 +58,8 @@ public class BlockCityWithDrawFragment extends Fragment {
     LinearLayout llMemo;
     @BindView(R.id.withdraw_fnOver)
     FormNormal fnOver;
+    @BindView(R.id.withdraw_tvOverWithDraw)
+    TextView tvOverWithDraw;
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout refreshLayout;
     private String cryptoId, cryptoCode, id, count;
@@ -139,6 +141,7 @@ public class BlockCityWithDrawFragment extends Fragment {
                 }
             }
         });
+        tvOverWithDraw.setOnClickListener(v -> etCount.setText(count));
         btnConfirm.setOnClickListener(v -> {
             //到布洛克城对接
 //            String address = etAdd.getText().toString().trim();

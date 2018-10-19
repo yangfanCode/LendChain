@@ -460,4 +460,5 @@
     <string name="number_wallet_withdraw">数字钱包提现</string>
     <string name="blockcity_wallet_withdraw">布洛克钱包提现</string>
     <string name="over_to_use1">可用余额</string>
+    <string name="over_to_withdraw">余额全提</string>
 </resources>
