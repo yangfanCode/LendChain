@@ -83,7 +83,7 @@ public class RechargeAdapter extends BaseAdapter {
         int status=rechargeWithDraw.status;
         tvStatus.setText(getRechargeStatus(status));
         tvCount.setText("+"+DoubleUtils.doubleTransRound6(rechargeWithDraw.amount)+" "+rechargeWithDraw.cryptoCode);
-        tvTime.setText(TimeUtils.getDateToStringS(Long.parseLong(rechargeWithDraw.ctime),"yyyy.MM.dd HH:mm:ss"));
+        tvTime.setText(TimeUtils.getDateToStringMs(Long.parseLong(rechargeWithDraw.ctime),"yyyy.MM.dd HH:mm:ss"));
         //订单号 充值 orderId 提现 txOrder
         tvOrderCode.setText(context.getString(R.string.order_code)+":"+rechargeWithDraw.orderId);//订单号
         //地址 充值 addr addr 提现addrTo addr

@@ -456,9 +456,22 @@
     <string name="qrcode_add">二维码地址</string>
     <string name="recharge_amount">充值金额</string>
     <string name="confirm_recharge">确认充值</string>
-    <string name="blockcity_wallet_recharge_tip">将布洛克中的GXG资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
+    <string name="blockcity_wallet_recharge_tip">将布洛克中的GXS资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
     <string name="number_wallet_withdraw">数字钱包提现</string>
     <string name="blockcity_wallet_withdraw">布洛克钱包提现</string>
     <string name="over_to_use1">可用余额</string>
     <string name="over_to_withdraw">余额全提</string>
+    <string name="go_pay">去支付</string>
+    <string name="after_time_failure">后订单失效</string>
+    <string name="please_input_recharge_count">请输入充值金额</string>
+    <string name="recharge_success">充值成功</string>
+    <string name="order_deail">订单详情</string>
+    <string name="recharge_continue">继续充值</string>
+    <string name="recharge_retry">重新充值</string>
+    <string name="recharge_failed">充值失败</string>
+    <string name="order_refrensh">刷新订单</string>
+    <string name="order_cancle">订单失效</string>
+    <string name="recharge_success_text">您已成功充值</string>
+    <string name="wait_pay">待支付</string>
+    <string name="pay_now">立即支付</string>
 </resources>

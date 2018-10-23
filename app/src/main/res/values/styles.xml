@@ -226,6 +226,9 @@
     <style name="textFF6343_16" parent="text509FFF_16">
         <item name="android:textColor">@color/color_FF6343</item>
     </style>
+    <style name="textFF6343_12" parent="textFF6343_16">
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
 
     <style name="text1ECC27_16" parent="text509FFF_16">
         <item name="android:textColor">@color/color_1ECC27</item>

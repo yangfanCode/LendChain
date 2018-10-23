@@ -4,6 +4,7 @@ package com.lend.lendchain.network.api;
 import com.lend.lendchain.bean.BannerModel;
 import com.lend.lendchain.bean.CoinIconList;
 import com.lend.lendchain.bean.CoinList;
+import com.lend.lendchain.bean.GetBlockCityRecharge;
 import com.lend.lendchain.bean.HomeMarket;
 import com.lend.lendchain.bean.HomeMarketKLine;
 import com.lend.lendchain.bean.HomeSupport;
@@ -403,5 +404,19 @@ public interface AppApi {
      */
     @GET("trade/notice/get")
     Observable<ResultBean<MessageList.Item>> messageDetail(@QueryMap Map<String, Object> account);
+    /**
+     * 布洛克城钱包充值
+     *
+     * @return
+     */
+    @GET("trade/blockcity/create/deposit")
+    Observable<ResultBean<SimpleBean>> blockCityRecharge(@QueryMap Map<String, Object> account);
+    /**
+     * 布洛克城钱包充值(查询充值订单)
+     *
+     * @return
+     */
+    @GET("trade/blockcity/get/deposit")
+    Observable<ResultBean<GetBlockCityRecharge>> getBlockCityRecharge(@QueryMap Map<String, Object> account);
 
 }

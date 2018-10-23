@@ -69,6 +69,8 @@
                         android:layout_width="@dimen/qb_px_140"
                         android:layout_height="@dimen/qb_px_38"
                         android:layout_gravity="center"
+                        android:text="@string/order_deail"
+                        android:gravity="center"
                         android:background="@drawable/bg_509fff_border_radiu2" />
                 </FrameLayout>
 
@@ -82,7 +84,9 @@
                         android:layout_width="@dimen/qb_px_140"
                         android:layout_height="@dimen/qb_px_38"
                         android:layout_gravity="center"
-                        android:background="@drawable/bg_4885ff_gradient_509fff_radiu2" />
+                        android:gravity="center"
+                        style="@style/textFFFFFF_16"
+                        android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector" />
                 </FrameLayout>
             </LinearLayout>
         </LinearLayout>

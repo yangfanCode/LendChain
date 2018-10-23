@@ -2,12 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/recharge_record_llOrder"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingBottom="@dimen/qb_px_10"
         android:paddingLeft="@dimen/qb_px_15"
@@ -28,18 +29,45 @@
                 style="@style/textFF6343_16"
                 android:layout_gravity="center_vertical|right" />
         </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_30">
+            <TextView
+                android:id="@+id/recharge_record_tvOrderCode"
+                style="@style/text999999_12"
+                android:layout_gravity="center_vertical" />
+            <TextView
+                android:id="@+id/recharge_record_tvGoPay"
+                android:layout_gravity="center_vertical|right"
+                android:text="@string/go_pay"
+                android:gravity="center"
+                android:visibility="gone"
+                style="@style/textFFFFFF_12"
+                android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+                android:layout_width="@dimen/qb_px_55"
+                android:layout_height="@dimen/qb_px_24" />
+        </FrameLayout>
 
+        
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_30">
+            <TextView
+                android:id="@+id/recharge_record_tvTime"
+                style="@style/text999999_12"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/recharge_record_tvTimeAfter"
+                android:layout_gravity="center_vertical|right"
+                android:visibility="gone"
+                android:gravity="center"
+                style="@style/text509FFF_12" />
+        </FrameLayout>
         <TextView
-            android:id="@+id/recharge_record_tvOrderCode"
-            style="@style/text999999_12"
-            android:layout_height="@dimen/qb_px_30"
-            android:gravity="center_vertical" />
-
-        <TextView
-            android:id="@+id/recharge_record_tvTime"
-            style="@style/text999999_12"
-            android:layout_height="@dimen/qb_px_30"
-            android:layout_gravity="center_vertical" />
+            android:visibility="gone"
+            style="@style/textFF6343_12"
+            android:gravity="center_vertical"
+            android:layout_height="@dimen/qb_px_30" />
 
 
     </LinearLayout>

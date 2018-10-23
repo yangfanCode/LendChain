@@ -588,4 +588,27 @@ public class NetApi {
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+    /**
+     * 布洛克城钱包充值
+     */
+    public static void blockCityRecharge(Context context,boolean isShow,String access_token,String amount,String cryptoId,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("amount", amount);
+        map.put("cryptoId", cryptoId);
+        NetClient.getInstance().getPost("", isShow, context).blockCityRecharge(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * 布洛克城钱包充值(查询充值订单)
+     */
+    public static void getBlockCityRecharge(Context context,boolean isShow,String access_token,String orderId,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("orderId", orderId);
+        NetClient.getInstance().getPost("", isShow, context).getBlockCityRecharge(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

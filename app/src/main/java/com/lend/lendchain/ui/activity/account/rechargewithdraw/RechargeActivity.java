@@ -55,7 +55,7 @@ public class RechargeActivity extends BaseActivity {
         String lan= LanguageUtils.getUserLanguageSetting();
         if(LanguageUtils.SIMPLIFIED_CHINESE.equals(lan)){//只有中文显示 布洛克
             adapter.addFrag(NomalRechargeFragment.newInstance(add,memo,code,cryptoId), getString(R.string.number_wallet_recharge));
-            adapter.addFrag(BlockCityRechargeragment.newInstance(code), getString(R.string.blockcity_wallet_recharge));
+            adapter.addFrag(BlockCityRechargeragment.newInstance(code,cryptoId), getString(R.string.blockcity_wallet_recharge));
         }else{
             adapter.addFrag(NomalRechargeFragment.newInstance(add,memo,code,cryptoId), getString(R.string.number_wallet_recharge));
             magicIndicator.setVisibility(View.GONE);//隐藏tab

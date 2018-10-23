@@ -31,4 +31,8 @@ public class SimpleBean {
     public double minBorrowAmount;
     public int accountNum;//到账确认次数
     public int withdrawNum;//提币确认次数
+
+    //布洛克城充值
+    public String tradeNo;
+    public String orderId;
 }

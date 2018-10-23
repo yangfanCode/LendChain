@@ -1,17 +1,30 @@
 package com.lend.lendchain.ui.activity.account.rechargewithdraw;
 
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lend.lendchain.R;
+import com.lend.lendchain.bean.GetBlockCityRecharge;
+import com.lend.lendchain.bean.ResultBean;
+import com.lend.lendchain.network.NetClient;
+import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.utils.Constant;
+import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.yangfan.utils.CommonUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.Observer;
 
 /**
  * 充值提现状态
@@ -31,6 +44,7 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
     TextView tvSubmit1;
     @BindView(R.id.recharge_withdraw_state_tvSubmit2)
     TextView tvSubmit2;
+    private String status,code,count,orderId,tradeNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +59,10 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
         ButterKnife.bind(this);
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
+        status=getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
+        code=getIntent().getExtras().getString(Constant.ARGS_PARAM1);
+        count=getIntent().getExtras().getString(Constant.ARGS_PARAM2);
+        tradeNo=getIntent().getExtras().getString(Constant.ARGS_PARAM4);
         initData();
         initListener();
     }
@@ -53,6 +71,101 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
     }
 
     private void initData() {
+        if("0".equals(status)){
+            rechargeWaitPay();//待支付
+        }else if("1".equals(status)){
+            rechargeing();//处理中
+        }else if("2".equals(status)){
+            rechargeFailed();//充值失败
+        }else if("3".equals(status)){
+            rechargeSuccess();//充值成功
+        }else{
+            rechargeCancle();//订单失效
+        }
+    }
+    //充值成功
+    private void rechargeSuccess(){
+        ivState.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.icon_rechargewith_success));
+        tvState.setText(getString(R.string.recharge_success));
+        tvCoinText.setText(getString(R.string.recharge_success_text)+" ("+code+")");
+        tvCoinCount.setText(count);
+        baseTitleBar.setTitle(getString(R.string.recharge_success));
+        tvSubmit2.setText(getString(R.string.recharge_continue));
+        tvSubmit2.setOnClickListener(v -> {
+
+        });
+    }
+    //充值失败
+    private void rechargeFailed(){
+        ivState.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.icon_rechargewith_failed));
+        tvState.setText(getString(R.string.recharge_failed));
+        tvCoinCount.setVisibility(View.GONE);
+        tvCoinText.setText(Html.fromHtml(getString(R.string.recharge_amount)+":"+"<font color='#509FFF'>"+count+" "+code+"</font>"));
+        baseTitleBar.setTitle(getString(R.string.recharge_failed));
+        tvSubmit2.setText(getString(R.string.recharge_retry));
+        tvSubmit2.setOnClickListener(v -> {
+            //跳转布洛克城支付
+            Uri uri = Uri.parse("blockcity://pay?tradeNo=" + tradeNo+"&callbackUrl=lendchain://pay/result?");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        });
+    }
+    //充值待支付
+    private void rechargeWaitPay(){
+        ivState.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.icon_rechargewith_waiting));
+        tvState.setText(getString(R.string.wait_pay));
+        tvCoinCount.setVisibility(View.GONE);
+        tvCoinText.setText(Html.fromHtml(getString(R.string.recharge_amount)+":"+"<font color='#509FFF'>"+count+" "+code+"</font>"));
+        baseTitleBar.setTitle(getString(R.string.wait_pay));
+        tvSubmit2.setText(getString(R.string.pay_now));
+        tvSubmit2.setOnClickListener(v -> {
+
+        });
+    }
+    //充值处理中
+    private void rechargeing(){
+        ivState.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.icon_rechargewith_waiting));
+        tvState.setText(getString(R.string.processing));
+        tvCoinCount.setVisibility(View.GONE);
+        tvCoinText.setText(Html.fromHtml(getString(R.string.recharge_amount)+":"+"<font color='#509FFF'>"+count+" "+code+"</font>"));
+        baseTitleBar.setTitle(getString(R.string.processing));
+        tvSubmit2.setText(getString(R.string.order_refrensh));
+        tvSubmit2.setOnClickListener(v -> {//刷新订单
+            if(!CommonUtils.isFastDoubleClick(1)){
+                NetApi.getBlockCityRecharge(RechargeWithDrawStateActivity.this, true, SPUtil.getToken(), orderId,getBlockObserver);
+            }
+        });
+    }
+    //充值订单失效
+    private void rechargeCancle(){
+        ivState.setImageBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.icon_rechargewith_cancle));
+        tvState.setText(getString(R.string.order_cancle));
+        tvCoinCount.setVisibility(View.GONE);
+        tvCoinText.setText(Html.fromHtml(getString(R.string.recharge_amount)+":"+"<font color='#509FFF'>"+count+" "+code+"</font>"));
+        baseTitleBar.setTitle(getString(R.string.order_cancle));
+        tvSubmit2.setText(getString(R.string.recharge_retry));
+        tvSubmit2.setOnClickListener(v -> {//重新充值
+            //跳转布洛克城支付
+            Uri uri = Uri.parse("blockcity://pay?tradeNo=" + tradeNo+"&callbackUrl=lendchain://pay/result?");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        });
     }
 
+    //查询布洛克城充值信息
+    Observer<ResultBean<GetBlockCityRecharge>> getBlockObserver = new NetClient.RxObserver<ResultBean<GetBlockCityRecharge>>() {
+        @Override
+        public void onSuccess(ResultBean<GetBlockCityRecharge> getBlockCityRechargeResultBean) {
+            if (getBlockCityRechargeResultBean == null) return;
+            if (getBlockCityRechargeResultBean.isSuccess()) {
+                if (getBlockCityRechargeResultBean == null) return;
+                if (getBlockCityRechargeResultBean.isSuccess()) {
+                    status=getBlockCityRechargeResultBean.data.status;
+                    initData();
+                }
+            } else {
+                setHttpFailed(RechargeWithDrawStateActivity.this, getBlockCityRechargeResultBean);
+            }
+        }
+    };
 }
