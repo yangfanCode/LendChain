@@ -24,8 +24,8 @@ android {
         applicationId "com.lend.lendchain"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 5
-        versionName "V2.3.1"
+        versionCode 6
+        versionName "V2.3.2"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //3.0之后项目配置productFlavors需要添加此代码

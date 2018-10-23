@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.CoinList;
-import com.lend.lendchain.bean.RechargeWithDraw;
+import com.lend.lendchain.bean.Recharge;
 import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
@@ -187,9 +187,9 @@ public class ReChargeRecordFragment extends Fragment {
        return Pattern.matches("^(?![0-9]+$)(?![a-z]+$)[0-9a-z]{64,66}$", hash);
     }
 
-    Observer<ResultBean<List<RechargeWithDraw>>> rechargeRecordObserver = new NetClient.RxObserver<ResultBean<List<RechargeWithDraw>>>() {
+    Observer<ResultBean<List<Recharge>>> rechargeRecordObserver = new NetClient.RxObserver<ResultBean<List<Recharge>>>() {
         @Override
-        public void onSuccess(ResultBean<List<RechargeWithDraw>> resultBean) {
+        public void onSuccess(ResultBean<List<Recharge>> resultBean) {
             if (resultBean == null) return;
             if (resultBean.isSuccess()) {
                 if (resultBean.data != null && resultBean.data.size() > 0) {

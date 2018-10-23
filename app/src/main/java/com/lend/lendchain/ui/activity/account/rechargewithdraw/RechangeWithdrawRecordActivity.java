@@ -44,7 +44,7 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
     @Override
     public void initView() {
         ButterKnife.bind(this);
-        baseTitleBar.setTitle(getString(R.string.recharge_withdraw_record));
+        baseTitleBar.setTitle(getString(R.string.my_amount_record));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(ReChargeRecordFragment.newInstance(), getString(R.string.recharge));

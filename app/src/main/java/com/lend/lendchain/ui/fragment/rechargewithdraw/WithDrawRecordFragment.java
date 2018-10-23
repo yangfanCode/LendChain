@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.bean.RechargeWithDraw;
 import com.lend.lendchain.bean.ResultBean;
+import com.lend.lendchain.bean.WithDraw;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
@@ -103,9 +103,9 @@ public class WithDrawRecordFragment extends Fragment {
         });
     }
 
-    Observer<ResultBean<List<RechargeWithDraw>>> rechargeRecordObserver = new NetClient.RxObserver<ResultBean<List<RechargeWithDraw>>>() {
+    Observer<ResultBean<List<WithDraw>>> rechargeRecordObserver = new NetClient.RxObserver<ResultBean<List<WithDraw>>>() {
         @Override
-        public void onSuccess(ResultBean<List<RechargeWithDraw>> resultBean) {
+        public void onSuccess(ResultBean<List<WithDraw>> resultBean) {
             if (resultBean == null) return;
             if (resultBean.isSuccess()) {
                 if(resultBean.data!=null&&resultBean.data.size()>0){

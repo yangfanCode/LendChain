@@ -4,7 +4,7 @@ package com.lend.lendchain.bean;
  * Created by yangfan
  * nrainyseason@163.com
  */
-public class RechargeWithDraw {
+public class Recharge {
     public String id;
     public String ctime;
     public int status;
@@ -13,7 +13,7 @@ public class RechargeWithDraw {
     public String cryptoCode;
     public String cryptoId;
     public String orderId;//充值订单号 hash
-    public AddrTo addrTo;//提现地址
+    public String addrTo;//提现地址
     public Addr addr;//充值地址
 
     public static class AddrTo{

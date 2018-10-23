@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.bean.RechargeWithDraw;
+import com.lend.lendchain.bean.Recharge;
 import com.lend.lendchain.bean.ViewHolder;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.TimeUtils;
@@ -24,7 +24,7 @@ import java.util.Set;
  */
 public class RechargeAdapter extends BaseAdapter {
     private Set<Integer> addPos=new LinkedHashSet<>();
-    private List<RechargeWithDraw>list=new ArrayList<>();
+    private List<Recharge>list=new ArrayList<>();
     private Context context;
     public RechargeAdapter(Context context){
         this.context=context;
@@ -42,13 +42,13 @@ public class RechargeAdapter extends BaseAdapter {
         }
     };
 
-    public void loadData(List<RechargeWithDraw>list){
+    public void loadData(List<Recharge>list){
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
     }
 
-    public void reLoadData(List<RechargeWithDraw>list){
+    public void reLoadData(List<Recharge>list){
         this.list.addAll(list);
         notifyDataSetChanged();
     }
@@ -70,7 +70,7 @@ public class RechargeAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        RechargeWithDraw rechargeWithDraw=list.get(position);
+        Recharge rechargeWithDraw=list.get(position);
         ViewHolder viewHolder=ViewHolder.get(context,convertView, R.layout.item_recharge_record);
         TextView tvStatus=viewHolder.getView(R.id.recharge_record_tvStatus);
         TextView tvCount=viewHolder.getView(R.id.recharge_record_tvCount);
@@ -88,6 +88,7 @@ public class RechargeAdapter extends BaseAdapter {
         tvOrderCode.setText(context.getString(R.string.order_code)+":"+rechargeWithDraw.orderId);//订单号
         //地址 充值 addr addr 提现addrTo addr
         String orderAddText=rechargeWithDraw.addr.addr;
+
         tvOrderAdd.setText(context.getString(R.string.recharge_add)+":"+orderAddText);//充值地址
         //充值 hash orderId
         tvHash.setText(rechargeWithDraw.orderId);

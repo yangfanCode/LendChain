@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.bean.RechargeWithDraw;
 import com.lend.lendchain.bean.ViewHolder;
+import com.lend.lendchain.bean.WithDraw;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.TimeUtils;
 
@@ -24,7 +24,7 @@ import java.util.Set;
  */
 public class WithDrawRecordAdapter extends BaseAdapter {
     private Set<Integer> addPos=new LinkedHashSet<>();
-    private List<RechargeWithDraw>list=new ArrayList<>();
+    private List<WithDraw>list=new ArrayList<>();
     private Context context;
     public WithDrawRecordAdapter(Context context){
         this.context=context;
@@ -42,13 +42,13 @@ public class WithDrawRecordAdapter extends BaseAdapter {
         }
     };
 
-    public void loadData(List<RechargeWithDraw>list){
+    public void loadData(List<WithDraw>list){
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
     }
 
-    public void reLoadData(List<RechargeWithDraw>list){
+    public void reLoadData(List<WithDraw>list){
         this.list.addAll(list);
         notifyDataSetChanged();
     }
@@ -70,7 +70,7 @@ public class WithDrawRecordAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        RechargeWithDraw rechargeWithDraw=list.get(position);
+        WithDraw rechargeWithDraw=list.get(position);
         ViewHolder viewHolder=ViewHolder.get(context,convertView, R.layout.item_withdraw_record);
         TextView tvStatus=viewHolder.getView(R.id.withDraw_record_tvStatus);
         TextView tvCount=viewHolder.getView(R.id.withDraw_record_tvCount);

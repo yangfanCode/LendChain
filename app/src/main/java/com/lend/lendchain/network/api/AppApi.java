@@ -17,13 +17,14 @@ import com.lend.lendchain.bean.MyLoanList;
 import com.lend.lendchain.bean.MyLoanSummary;
 import com.lend.lendchain.bean.MyWalletList;
 import com.lend.lendchain.bean.RMB2Dollar;
-import com.lend.lendchain.bean.RechargeWithDraw;
+import com.lend.lendchain.bean.Recharge;
 import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.bean.SendLvRecord;
 import com.lend.lendchain.bean.SimpleBean;
 import com.lend.lendchain.bean.TransferRecord;
 import com.lend.lendchain.bean.UserInfo;
 import com.lend.lendchain.bean.VersionControl;
+import com.lend.lendchain.bean.WithDraw;
 import com.lend.lendchain.network.NetConst;
 
 import java.util.List;
@@ -275,14 +276,14 @@ public interface AppApi {
      * @return
      */
     @GET("trade/deposit/index")
-    Observable<ResultBean<List<RechargeWithDraw>>> myReChargeList(@QueryMap Map<String, Object> account);
+    Observable<ResultBean<List<Recharge>>> myReChargeList(@QueryMap Map<String, Object> account);
     /**
      * 我的提现记录
      *
      * @return
      */
     @GET("trade/withdraw/index")
-    Observable<ResultBean<List<RechargeWithDraw>>> myWithDrawList(@QueryMap Map<String, Object> account);
+    Observable<ResultBean<List<WithDraw>>> myWithDrawList(@QueryMap Map<String, Object> account);
     /**
      * 我的提现记录
      *
