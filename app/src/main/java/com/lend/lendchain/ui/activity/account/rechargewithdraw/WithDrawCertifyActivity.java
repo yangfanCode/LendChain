@@ -40,6 +40,7 @@ public class WithDrawCertifyActivity extends BaseActivity {
     Button btnConfirm;
     private CountDownTimer timer;
     private String address,count,memo,id;
+    private boolean isBlockCity=false;//是否为布洛克城提现
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,7 @@ public class WithDrawCertifyActivity extends BaseActivity {
         count=getIntent().getExtras().getString(Constant.ARGS_PARAM2);
         memo=getIntent().getExtras().getString(Constant.ARGS_PARAM3);
         id=getIntent().getExtras().getString(Constant.ARGS_PARAM4);
+        isBlockCity=getIntent().getExtras().getBoolean(Constant.ARGS_PARAM5);
         initListener();
     }
 
@@ -82,7 +84,11 @@ public class WithDrawCertifyActivity extends BaseActivity {
                 TipsToast.showTips(getString(R.string.please_input_google_code));
                 return;
             }
-            NetApi.withDrawCreate(WithDrawCertifyActivity.this,true,SPUtil.getToken(),googleCode,address,memo,count,id,emailCode,withDrawObserver);
+            if(isBlockCity){
+                NetApi.blockCityWithDraw(WithDrawCertifyActivity.this,true,SPUtil.getToken(),googleCode,memo,count,id,emailCode,blockCityWithDrawObserver);
+            }else{
+                NetApi.withDrawCreate(WithDrawCertifyActivity.this,true,SPUtil.getToken(),googleCode,address,memo,count,id,emailCode,withDrawObserver);
+            }
         });
     }
     //倒计时
@@ -125,8 +131,19 @@ public class WithDrawCertifyActivity extends BaseActivity {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
                 TipsToast.showTips(getString(R.string.withdraw_success));
-                //此处不提示 跳转到充值提现状态页面
                 CommonUtil.openActicity(WithDrawCertifyActivity.this,MyWalletActivity.class,null);
+            }else{
+                setHttpFailed(WithDrawCertifyActivity.this,resultBean);
+            }
+        }
+    };
+    //提现
+    Observer<ResultBean> blockCityWithDrawObserver=new NetClient.RxObserver<ResultBean>() {
+        @Override
+        public void onSuccess(ResultBean resultBean) {
+            if(resultBean==null)return;
+            if(resultBean.isSuccess()){
+                TipsToast.showTips("ok");
             }else{
                 setHttpFailed(WithDrawCertifyActivity.this,resultBean);
             }

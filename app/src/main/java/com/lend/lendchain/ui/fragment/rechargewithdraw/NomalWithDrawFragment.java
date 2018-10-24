@@ -208,6 +208,7 @@ public class NomalWithDrawFragment extends Fragment {
                         bundle.putString(Constant.ARGS_PARAM2, count);
                         bundle.putString(Constant.ARGS_PARAM3, memo);
                         bundle.putString(Constant.ARGS_PARAM4, id);
+                        bundle.putBoolean(Constant.ARGS_PARAM5, false);
                         CommonUtil.openActicity(getActivity(), WithDrawCertifyActivity.class, bundle);
                     }
                 }

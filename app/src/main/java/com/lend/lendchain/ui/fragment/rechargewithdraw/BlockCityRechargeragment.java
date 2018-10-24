@@ -116,7 +116,7 @@ public class BlockCityRechargeragment extends Fragment {
                 tradeNo = resultBean.data.tradeNo;
                 orderId = resultBean.data.orderId;//订单
                 //跳转布洛克城支付
-                Uri uri = Uri.parse("blockcity://pay?tradeNo=" + tradeNo+"&callbackUrl=lendchain://pay/result");
+                Uri uri = Uri.parse("blockcity://pay?tradeNo="+tradeNo+"&callbackUrl=lendchain://pay/result");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
                 isRefrensh=true;

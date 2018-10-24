@@ -47,5 +47,10 @@ public class ExampleUnitTest {
     public void test4() {
         System.out.println("char:"+"icon_home".toCharArray().toString());
     }
+    @Test
+    public void test5() {
+        int i=0b11111111;
+        System.out.println("char:"+i);
+    }
 
 }

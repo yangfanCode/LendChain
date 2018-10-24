@@ -611,4 +611,20 @@ public class NetApi {
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+    /**
+     * 布洛克城钱包提现
+     */
+    public static void blockCityWithDraw(Context context,boolean isShow, String access_token,String googleCode,
+                                         String memo,String amount,String assetId,String emailCode,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("googleCode", googleCode);
+        map.put("memo", memo);
+        map.put("amount", amount);
+        map.put("assetId", assetId);
+        map.put("emailCode", emailCode);
+        NetClient.getInstance().getPost("", isShow, context).blockCityWithDraw(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

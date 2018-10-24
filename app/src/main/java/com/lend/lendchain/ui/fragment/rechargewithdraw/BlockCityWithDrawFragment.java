@@ -19,6 +19,8 @@ import com.lend.lendchain.bean.SimpleBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.account.rechargewithdraw.WithDrawCertifyActivity;
+import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
@@ -144,22 +146,17 @@ public class BlockCityWithDrawFragment extends Fragment {
         tvOverWithDraw.setOnClickListener(v -> etCount.setText(count));
         btnConfirm.setOnClickListener(v -> {
             //到布洛克城对接
-//            String address = etAdd.getText().toString().trim();
-//            String count = etCount.getText().toString().trim();
-//            if (TextUtils.isEmpty(address)) {
-//                TipsToast.showTips(getString(R.string.please_input_withdraw_add));
-//                return;
-//            }
-//            if (TextUtils.isEmpty(count)) {
-//                TipsToast.showTips(getString(R.string.please_input_withdraw_count));
-//                return;
-//            }
-//            if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
-//                TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
-//                return;
-//            }
-//            //读取用户此币种余额 是否不足
-//            NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
+            String count = etCount.getText().toString().trim();
+            if (TextUtils.isEmpty(count)) {
+                TipsToast.showTips(getString(R.string.please_input_withdraw_count));
+                return;
+            }
+            if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
+                TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
+                return;
+            }
+            //读取用户此币种余额 是否不足
+            NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
         });
     }
 
@@ -180,6 +177,37 @@ public class BlockCityWithDrawFragment extends Fragment {
             }
         }
 
+        @Override
+        public void onError(Throwable e) {
+            super.onError(e);
+            TipsToast.showTips(getString(R.string.netWorkError));
+        }
+    };
+    Observer<ResultBean<SimpleBean>> getCoinCountObserver=new NetClient.RxObserver<ResultBean<SimpleBean>>() {
+        @Override
+        public void onSuccess(ResultBean<SimpleBean> resultBean) {
+            if(resultBean==null)return;
+            if(resultBean.isSuccess()){
+                if(resultBean.data!=null){
+                    String count=etCount.getText().toString().trim();
+                    double over=resultBean.data.amount;
+                    if(Double.parseDouble(count)>over){
+                        TipsToast.showTips(getString(R.string.over_lack));
+                    }else{
+                        String memo = etMemo.getText().toString().trim();
+                        Bundle bundle = new Bundle();
+                        bundle.putString(Constant.ARGS_PARAM1, "");
+                        bundle.putString(Constant.ARGS_PARAM2, count);
+                        bundle.putString(Constant.ARGS_PARAM3, memo);
+                        bundle.putString(Constant.ARGS_PARAM4, id);
+                        bundle.putBoolean(Constant.ARGS_PARAM5, true);
+                        CommonUtil.openActicity(getActivity(), WithDrawCertifyActivity.class, bundle);
+                    }
+                }
+            }else{
+                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
+            }
+        }
         @Override
         public void onError(Throwable e) {
             super.onError(e);

@@ -409,14 +409,24 @@ public interface AppApi {
      *
      * @return
      */
-    @GET("trade/blockcity/create/deposit")
-    Observable<ResultBean<SimpleBean>> blockCityRecharge(@QueryMap Map<String, Object> account);
+    @FormUrlEncoded
+    @POST("trade/blockcity/create/deposit")
+    Observable<ResultBean<SimpleBean>> blockCityRecharge(@FieldMap Map<String, Object> account);
     /**
      * 布洛克城钱包充值(查询充值订单)
      *
      * @return
      */
-    @GET("trade/blockcity/get/deposit")
-    Observable<ResultBean<GetBlockCityRecharge>> getBlockCityRecharge(@QueryMap Map<String, Object> account);
+    @FormUrlEncoded
+    @POST("trade/blockcity/get/deposit")
+    Observable<ResultBean<GetBlockCityRecharge>> getBlockCityRecharge(@FieldMap Map<String, Object> account);
+    /**
+     * 布洛克城钱包提现
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("trade/blockcity/create/withdraw")
+    Observable<ResultBean<GetBlockCityRecharge>> blockCityWithDraw(@FieldMap Map<String, Object> account);
 
 }
