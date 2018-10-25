@@ -10,4 +10,8 @@ public class GetBlockCityRecharge {
     public String orderId;
     public String status;
     public String remark;
+    public String tradeNo;
+    public String expireTime;
+    public String cryptoCode;
+    public double amount;
 }

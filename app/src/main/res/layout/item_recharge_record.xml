@@ -63,12 +63,6 @@
                 android:gravity="center"
                 style="@style/text509FFF_12" />
         </FrameLayout>
-        <TextView
-            android:visibility="gone"
-            style="@style/textFF6343_12"
-            android:gravity="center_vertical"
-            android:layout_height="@dimen/qb_px_30" />
-
 
     </LinearLayout>
 

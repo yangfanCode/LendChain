@@ -16,6 +16,7 @@ import java.util.Date;
 public class TimeUtils {
     public static final String YYYY_MM_dd_HH_MM_SS="yyyy-MM-dd HH:mm:ss";
     public static final String YYYY_MM_dd_HH_MM_SS1="yyyy.MM.dd HH:mm:ss";
+    public static final String HH_MM_SS="HH:mm:ss";
     /**
      * 获得当前时间
      * @return

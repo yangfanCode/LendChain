@@ -10,6 +10,8 @@ public class MessageEvent<T> {
     public int type;
     public int position;
     public static final int HOME_MARKEY_KLINE = 1;//首页行情K线
+    public static final int RECHARGE_BLOCKCITY_GOPAY = 2;//充值记录布洛克城去支付
+    public static final int RECHARGE_BLOCKCITY_COUNTDOWN = 3;//充值记录布洛克城去支付 倒计时结束
 
     public MessageEvent(String message) {
         this.message = message;

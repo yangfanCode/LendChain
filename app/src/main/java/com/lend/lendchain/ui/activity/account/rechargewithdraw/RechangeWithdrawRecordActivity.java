@@ -30,6 +30,7 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
     ViewPager viewPager;
     @BindView(R.id.magicIndicator)
     MagicIndicator magicIndicator;
+    private ReChargeRecordFragment reChargeRecordFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,8 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
         baseTitleBar.setTitle(getString(R.string.my_amount_record));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(ReChargeRecordFragment.newInstance(), getString(R.string.recharge));
+        reChargeRecordFragment=ReChargeRecordFragment.newInstance();
+        adapter.addFrag(reChargeRecordFragment, getString(R.string.recharge));
         adapter.addFrag(WithDrawRecordFragment.newInstance(), getString(R.string.withdraw));
         adapter.addFrag(TransferRecordFragment.newInstance(), getString(R.string.transfer));
         adapter.addFrag(LVSendFragment.newInstance(), getString(R.string.send_LV));
@@ -57,5 +59,14 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
         navigator.setAdapter(new APPCommonNavigatorAdapter(adapter.getTitles(), viewPager));
         magicIndicator.setNavigator(navigator);
         ViewPagerHelper.bind(magicIndicator, viewPager);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        //充值返回刷新
+        if(viewPager.getCurrentItem()==0){
+            reChargeRecordFragment.initData(true);
+        }
     }
 }

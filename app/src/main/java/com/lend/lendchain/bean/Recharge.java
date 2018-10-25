@@ -7,7 +7,7 @@ package com.lend.lendchain.bean;
 public class Recharge {
     public String id;
     public String ctime;
-    public int status;
+    public String status;
     public String txOrder;//提现订单号
     public double amount;
     public String cryptoCode;
@@ -15,6 +15,7 @@ public class Recharge {
     public String orderId;//充值订单号 hash
     public String addrTo;//提现地址
     public Addr addr;//充值地址
+    public String expireTime;
 
     public static class AddrTo{
         public String memo;

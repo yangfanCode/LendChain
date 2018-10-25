@@ -12,20 +12,20 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.lend.lendchain.R;
-import com.lend.lendchain.bean.GetBlockCityRecharge;
 import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.bean.SimpleBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
-import com.lend.lendchain.ui.activity.account.rechargewithdraw.RechargeWithDrawStateActivity;
-import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.yangfan.widget.DecimalDigitsEditText;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,8 +45,6 @@ public class BlockCityRechargeragment extends Fragment {
     SmartRefreshLayout refreshLayout;
     private View parentView;
     private String code, cryptoId, tradeNo, orderId;
-    private boolean isFirst = true;
-    private boolean isRefrensh=true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -116,10 +114,13 @@ public class BlockCityRechargeragment extends Fragment {
                 tradeNo = resultBean.data.tradeNo;
                 orderId = resultBean.data.orderId;//订单
                 //跳转布洛克城支付
-                Uri uri = Uri.parse("blockcity://pay?tradeNo="+tradeNo+"&callbackUrl=lendchain://pay/result");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-                isRefrensh=true;
+                try {
+                    Uri uri = Uri.parse("blockcity://pay?tradeNo="+tradeNo+"&callbackUrl="+ URLEncoder.encode("lendchain://pay/result?orderId="+orderId+ "split","UTF-8"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
             } else {
                 ((BaseActivity) getActivity()).setHttpFailed(getActivity(), resultBean);
             }
@@ -128,41 +129,6 @@ public class BlockCityRechargeragment extends Fragment {
         @Override
         public void onError(Throwable e) {
             super.onError(e);
-            isRefrensh=false;
         }
     };
-    //查询布洛克城充值信息
-    Observer<ResultBean<GetBlockCityRecharge>> getBlockObserver = new NetClient.RxObserver<ResultBean<GetBlockCityRecharge>>() {
-        @Override
-        public void onSuccess(ResultBean<GetBlockCityRecharge> getBlockCityRechargeResultBean) {
-            if (getBlockCityRechargeResultBean == null) return;
-            if (getBlockCityRechargeResultBean.isSuccess()) {
-                String count = etCount.getText().toString().trim();
-                //充值类型状态
-                Bundle bundle=new Bundle();
-                bundle.putString(Constant.INTENT_EXTRA_DATA,getBlockCityRechargeResultBean.data.status);
-                bundle.putString(Constant.ARGS_PARAM1,code);
-                bundle.putString(Constant.ARGS_PARAM2,count);
-                bundle.putString(Constant.ARGS_PARAM3,orderId);
-                bundle.putString(Constant.ARGS_PARAM4,tradeNo);
-                CommonUtil.openActicity(getActivity(), RechargeWithDrawStateActivity.class,bundle);
-                isRefrensh=false;
-            } else {
-                ((BaseActivity) getActivity()).setHttpFailed(getActivity(), getBlockCityRechargeResultBean);
-            }
-        }
-    };
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (isFirst) {
-            isFirst = false;
-            return;
-        }
-        //scheme 数据
-        if(isRefrensh){
-            NetApi.getBlockCityRecharge(getActivity(), true, SPUtil.getToken(), orderId, getBlockObserver);
-        }
-    }
 }
