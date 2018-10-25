@@ -101,7 +101,7 @@ public class BlockCityWithDrawFragment extends Fragment {
         if (getArguments() != null) {
             cryptoId = getArguments().getString(Constant.ARGS_PARAM1);
             cryptoCode = getArguments().getString(Constant.ARGS_PARAM2);
-//            code = getArguments().getString(Constant.ARGS_PARAM1);
+            id = getArguments().getString(Constant.ARGS_PARAM3);
             count = getArguments().getString(Constant.ARGS_PARAM4);
         }
         SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);

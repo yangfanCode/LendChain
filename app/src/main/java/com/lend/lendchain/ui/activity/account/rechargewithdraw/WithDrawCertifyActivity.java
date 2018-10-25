@@ -137,13 +137,14 @@ public class WithDrawCertifyActivity extends BaseActivity {
             }
         }
     };
-    //提现
+    //布洛克城提现
     Observer<ResultBean> blockCityWithDrawObserver=new NetClient.RxObserver<ResultBean>() {
         @Override
         public void onSuccess(ResultBean resultBean) {
             if(resultBean==null)return;
             if(resultBean.isSuccess()){
-                TipsToast.showTips("ok");
+                TipsToast.showTips(getString(R.string.withdraw_success));
+                CommonUtil.openActicity(WithDrawCertifyActivity.this,MyWalletActivity.class,null);
             }else{
                 setHttpFailed(WithDrawCertifyActivity.this,resultBean);
             }
