@@ -449,4 +449,28 @@
     <string name="korea">Korea</string>
     <string name="america">The United States</string>
     <string name="phone_login">Mobile number login</string>
+    <!--V2.3.1新增-->
+    <string name="number_wallet_recharge">数字钱包充值</string>
+    <string name="blockcity_wallet_recharge">布洛克钱包充值</string>
+    <string name="qrcode_add">Qr code address</string>
+    <string name="recharge_amount">充值金额</string>
+    <string name="confirm_recharge">确认充值</string>
+    <string name="blockcity_wallet_recharge_tip">将布洛克中的GXS资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
+    <string name="number_wallet_withdraw">数字钱包提现</string>
+    <string name="blockcity_wallet_withdraw">布洛克钱包提现</string>
+    <string name="over_to_use1">可用余额</string>
+    <string name="over_to_withdraw">Full balance</string>
+    <string name="go_pay">Go to pay</string>
+    <string name="after_time_failure">After %1$s the order expires</string>
+    <string name="please_input_recharge_count">请输入充值金额</string>
+    <string name="recharge_success">Recharge successful</string>
+    <string name="order_deail">订单详情</string>
+    <string name="recharge_continue">继续充值</string>
+    <string name="recharge_retry">重新充值</string>
+    <string name="recharge_failed">Recharge failed</string>
+    <string name="order_refrensh">刷新订单</string>
+    <string name="order_cancle">Order closed</string>
+    <string name="recharge_success_text">您已成功充值</string>
+    <string name="wait_pay">Pending payment</string>
+    <string name="pay_now">立即支付</string>
 </resources>

@@ -81,6 +81,7 @@
                         android:layout_height="@dimen/qb_px_20"
                         android:layout_weight="1"
                         android:background="@null"
+                        app:afterDot="5"
                         android:inputType="numberDecimal"
                         android:maxLength="15"
                         android:textColor="@color/color_262626"

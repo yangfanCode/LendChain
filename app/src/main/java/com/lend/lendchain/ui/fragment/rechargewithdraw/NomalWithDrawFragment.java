@@ -19,7 +19,9 @@ import com.lend.lendchain.bean.SimpleBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.rechargewithdraw.WithDrawCertifyActivity;
+import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
@@ -28,6 +30,7 @@ import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.DecimalDigitsEditText;
 import com.yangfan.widget.FormNormal;
 
@@ -36,7 +39,7 @@ import butterknife.ButterKnife;
 import rx.Observer;
 
 /**
- *数字钱包提现
+ * 数字钱包提现
  */
 public class NomalWithDrawFragment extends Fragment {
     //    @BindView(R.id.withdraw_tvPaste)
@@ -92,6 +95,7 @@ public class NomalWithDrawFragment extends Fragment {
         ButterKnife.bind(this, parentView);
         return parentView;
     }
+
     public static NomalWithDrawFragment newInstance(String param1, String param2, String param3, String param4) {
         NomalWithDrawFragment fragment = new NomalWithDrawFragment();
         Bundle args = new Bundle();
@@ -103,27 +107,28 @@ public class NomalWithDrawFragment extends Fragment {
         return fragment;
     }
 
-    private void initView(){
+    private void initView() {
         ButterKnife.bind(this, parentView);
-        if(getArguments()!=null){
+        if (getArguments() != null) {
             cryptoId = getArguments().getString(Constant.ARGS_PARAM1);
             cryptoCode = getArguments().getString(Constant.ARGS_PARAM2);
             id = getArguments().getString(Constant.ARGS_PARAM3);
             count = getArguments().getString(Constant.ARGS_PARAM4);
         }
         SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
-        etCount.setAfterDot(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ?5:6);//lv gxs 5位小数
+        etCount.setAfterDot(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? 5 : 6);//lv gxs 5位小数
         llMemo.setVisibility(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? View.VISIBLE : View.GONE);
         tvRealMoneyCoin.setText(cryptoCode);
         tvPoundageCoin.setText(cryptoCode);
         tvCoin.setText(cryptoCode);
-        fnOver.setText(count.concat(" "+cryptoCode));//可用余额
+        fnOver.setText(count.concat(" " + cryptoCode));//可用余额
         KeyBordUtils.setEditTextNoFocus(etAdd);
     }
 
-    private void initData(){
+    private void initData() {
         NetApi.coinAttribute(getActivity(), true, SPUtil.getToken(), cryptoId, withDrawObserver);
     }
+
     private void initListener() {
 //        tvPaste.setOnClickListener(v -> {
 //            String str = CommonUtil.clipboardPasteStr();
@@ -133,9 +138,13 @@ public class NomalWithDrawFragment extends Fragment {
 //        });
         etCount.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
             @Override
             public void afterTextChanged(Editable s) {
                 String input = s.toString().trim();
@@ -148,22 +157,26 @@ public class NomalWithDrawFragment extends Fragment {
         });
         tvOverWithDraw.setOnClickListener(v -> etCount.setText(count));
         btnConfirm.setOnClickListener(v -> {
-            String address = etAdd.getText().toString().trim();
-            String count = etCount.getText().toString().trim();
-            if (TextUtils.isEmpty(address)) {
-                TipsToast.showTips(getString(R.string.please_input_withdraw_add));
-                return;
+            if (SPUtil.getUserPhone() && SPUtil.getUserGoogle() && SPUtil.getUserKyc() == 2) {
+                String address = etAdd.getText().toString().trim();
+                String count = etCount.getText().toString().trim();
+                if (TextUtils.isEmpty(address)) {
+                    TipsToast.showTips(getString(R.string.please_input_withdraw_add));
+                    return;
+                }
+                if (TextUtils.isEmpty(count)) {
+                    TipsToast.showTips(getString(R.string.please_input_withdraw_count));
+                    return;
+                }
+                if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
+                    TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
+                    return;
+                }
+                //读取用户此币种余额 是否不足
+                NetApi.getCoinCount(getActivity(), false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
+            } else {
+                showCerfityDialog();
             }
-            if (TextUtils.isEmpty(count)) {
-                TipsToast.showTips(getString(R.string.please_input_withdraw_count));
-                return;
-            }
-            if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
-                TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
-                return;
-            }
-            //读取用户此币种余额 是否不足
-            NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
         });
     }
 
@@ -180,7 +193,7 @@ public class NomalWithDrawFragment extends Fragment {
                     tvLimit.setText(String.format(tvLimit.getText().toString(), cryptoCode, String.valueOf(DoubleUtils.doubleTransRoundTwo(resultBean.data.dayWithdraw, 2))));//每日限额
                 }
             } else {
-                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
+                ((BaseActivity) getActivity()).setHttpFailed(getActivity(), resultBean);
             }
         }
 
@@ -190,17 +203,17 @@ public class NomalWithDrawFragment extends Fragment {
             TipsToast.showTips(getString(R.string.netWorkError));
         }
     };
-    Observer<ResultBean<SimpleBean>> getCoinCountObserver=new NetClient.RxObserver<ResultBean<SimpleBean>>() {
+    Observer<ResultBean<SimpleBean>> getCoinCountObserver = new NetClient.RxObserver<ResultBean<SimpleBean>>() {
         @Override
         public void onSuccess(ResultBean<SimpleBean> resultBean) {
-            if(resultBean==null)return;
-            if(resultBean.isSuccess()){
-                if(resultBean.data!=null){
-                    String count=etCount.getText().toString().trim();
-                    double over=resultBean.data.amount;
-                    if(Double.parseDouble(count)>over){
+            if (resultBean == null) return;
+            if (resultBean.isSuccess()) {
+                if (resultBean.data != null) {
+                    String count = etCount.getText().toString().trim();
+                    double over = resultBean.data.amount;
+                    if (Double.parseDouble(count) > over) {
                         TipsToast.showTips(getString(R.string.over_lack));
-                    }else{
+                    } else {
                         String address = etAdd.getText().toString().trim();
                         String memo = etMemo.getText().toString().trim();
                         Bundle bundle = new Bundle();
@@ -212,15 +225,35 @@ public class NomalWithDrawFragment extends Fragment {
                         CommonUtil.openActicity(getActivity(), WithDrawCertifyActivity.class, bundle);
                     }
                 }
-            }else{
-                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
+            } else {
+                ((BaseActivity) getActivity()).setHttpFailed(getActivity(), resultBean);
             }
         }
+
         @Override
         public void onError(Throwable e) {
             super.onError(e);
             TipsToast.showTips(getString(R.string.netWorkError));
         }
     };
+
+    //认证弹窗
+    private void showCerfityDialog() {
+        if (dialog == null) {
+            CustomDialog.Builder builder = new CustomDialog.Builder(getActivity());
+            builder.setTitle(getString(R.string.warm_tips));
+            builder.setMessage(getString(R.string.please_goto_certified_all_wallet));
+            builder.setNegativeButton(getString(R.string.look_again), (dialog, which) -> dialog.dismiss());
+            builder.setPositiveButton(getString(R.string.go_certified), (dialog, which) -> {
+                CommonUtil.openActicity(getActivity(), SafeCertifyActivity.class, null);
+                dialog.dismiss();
+            });
+            dialog = builder.create();
+            builder.getNegativeButton().setTextColor(ColorUtils.COLOR_509FFF);
+            builder.getPositiveButton().setTextColor(ColorUtils.COLOR_509FFF);
+            dialog.setCancelable(false);
+        }
+        dialog.show();
+    }
 
 }

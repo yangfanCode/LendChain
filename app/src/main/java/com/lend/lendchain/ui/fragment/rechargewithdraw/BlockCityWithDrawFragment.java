@@ -106,7 +106,7 @@ public class BlockCityWithDrawFragment extends Fragment {
         }
         SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
         etCount.setAfterDot(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ?5:6);//lv gxs 5位小数
-        llMemo.setVisibility(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? View.VISIBLE : View.GONE);
+//        llMemo.setVisibility(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? View.VISIBLE : View.GONE);
         tvRealMoneyCoin.setText(cryptoCode);
         tvPoundageCoin.setText(cryptoCode);
         tvCoin.setText(cryptoCode);

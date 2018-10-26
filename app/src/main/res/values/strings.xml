@@ -462,7 +462,7 @@
     <string name="over_to_use1">可用余额</string>
     <string name="over_to_withdraw">余额全提</string>
     <string name="go_pay">去支付</string>
-    <string name="after_time_failure">后订单失效</string>
+    <string name="after_time_failure">%1$s后订单失效</string>
     <string name="please_input_recharge_count">请输入充值金额</string>
     <string name="recharge_success">充值成功</string>
     <string name="order_deail">订单详情</string>

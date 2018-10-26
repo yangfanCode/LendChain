@@ -19,6 +19,7 @@ import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.MainActivity;
 import com.lend.lendchain.ui.activity.account.MyWalletActivity;
 import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
@@ -89,7 +90,11 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
     }
 
     private void initListener() {
-        tvSubmit1.setOnClickListener(v -> CommonUtil.openActicity(this,RechangeWithdrawRecordActivity.class,null));
+        tvSubmit1.setOnClickListener(v ->{
+            Bundle bundle=new Bundle();
+            bundle.putBoolean(Constant.INTENT_EXTRA_DATA,true);
+            CommonUtil.openActicity(this,RechangeWithdrawRecordActivity.class,bundle);
+        });
     }
 
     private void initData() {
@@ -115,16 +120,7 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
         tvCoinText.setText(Html.fromHtml(getString(R.string.recharge_amount) + ":" + "<font color='#509FFF'>" + count + " " + code + "</font>"));
         baseTitleBar.setTitle(getString(R.string.recharge_failed));
         tvSubmit2.setText(getString(R.string.recharge_retry));
-        tvSubmit2.setOnClickListener(v -> {
-            //跳转布洛克城支付
-            try {
-                Uri uri = Uri.parse("blockcity://pay?tradeNo=" + tradeNo + "&callbackUrl=" + URLEncoder.encode("lendchain://pay/result?orderId=" + orderId+"split", "UTF-8"));
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        });
+        tvSubmit2.setOnClickListener(v -> CommonUtil.openActicity(RechargeWithDrawStateActivity.this,MyWalletActivity.class,null));
     }
 
     //充值待支付
@@ -136,7 +132,14 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
         baseTitleBar.setTitle(getString(R.string.wait_pay));
         tvSubmit2.setText(getString(R.string.pay_now));
         tvSubmit2.setOnClickListener(v -> {
-
+            //跳转布洛克城支付
+            try {
+                Uri uri = Uri.parse("blockcity://pay?tradeNo=" + tradeNo + "&callbackUrl=" + URLEncoder.encode("lendchain://pay/result?orderId=" + orderId+"split", "UTF-8"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
         });
     }
 
@@ -163,16 +166,13 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
         tvCoinText.setText(Html.fromHtml(getString(R.string.recharge_amount) + ":" + "<font color='#509FFF'>" + count + " " + code + "</font>"));
         baseTitleBar.setTitle(getString(R.string.order_cancle));
         tvSubmit2.setText(getString(R.string.recharge_retry));
-        tvSubmit2.setOnClickListener(v -> {//重新充值
-            //跳转布洛克城支付
-            try {
-                Uri uri = Uri.parse("blockcity://pay?tradeNo=" + tradeNo + "&callbackUrl=" + URLEncoder.encode("lendchain://pay/result?orderId=" + orderId+"split", "UTF-8"));
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        });
+        tvSubmit2.setOnClickListener(v -> CommonUtil.openActicity(RechargeWithDrawStateActivity.this,MyWalletActivity.class,null));
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        initData();
     }
 
     //查询布洛克城充值信息

@@ -107,7 +107,7 @@ public class RechargeAdapter extends BaseAdapter {
         String orderAddText = rechargeWithDraw.addr.addr;
         tvOrderAdd.setText(context.getString(R.string.recharge_add) + ":" + orderAddText);//充值地址
         //充值 hash orderId
-        tvHash.setText(rechargeWithDraw.orderId);
+        tvHash.setText("Hash:"+rechargeWithDraw.orderId);
         llOrder.setOnClickListener(addOnClickListener);
         llOrder.setTag(R.id.position, position);
         llOrder.setTag(R.id.view, llOrderAdd);
@@ -124,12 +124,12 @@ public class RechargeAdapter extends BaseAdapter {
                 countDownTimer = countDownTimers.get(position);
                 countDownTimer.cancel();
             }
-            tvTimeAfter.setText(TimeUtils.getDateToStringMs(Long.valueOf(countDownTimes.get(position)), TimeUtils.HH_MM_SS) + context.getString(R.string.after_time_failure));
+            tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),TimeUtils.getDateToStringMs(Long.valueOf(countDownTimes.get(position)), TimeUtils.HH_MM_SS)));
             countDownTimer = new CountDownTimer(Long.valueOf(countDownTimes.get(position)), 1000) {
                 @Override
                 public void onTick(long l) {
                     countDownTimes.put(position,String.valueOf(l));
-                    tvTimeAfter.setText(TimeUtils.getDateToStringMs(l, TimeUtils.HH_MM_SS) + context.getString(R.string.after_time_failure));
+                    tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),TimeUtils.getDateToStringMs(l, TimeUtils.HH_MM_SS)));
                 }
 
                 @Override
@@ -155,7 +155,7 @@ public class RechargeAdapter extends BaseAdapter {
         } else if ("2".equals(status)) {
             return context.getString(R.string.wait_in_account);
         } else if ("3".equals(status)) {
-            return context.getString(R.string.in_accounted);
+            return context.getString(R.string.recharge_success);
         } else if ("0".equals(status)) {
             return context.getString(R.string.wait_pay);
         } else if ("4".equals(status)) {

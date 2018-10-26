@@ -1,16 +1,19 @@
 package com.lend.lendchain.ui.activity.account.rechargewithdraw;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
 import com.lend.lendchain.R;
 import com.lend.lendchain.adapter.APPCommonNavigatorAdapter;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.MainActivity;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.LVSendFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.ReChargeRecordFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.TransferRecordFragment;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.WithDrawRecordFragment;
 import com.lend.lendchain.utils.CommonUtil;
+import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.yangfan.widget.CustomFragmentPagerAdapter;
 
@@ -31,6 +34,7 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
     @BindView(R.id.magicIndicator)
     MagicIndicator magicIndicator;
     private ReChargeRecordFragment reChargeRecordFragment;
+    private boolean isGotoMain;//是否跳转个人中心
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +47,19 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.getExtras() != null) {
+            isGotoMain=intent.getBooleanExtra(Constant.INTENT_EXTRA_DATA,false);
+        }
+    }
+
+    @Override
     public void initView() {
         ButterKnife.bind(this);
         baseTitleBar.setTitle(getString(R.string.my_amount_record));
-        baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setLayLeftBackClickListener(v -> onBackPressed());
+        isGotoMain=getIntent().getBooleanExtra(Constant.INTENT_EXTRA_DATA,false);
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
         reChargeRecordFragment=ReChargeRecordFragment.newInstance();
         adapter.addFrag(reChargeRecordFragment, getString(R.string.recharge));
@@ -59,6 +72,17 @@ public class RechangeWithdrawRecordActivity extends BaseActivity {
         navigator.setAdapter(new APPCommonNavigatorAdapter(adapter.getTitles(), viewPager));
         magicIndicator.setNavigator(navigator);
         ViewPagerHelper.bind(magicIndicator, viewPager);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(isGotoMain){
+            Bundle bundle = new Bundle();
+            bundle.putString(Constant.ARGS_PARAM1, Constant.LOGIN);
+            CommonUtil.openActicity(RechangeWithdrawRecordActivity.this, MainActivity.class, bundle);
+        }else{
+            finish();
+        }
     }
 
     @Override

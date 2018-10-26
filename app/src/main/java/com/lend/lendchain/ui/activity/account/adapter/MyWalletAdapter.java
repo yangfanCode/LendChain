@@ -61,7 +61,7 @@ public class MyWalletAdapter extends BaseAdapter {
     };
     //提现点击
     private View.OnClickListener withDrawClick = v -> {
-        if (SPUtil.getUserPhone() && SPUtil.getUserGoogle() && SPUtil.getUserKyc() == 2) {
+//        if (SPUtil.getUserPhone() && SPUtil.getUserGoogle() && SPUtil.getUserKyc() == 2) {
             String cryptoId = (String) v.getTag(R.id.code);
             String code = (String) v.getTag(R.id.str);
             String id = (String) v.getTag(R.id.str1);
@@ -72,9 +72,9 @@ public class MyWalletAdapter extends BaseAdapter {
             bundle.putString(Constant.ARGS_PARAM2, id);
             bundle.putString(Constant.ARGS_PARAM3, count);
             CommonUtil.openActicity(context, WithDrawActivity.class, bundle);
-        } else {
-            showCerfityDialog();
-        }
+//        } else {
+//            showCerfityDialog();
+//        }
     };
     //转账
     private View.OnClickListener transferClick = v -> {
