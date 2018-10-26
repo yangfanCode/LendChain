@@ -12,9 +12,11 @@ import android.widget.TextView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.GetBlockCityRecharge;
 import com.lend.lendchain.bean.ResultBean;
+import com.lend.lendchain.helper.ContextHelper;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.MainActivity;
 import com.lend.lendchain.ui.activity.account.MyWalletActivity;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.DoubleUtils;
@@ -63,7 +65,7 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
     @Override
     public void initView() {
         ButterKnife.bind(this);
-        baseTitleBar.setLayLeftBackClickListener(v -> finish());
+        baseTitleBar.setLayLeftBackClickListener(v -> onBackPressed());
         SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
         Uri uri = getIntent().getData();
         if (uri != null) {
@@ -74,6 +76,16 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
         }
         initData();
         initListener();
+    }
+
+    //如果app杀死状态回到此页面则跳转主页 否则finish
+    @Override
+    public void onBackPressed() {
+        if(ContextHelper.getActArray().size()==1){
+            CommonUtil.openActicity(RechargeWithDrawStateActivity.this, MainActivity.class,null,true);
+        }else{
+            finish();
+        }
     }
 
     private void initListener() {

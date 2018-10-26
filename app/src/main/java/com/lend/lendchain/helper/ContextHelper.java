@@ -116,6 +116,16 @@ public class ContextHelper {
         }
         mAct.clear();
     }
+
+    /**
+     * 获取acttivity集合
+     * @return
+     */
+    public static SparseArray<WeakReference<BaseActivity>> getActArray(){
+        return mAct;
+    }
+
+
     /**
      * 退出app
      * @param context
