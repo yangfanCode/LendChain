@@ -627,4 +627,15 @@ public class NetApi {
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+    /**
+     * 充值记录关闭订单
+     */
+    public static void closeOrderRecharge(Context context,boolean isShow,String access_token, String orderId,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("orderId", orderId);
+        NetClient.getInstance().getPost("", isShow, context).closeOrderRecharge(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

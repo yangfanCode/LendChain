@@ -29,6 +29,7 @@ import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.network.subscriber.SafeOnlyNextSubscriber;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.fragment.rechargewithdraw.adapter.RechargeAdapter;
+import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
@@ -39,6 +40,7 @@ import com.lvfq.pickerview.OptionsPickerView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
+import com.yangfan.widget.CustomDialog;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -159,8 +161,11 @@ public class ReChargeRecordFragment extends Fragment {
                 if (type == MessageEvent.RECHARGE_BLOCKCITY_GOPAY) {//点击去支付
                     String orderId = (String) args.data;
                     NetApi.getBlockCityRecharge(getActivity(), true, SPUtil.getToken(), orderId, getBlockObserver);
-                }else if(type == MessageEvent.RECHARGE_BLOCKCITY_COUNTDOWN){//倒计时结束刷新列表
+                } else if (type == MessageEvent.RECHARGE_BLOCKCITY_COUNTDOWN) {//倒计时结束刷新列表
                     initData(true);
+                } else if (type == MessageEvent.RECHARGE_BLOCKCITY_CLOSE) {//关闭订单
+                    String orderId = (String) args.data;
+                    showCloseOrderDialog(orderId);
                 }
             }
 
@@ -354,6 +359,16 @@ public class ReChargeRecordFragment extends Fragment {
             }
         }
     };
+    Observer<ResultBean> closeOrderObserver = new NetClient.RxObserver<ResultBean>() {
+        @Override
+        public void onSuccess(ResultBean resultBean) {
+            if(resultBean==null)return;
+            if(resultBean.isSuccess()){
+                TipsToast.showTips(getString(R.string.order_close_success));
+                initData(false);
+            }
+        }
+    };
 
     //充值加速设置默认状态
     private void setDeafultState() {
@@ -365,5 +380,23 @@ public class ReChargeRecordFragment extends Fragment {
     private void finishRefrensh() {
         refreshLayout.finishRefresh();//传入false表示加载失败
         refreshLayout.finishLoadMore();//传入false表示加载失败
+    }
+
+    //关闭订单
+    private void showCloseOrderDialog(String orderId) {
+        if (dialog == null) {
+            CustomDialog.Builder builder = new CustomDialog.Builder(getActivity());
+            builder.setMessage(getString(R.string.close_order_tips));
+            builder.setNegativeButton(getString(R.string.cancel), (dialog, which) -> dialog.dismiss());
+            builder.setPositiveButton(getString(R.string.confirm_ding), (dialog, which) -> {
+                NetApi.closeOrderRecharge(getActivity(), true, SPUtil.getToken(),orderId, closeOrderObserver);
+                dialog.dismiss();
+            });
+            dialog = builder.create();
+            builder.getNegativeButton().setTextColor(ColorUtils.COLOR_509FFF);
+            builder.getPositiveButton().setTextColor(ColorUtils.COLOR_509FFF);
+            dialog.setCancelable(false);
+        }
+        dialog.show();
     }
 }

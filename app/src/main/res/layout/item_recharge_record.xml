@@ -35,7 +35,7 @@
             <TextView
                 android:id="@+id/recharge_record_tvOrderCode"
                 style="@style/text999999_12"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"/>
             <TextView
                 android:id="@+id/recharge_record_tvGoPay"
                 android:layout_gravity="center_vertical|right"
@@ -49,20 +49,33 @@
         </FrameLayout>
 
         
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/qb_px_30">
             <TextView
                 android:id="@+id/recharge_record_tvTime"
                 style="@style/text999999_12"
-                android:layout_gravity="center_vertical"/>
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/recharge_record_tvClose"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/order_close"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/qb_px_5"
+                style="@style/textFFFFFF_12"
+                android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+                android:layout_width="@dimen/qb_px_65"
+                android:layout_height="@dimen/qb_px_24" />
             <TextView
                 android:id="@+id/recharge_record_tvTimeAfter"
-                android:layout_gravity="center_vertical|right"
+                android:layout_toLeftOf="@id/recharge_record_tvClose"
+                android:layout_centerVertical="true"
                 android:visibility="gone"
                 android:gravity="center"
                 style="@style/text509FFF_12" />
-        </FrameLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 

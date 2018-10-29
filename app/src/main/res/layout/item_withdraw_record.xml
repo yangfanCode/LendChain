@@ -59,6 +59,10 @@
         <TextView
             android:id="@+id/withDraw_record_tvOrderAdd"
             style="@style/text999999_12" />
+        <TextView
+            android:id="@+id/recharge_record_tvMemo"
+            style="@style/text999999_12"
+            android:layout_marginTop="@dimen/qb_px_5" />
     </LinearLayout>
 
     <include layout="@layout/row_divider_1px" />

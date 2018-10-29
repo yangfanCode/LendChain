@@ -102,6 +102,10 @@ public class BlockCityRechargeragment extends Fragment {
                 TipsToast.showTips(getString(R.string.please_input_recharge_count));
                 return;
             }
+            if (Double.valueOf(count)<=0) {
+                TipsToast.showTips(getString(R.string.recharge_amount_must_over0));
+                return;
+            }
             NetApi.blockCityRecharge(getActivity(), true, SPUtil.getToken(), count, cryptoId, observer);
         });
     }

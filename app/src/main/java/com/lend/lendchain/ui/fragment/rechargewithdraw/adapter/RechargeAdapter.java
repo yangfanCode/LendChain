@@ -35,6 +35,7 @@ public class RechargeAdapter extends BaseAdapter {
     private Map<Integer, CountDownTimer> countDownTimers = new HashMap<>();//保存计时器 对应每个cell
     private Map<Integer, String> countDownTimes = new HashMap<>();//保存计时器的初试时间 对应每个cell
     private Context context;
+    private boolean isRefrensh;
 
     public RechargeAdapter(Context context) {
         this.context = context;
@@ -57,8 +58,15 @@ public class RechargeAdapter extends BaseAdapter {
         String orderId = (String) v.getTag(R.id.str);
         RxBus.getInstance().post(new MessageEvent<String>(MessageEvent.RECHARGE_BLOCKCITY_GOPAY, orderId));
     };
+    //点击关闭订单
+    private View.OnClickListener closeClickListener = v -> {
+        String orderId = (String) v.getTag(R.id.str);
+        RxBus.getInstance().post(new MessageEvent<String>(MessageEvent.RECHARGE_BLOCKCITY_CLOSE, orderId));
+    };
 
     public void loadData(List<Recharge> list) {
+        countDownTimers.clear();
+        countDownTimes.clear();
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
@@ -96,6 +104,7 @@ public class RechargeAdapter extends BaseAdapter {
         TextView tvHash = viewHolder.getView(R.id.recharge_record_tvHash);
         TextView tvGoPay = viewHolder.getView(R.id.recharge_record_tvGoPay);
         TextView tvTimeAfter = viewHolder.getView(R.id.recharge_record_tvTimeAfter);
+        TextView tvClose = viewHolder.getView(R.id.recharge_record_tvClose);
         LinearLayout llOrderAdd = viewHolder.getView(R.id.recharge_record_llOrderAdd);
         LinearLayout llOrder = viewHolder.getView(R.id.recharge_record_llOrder);
         String status = rechargeWithDraw.status;
@@ -118,7 +127,9 @@ public class RechargeAdapter extends BaseAdapter {
             //待支付状态 展示倒计时
             tvGoPay.setTag(R.id.str, rechargeWithDraw.orderId);
             tvGoPay.setOnClickListener(payClickListener);
-            ViewUtils.showViewsVisible(true, tvGoPay, tvTimeAfter);//显示去支付 和 倒计时
+            tvClose.setOnClickListener(closeClickListener );
+            tvClose.setTag(R.id.str, rechargeWithDraw.orderId);
+            ViewUtils.showViewsVisible(true, tvGoPay, tvTimeAfter,tvClose);//显示去支付 和 倒计时
             if(!countDownTimes.containsKey(position)){//存储上次的计时
                 //计算时间差 开启倒计时
                 countDownTimes.put(position,String.valueOf(Long.valueOf(rechargeWithDraw.expireTime)-System.currentTimeMillis()));
@@ -127,32 +138,36 @@ public class RechargeAdapter extends BaseAdapter {
                 countDownTimer = countDownTimers.get(position);
                 countDownTimer.cancel();
             }
-            //初始时间 text默认文案
-            SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
-            String text=t.get(1)+":"+t.get(2)+":"+t.get(3);
-            tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
-            countDownTimer = new CountDownTimer(Long.valueOf(countDownTimes.get(position)), 1000) {
-                @Override
-                public void onTick(long l) {
-                    //开启倒计时 每次计算时间差 转化为时间
-                    countDownTimes.put(position,String.valueOf(Long.valueOf(rechargeWithDraw.expireTime)-System.currentTimeMillis()));
-                    SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
-                    String text=t.get(1)+":"+t.get(2)+":"+t.get(3);
-                    tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
-                }
+            if(Long.valueOf(countDownTimes.get(position))>0){
+                //初始时间 text默认文案
+                SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
+                String text=t.get(2)+context.getString(R.string.time_min)+t.get(3)+context.getString(R.string.time_sec);
+                tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
+            }else{
+                tvTimeAfter.setText("");//倒计时 归零后 无显示
+            }
+            if(Long.valueOf(countDownTimes.get(position))>0){
+                countDownTimer = new CountDownTimer(Long.valueOf(countDownTimes.get(position)), 1000) {
+                    @Override
+                    public void onTick(long l) {
+                        //开启倒计时 每次计算时间差 转化为时间
+                        countDownTimes.put(position,String.valueOf(Long.valueOf(rechargeWithDraw.expireTime)-System.currentTimeMillis()));
+                        SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
+                        String text=t.get(2)+context.getString(R.string.time_min)+t.get(3)+context.getString(R.string.time_sec);
+                        tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
+                    }
 
-                @Override
-                public void onFinish() {
-                    //刷新列表
-                    RxBus.getInstance().post(new MessageEvent<String>(MessageEvent.RECHARGE_BLOCKCITY_COUNTDOWN));
-                    this.cancel(); //防止new出多个导致时间跳动加速
-                }
-            };
-            countDownTimers.put(position, countDownTimer);
-            countDownTimer.start();
-//            countDownTime(Long.valueOf(rechargeWithDraw.expireTime), tvTimeAfter);
+                    @Override
+                    public void onFinish() {
+                        //刷新列表
+                        RxBus.getInstance().post(new MessageEvent<String>(MessageEvent.RECHARGE_BLOCKCITY_COUNTDOWN));
+                    }
+                };
+                countDownTimers.put(position, countDownTimer);
+                countDownTimer.start();
+            }
         } else {
-            ViewUtils.showViewsVisible(false, tvGoPay, tvTimeAfter);//隐藏去支付 和 倒计时
+            ViewUtils.showViewsVisible(false, tvGoPay, tvTimeAfter,tvClose);//隐藏去支付 和 倒计时
         }
         return viewHolder.getConvertView();
     }

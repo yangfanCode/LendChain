@@ -428,5 +428,13 @@ public interface AppApi {
     @FormUrlEncoded
     @POST("trade/blockcity/create/withdraw")
     Observable<ResultBean<GetBlockCityRecharge>> blockCityWithDraw(@FieldMap Map<String, Object> account);
+    /**
+     * 充值记录关闭订单
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("trade/blockcity/close/deposit")
+    Observable<ResultBean> closeOrderRecharge(@FieldMap Map<String, Object> account);
 
 }

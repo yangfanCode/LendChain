@@ -1,6 +1,7 @@
 package com.lend.lendchain.ui.fragment.rechargewithdraw;
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -19,7 +20,9 @@ import com.lend.lendchain.bean.SimpleBean;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
+import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.rechargewithdraw.WithDrawCertifyActivity;
+import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.Constant;
 import com.lend.lendchain.utils.DoubleUtils;
@@ -27,6 +30,7 @@ import com.lend.lendchain.utils.SPUtil;
 import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.widget.TipsToast;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.yangfan.widget.CustomDialog;
 import com.yangfan.widget.DecimalDigitsEditText;
 import com.yangfan.widget.FormNormal;
 
@@ -67,6 +71,8 @@ public class BlockCityWithDrawFragment extends Fragment {
     private String cryptoId, cryptoCode, id, count;
     private double withdrawFee, minWithdraw;//手续费
     private View parentView;
+    private Dialog dialog = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -145,20 +151,44 @@ public class BlockCityWithDrawFragment extends Fragment {
         });
         tvOverWithDraw.setOnClickListener(v -> etCount.setText(count));
         btnConfirm.setOnClickListener(v -> {
-            //到布洛克城对接
-            String count = etCount.getText().toString().trim();
-            if (TextUtils.isEmpty(count)) {
-                TipsToast.showTips(getString(R.string.please_input_withdraw_count));
-                return;
+            if (SPUtil.getUserPhone() && SPUtil.getUserGoogle()){
+                //到布洛克城对接
+                String count = etCount.getText().toString().trim();
+                if (TextUtils.isEmpty(count)) {
+                    TipsToast.showTips(getString(R.string.please_input_withdraw_count));
+                    return;
+                }
+                if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
+                    TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
+                    return;
+                }
+                //读取用户此币种余额 是否不足
+                NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
+            }else{
+                showCerfityDialog();
             }
-            if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
-                TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
-                return;
-            }
-            //读取用户此币种余额 是否不足
-            NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
         });
     }
+
+    //认证弹窗
+    private void showCerfityDialog() {
+        if (dialog == null) {
+            CustomDialog.Builder builder = new CustomDialog.Builder(getActivity());
+            builder.setTitle(getString(R.string.warm_tips));
+            builder.setMessage(getString(R.string.please_goto_certified_all_wallet));
+            builder.setNegativeButton(getString(R.string.look_again), (dialog, which) -> dialog.dismiss());
+            builder.setPositiveButton(getString(R.string.go_certified), (dialog, which) -> {
+                CommonUtil.openActicity(getActivity(), SafeCertifyActivity.class, null);
+                dialog.dismiss();
+            });
+            dialog = builder.create();
+            builder.getNegativeButton().setTextColor(ColorUtils.COLOR_509FFF);
+            builder.getPositiveButton().setTextColor(ColorUtils.COLOR_509FFF);
+            dialog.setCancelable(false);
+        }
+        dialog.show();
+    }
+
 
     Observer<ResultBean<SimpleBean>> withDrawObserver = new NetClient.RxObserver<ResultBean<SimpleBean>>() {
         @Override

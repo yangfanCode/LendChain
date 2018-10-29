@@ -470,7 +470,13 @@
     <string name="recharge_failed">Recharge failed</string>
     <string name="order_refrensh">刷新订单</string>
     <string name="order_cancle">Order closed</string>
+    <string name="order_close">Close order </string>
+    <string name="order_close_success">Order closed successful</string>
     <string name="recharge_success_text">您已成功充值</string>
     <string name="wait_pay">Pending payment</string>
     <string name="pay_now">立即支付</string>
+    <string name="recharge_amount_must_over0">充值金额必须大于0</string>
+    <string name="time_min">分</string>
+    <string name="time_sec">秒</string>
+    <string name="close_order_tips">是否确认关闭订单?</string>
 </resources>

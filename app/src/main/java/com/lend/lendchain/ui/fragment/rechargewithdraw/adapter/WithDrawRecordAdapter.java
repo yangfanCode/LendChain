@@ -1,6 +1,7 @@
 package com.lend.lendchain.ui.fragment.rechargewithdraw.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -77,6 +78,7 @@ public class WithDrawRecordAdapter extends BaseAdapter {
         TextView tvTime=viewHolder.getView(R.id.withDraw_record_tvTime);
         TextView tvOrderCode=viewHolder.getView(R.id.withDraw_record_tvOrderCode);
         TextView tvOrderAdd=viewHolder.getView(R.id.withDraw_record_tvOrderAdd);
+        TextView tvMemo=viewHolder.getView(R.id.recharge_record_tvMemo);
         LinearLayout llOrderAdd=viewHolder.getView(R.id.withDraw_record_llOrderAdd);
         LinearLayout llOrder=viewHolder.getView(R.id.withDraw_record_llOrder);
         int status=rechargeWithDraw.status;
@@ -92,6 +94,12 @@ public class WithDrawRecordAdapter extends BaseAdapter {
         llOrder.setTag(R.id.position,position);
         llOrder.setTag(R.id.view,llOrderAdd);
         llOrderAdd.setVisibility(addPos.contains(position)?View.VISIBLE:View.GONE);
+        if(!TextUtils.isEmpty(rechargeWithDraw.addrTo.memo)){
+            tvMemo.setText("Memo:"+rechargeWithDraw.addrTo.memo);
+            tvMemo.setVisibility(View.VISIBLE);
+        }else{
+            tvMemo.setVisibility(View.GONE);
+        }
         return viewHolder.getConvertView();
     }
     //提现类型状态

@@ -107,6 +107,7 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
         tvState.setText(getString(R.string.recharge_success));
         tvCoinText.setText(getString(R.string.recharge_success_text) + " (" + code + ")");
         tvCoinCount.setText(count);
+        tvCoinCount.setVisibility(View.VISIBLE);
         baseTitleBar.setTitle(getString(R.string.recharge_success));
         tvSubmit2.setText(getString(R.string.recharge_continue));
         tvSubmit2.setOnClickListener(v -> CommonUtil.openActicity(RechargeWithDrawStateActivity.this,MyWalletActivity.class,null));
