@@ -30,8 +30,9 @@ public class WithDrawActivity extends BaseActivity {
     ViewPager viewPager;
     @BindView(R.id.magicIndicator)
     MagicIndicator magicIndicator;
-    private String cryptoId, cryptoCode, id,count;
+    private String cryptoId, cryptoCode, id, count;
     private Dialog dialog = null;
+    private int blockCityStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,21 +45,24 @@ public class WithDrawActivity extends BaseActivity {
     @Override
     public void initView() {
         ButterKnife.bind(this);
+        if (getIntent().getExtras() != null) {
+            cryptoId = getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
+            cryptoCode = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
+            id = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
+            count = getIntent().getExtras().getString(Constant.ARGS_PARAM3);
+            blockCityStatus = getIntent().getExtras().getInt(Constant.ARGS_PARAM4);
+        }
         baseTitleBar.setTitle(getString(R.string.withdraw));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
         baseTitleBar.setShareImageResource(R.mipmap.icon_service_pre);
-        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
-        cryptoId = getIntent().getExtras().getString(Constant.INTENT_EXTRA_DATA);
-        cryptoCode = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
-        id = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
-        count = getIntent().getExtras().getString(Constant.ARGS_PARAM3);
+        baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class, null));
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
-        String lan= LanguageUtils.getUserLanguageSetting();
-        if(LanguageUtils.SIMPLIFIED_CHINESE.equals(lan)) {//只有中文显示 布洛克
-            adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.number_wallet_withdraw));
-            adapter.addFrag(BlockCityWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.blockcity_wallet_withdraw));
-        }else{
-            adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId,cryptoCode,id,count), getString(R.string.number_wallet_withdraw));
+        String lan = LanguageUtils.getUserLanguageSetting();
+        if (LanguageUtils.SIMPLIFIED_CHINESE.equals(lan)&&blockCityStatus==1) {//只有中文显示 布洛克
+            adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId, cryptoCode, id, count), getString(R.string.number_wallet_withdraw));
+            adapter.addFrag(BlockCityWithDrawFragment.newInstance(cryptoId, cryptoCode, id, count), getString(R.string.blockcity_wallet_withdraw));
+        } else {
+            adapter.addFrag(NomalWithDrawFragment.newInstance(cryptoId, cryptoCode, id, count), getString(R.string.number_wallet_withdraw));
             magicIndicator.setVisibility(View.GONE);//隐藏tab
         }
         viewPager.setAdapter(adapter);

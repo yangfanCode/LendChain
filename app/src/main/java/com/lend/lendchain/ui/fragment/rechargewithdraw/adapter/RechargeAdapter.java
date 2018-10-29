@@ -1,6 +1,7 @@
 package com.lend.lendchain.ui.fragment.rechargewithdraw.adapter;
 
 import android.content.Context;
+import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -114,22 +115,30 @@ public class RechargeAdapter extends BaseAdapter {
         llOrderAdd.setVisibility(addPos.contains(position) ? View.VISIBLE : View.GONE);
         CountDownTimer countDownTimer;
         if ("0".equals(status)) {
+            //待支付状态 展示倒计时
             tvGoPay.setTag(R.id.str, rechargeWithDraw.orderId);
             tvGoPay.setOnClickListener(payClickListener);
             ViewUtils.showViewsVisible(true, tvGoPay, tvTimeAfter);//显示去支付 和 倒计时
-            if(!countDownTimes.containsKey(position)){
-                countDownTimes.put(position,String.valueOf(rechargeWithDraw.expireTime));
+            if(!countDownTimes.containsKey(position)){//存储上次的计时
+                //计算时间差 开启倒计时
+                countDownTimes.put(position,String.valueOf(Long.valueOf(rechargeWithDraw.expireTime)-System.currentTimeMillis()));
             }
             if (countDownTimers.containsKey(position)) {//为了防止countDownTimer new多次计时不准
                 countDownTimer = countDownTimers.get(position);
                 countDownTimer.cancel();
             }
-            tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),TimeUtils.getDateToStringMs(Long.valueOf(countDownTimes.get(position)), TimeUtils.HH_MM_SS)));
+            //初始时间 text默认文案
+            SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
+            String text=t.get(1)+":"+t.get(2)+":"+t.get(3);
+            tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
             countDownTimer = new CountDownTimer(Long.valueOf(countDownTimes.get(position)), 1000) {
                 @Override
                 public void onTick(long l) {
-                    countDownTimes.put(position,String.valueOf(l));
-                    tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),TimeUtils.getDateToStringMs(l, TimeUtils.HH_MM_SS)));
+                    //开启倒计时 每次计算时间差 转化为时间
+                    countDownTimes.put(position,String.valueOf(Long.valueOf(rechargeWithDraw.expireTime)-System.currentTimeMillis()));
+                    SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
+                    String text=t.get(1)+":"+t.get(2)+":"+t.get(3);
+                    tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
                 }
 
                 @Override
@@ -164,4 +173,5 @@ public class RechargeAdapter extends BaseAdapter {
             return "";
         }
     }
+
 }

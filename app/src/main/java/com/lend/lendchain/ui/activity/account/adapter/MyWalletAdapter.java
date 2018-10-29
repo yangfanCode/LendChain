@@ -52,11 +52,13 @@ public class MyWalletAdapter extends BaseAdapter {
         String memo = (String) v.getTag(R.id.str1);
         String code = (String) v.getTag(R.id.str2);
         String cryptoId = (String) v.getTag(R.id.str3);
+        int blockCityStatus= (int) v.getTag(R.id.str4);
         Bundle bundle = new Bundle();
         bundle.putString(Constant.INTENT_EXTRA_DATA, add);
         bundle.putString(Constant.ARGS_PARAM1, memo);
         bundle.putString(Constant.ARGS_PARAM2, code);
         bundle.putString(Constant.ARGS_PARAM3, cryptoId);
+        bundle.putInt(Constant.ARGS_PARAM4, blockCityStatus);
         CommonUtil.openActicity(context, RechargeActivity.class, bundle);
     };
     //提现点击
@@ -66,11 +68,13 @@ public class MyWalletAdapter extends BaseAdapter {
             String code = (String) v.getTag(R.id.str);
             String id = (String) v.getTag(R.id.str1);
             String count = (String) v.getTag(R.id.str2);
+            int blockCityStatus= (int) v.getTag(R.id.str3);
             Bundle bundle = new Bundle();
             bundle.putString(Constant.INTENT_EXTRA_DATA, cryptoId);
             bundle.putString(Constant.ARGS_PARAM1, code);
             bundle.putString(Constant.ARGS_PARAM2, id);
             bundle.putString(Constant.ARGS_PARAM3, count);
+            bundle.putInt(Constant.ARGS_PARAM4, blockCityStatus);
             CommonUtil.openActicity(context, WithDrawActivity.class, bundle);
 //        } else {
 //            showCerfityDialog();
@@ -139,10 +143,12 @@ public class MyWalletAdapter extends BaseAdapter {
         tvTransfer.setOnClickListener(transferClick);
         tvRecharge.setTag(R.id.str2, myWalletList.cryptoCode);
         tvRecharge.setTag(R.id.str3, myWalletList.cryptoId);
+        tvRecharge.setTag(R.id.str4, myWalletList.blockcityStatus);
         tvWithdraw.setTag(R.id.code, myWalletList.cryptoId);
         tvWithdraw.setTag(R.id.str, myWalletList.cryptoCode);
         tvWithdraw.setTag(R.id.str1, myWalletList.id);
         tvWithdraw.setTag(R.id.str2, count);
+        tvWithdraw.setTag(R.id.str3, myWalletList.blockcityStatus);
         tvTransfer.setTag(R.id.code, myWalletList.cryptoId);
         tvTransfer.setTag(R.id.str, myWalletList.cryptoCode);
         if (myWalletList.depositAddrs != null) {

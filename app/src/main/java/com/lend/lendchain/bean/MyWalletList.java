@@ -10,6 +10,7 @@ public class MyWalletList {
     public String cryptoId;
     public int depositStatus;
     public int withdrawStatus;
+    public int blockcityStatus;
     public String id;
     public double amount;
     public double withdrawRate;

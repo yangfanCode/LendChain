@@ -1,5 +1,7 @@
 package com.lend.lendchain.utils;
 
+import android.util.SparseIntArray;
+
 import com.lend.lendchain.R;
 import com.lend.lendchain.helper.ContextHelper;
 
@@ -99,24 +101,34 @@ public class TimeUtils {
      *计算time2减去time1的差值 差值只设置 几天 几个小时 或 几分钟
      * 根据差值返回多长之间前或多长时间后
      * */
-    public static String getDistanceTime(long  time1,long time2 ) {
-//        SimpleDateFormat df = new SimpleDateFormat("dd天 HH:mm:ss");
-//        Date date = null;
-//        Date date1=null;
-//        try {
-//            date = df.parse(String.valueOf(time1));
-//            date1= df.parse(String.valueOf(time2));
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//
-//        long defferenttime = date.getTime() - date1.getTime();
-//        long days = defferenttime / (1000 * 60 * 60 * 24);
-//        long hours = (defferenttime - days * (1000 * 60 * 60 * 24)) / (1000 * 60 * 60);
-//        long minute = (defferenttime - days * (1000 * 60 * 60 * 24) - hours * (1000 * 60 * 60)) / (1000 * 60);
-//        long seconds = defferenttime % 60000;
-//        long second = Math.round((float) seconds / 1000);
+    public static SparseIntArray getDistanceTimes(long  time1,long time2 ) {
+        SparseIntArray times=new SparseIntArray();
+        long day = 0;
+        long hour = 0;
+        long min = 0;
+        long sec = 0;
+        long diff ;
+        if(time1<time2) {
+            diff = time2 - time1;
+        } else {
+            diff = time1 - time2;
+        }
+        day = diff / (24 * 60 * 60 * 1000);
+        hour = (diff / (60 * 60 * 1000) - day * 24);
+        min = ((diff / (60 * 1000)) - day * 24 * 60 - hour * 60);
+        sec = (diff/1000-day*24*60*60-hour*60*60-min*60);
+        times.put(0, (int) day);
+        times.put(1, (int) hour);
+        times.put(2, (int) min);
+        times.put(3, (int) sec);
+        return times;
+    }
 
+    /*
+     *计算time2减去time1的差值 差值只设置 几天 几个小时 或 几分钟
+     * 根据差值返回多长之间前或多长时间后
+     * */
+    public static String getDistanceTime(long  time1,long time2 ) {
         long day = 0;
         long hour = 0;
         long min = 0;

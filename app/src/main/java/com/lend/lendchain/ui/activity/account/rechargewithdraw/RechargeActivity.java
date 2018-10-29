@@ -29,6 +29,7 @@ public class RechargeActivity extends BaseActivity {
     @BindView(R.id.magicIndicator)
     MagicIndicator magicIndicator;
     private String add , code, memo, cryptoId;//币种
+    private int blockCityStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class RechargeActivity extends BaseActivity {
             memo = getIntent().getExtras().getString(Constant.ARGS_PARAM1);
             code = getIntent().getExtras().getString(Constant.ARGS_PARAM2);
             cryptoId = getIntent().getExtras().getString(Constant.ARGS_PARAM3);
+            blockCityStatus = getIntent().getExtras().getInt(Constant.ARGS_PARAM4);
         }
         baseTitleBar.setTitle(getString(R.string.recharge));
         baseTitleBar.setLayLeftBackClickListener(v -> finish());
@@ -53,7 +55,7 @@ public class RechargeActivity extends BaseActivity {
         baseTitleBar.setImvShareClickListener(v -> CommonUtils.openActicity(this, CustomServiceActivity.class,null));
         CustomFragmentPagerAdapter adapter = new CustomFragmentPagerAdapter(getSupportFragmentManager());
         String lan= LanguageUtils.getUserLanguageSetting();
-        if(LanguageUtils.SIMPLIFIED_CHINESE.equals(lan)){//只有中文显示 布洛克
+        if(LanguageUtils.SIMPLIFIED_CHINESE.equals(lan)&&blockCityStatus==1){//只有中文显示 布洛克
             adapter.addFrag(NomalRechargeFragment.newInstance(add,memo,code,cryptoId), getString(R.string.number_wallet_recharge));
             adapter.addFrag(BlockCityRechargeragment.newInstance(code,cryptoId), getString(R.string.blockcity_wallet_recharge));
         }else{
