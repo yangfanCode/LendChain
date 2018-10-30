@@ -13,6 +13,7 @@ import com.lend.lendchain.bean.MessageEvent;
 import com.lend.lendchain.bean.Recharge;
 import com.lend.lendchain.bean.ViewHolder;
 import com.lend.lendchain.helper.RxBus;
+import com.lend.lendchain.utils.CommonUtil;
 import com.lend.lendchain.utils.DoubleUtils;
 import com.lend.lendchain.utils.TimeUtils;
 import com.lend.lendchain.utils.ViewUtils;
@@ -141,7 +142,7 @@ public class RechargeAdapter extends BaseAdapter {
             if(Long.valueOf(countDownTimes.get(position))>0){
                 //初始时间 text默认文案
                 SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
-                String text=t.get(2)+context.getString(R.string.time_min)+t.get(3)+context.getString(R.string.time_sec);
+                String text= CommonUtil.preZeroForBall(t.get(2))+context.getString(R.string.time_min)+CommonUtil.preZeroForBall(t.get(3))+context.getString(R.string.time_sec);
                 tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
             }else{
                 tvTimeAfter.setText("");//倒计时 归零后 无显示
@@ -153,7 +154,7 @@ public class RechargeAdapter extends BaseAdapter {
                         //开启倒计时 每次计算时间差 转化为时间
                         countDownTimes.put(position,String.valueOf(Long.valueOf(rechargeWithDraw.expireTime)-System.currentTimeMillis()));
                         SparseIntArray t=TimeUtils.getDistanceTimes(System.currentTimeMillis(),Long.valueOf(rechargeWithDraw.expireTime));
-                        String text=t.get(2)+context.getString(R.string.time_min)+t.get(3)+context.getString(R.string.time_sec);
+                        String text= CommonUtil.preZeroForBall(t.get(2))+context.getString(R.string.time_min)+CommonUtil.preZeroForBall(t.get(3))+context.getString(R.string.time_sec);
                         tvTimeAfter.setText(String.format(context.getString(R.string.after_time_failure),text));
                     }
 

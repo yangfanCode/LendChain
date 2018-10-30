@@ -480,4 +480,5 @@
     <string name="time_sec">s</string>
     <string name="close_order_tips">是否确认关闭订单?</string>
     <string name="please_go_blockcity_certify">请先去布洛克城进行人脸认证</string>
+    <string name="order_over_time">订单超时</string>
 </resources>

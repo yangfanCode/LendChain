@@ -669,4 +669,17 @@ public class CommonUtil {
         return m.find();
     }
 
+    /**
+     * 增加前缀0
+     *
+     * @param text
+     * @return
+     */
+    public static String preZeroForBall(Object text) {
+        String str = String.valueOf(text);
+        str = "0".concat(str);
+        return str.substring(str.length() - 2);
+    }
+
+
 }

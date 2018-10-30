@@ -164,8 +164,19 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
         ivState.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.icon_rechargewith_cancle));
         tvState.setText(getString(R.string.order_cancle));
         tvCoinCount.setVisibility(View.GONE);
-        tvCoinText.setText(Html.fromHtml(getString(R.string.recharge_amount) + ":" + "<font color='#509FFF'>" + count + " " + code + "</font>"));
+        tvCoinText.setVisibility(View.GONE);
         baseTitleBar.setTitle(getString(R.string.order_cancle));
+        tvSubmit2.setText(getString(R.string.recharge_retry));
+        tvSubmit2.setOnClickListener(v -> CommonUtil.openActicity(RechargeWithDrawStateActivity.this,MyWalletActivity.class,null));
+    }
+
+    //充值订单超时
+    private void rechargeOverTime() {
+        ivState.setImageBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.icon_rechargewith_waiting));
+        tvState.setText(getString(R.string.order_over_time));
+        tvCoinCount.setVisibility(View.GONE);
+        tvCoinText.setVisibility(View.GONE);
+        baseTitleBar.setTitle(getString(R.string.order_over_time));
         tvSubmit2.setText(getString(R.string.recharge_retry));
         tvSubmit2.setOnClickListener(v -> CommonUtil.openActicity(RechargeWithDrawStateActivity.this,MyWalletActivity.class,null));
     }
@@ -201,12 +212,18 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
                     }
                 }
             } else {
-                if("-1".equals(getBlockCityRechargeResultBean.code)){
-                    rechargeCancle();//订单失效
-                }else{
+                if("2002".equals(getBlockCityRechargeResultBean.code)){
                     setHttpFailed(RechargeWithDrawStateActivity.this, getBlockCityRechargeResultBean);
+                }else{
+                    rechargeOverTime();//订单超时
                 }
             }
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            super.onError(e);
+            rechargeOverTime();//订单超时
         }
     };
 }
