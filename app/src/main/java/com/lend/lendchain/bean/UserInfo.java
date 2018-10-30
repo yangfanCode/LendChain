@@ -19,6 +19,7 @@ public class UserInfo {
     public static class Identif{
         public int phone;
         public int google;
+        public int blockKycStatus;
         public int kyc;
     }
 }

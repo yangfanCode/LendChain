@@ -201,7 +201,11 @@ public class RechargeWithDrawStateActivity extends BaseActivity {
                     }
                 }
             } else {
-                setHttpFailed(RechargeWithDrawStateActivity.this, getBlockCityRechargeResultBean);
+                if("-1".equals(getBlockCityRechargeResultBean.code)){
+                    rechargeCancle();//订单失效
+                }else{
+                    setHttpFailed(RechargeWithDrawStateActivity.this, getBlockCityRechargeResultBean);
+                }
             }
         }
     };

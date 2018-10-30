@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.lend.lendchain.R;
 import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.bean.SimpleBean;
+import com.lend.lendchain.bean.UserInfo;
 import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
@@ -152,18 +153,7 @@ public class BlockCityWithDrawFragment extends Fragment {
         tvOverWithDraw.setOnClickListener(v -> etCount.setText(count));
         btnConfirm.setOnClickListener(v -> {
             if (SPUtil.getUserPhone() && SPUtil.getUserGoogle()){
-                //到布洛克城对接
-                String count = etCount.getText().toString().trim();
-                if (TextUtils.isEmpty(count)) {
-                    TipsToast.showTips(getString(R.string.please_input_withdraw_count));
-                    return;
-                }
-                if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
-                    TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
-                    return;
-                }
-                //读取用户此币种余额 是否不足
-                NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
+                NetApi.getUserInfo(getActivity(), true, SPUtil.getToken(), userInfoObserver);
             }else{
                 showCerfityDialog();
             }
@@ -244,5 +234,45 @@ public class BlockCityWithDrawFragment extends Fragment {
             TipsToast.showTips(getString(R.string.netWorkError));
         }
     };
+
+    //验证布洛克城kyc
+    Observer<ResultBean<UserInfo>> userInfoObserver = new NetClient.RxObserver<ResultBean<UserInfo>>() {
+        @Override
+        public void onSuccess(ResultBean<UserInfo> userInfoResultBean) {
+            if (userInfoResultBean == null) return;
+            if (userInfoResultBean.isSuccess()) {
+                if(userInfoResultBean.data.identif.blockKycStatus==1){//布洛克城kyc认证
+                    //到布洛克城对接
+                    String count = etCount.getText().toString().trim();
+                    if (TextUtils.isEmpty(count)) {
+                        TipsToast.showTips(getString(R.string.please_input_withdraw_count));
+                        return;
+                    }
+                    if (!TextUtils.isEmpty(count) && Double.valueOf(count) < minWithdraw) {
+                        TipsToast.showTips(getString(R.string.withdraw_min_count) + DoubleUtils.doubleTransRound6(minWithdraw));
+                        return;
+                    }
+                    //读取用户此币种余额 是否不足
+                    NetApi.getCoinCount(getActivity(),false, SPUtil.getToken(), Integer.valueOf(cryptoId), getCoinCountObserver);
+                }else{
+                    TipsToast.showTips(getString(R.string.please_go_blockcity_certify));
+                }
+            } else {
+                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),userInfoResultBean);
+            }
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            super.onError(e);
+            TipsToast.showTips(getString(R.string.netWorkError));
+        }
+
+        @Override
+        public void onCompleted() {
+            super.onCompleted();
+        }
+    };
+
 
 }
