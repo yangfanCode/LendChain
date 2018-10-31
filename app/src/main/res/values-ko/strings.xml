@@ -470,7 +470,7 @@
     <string name="recharge_failed">충전 실패</string>
     <string name="order_refrensh">刷新订单</string>
     <string name="order_cancle">订单失效</string>
-    <string name="order_close">关闭订单</string>
+    <string name="order_close">닫기 성공</string>
     <string name="order_close_success">닫기 성공</string>
     <string name="recharge_success_text">您已成功充值</string>
     <string name="wait_pay">대출지불</string>
