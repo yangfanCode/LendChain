@@ -29,8 +29,8 @@ import com.lend.lendchain.network.NetClient;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.ui.activity.BaseActivity;
 import com.lend.lendchain.ui.activity.account.MyLoanActivity;
-import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.account.UserCenterActivity;
+import com.lend.lendchain.ui.activity.account.certify.SafeCertifyActivity;
 import com.lend.lendchain.ui.activity.common.CustomServiceActivity;
 import com.lend.lendchain.utils.ColorUtils;
 import com.lend.lendchain.utils.CommonUtil;
@@ -82,6 +82,8 @@ public class LoanFragment extends BaseFragment {
     FormNormal fnLoanDeadLine;
     @BindView(R.id.loan_fnLoanDeadLinePay)
     FormNormal fnLoanDeadLinePay;
+    @BindView(R.id.loan_fnLoanPoundage)
+    FormNormal fnLoanPoundage;
     @BindView(R.id.loan_etMortgageCount)
     DecimalDigitsEditText etMortgageCount;
     @BindView(R.id.loan_etLoanCount)
@@ -108,7 +110,9 @@ public class LoanFragment extends BaseFragment {
     CheckBox cbLoanRequire;
     @BindView(R.id.loan_tvLoanRequire)
     TextView tvLoanRequire;
-    private double price;//币种交易价格
+    @BindView(R.id.loan_lvSwitch)
+    CheckBox cbSwitch;//lv抵扣开关
+    private double price,lvPrice;//币种交易价格
     private double mortgateRate;//抵押率;
     private View parentView;
     private List<LoanPairs> listPairTotal;//未去重总数据
@@ -129,6 +133,7 @@ public class LoanFragment extends BaseFragment {
     private double min_usdt_rate = 0.0005;//usdt的默认年最低利率
     private double min_other_rate = 0.0003;//其他的默认年最低利率
     private double max_other_rate = 0.01;//其他的默认年最高利率
+    private double loanPoundage = 0.01;//手续费
     private PopupWindow popupWindow = null;
     private KeyBoardInputPopWindow keyBoardInputPopWindow = null;
     private Dialog dialog = null;
@@ -137,6 +142,7 @@ public class LoanFragment extends BaseFragment {
     private boolean isFirst = true;
     private double minBorrowAmount;//最小借入限制
     private Dialog dialogLoan=null;
+    private boolean lvPoundageSwitch=false;//lv抵扣手续费开关
 
 
     @Override
@@ -207,6 +213,9 @@ public class LoanFragment extends BaseFragment {
         loadDeadLine = listLoadDeadLine.get(0);
         fnLoanDeadLine.setText(loadDeadLine);
         tvSeekBarMax.setText(DoubleUtils.doubleRoundFormat(max_other_rate * 100, 2) + "%");//最高利率
+//        InputMethodManager manager= (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+//        manager.showSoftInput(etLoanCount,0);
+//        manager.showSoftInput(etMortgageCount,0);
     }
 
     private void initData(boolean isShow) {
@@ -318,6 +327,7 @@ public class LoanFragment extends BaseFragment {
                         if(TextUtils.isEmpty(input)){
                             etLoanCount.getText().clear();
                             fnLoanDeadLinePay.setText("0 " + loanCoin);//借入利息
+                            fnLoanPoundage.setText("0 " + loanCoin);//手续费
                         }
                     }
                 }
@@ -345,6 +355,7 @@ public class LoanFragment extends BaseFragment {
                         if(TextUtils.isEmpty(input)){
                             etMortgageCount.getText().clear();
                             fnLoanDeadLinePay.setText("0 " + loanCoin);//借入利息
+                            fnLoanPoundage.setText("0 " + loanCoin);//手续费
                         }
                     }
                 }
@@ -460,6 +471,10 @@ public class LoanFragment extends BaseFragment {
             }
             dialogLoan.show();
         });
+        cbSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            lvPoundageSwitch=isChecked;
+            calcLoanDeadLineInterest();
+        });
     }
 
     private void initCreateLoanData() {
@@ -492,7 +507,7 @@ public class LoanFragment extends BaseFragment {
                                     return;
                                 }
                                 NetApi.createLoan(getActivity(), DoubleUtils.doubleTransRound6(newLoanCount), loanCoin, coinId.get(loanCoin), days, google, rate
-                                        , DoubleUtils.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, createLoanObserver);
+                                        , DoubleUtils.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol,cbSwitch.isChecked()?"1":"0",String.valueOf(timestamp), createLoanObserver);
                             });
                             dialog = builder.create();
                             builder.getNegativeButton().setTextColor(ColorUtils.COLOR_509FFF);
@@ -501,7 +516,7 @@ public class LoanFragment extends BaseFragment {
                             dialog.show();
                         } else {
                             NetApi.createLoan(getActivity(), DoubleUtils.doubleTransRound6(oldLoanCount), loanCoin, coinId.get(loanCoin), days, google, rate
-                                    , DoubleUtils.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, createLoanObserver);
+                                    , DoubleUtils.doubleTransRound6(Double.parseDouble(mortgageCountInput)), mortgageCoin, coinId.get(mortgageCoin), String.valueOf(price), String.valueOf(timestamp), SPUtil.getToken(), symbol, cbSwitch.isChecked()?"1":"0",String.valueOf(timestamp),createLoanObserver);
                         }
                     }else{
                         TipsToast.showTips(getString(R.string.netWorkError));
@@ -549,6 +564,7 @@ public class LoanFragment extends BaseFragment {
                     fnLoanCoin.setText(loanCoin);//设置默认值
                     setSeekBarMinMaxRate(loanCoin);//设置默认利率
                     fnLoanDeadLinePay.setText("0 " + loanCoin);//设置默认利息
+                    fnLoanPoundage.setText("0 " + loanCoin);//设置默认手续费
                     price = resultBean.data.price;
                     timestamp = resultBean.data.timestamp;//时间戳
                     symbol = resultBean.data.symbol;//牌价对标识
@@ -570,6 +586,46 @@ public class LoanFragment extends BaseFragment {
             super.onError(e);
             refreshLayout.finishRefresh();
             TipsToast.showTips(getString(R.string.netWorkError));
+        }
+    };
+    Observer<ResultBean<SimpleBean>> getLvPriceObserver = new NetClient.RxObserver<ResultBean<SimpleBean>>() {
+        @Override
+        public void onSuccess(ResultBean<SimpleBean> resultBean) {
+            if (resultBean == null) return;
+            if (resultBean.isSuccess()) {
+                if (resultBean.data != null) {
+//                    minBorrowAmount=resultBean.data.minBorrowAmount;
+//                    fnMortgageeCoin.setText(mortgageCoin);//设置默认值
+//                    fnLoanCoin.setText(loanCoin);//设置默认值
+//                    setSeekBarMinMaxRate(loanCoin);//设置默认利率
+//                    fnLoanDeadLinePay.setText("0 " + loanCoin);//设置默认利息
+//                    fnLoanPoundage.setText("0 " + loanCoin);//设置默认手续费
+                    loanPoundage=resultBean.data.fee;
+                    lvPrice = resultBean.data.price;
+//                    timestamp = resultBean.data.timestamp;//时间戳
+//                    symbol = resultBean.data.symbol;//牌价对标识
+//                    setSeekBarEnabled(true);
+                    //读取用户此币种余额 lv是否不足
+                    if(CommonUtil.isLoginElseGotoLogin(getActivity())){
+                        NetApi.getCoinCount(getActivity(), false, SPUtil.getToken(), 6, getLvCountObserver);
+                    }
+                }
+            } else {
+                ((BaseActivity)getActivity()).setHttpFailed(getActivity(),resultBean);
+            }
+        }
+
+        @Override
+        public void onCompleted() {
+            super.onCompleted();
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            super.onError(e);
+            TipsToast.showTips(getString(R.string.netWorkError));
+            lvPoundageSwitch=false;
+            cbSwitch.setChecked(lvPoundageSwitch);
         }
     };
     //保存用户认证信息
@@ -655,7 +711,39 @@ public class LoanFragment extends BaseFragment {
             TipsToast.showTips(getString(R.string.netWorkError));
         }
     };
+    Observer<ResultBean<SimpleBean>> getLvCountObserver = new NetClient.RxObserver<ResultBean<SimpleBean>>() {
+        @Override
+        public void onSuccess(ResultBean<SimpleBean> resultBean) {
+            if (resultBean == null) return;
+            if (resultBean.isSuccess()) {
+                if (resultBean.data != null) {
+                    String loanCount = etLoanCount.getText().toString().trim();
+                    if(!TextUtils.isEmpty(loanCount)){
+                        String lvCount=DoubleUtils.doubleTransRound6(DoubleUtils.div(DoubleUtils.mul(Double.parseDouble(loanCount),loanPoundage)*0.5,lvPrice,6));
+                        double over = resultBean.data.amount;
+                        if (Double.parseDouble(lvCount) > over) {//余额不足
+                            TipsToast.showTips(getString(R.string.over_lack));
+                            lvPoundageSwitch=false;
+                        } else {
+                            lvPoundageSwitch=true;
+                            fnLoanPoundage.setText(lvCount + " LV");//手续费
+                        }
+                        cbSwitch.setChecked(lvPoundageSwitch);
+                    }else{
+                        fnLoanPoundage.setText("0 LV");//手续费
+                    }
+                }
+            } else {
+                ((BaseActivity) getActivity()).setHttpFailed(getActivity(), resultBean);
+            }
+        }
 
+        @Override
+        public void onError(Throwable e) {
+            super.onError(e);
+            TipsToast.showTips(getString(R.string.netWorkError));
+        }
+    };
     //选择抵押币种把借入币种相同数据和不匹配删掉
     private ArrayList<String> calcLoanData(String mortgaStr) {
 //        ArrayList<String> list = new ArrayList<>();
@@ -732,6 +820,11 @@ public class LoanFragment extends BaseFragment {
         if (TextUtils.isEmpty(loanCount)) loanCount="0";
         int days = Integer.valueOf(loadDeadLine.replace(getString(R.string.day_ri), ""));
         fnLoanDeadLinePay.setText(DoubleUtils.doubleTransRound6(DoubleUtils.mul(DoubleUtils.mul(Double.parseDouble(loanCount),getSelectRate()),days)) + " " + loanCoin);//借入利息
+        if(lvPoundageSwitch){//lv抵扣 开
+            NetApi.getCoinPrice(getActivity(), false, "6", coinId.get(loanCoin), getLvPriceObserver);
+        }else{//关
+            fnLoanPoundage.setText(DoubleUtils.doubleTransRound6(DoubleUtils.mul(Double.parseDouble(loanCount),loanPoundage)) + " " + loanCoin);//手续费
+        }
     }
 
     public void setSeekBarEnabled(boolean enabled) {
@@ -749,10 +842,15 @@ public class LoanFragment extends BaseFragment {
         etLoanCount.getText().clear();
         etMortgageCount.getText().clear();
         fnLoanDeadLinePay.setText("");
+        fnLoanPoundage.setText("");
         seekBar.setProgress(0);
         loadDeadLine = listLoadDeadLine.get(0);
         fnLoanDeadLine.setText(loadDeadLine);
         cbLoanRequire.setChecked(false);
+        lvPoundageSwitch=false;
+        cbSwitch.setChecked(lvPoundageSwitch);//开关
+        if(popupWindow!=null&&popupWindow.isShowing())popupWindow.dismiss();
+
     }
 
     @Override

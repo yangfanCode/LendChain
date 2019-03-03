@@ -2,12 +2,15 @@ package com.lend.lendchain.ui.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -168,25 +171,40 @@ public abstract class BaseActivity extends FragmentActivity {
 
     }
 
-//    private void getLoginData() {
-//        String json = SharedPreferencesUtil.getInstance()
-//                .getString(SharedPreferencesUtil.KEY_LOGIN_USER_INFO, "");
-//        try {
-//            if (!TextUtils.isEmpty(json)) {
-//                loginInfo = gson.fromJson(json, Login.class);
-//            } else {
-//                loginInfo = null;
-//            }
-//
-//        } catch (Exception e) {
-//            LogUtil.LogE(BaseActivity.class, json);
-//            CommonUtil2.clearLoginData();
-//            loginInfo = null;
-//        }
-//        userId = SharedPreferencesUtil.getInstance()
-//                .getString(SharedPreferencesUtil.KEY_LOGIN_USER_ID, "");
-//
-//    }
+    @SuppressWarnings("unchecked")
+    public <T> T getExtraValue(Class<T> tClass, String key) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            try {
+                if (tClass.isAssignableFrom(Boolean.class)) {
+                    return (T) Boolean.valueOf(intent.getBooleanExtra(key, false));
+                } else if (tClass.isAssignableFrom(Integer.class)) {
+                    return (T) Integer.valueOf(intent.getIntExtra(key, -1));
+                } else if (tClass.isAssignableFrom(Long.class)) {
+                    return (T) Long.valueOf(intent.getLongExtra(key, -1));
+                } else if (tClass.isAssignableFrom(Float.class)) {
+                    return (T) Float.valueOf(intent.getFloatExtra(key, -1F));
+                } else if (tClass.isAssignableFrom(Double.class)) {
+                    return (T) Double.valueOf(intent.getDoubleExtra(key, -1D));
+                } else if (tClass.isAssignableFrom(String.class)) {
+                    if (!TextUtils.isEmpty(intent.getStringExtra(key))) {
+                        return (T) String.valueOf(intent.getStringExtra(key));
+                    }
+                    return null;
+                } else if (tClass.isAssignableFrom(Parcelable.class)) {
+                    // try to Parcelable
+                    return (T) (intent.getParcelableExtra(key));
+                } else {
+                    // try to Serializable
+                    return (T) (intent.getSerializableExtra(key));
+                }
+            } catch (Exception e) {
+                // ignore
+            }
+        }
+
+        return null;
+    }
 
     @Override
     public void onDestroy() {

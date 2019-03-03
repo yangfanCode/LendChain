@@ -23,24 +23,74 @@
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_210" />
+            
+            <LinearLayout
+                android:id="@+id/home_llChange"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/qb_px_15"
+                android:paddingRight="@dimen/qb_px_15"
+                android:gravity="center_vertical"
+                android:layout_height="@dimen/qb_px_85">
+                <ImageView
+                    android:id="@+id/home_ivCoinChange"
+                    android:layout_width="@dimen/qb_px_109"
+                    android:src="@mipmap/icon_coinchange"
+                    android:scaleType="centerCrop"
+                    android:layout_marginRight="@dimen/qb_px_10"
+                    android:layout_height="@dimen/qb_px_65" />
+                <ImageView
+                    android:id="@+id/home_ivNews"
+                    android:layout_width="@dimen/qb_px_109"
+                    android:src="@mipmap/icon_news"
+                    android:scaleType="centerCrop"
+                    android:layout_marginRight="@dimen/qb_px_10"
+                    android:layout_height="@dimen/qb_px_65" />
+                <ImageView
+                    android:layout_width="@dimen/qb_px_109"
+                    android:src="@mipmap/icon_wait"
+                    android:scaleType="centerCrop"
+                    android:layout_height="@dimen/qb_px_65" />
+            </LinearLayout>
 
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="@dimen/qb_px_15"-->
+                <!--android:layout_marginTop="@dimen/qb_px_15"-->
+                <!--android:clipChildren="false"-->
+                <!--android:orientation="vertical">-->
+                <!--&lt;!&ndash;android:clipChildren="false"&ndash;&gt;-->
+                <!--<com.yangfan.widget.CustomViewPager-->
+                    <!--android:id="@+id/home_content_vp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="@dimen/qb_px_350"-->
+                    <!--android:layout_marginBottom="@dimen/qb_px_5"-->
+                    <!--android:layout_marginLeft="@dimen/qb_px_50"-->
+                    <!--android:layout_marginRight="@dimen/qb_px_50"-->
+                    <!--android:layout_marginTop="@dimen/qb_px_3"-->
+                    <!--android:clipChildren="false" />-->
+                <!--&lt;!&ndash;小白点控制器&ndash;&gt;-->
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/home_llController"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center_horizontal"-->
+                    <!--android:layout_marginBottom="@dimen/qb_px_20"-->
+                    <!--android:layout_marginTop="@dimen/qb_px_10"-->
+                    <!--android:orientation="horizontal" />-->
+            <!--</LinearLayout>-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/qb_px_15"
-                android:layout_marginTop="@dimen/qb_px_15"
-                android:clipChildren="false"
                 android:orientation="vertical">
                 <!--android:clipChildren="false"-->
                 <com.yangfan.widget.CustomViewPager
                     android:id="@+id/home_content_vp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/qb_px_350"
+                    android:layout_height="@dimen/qb_px_240"
                     android:layout_marginBottom="@dimen/qb_px_5"
-                    android:layout_marginLeft="@dimen/qb_px_50"
-                    android:layout_marginRight="@dimen/qb_px_50"
-                    android:layout_marginTop="@dimen/qb_px_3"
-                    android:clipChildren="false" />
+                    android:layout_marginTop="@dimen/qb_px_3" />
                 <!--小白点控制器-->
                 <LinearLayout
                     android:id="@+id/home_llController"

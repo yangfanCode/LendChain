@@ -38,7 +38,7 @@ public class OptionalLayout extends LinearLayout {
         imvStatus = new ImageView(context);
         imvStatus.setImageResource(R.mipmap.icon_no_data);
         LinearLayout.LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.topMargin = DisplayUtil.dp2px(context,89f);
+        layoutParams.topMargin = DisplayUtil.dp2px(context,49f);
         addView(imvStatus, layoutParams);
         tvStatus = new TextView(context);
         layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

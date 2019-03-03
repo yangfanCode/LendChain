@@ -25,8 +25,10 @@ import com.lend.lendchain.bean.ResultBean;
 import com.lend.lendchain.bean.VersionControl;
 import com.lend.lendchain.helper.RxBus;
 import com.lend.lendchain.network.NetClient;
+import com.lend.lendchain.network.NetConst;
 import com.lend.lendchain.network.api.NetApi;
 import com.lend.lendchain.network.subscriber.SafeOnlyNextSubscriber;
+import com.lend.lendchain.ui.activity.account.CoinChangeActivity;
 import com.lend.lendchain.ui.activity.common.WebActivity;
 import com.lend.lendchain.ui.activity.invest.InvestSummaryActivity;
 import com.lend.lendchain.utils.CoinIconUtils;
@@ -39,12 +41,10 @@ import com.lend.lendchain.utils.SmartRefrenshLayoutUtils;
 import com.lend.lendchain.utils.StatusBarUtil;
 import com.lend.lendchain.utils.UmengAnalyticsHelper;
 import com.lend.lendchain.versioncontrol.utils.ApkDownloadTools;
-import com.lend.lendchain.widget.CircleProgressBar;
 import com.lend.lendchain.widget.GradientTextView;
 import com.lend.lendchain.widget.MyListView;
 import com.lend.lendchain.widget.ScrollChangeView;
 import com.lend.lendchain.widget.TipsToast;
-import com.lend.lendchain.widget.ZoomOutPageTransformer;
 import com.lend.lendchain.widget.chart.view.HomeMarketFenshiView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshFooter;
@@ -86,8 +86,14 @@ public class HomeFragment extends BaseFragment {
     ScrollChangeView scrollView;
     @BindView(R.id.home_llController)
     LinearLayout llController;
+    @BindView(R.id.home_llChange)
+    LinearLayout llChange;
     @BindView(R.id.home_quetes_lv)
     MyListView lvQuetes;
+    @BindView(R.id.home_ivCoinChange)
+    ImageView ivCoinChange;
+    @BindView(R.id.home_ivNews)
+    ImageView ivNews;
     private View parentView;
     private HomeMarketFenshiView fenshiView;//kLine
     private HomeMarketAdapter adapter;
@@ -127,6 +133,11 @@ public class HomeFragment extends BaseFragment {
         //设置banner动画效果
         banner.setBannerAnimation(Transformer.Default);
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        if (LanguageUtils.KOREAN.equals(LanguageUtils.getUserLanguageSetting())){
+            llChange.setVisibility(View.GONE);
+        }else{
+            llChange.setVisibility(View.VISIBLE);
+        }
 //        getRxBus();
     }
 
@@ -285,6 +296,13 @@ public class HomeFragment extends BaseFragment {
                 bundle.putString(Constant.INTENT_EXTRA_TITLE, bannerData.get(i).title);
                 CommonUtil.openActicity(getActivity(), WebActivity.class, bundle);
             }
+        });
+        ivCoinChange.setOnClickListener(v -> CommonUtil.openActivityWithLogin(getActivity(), CoinChangeActivity.class,null));
+        ivNews.setOnClickListener(v -> {
+            Bundle bundle=new Bundle();
+            bundle.putString(Constant.INTENT_EXTRA_URL, NetConst.dynamicBaseUrlForH5()+NetConst.SAFE_NEWS+ LanguageUtils.getUserLanguageSetting());
+            bundle.putString(Constant.INTENT_EXTRA_TITLE,getString(R.string.safe_news));
+            CommonUtil.openActicity(getActivity(),WebActivity.class,bundle);
         });
     }
 
@@ -448,27 +466,30 @@ public class HomeFragment extends BaseFragment {
             View v = inflater.inflate(R.layout.item_home_support_viewpager, null);
             TextView tvOrderId = v.findViewById(R.id.item_home_tvOrderId);//名称
             TextView tvOrderType = v.findViewById(R.id.item_home_tvOrderType);//类型
-            TextView tvOrderDays = v.findViewById(R.id.item_home_tvOrderDays);//时间
-            TextView tvBorrowAmount = v.findViewById(R.id.item_home_tvBorrowAmount);//借入资产
-            TextView tvMinInvestAmount = v.findViewById(R.id.item_home_tvMinInvestAmount);//最小投资额
-            TextView tvMinAmountText = v.findViewById(R.id.item_home_tvMinAmountText);//最小投资额
-            CircleProgressBar progressBar = v.findViewById(R.id.item_home_progressBar);//进度条
+            TextView tvDeadLine = v.findViewById(R.id.item_home_tvDeadLine);//时间
+            TextView tvBorrowAssest = v.findViewById(R.id.item_home_tvBorrowAssest);//借入资产
+            ImageView ivType = v.findViewById(R.id.home_ivType);//借入资产
+            int borrowTypeRes = getBorrowTypeRes(Integer.valueOf(homeSupport.borrowTypeId));//右上角标识
+            ivType.setImageBitmap(borrowTypeRes == 0 ? null : BitmapFactory.decodeResource(getResources(), borrowTypeRes));
+//            TextView tvMinInvestAmount = v.findViewById(R.id.item_home_tvMinInvestAmount);//最小投资额
+//            TextView tvMinAmountText = v.findViewById(R.id.item_home_tvMinAmountText);//最小投资额
+//            CircleProgressBar progressBar = v.findViewById(R.id.item_home_progressBar);//进度条
             GradientTextView tvAnnualized = v.findViewById(R.id.item_home_tvAnnualized);//年化
             TextView btnInvest = v.findViewById(R.id.item_home_btnInvest);//立即投资
             tvOrderId.setText(homeSupport.orderId);
             if ("1".equals(homeSupport.borrowTypeId)) {//抵押标显示昵称
                 tvOrderType.setText("(" + homeSupport.nickname + ")");
-                tvMinAmountText.setText(getString(R.string.mortgage_asset));//显示抵押资产
-                tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.mortgageAmount, 2).concat(" " + homeSupport.mortgageCryptoCode));//单位不处理
+//                tvMinAmountText.setText(getString(R.string.mortgage_asset));//显示抵押资产
+//                tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.mortgageAmount, 2).concat(" " + homeSupport.mortgageCryptoCode));//单位不处理
             } else {
                 tvOrderType.setText(getOrderType(homeSupport.borrowTypeId));
-                tvMinAmountText.setText(getString(R.string.minInvestAmount));//显示起购资金
-                tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
+//                tvMinAmountText.setText(getString(R.string.minInvestAmount));//显示起购资金
+//                tvMinInvestAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.minInvestAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
             }
-            tvOrderDays.setText(homeSupport.borrowDays + getString(R.string.day_period));
-            progressBar.setProgress((int) (homeSupport.boughtAmount / homeSupport.borrowAmount * 100));//进度条
+            tvDeadLine.setText(homeSupport.borrowDays + getString(R.string.day));
+//            progressBar.setProgress((int) (homeSupport.boughtAmount / homeSupport.borrowAmount * 100));//进度条
             tvAnnualized.setText(DoubleUtils.doubleRoundFormat(homeSupport.interestRates * 360 * 100, 2));//2位小数
-            tvBorrowAmount.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.borrowAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
+            tvBorrowAssest.setText(DoubleUtils.doubleTransRoundTwo(homeSupport.borrowAmount, 2).concat(" " + homeSupport.borrowCryptoCode));//单位不处理
             btnInvest.setOnClickListener(v1 -> {
                 //友盟埋点
                 UmengAnalyticsHelper.umengEvent(UmengAnalyticsHelper.HOME_DETAIL);
@@ -484,10 +505,30 @@ public class HomeFragment extends BaseFragment {
         ContentPagerAdapter adapter = new ContentPagerAdapter(listViews);
 //        customViewPager.setPageMargin(DisplayUtil.dp2px(getActivity(),-25));//设置间距 调节两个item边距
         customViewPager.setOffscreenPageLimit(size);
-        customViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+//        customViewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         customViewPager.setAdapter(adapter);
         customViewPager.setCurrentItem(1);//展示第2条
         initController(size, 1);//圆点指示器
+    }
+
+    /**
+     * 1 抵押标 2 预告 3平台标 4新手预告 5新手标
+     * 设置右上角标签 就245有图
+     * 23  2个格
+     *
+     * @param borrowTypeId
+     * @return
+     */
+    private int getBorrowTypeRes(int borrowTypeId) {
+        if (borrowTypeId == 2) {//预告
+            return R.mipmap.icon_notice;
+        } else if (borrowTypeId == 4) {//新手预告
+            return R.mipmap.icon_novice_notice;
+        } else if (borrowTypeId == 5) {//新手标
+            return R.mipmap.icon_novice;
+        } else {
+            return 0;
+        }
     }
 
     /**

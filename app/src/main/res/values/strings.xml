@@ -74,7 +74,7 @@
     <string name="Borrowed">借入资产</string>
     <string name="minInvestAmount">起购资金</string>
     <string name="investNow">立即投资</string>
-    <string name="annualized">年化</string>
+    <string name="annualized">年化率</string>
     <string name="market">行情市价</string>
     <string name="currency">币种</string>
     <string name="latest_price">最新价</string>
@@ -456,7 +456,7 @@
     <string name="qrcode_add">二维码地址</string>
     <string name="recharge_amount">充值金额</string>
     <string name="confirm_recharge">确认充值</string>
-    <string name="blockcity_wallet_recharge_tip">将布洛克中的GXS资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
+    <string name="blockcity_wallet_recharge_tip">将布洛克中的GXC资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
     <string name="number_wallet_withdraw">数字钱包提现</string>
     <string name="blockcity_wallet_withdraw">布洛克钱包提现</string>
     <string name="over_to_use1">可用余额</string>
@@ -482,4 +482,26 @@
     <string name="close_order_tips">是否确认关闭订单?</string>
     <string name="please_go_blockcity_certify">请先去布洛克城进行人脸认证</string>
     <string name="order_over_time">订单超时</string>
+    <string name="loan_pay">借款支付</string>
+    <string name="loan_poundage">借款手续费</string>
+    <string name="lv_poundage_text">使用LV支付借款手续费（50%抵扣）</string>
+    <!--11.27新增-->
+    <string name="poundage_rule">手续费规则</string>
+    <string name="change">兑换</string>
+    <string name="change_record">兑换记录</string>
+    <string name="change_out_amount">转出金额</string>
+    <string name="change_in_amount">接收金额</string>
+    <string name="change_out_limit">转出限制</string>
+    <string name="change_success">兑换成功</string>
+    <string name="please_input_out_amount">请输入转出金额</string>
+    <string name="please_input_in_amount">请输入接收金额</string>
+    <string name="change_list">兑换记录</string>
+    <string name="please_select_coinout">请先选择转出币种</string>
+    <string name="please_select_coinin">请先选择转入币种</string>
+    <string name="can_not_select_same_coin">不能选择相同的币种</string>
+    <string name="safe_news">安全披露</string>
+    <string name="change_successful">成功</string>
+    <string name="change_failed">失败</string>
+    <string name="change_pay">兑付</string>
+    <string name="change_dialog_tip">1. 转入金额=（转出金额-提现手续费）*（1-兑换手续费）*兑换比例-转入矿工费\n2. 提现手续费见下表。\n3. 兑换手续费目前为0.1%，兑换比例为实时比例，转入矿工费为交易平台转回LendChain平台所收的实时矿工费。（比如，用户转出金额为1010USDT，转入币种为BTC，则转入金额=（1010-10）*0.999*（USDT/BTC比例）-BTC矿工费）。</string>
 </resources>

@@ -149,7 +149,6 @@ public class NetClient {
                         .addHeaderParamsMap(headerParamsMap != null ? headerParamsMap : CommonUtil.getHeaderParamsMap())
                         .addParam("lang", LanguageUtils.getLangForHttp())//固定语言参数
                         .build();
-
         okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .addInterceptor(basicParamsInterceptor)

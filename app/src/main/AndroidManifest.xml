@@ -39,6 +39,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -67,7 +68,7 @@
             android:name=".ui.activity.MainActivity"
             android:configChanges="orientation|locale|layoutDirection|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.GuidePageActivity"
             android:configChanges="orientation"
@@ -118,14 +119,17 @@
             android:name=".ui.activity.account.rechargewithdraw.RechargeActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.account.rechargewithdraw.RechargeWithDrawStateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.account.rechargewithdraw.RechargeWithDrawStateActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
+
             <!-- 要想在别的App上能成功调起App，必须添加intent过滤器 -->
             <!-- 比如lendchain://pay/result?tradeNo=xxx&state=yyyy -->
             <intent-filter>
+
                 <!-- 协议部分，随便设置 -->
                 <data
                     android:host="pay"
@@ -133,7 +137,9 @@
                     android:scheme="lendchain" />
                 <!-- 下面这几行也必须得设置 -->
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
             </intent-filter>
         </activity>
@@ -141,7 +147,7 @@
             android:name=".ui.activity.account.rechargewithdraw.WithDrawActivity"
             android:configChanges="orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.common.SettingActivity"
             android:configChanges="orientation"
@@ -260,7 +266,8 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity android:name=".ui.activity.login.PhoneLoginActivity" />
-
+        <activity android:name=".ui.activity.account.CoinChangeActivity" />
+        <activity android:name=".ui.activity.account.ChangeListActivity" />
     </application>
 
 </manifest>

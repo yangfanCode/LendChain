@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.account.CoinChangeActivity">
+    <com.lend.lendchain.widget.BaseTitleBar
+        android:id="@+id/base_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:btbBackground="@color/white" />
+
+    <include layout="@layout/row_divider_1px" />
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:padding="@dimen/qb_px_15"
+                android:layout_width="match_parent"
+                android:background="@color/color_F5F5F5"
+                android:layout_height="@dimen/qb_px_284">
+                <android.support.v7.widget.CardView
+                    android:background="@color/white"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp"
+                    android:layout_width="@dimen/qb_px_345"
+                    android:layout_height="@dimen/qb_px_255">
+                    <LinearLayout
+                        android:paddingTop="@dimen/qb_px_20"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/qb_px_20"
+                            android:layout_marginRight="@dimen/qb_px_20"
+                            android:background="@drawable/bg_e5e5e5_border"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="@dimen/qb_px_44">
+                            <com.yangfan.widget.DecimalDigitsEditText
+                                android:maxLength="25"
+                                android:maxLines="1"
+                                app:afterDot="6"
+                                android:id="@+id/coin_change_etOut"
+                                android:hint="@string/change_out_amount"
+                                android:paddingLeft="@dimen/qb_px_10"
+                                android:layout_width="@dimen/qb_px_192"
+                                android:background="@null"
+                                android:theme="@style/MyEditText"
+                                android:layout_height="match_parent" />
+                            <View
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="@dimen/qb_px_1"
+                                android:background="@color/color_E5E5E5"
+                                android:layout_height="@dimen/qb_px_20"/>
+                            <RelativeLayout
+                                android:id="@+id/coin_change_layoutOut"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:id="@+id/coin_change_ivJianTouOut"
+                                    android:layout_width="@dimen/qb_px_12"
+                                    android:src="@mipmap/icon_jiantou_bottom"
+                                    android:scaleType="fitXY"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/qb_px_10"
+                                    android:layout_height="@dimen/qb_px_7" />
+                                <com.facebook.drawee.view.SimpleDraweeView
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/qb_px_10"
+                                    android:id="@+id/coin_change_ivIconOut"
+                                    app:roundAsCircle="true"
+                                    android:layout_width="@dimen/qb_px_25"
+                                    android:layout_height="@dimen/qb_px_25" />
+                                <TextView
+                                    android:id="@+id/coin_change_tvCoinOut"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_toLeftOf="@id/coin_change_ivJianTouOut"
+                                    android:layout_toRightOf="@id/coin_change_ivIconOut"
+                                   style="@style/text262626_16"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/qb_px_20"
+                            android:layout_marginRight="@dimen/qb_px_20"
+                            android:layout_marginTop="@dimen/qb_px_10"
+                            android:layout_marginBottom="@dimen/qb_px_20"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="@dimen/qb_px_12">
+                            <com.lend.lendchain.widget.SingleLineZoomTextView
+                                android:id="@+id/coin_change_tvOutLimitText"
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                style="@style/textCCCCCC_12"
+                                android:layout_height="match_parent" />
+                            <com.lend.lendchain.widget.SingleLineZoomTextView
+                                android:id="@+id/coin_change_tvOverAmount"
+                                android:layout_width="0dp"
+                                android:layout_weight="2"
+                                android:gravity="right"
+                                style="@style/textCCCCCC_12"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginLeft="@dimen/qb_px_20"
+                            android:layout_marginRight="@dimen/qb_px_20"
+                            android:background="@drawable/bg_e5e5e5_border"
+                            android:layout_width="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_height="@dimen/qb_px_44">
+                            <com.yangfan.widget.DecimalDigitsEditText
+                                app:afterDot="6"
+                                android:maxLength="15"
+                                android:maxLines="1"
+                                android:id="@+id/coin_change_etIn"
+                                android:hint="@string/change_in_amount"
+                                android:paddingLeft="@dimen/qb_px_10"
+                                android:layout_width="@dimen/qb_px_192"
+                                android:background="@null"
+                                android:theme="@style/MyEditText"
+                                android:layout_height="match_parent" />
+                            <View
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="@dimen/qb_px_1"
+                                android:background="@color/color_E5E5E5"
+                                android:layout_height="@dimen/qb_px_20"/>
+                            <RelativeLayout
+                                android:id="@+id/coin_change_layoutIn"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <ImageView
+                                    android:id="@+id/coin_change_ivJianTouIn"
+                                    android:layout_width="@dimen/qb_px_12"
+                                    android:src="@mipmap/icon_jiantou_bottom"
+                                    android:scaleType="fitXY"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/qb_px_10"
+                                    android:layout_height="@dimen/qb_px_7" />
+                                <com.facebook.drawee.view.SimpleDraweeView
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginLeft="@dimen/qb_px_10"
+                                    android:id="@+id/coin_change_ivIconIn"
+                                    app:roundAsCircle="true"
+                                    android:layout_width="@dimen/qb_px_25"
+                                    android:layout_height="@dimen/qb_px_25" />
+                                <TextView
+                                    android:id="@+id/coin_change_tvCoinIn"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_toLeftOf="@id/coin_change_ivJianTouIn"
+                                    android:layout_toRightOf="@id/coin_change_ivIconIn"
+                                    style="@style/text262626_16"/>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/coin_change_btnConfirm"
+                            android:layout_marginTop="@dimen/qb_px_20"
+                            style="@style/buttonStyle"
+                            android:text="@string/change"
+                            android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu2_selector"
+                            android:layout_width="@dimen/qb_px_315"
+                            android:layout_height="@dimen/qb_px_44" />
+                        <TextView
+                            android:id="@+id/coin_change_tvRate"
+                            android:layout_marginTop="@dimen/qb_px_10"
+                            style="@style/text509FFF_12" />
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </FrameLayout>
+            <FrameLayout
+                android:paddingLeft="@dimen/qb_px_16"
+                android:paddingRight="@dimen/qb_px_16"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_40">
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/change_record"
+                    style="@style/text262626_12" />
+                <TextView
+                    android:id="@+id/coin_change_tvAll"
+                    android:layout_gravity="center_vertical|right"
+                    android:text="@string/all"
+                    android:drawablePadding="@dimen/qb_px_2"
+                    android:drawableRight="@mipmap/icon_jiantou_right"
+                    style="@style/text999999_12" />
+            </FrameLayout>
+            <include layout="@layout/row_divider_1px"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.lend.lendchain.widget.ListViewWithOptional
+                    android:divider="@color/color_F5F5F5"
+                    android:dividerHeight="@dimen/divider_height_1px"
+                    android:id="@+id/coin_change_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+        </LinearLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

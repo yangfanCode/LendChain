@@ -3,7 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
-
+    dataBinding {
+        enabled true
+    }
     signingConfigs {
         debugConfig {
             keyAlias 'my_release_alias'
@@ -24,8 +26,8 @@ android {
         applicationId "com.lend.lendchain"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 7
-        versionName "V2.3.3"
+        versionCode 9
+        versionName "V2.4.1"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //3.0之后项目配置productFlavors需要添加此代码
@@ -115,7 +117,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.github.yangfanCode:CommonKitLibrary:V1.3.4'
+    implementation 'com.github.yangfanCode:CommonKitLibrary:V1.4.4'
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'

@@ -38,7 +38,7 @@ public class MyWalletAdapter extends BaseAdapter {
     private Map<String, Integer> res = new HashMap<String, Integer>() {{
         put("BTC", R.mipmap.btc);
         put("ETH", R.mipmap.eth);
-        put("GXS", R.mipmap.gxs);
+        put("GXC", R.mipmap.gxs);
         put("USDT", R.mipmap.usdt);
         put("LV", R.mipmap.lv);
         put("QKC", R.mipmap.qkc);

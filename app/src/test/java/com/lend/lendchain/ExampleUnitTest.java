@@ -52,5 +52,11 @@ public class ExampleUnitTest {
         int i=0b11111111;
         System.out.println("char:"+i);
     }
+    @Test
+    public void test6() {
+        String text="123456";
+        System.out.println(text.substring(0,2));
+        System.out.println(text);
+    }
 
 }

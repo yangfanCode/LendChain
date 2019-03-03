@@ -221,7 +221,6 @@
 
 
                     </RelativeLayout>
-
                     <include layout="@layout/row_divider_12h" />
 
                     <com.yangfan.widget.FormNormal
@@ -236,8 +235,15 @@
                         app:fnTitleTextSize="14"
                         app:fnTopPadding="@dimen/qb_px_18" />
 
-                    <include layout="@layout/row_divider_12h" />
 
+                    <TextView
+                        android:background="@color/color_F5F5F5"
+                        android:layout_width="match_parent"
+                        style="@style/text509FFF_12"
+                        android:text="@string/loan_pay"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/qb_px_15"
+                        android:layout_height="@dimen/qb_px_40" />
                     <com.yangfan.widget.FormNormal
                         android:id="@+id/loan_fnLoanDeadLinePay"
                         style="@style/CustomFormBaseStyle"
@@ -252,7 +258,40 @@
                         app:fnTitleTextColor="@color/color_999999"
                         app:fnTitleTextSize="14"
                         app:fnTopPadding="@dimen/qb_px_18" />
-
+                    <include layout="@layout/row_divider_1px" />
+                    <com.yangfan.widget.FormNormal
+                        android:id="@+id/loan_fnLoanPoundage"
+                        style="@style/CustomFormBaseStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fnBottomPadding="@dimen/qb_px_18"
+                        app:fnIndicatorResId="@mipmap/icon_jiantou"
+                        app:fnIndicatorVisible="false"
+                        app:fnTextColor="@color/color_509FFF"
+                        app:fnTextSize="16"
+                        app:fnTitle="@string/loan_poundage"
+                        app:fnTitleTextColor="@color/color_999999"
+                        app:fnTitleTextSize="14"
+                        app:fnTopPadding="@dimen/qb_px_18" />
+                    <include layout="@layout/row_divider_1px" />
+                    <FrameLayout
+                        android:background="@color/white"
+                        android:paddingLeft="@dimen/qb_px_15"
+                        android:paddingRight="@dimen/qb_px_15"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/qb_px_50">
+                        <TextView
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/lv_poundage_text"
+                            style="@style/text262626_14"/>
+                        <CheckBox
+                            android:id="@+id/loan_lvSwitch"
+                            android:layout_gravity="right|center_vertical"
+                            android:button="@null"
+                            android:background="@drawable/bg_switch"
+                            android:layout_width="@dimen/qb_px_51"
+                            android:layout_height="@dimen/qb_px_31" />
+                    </FrameLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/qb_px_20"

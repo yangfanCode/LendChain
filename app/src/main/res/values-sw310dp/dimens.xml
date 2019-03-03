@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources tools:ignore="MissingDefaultResource" xmlns:tools="http://schemas.android.com/tools">
 <dimen name="base_dpi">310dp</dimen>
 <dimen name="qb_px_0">0.00dp</dimen>
 <dimen name="qb_px_1">0.83dp</dimen>

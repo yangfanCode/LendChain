@@ -22,6 +22,7 @@ public class SimpleBean {
     //获取币种对价格
     public String symbol;
     public double price;
+    public double fee;
     public long timestamp;
     //获取币的属性
     public double minWithdraw;

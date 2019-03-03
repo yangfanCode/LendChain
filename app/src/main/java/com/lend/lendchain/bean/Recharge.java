@@ -5,6 +5,7 @@ package com.lend.lendchain.bean;
  * nrainyseason@163.com
  */
 public class Recharge {
+    public int flag;
     public String id;
     public String ctime;
     public String status;

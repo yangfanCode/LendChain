@@ -60,7 +60,7 @@ public class DoubleUtils {
         //  为0你可以根据实际需求做相应的处理
         BigDecimal bd1 = new BigDecimal(Double.toString(d1));
         BigDecimal bd2 = new BigDecimal(Double.toString(d2));
-        return bd1.divide(bd2,scale,BigDecimal.ROUND_HALF_UP).doubleValue();
+        return bd1.divide(bd2,scale,BigDecimal.ROUND_DOWN).doubleValue();
     }
 
     /**

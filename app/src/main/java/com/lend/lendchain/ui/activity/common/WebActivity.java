@@ -228,6 +228,13 @@ public class WebActivity extends BaseActivity implements OnClickListener {
     }
 
     @Override
+    public void onBackPressed() {
+        if (webview.canGoBack()){
+            webview.goBack();
+        }
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.lay_title_image_left_back:

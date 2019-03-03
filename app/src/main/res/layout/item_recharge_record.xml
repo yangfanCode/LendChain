@@ -18,11 +18,27 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/qb_px_30">
+            <LinearLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/recharge_record_tvChange"
+                    android:text="@string/change_pay"
+                    style="@style/text509FFF_10"
+                    android:paddingLeft="@dimen/qb_px_5"
+                    android:paddingRight="@dimen/qb_px_5"
+                    android:paddingTop="@dimen/qb_px_4"
+                    android:paddingBottom="@dimen/qb_px_4"
+                    android:visibility="gone"
+                    android:background="@drawable/bg_509fff_border_radiu2"
+                    android:layout_gravity="center_vertical" />
+                <TextView
+                    android:id="@+id/recharge_record_tvStatus"
+                    style="@style/text262626_16" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/recharge_record_tvStatus"
-                style="@style/text262626_16"
-                android:layout_gravity="center_vertical" />
 
             <TextView
                 android:id="@+id/recharge_record_tvCount"

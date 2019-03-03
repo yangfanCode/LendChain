@@ -48,6 +48,7 @@ public class AboutUsActivity extends BaseActivity {
         StatusBarUtil.StatusBarLightMode(AboutUsActivity.this);
     }
 
+
     @Override
     public void initView() {
         ButterKnife.bind(this);

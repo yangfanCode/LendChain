@@ -455,7 +455,7 @@
     <string name="qrcode_add">Qr code address</string>
     <string name="recharge_amount">充值金额</string>
     <string name="confirm_recharge">确认充值</string>
-    <string name="blockcity_wallet_recharge_tip">将布洛克中的GXS资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
+    <string name="blockcity_wallet_recharge_tip">将布洛克中的GXC资产转移到您在LendChain的账户\n请确保账户余额充值，此次充值将不收取手续费。</string>
     <string name="number_wallet_withdraw">数字钱包提现</string>
     <string name="blockcity_wallet_withdraw">布洛克钱包提现</string>
     <string name="over_to_use1">可用余额</string>
@@ -481,4 +481,26 @@
     <string name="close_order_tips">是否确认关闭订单?</string>
     <string name="please_go_blockcity_certify">请先去布洛克城进行人脸认证</string>
     <string name="order_over_time">订单超时</string>
+    <string name="loan_pay">Borrowing payment</string>
+    <string name="loan_poundage">Borrowing fee</string>
+    <string name="lv_poundage_text">use LV to pay the borrowing fee (50% deduction)</string>
+    <!--11.27新增-->
+    <string name="poundage_rule">Fee rules</string>
+    <string name="change">Exchange</string>
+    <string name="change_record">Exchange record</string>
+    <string name="change_out_amount">Transfer amount</string>
+    <string name="change_in_amount">Receiving amount</string>
+    <string name="change_out_limit">Transfer limit</string>
+    <string name="change_success">Exchange successful</string>
+    <string name="please_input_out_amount">Please enter the transfer amount</string>
+    <string name="please_input_in_amount">Please enter the amount received</string>
+    <string name="change_list">Exchange record</string>
+    <string name="please_select_coinout">Please select the currency to be transferred first</string>
+    <string name="please_select_coinin">Please select the receiving currency first</string>
+    <string name="can_not_select_same_coin">Cannot select two identical currencies</string>
+    <string name="safe_news">Safety information disclosure</string>
+    <string name="change_successful">Successful</string>
+    <string name="change_failed">Failed</string>
+    <string name="change_pay">Exchange</string>
+    <string name="change_dialog_tip">1. Transfer amount = (transfer amount - withdrawal fee) * (1 - exchange fee) * exchange rate - transfer to miner fee.\n2. The withdrawal fee is shown in the table below.\n3. The exchange fee is currently 0.1%, the exchange rate is real-time ratio, and the miner fee is transferred to the trading platform to return the real-time miner fee collected by the LendChain platform. (For example, if the user transfer amount is 1010</string>
 </resources>

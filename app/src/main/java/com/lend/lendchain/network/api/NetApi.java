@@ -338,7 +338,7 @@ public class NetApi {
      */
     public static void createLoan(Context context,String borrowAmount,String borrowCryptoCode,String borrowCryptoId,String borrowDays,String googleCode,
                                   String interestRates,String mortgageAmount, String mortgageCryptoCode, String mortgageCryptoId,String mortgagePrice
-                                  ,String time,String access_token,String symbol,Observer observer) {
+                                  ,String time,String access_token,String symbol,String lvFee,String lvTime,Observer observer) {
         Map<String, Object> map = new HashMap<>();
         map.put("borrowAmount", borrowAmount);
         map.put("borrowCryptoCode", borrowCryptoCode);
@@ -353,6 +353,8 @@ public class NetApi {
         map.put("time", time);
         map.put("access_token", access_token);
         map.put("symbol", symbol);
+        map.put("lvFee", lvFee);
+        map.put("lvTime", lvTime);
         NetClient.getInstance().getPost("", true, context).createLoan(map).subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
@@ -635,6 +637,54 @@ public class NetApi {
         map.put("access_token", access_token);
         map.put("orderId", orderId);
         NetClient.getInstance().getPost("", isShow, context).closeOrderRecharge(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * 兑换币种列表
+     */
+    public static void coinChangeList(Context context,boolean isShow,String access_token,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        NetClient.getInstance().getPost("", isShow, context).coinChangeList(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * 兑换-查看费率
+     */
+    public static void coinChangeRate(Context context,boolean isShow,String access_token,String depositCoinId,String receiveCoinId,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("depositCoinId", depositCoinId);
+        map.put("receiveCoinId", receiveCoinId);
+        NetClient.getInstance().getPost("", isShow, context).coinChangeRate(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * 兑换-提交
+     */
+    public static void coinChangeComit(Context context,boolean isShow,String access_token,String depositCoinId,String depositAmount,String receiveCoinId,String receiveAmount,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("depositCoinId", depositCoinId);
+        map.put("depositAmount", depositAmount);
+        map.put("receiveCoinId", receiveCoinId);
+        map.put("receiveAmount", receiveAmount);
+        NetClient.getInstance().getPost("", isShow, context).coinChangeComit(map).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+    /**
+     * 兑换-列表
+     */
+    public static void changeList(Context context,boolean isShow,String access_token,int page,int page_size,Observer observer) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("access_token", access_token);
+        map.put("page", page);
+        map.put("page_size", page_size);
+        NetClient.getInstance().getPost("", isShow, context).changeList(map).subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }

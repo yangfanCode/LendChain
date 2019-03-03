@@ -98,6 +98,7 @@ public class RechargeAdapter extends BaseAdapter {
         Recharge rechargeWithDraw = list.get(position);
         ViewHolder viewHolder = ViewHolder.get(context, convertView, R.layout.item_recharge_record);
         TextView tvStatus = viewHolder.getView(R.id.recharge_record_tvStatus);
+        TextView tvChange = viewHolder.getView(R.id.recharge_record_tvChange);
         TextView tvCount = viewHolder.getView(R.id.recharge_record_tvCount);
         TextView tvTime = viewHolder.getView(R.id.recharge_record_tvTime);
         TextView tvOrderCode = viewHolder.getView(R.id.recharge_record_tvOrderCode);
@@ -108,6 +109,7 @@ public class RechargeAdapter extends BaseAdapter {
         TextView tvClose = viewHolder.getView(R.id.recharge_record_tvClose);
         LinearLayout llOrderAdd = viewHolder.getView(R.id.recharge_record_llOrderAdd);
         LinearLayout llOrder = viewHolder.getView(R.id.recharge_record_llOrder);
+        tvChange.setVisibility(rechargeWithDraw.flag==0?View.GONE:View.VISIBLE);//0不显示 1显示
         String status = rechargeWithDraw.status;
         tvStatus.setText(getRechargeStatus(status));
         tvCount.setText("+" + DoubleUtils.doubleTransRound6(rechargeWithDraw.amount) + " " + rechargeWithDraw.cryptoCode);

@@ -8,78 +8,81 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="0dp"
         app:cardElevation="0dp">
 
         <LinearLayout
+            android:paddingLeft="@dimen/qb_px_23"
+            android:paddingRight="@dimen/qb_px_23"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="64"
-                android:gravity="center"
-                android:orientation="vertical">
-
+                android:layout_height="@dimen/qb_px_47">
                 <TextView
+                    android:layout_centerVertical="true"
                     android:id="@+id/item_home_tvOrderId"
+                    android:layout_marginRight="@dimen/qb_px_5"
                     style="@style/text262626_16"
+                    android:text="asd"
                     android:layout_marginBottom="@dimen/padding_2" />
 
                 <TextView
+                    android:layout_centerVertical="true"
+                    android:text="asd"
+                    android:layout_toRightOf="@id/item_home_tvOrderId"
                     android:id="@+id/item_home_tvOrderType"
                     style="@style/text999999_12" />
-            </LinearLayout>
+                
+                <ImageView
+                    android:id="@+id/home_ivType"
+                    android:layout_width="@dimen/qb_px_65"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="@dimen/qb_px_24" />
+            </RelativeLayout>
+
 
             <include layout="@layout/row_divider" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="286"
-                android:gravity="center"
+                android:layout_height="@dimen/qb_px_200"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/item_home_tvOrderDays"
-                    style="@style/text262626_16"
-                    android:layout_marginBottom="@dimen/qb_px_15"
-                    android:layout_marginTop="@dimen/qb_px_15" />
+                <!--<TextView-->
+                    <!--android:id="@+id/item_home_tvOrderDays"-->
+                    <!--style="@style/text262626_16"-->
+                    <!--android:layout_marginBottom="@dimen/qb_px_15"-->
+                    <!--android:layout_marginTop="@dimen/qb_px_15" />-->
 
-                <FrameLayout
-                    android:layout_width="@dimen/qb_px_111"
-                    android:layout_height="@dimen/qb_px_111">
+                <!--<FrameLayout-->
+                    <!--android:layout_width="@dimen/qb_px_111"-->
+                    <!--android:layout_height="@dimen/qb_px_111">-->
                     <!--进度条-->
-                    <com.lend.lendchain.widget.CircleProgressBar
-                        android:layout_gravity="center"
-                        android:id="@+id/item_home_progressBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:circleColor="@color/white"
-                        app:radius="@dimen/qb_px_48"
-                        app:ringBgColor="@color/color_CAE2FF"
-                        app:ringColor="@color/color_509FFF"
-                        app:strokeWidth="@dimen/qb_px_7" />
+                    <!--<com.lend.lendchain.widget.CircleProgressBar-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:id="@+id/item_home_progressBar"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--app:circleColor="@color/white"-->
+                        <!--app:radius="@dimen/qb_px_48"-->
+                        <!--app:ringBgColor="@color/color_CAE2FF"-->
+                        <!--app:ringColor="@color/color_509FFF"-->
+                        <!--app:strokeWidth="@dimen/qb_px_7" />-->
 
                     <RelativeLayout
+                        android:layout_marginTop="@dimen/qb_px_18"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center">
-
-                        <TextView
-                            android:id="@+id/item_home_annualized"
-                            style="@style/text999999_12"
-                            android:layout_centerHorizontal="true"
-                            android:text="@string/annualized" />
+                        android:layout_height="wrap_content">
 
                         <com.lend.lendchain.widget.GradientTextView
                             android:id="@+id/item_home_tvAnnualized"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/item_home_annualized"
-                            android:textSize="24sp" />
+                            android:textSize="40sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -90,7 +93,14 @@
                             android:textColor="@color/color_FF6343"
                             android:textSize="@dimen/text_size_12" />
                     </RelativeLayout>
-                </FrameLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/qb_px_8"
+                    android:id="@+id/item_home_annualized"
+                    style="@style/text999999_12"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/annualized" />
+                <!--</FrameLayout>-->
 
                 <LinearLayout
                     android:paddingLeft="@dimen/qb_px_5"
@@ -111,26 +121,18 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center">
 
-                            <View
-                                android:id="@+id/item_home_view1"
-                                android:layout_width="@dimen/qb_px_8"
-                                android:layout_height="@dimen/qb_px_8"
-                                android:layout_marginRight="@dimen/qb_px_5"
-                                android:layout_marginTop="@dimen/qb_px_3"
-                                android:background="@drawable/bg_blue_rect" />
-
-
-                            <TextView
-                                android:layout_toRightOf="@id/item_home_view1"
-                                android:id="@+id/item_home_tvBorrowAmount"
-                                style="@style/text262626_12"
-                                android:layout_marginBottom="@dimen/qb_px_3" />
-
                             <TextView
                                 style="@style/text999999_12"
-                                android:layout_alignLeft="@id/item_home_tvBorrowAmount"
-                                android:layout_below="@id/item_home_tvBorrowAmount"
-                                android:text="@string/BorrowAssets" />
+                                android:id="@+id/item_home_tvDeadLineText"
+                                android:layout_marginRight="@dimen/qb_px_3"
+                                android:text="@string/deadline" />
+
+                            <TextView
+                                android:id="@+id/item_home_tvDeadLine"
+                                android:layout_toRightOf="@id/item_home_tvDeadLineText"
+                                style="@style/text262626_12"
+                                android:text="asd"
+                                android:layout_marginBottom="@dimen/qb_px_3" />
                         </RelativeLayout>
                     </LinearLayout>
 
@@ -146,26 +148,18 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center">
 
-                            <View
-                                android:id="@+id/item_home_view2"
-                                android:layout_width="@dimen/qb_px_8"
-                                android:layout_height="@dimen/qb_px_8"
-                                android:layout_marginRight="@dimen/qb_px_5"
-                                android:layout_marginTop="@dimen/qb_px_3"
-                                android:background="@drawable/bg_blue_rect" />
-
                             <TextView
-                                android:id="@+id/item_home_tvMinInvestAmount"
-                                style="@style/text262626_12"
-                                android:layout_marginBottom="@dimen/qb_px_3"
-                                android:layout_toRightOf="@id/item_home_view2" />
-
-                            <TextView
-                                android:id="@+id/item_home_tvMinAmountText"
+                                android:id="@+id/item_home_tvBorrowAssestText"
                                 style="@style/text999999_12"
-                                android:layout_alignLeft="@id/item_home_tvMinInvestAmount"
-                                android:layout_below="@id/item_home_tvMinInvestAmount"
-                                android:text="@string/minInvestAmount" />
+                                android:layout_marginRight="@dimen/qb_px_3"
+                                android:text="@string/BorrowAssets" />
+
+                            <TextView
+                                android:id="@+id/item_home_tvBorrowAssest"
+                                style="@style/text262626_12"
+                                android:text="asdasd"
+                                android:layout_toRightOf="@id/item_home_tvBorrowAssestText"
+                                android:layout_marginBottom="@dimen/qb_px_3" />
                         </RelativeLayout>
                     </LinearLayout>
 
@@ -174,10 +168,10 @@
 
                 <TextView
                     android:id="@+id/item_home_btnInvest"
-                    android:layout_width="@dimen/qb_px_200"
+                    android:layout_width="@dimen/qb_px_285"
                     android:layout_height="@dimen/qb_px_44"
                     android:layout_marginBottom="@dimen/padding_23"
-                    android:layout_marginTop="@dimen/qb_px_15"
+                    android:layout_marginTop="@dimen/qb_px_13"
                     android:text="@string/investNow"
                     android:background="@drawable/bg_4885ff_gradient_509fff_0174f2_radiu22_selector"
                     style="@style/buttonStyle"

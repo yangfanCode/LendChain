@@ -41,6 +41,8 @@ public class NetConst {
     public static final String MORTGAGE_DESCRIPTION="app/Helpdetail/Helpdetail.html?item=mortgage&lang=";
     //推荐有礼 靠海行动
     public static final String SUPPORT_GIFT="app/recommendact/recommendact.html?lang=";
+    //安全披露
+    public static final String SAFE_NEWS="h5event/lend_a0713/index.html?lang=";
 
 
     //主域名

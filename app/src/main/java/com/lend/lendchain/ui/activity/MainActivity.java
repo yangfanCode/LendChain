@@ -54,18 +54,18 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-        mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
-        mTabHost.getTabWidget().setDividerDrawable(null);
-        // 得到fragment的个数
-        int count = fragments.length;
-        for (int i = 0; i < count; i++) {
-            // 为每一个Tab按钮设置图标、文字和内容
-            TabHost.TabSpec tabSpec = mTabHost.newTabSpec(getString(mTextviewArray[i]))
-                    .setIndicator(getTabItemView(i));
-            // 将Tab按钮添加进Tab选项卡中
-            mTabHost.addTab(tabSpec, fragments[i], null);
-        }
+            mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+            mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
+            mTabHost.getTabWidget().setDividerDrawable(null);
+            // 得到fragment的个数
+            int count = fragments.length;
+            for (int i = 0; i < count; i++) {
+                // 为每一个Tab按钮设置图标、文字和内容
+                TabHost.TabSpec tabSpec = mTabHost.newTabSpec(getString(mTextviewArray[i]))
+                        .setIndicator(getTabItemView(i));
+                // 将Tab按钮添加进Tab选项卡中
+                mTabHost.addTab(tabSpec, fragments[i], null);
+            }
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {

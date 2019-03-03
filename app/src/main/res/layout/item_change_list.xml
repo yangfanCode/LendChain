@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/qb_px_15"
+    android:paddingBottom="@dimen/qb_px_15"
+    android:paddingRight="@dimen/qb_px_15">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/qb_px_50">
+
+        <TextView
+            android:id="@+id/item_change_list_tvStatus"
+            style="@style/text509FFF_16"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/item_change_list_tvTime"
+            style="@style/text999999_12"
+            android:layout_gravity="center_vertical|right" />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginBottom="@dimen/qb_px_10"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/change_out_amount"
+                android:layout_marginRight="@dimen/qb_px_5"
+                style="@style/text262626_14" />
+            <TextView
+                android:id="@+id/item_change_list_tvOutAmount"
+                style="@style/text509FFF_14" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/change_in_amount"
+                android:layout_marginRight="@dimen/qb_px_5"
+                style="@style/text262626_14" />
+            <TextView
+                android:id="@+id/item_change_list_tvInAmount"
+                style="@style/text509FFF_14" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

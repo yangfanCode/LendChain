@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+    <LinearLayout
+        android:paddingLeft="@dimen/qb_px_32"
+        android:paddingRight="@dimen/qb_px_32"
+        android:paddingBottom="@dimen/qb_px_32"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/qb_px_56">
+
+            <TextView
+                style="@style/text509FFF_16"
+                android:layout_gravity="center"
+                android:text="@string/poundage_rule" />
+
+            <ImageView
+                android:id="@+id/dialog_change_ivClose"
+                android:layout_width="@dimen/qb_px_17"
+                android:layout_height="@dimen/qb_px_18"
+                android:layout_gravity="center_vertical|right"
+                android:src="@mipmap/icon_cha" />
+        </FrameLayout>
+
+        <com.lend.lendchain.widget.JustifyTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/qb_px_24"
+            android:lineSpacingExtra="@dimen/qb_px_7"
+            android:text="@string/change_dialog_tip" />
+
+        <ImageView
+            android:layout_width="@dimen/qb_px_305"
+            android:layout_height="@dimen/qb_px_270"
+            android:src="@mipmap/icon_change_dialog" />
+    </LinearLayout>
+</ScrollView>

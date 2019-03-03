@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.lend.lendchain.R;
 
@@ -13,7 +12,7 @@ import com.lend.lendchain.R;
  * Created by yangfan
  * nrainyseason@163.com
  */
-public class ListViewWithOptional extends ListView {
+public class ListViewWithOptional extends MyListView {
     public ListViewWithOptional(Context context) {
         super(context);
     }

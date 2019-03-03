@@ -116,8 +116,8 @@ public class NomalWithDrawFragment extends Fragment {
             count = getArguments().getString(Constant.ARGS_PARAM4);
         }
         SmartRefrenshLayoutUtils.getInstance().setSmartRefrenshLayoutDrag(refreshLayout);
-        etCount.setAfterDot(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? 5 : 6);//lv gxs 5位小数
-        llMemo.setVisibility(("LV".equals(cryptoCode) || "GXS".equals(cryptoCode)) ? View.VISIBLE : View.GONE);
+        etCount.setAfterDot(("LV".equals(cryptoCode) || "GXC".equals(cryptoCode)) ? 5 : 6);//lv GXC 5位小数
+        llMemo.setVisibility(("LV".equals(cryptoCode) || "GXC".equals(cryptoCode)) ? View.VISIBLE : View.GONE);
         tvRealMoneyCoin.setText(cryptoCode);
         tvPoundageCoin.setText(cryptoCode);
         tvCoin.setText(cryptoCode);

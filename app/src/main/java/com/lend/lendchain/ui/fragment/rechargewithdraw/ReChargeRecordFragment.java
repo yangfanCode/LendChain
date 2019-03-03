@@ -229,7 +229,7 @@ public class ReChargeRecordFragment extends Fragment {
         coins.clear();
         for (Iterator<CoinList> it = list.iterator(); it.hasNext(); ) {
             CoinList coinList = it.next();
-            if ("GXS".equals(coinList.cyptoCode) || "LV".equals(coinList.cyptoCode)) {
+            if ("GXC".equals(coinList.cyptoCode) || "LV".equals(coinList.cyptoCode)) {
                 it.remove();
                 continue;
             }

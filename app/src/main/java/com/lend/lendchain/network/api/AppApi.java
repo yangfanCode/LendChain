@@ -2,6 +2,9 @@ package com.lend.lendchain.network.api;
 
 
 import com.lend.lendchain.bean.BannerModel;
+import com.lend.lendchain.bean.ChangeList;
+import com.lend.lendchain.bean.CoinChangeList;
+import com.lend.lendchain.bean.CoinChangeRate;
 import com.lend.lendchain.bean.CoinIconList;
 import com.lend.lendchain.bean.CoinList;
 import com.lend.lendchain.bean.GetBlockCityRecharge;
@@ -436,5 +439,34 @@ public interface AppApi {
     @FormUrlEncoded
     @POST("trade/blockcity/close/deposit")
     Observable<ResultBean> closeOrderRecharge(@FieldMap Map<String, Object> account);
+    /**
+     * 兑换币种列表
+     *
+     * @return
+     */
+    @GET("trade/exchange/cryptoList")
+    Observable<ResultBean<List<CoinChangeList>>> coinChangeList(@QueryMap Map<String, Object> account);
+    /**
+     * 兑换-查看费率
+     *
+     * @return
+     */
+    @GET("trade/exchange/rate")
+    Observable<ResultBean<CoinChangeRate>> coinChangeRate(@QueryMap Map<String, Object> account);
+    /**
+     * 兑换-提交
+     *
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("trade/exchange/commit")
+    Observable<ResultBean<CoinChangeRate>> coinChangeComit(@FieldMap Map<String, Object> account);
+    /**
+     * 兑换-列表
+     *
+     * @return
+     */
+    @GET("trade/exchange/list")
+    Observable<ResultBean<ChangeList>> changeList(@QueryMap Map<String, Object> account);
 
 }
