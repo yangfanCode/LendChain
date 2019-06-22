@@ -19,7 +19,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://www.jitpack.io' }
+        maven { url 'https://jitpack.io' }
         //投篮验证加入
         flatDir {         //<------添加三行
             dirs 'libs'   //<------

@@ -102,7 +102,7 @@ public class NomalRechargeFragment extends Fragment {
         if(TextUtils.isEmpty(add))add="(null)";
         NetApi.coinAttribute(getActivity(), true, SPUtil.getToken(), cryptoId, rechargeObserver);
         tvAddress.setText(add);
-        llMemo.setVisibility(("GXC".equals(code) || "LV".equals(code)) ? View.VISIBLE : View.GONE);
+        llMemo.setVisibility(("GXC".equals(code) || "LV".equals(code) || "EOS".equals(code) ) ? View.VISIBLE : View.GONE);
         if (llMemo.getVisibility() == View.VISIBLE) tvMemo.setText(memo);
 
         //展示二维码

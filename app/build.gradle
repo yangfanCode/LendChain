@@ -26,8 +26,8 @@ android {
         applicationId "com.lend.lendchain"
         minSdkVersion 17
         targetSdkVersion 27
-        versionCode 9
-        versionName "V2.4.1"
+        versionCode 11
+        versionName "V2.4.3"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //3.0之后项目配置productFlavors需要添加此代码
@@ -117,7 +117,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.github.yangfanCode:CommonKitLibrary:V1.4.4'
+    implementation 'com.github.yangfanCode:CommonKitLibrary:V1.4.5'
     implementation 'io.reactivex:rxandroid:1.2.1'
     implementation 'com.squareup.retrofit2:retrofit:2.1.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
